@@ -304,7 +304,7 @@ padding-left: 17%;
   width: 50%;
   top: 30%;
   height: 500px;
-  overflow: hidden;
+  overflow: scroll;
 }
 .close {
   color: #aaaaaa;

@@ -102,7 +102,6 @@
                         <div class="row mg-b-30">
 
                             <c:forEach items="${coffeeTypes}" var = "coffeeType">
-
                                 <div class="col-sm-4">
                                     <div class="shop-item">
 
@@ -130,6 +129,7 @@
                                     </div>
                                 </div>
                             </c:forEach>
+
                             <div id="myModal" class="modal ">
                                 <!-- Modal content -->
                                 <div class="modal-content">
@@ -156,10 +156,29 @@
                                                 </div>
                                             </div>
 
+                                            <div>
+                                                <h5>Please select coffee sugar <span
+                                                        class="important">*</span></h5>
+                                                <div class="funkyradio">
+                                                    <div class="funkyradio-warning ">
+                                                        <input type="radio" name="radio" id="radio1" />
+                                                        <label for="radio1">Sweet</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning ">
+                                                        <input type="radio" name="radio" id="radio2"
+                                                               checked />
+                                                        <label for="radio2">Medium</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning ">
+                                                        <input type="radio" name="radio" id="radio3" />
+                                                        <label for="radio3">No Sugar</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
 
                                             <div>
-                                                <h5>Please select ingredients <span
-                                                        class="important">*</span></h5>
+                                                <h5>Please select ingredients</h5>
                                                 <div class="funkyradio">
                                                     <div class="funkyradio-warning">
                                                         <input type="checkbox" name="checkbox"
