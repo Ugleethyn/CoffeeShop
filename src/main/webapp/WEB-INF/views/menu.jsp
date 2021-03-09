@@ -45,10 +45,10 @@
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a href="index.html" class="nav-link">Home</a>
+                                    <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="menu.html" class="nav-link active">Catalog</a>
+                                    <a href="${pageContext.request.contextPath}/menu" class="nav-link active">Catalog</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="about.html" class="nav-link">About us</a>
