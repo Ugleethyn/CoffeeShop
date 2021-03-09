@@ -123,83 +123,6 @@
                                                     <i class="fa fa-shopping-cart"></i>
                                                     <a class="hidden-sm" id="myBtn">Add to cart</a>
                                                 </p>
-
-                                                <div id="myModal" class="modal ">
-                                                    <!-- Modal content -->
-                                                    <div class="modal-content">
-                                                        <span class="close">&times;</span>
-                                                        <div class="formcoffe">
-                                                            <form action="">
-                                                                <div>
-                                                                    <h5>Please select coffee size <span
-                                                                            class="important">*</span></h5>
-                                                                    <div class="funkyradio">
-                                                                        <div class="funkyradio-warning ">
-                                                                            <input type="radio" name="radio" id="radio1" />
-                                                                            <label for="radio1">Small</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning ">
-                                                                            <input type="radio" name="radio" id="radio2"
-                                                                                   checked />
-                                                                            <label for="radio2">Classic</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning ">
-                                                                            <input type="radio" name="radio" id="radio3" />
-                                                                            <label for="radio3">Grande</label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div>
-                                                                    <h5>Please select ingredients <span
-                                                                            class="important">*</span></h5>
-                                                                    <div class="funkyradio">
-                                                                        <div class="funkyradio-warning">
-                                                                            <input type="checkbox" name="checkbox"
-                                                                                   id="checkbox1" />
-                                                                            <label for="checkbox1">Milk</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning">
-                                                                            <input type="checkbox" name="checkbox"
-                                                                                   id="checkbox2" />
-                                                                            <label for="checkbox2">Coconut</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning">
-                                                                            <input type="checkbox" name="checkbox"
-                                                                                   id="checkbox3" />
-                                                                            <label for="checkbox3">Chocolate</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning">
-                                                                            <input type="checkbox" name="checkbox"
-                                                                                   id="checkbox4" />
-                                                                            <label for="checkbox4">Kanella</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning">
-                                                                            <input type="checkbox" name="checkbox"
-                                                                                   id="checkbox5" />
-                                                                            <label for="checkbox5">Caramell</label>
-                                                                        </div>
-                                                                        <div class="funkyradio-warning">
-                                                                            <input type="checkbox" name="checkbox"
-                                                                                   id="checkbox6" />
-                                                                            <label for="checkbox6">Kourkoumas</label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div> <input type="number" name="quantity" value="1"
-                                                                             class="quantity" />
-                                                                    <label for="quantity">Quantity</label>
-                                                                </div>
-
-                                                                <div class="btnplace"><button
-                                                                        class="button btnpopup"><span>Submit </span></button>
-                                                                </div>
-
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -207,7 +130,82 @@
                                     </div>
                                 </div>
                             </c:forEach>
+                            <div id="myModal" class="modal ">
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <div class="formcoffe">
+                                        <form action="">
+                                            <div>
+                                                <h5>Please select coffee size <span
+                                                        class="important">*</span></h5>
+                                                <div class="funkyradio">
+                                                    <div class="funkyradio-warning ">
+                                                        <input type="radio" name="radio" id="radio1" />
+                                                        <label for="radio1">Small</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning ">
+                                                        <input type="radio" name="radio" id="radio2"
+                                                               checked />
+                                                        <label for="radio2">Classic</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning ">
+                                                        <input type="radio" name="radio" id="radio3" />
+                                                        <label for="radio3">Grande</label>
+                                                    </div>
+                                                </div>
+                                            </div>
 
+
+                                            <div>
+                                                <h5>Please select ingredients <span
+                                                        class="important">*</span></h5>
+                                                <div class="funkyradio">
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="checkbox1" />
+                                                        <label for="checkbox1">Milk</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="checkbox2" />
+                                                        <label for="checkbox2">Coconut</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="checkbox3" />
+                                                        <label for="checkbox3">Chocolate</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="checkbox4" />
+                                                        <label for="checkbox4">Kanella</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="checkbox5" />
+                                                        <label for="checkbox5">Caramell</label>
+                                                    </div>
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="checkbox6" />
+                                                        <label for="checkbox6">Kourkoumas</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div> <input type="number" name="quantity" value="1"
+                                                         class="quantity" />
+                                                <label for="quantity">Quantity</label>
+                                            </div>
+
+                                            <div class="btnplace"><button
+                                                    class="button btnpopup"><span>Submit </span></button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 
