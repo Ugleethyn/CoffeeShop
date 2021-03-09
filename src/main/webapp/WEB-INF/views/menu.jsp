@@ -141,17 +141,17 @@
                                                         class="important">*</span></h5>
                                                 <div class="funkyradio">
                                                     <div class="funkyradio-warning ">
-                                                        <input type="radio" name="radio" id="radio1" />
-                                                        <label for="radio1">Small</label>
+                                                        <input type="radio" name="size" id="size1" />
+                                                        <label for="size1">Small</label>
                                                     </div>
                                                     <div class="funkyradio-warning ">
-                                                        <input type="radio" name="radio" id="radio2"
+                                                        <input type="radio" name="size" id="size2"
                                                                checked />
-                                                        <label for="radio2">Classic</label>
+                                                        <label for="size2">Classic</label>
                                                     </div>
                                                     <div class="funkyradio-warning ">
-                                                        <input type="radio" name="radio" id="radio3" />
-                                                        <label for="radio3">Grande</label>
+                                                        <input type="radio" name="size" id="size3" />
+                                                        <label for="size3">Grande</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,17 +161,17 @@
                                                         class="important">*</span></h5>
                                                 <div class="funkyradio">
                                                     <div class="funkyradio-warning ">
-                                                        <input type="radio" name="radio" id="radio1" />
-                                                        <label for="radio1">Sweet</label>
+                                                        <input type="radio" name="sugar" id="sugar1" />
+                                                        <label for="sugar1">Sweet</label>
                                                     </div>
                                                     <div class="funkyradio-warning ">
-                                                        <input type="radio" name="radio" id="radio2"
+                                                        <input type="radio" name="sugar" id="sugar2"
                                                                checked />
-                                                        <label for="radio2">Medium</label>
+                                                        <label for="sugar2">Medium</label>
                                                     </div>
                                                     <div class="funkyradio-warning ">
-                                                        <input type="radio" name="radio" id="radio3" />
-                                                        <label for="radio3">No Sugar</label>
+                                                        <input type="radio" name="sugar" id="sugar3" />
+                                                        <label for="sugar3">No Sugar</label>
                                                     </div>
                                                 </div>
                                             </div>
