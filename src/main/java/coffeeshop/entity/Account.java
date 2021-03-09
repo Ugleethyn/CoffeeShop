@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +39,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Account.findByClastname", query = "SELECT a FROM Account a WHERE a.clastname = :clastname")
     , @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email")
     , @NamedQuery(name = "Account.findByTelnumber", query = "SELECT a FROM Account a WHERE a.telnumber = :telnumber")
-    , @NamedQuery(name = "Account.findByUsername", query = "SELECT a FROM Account a WHERE a.username = :username")})
+    , @NamedQuery(name = "Account.findByUsername", query = "SELECT a FROM Account a WHERE a.username = :username")
+    , @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -75,12 +75,15 @@ public class Account implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "username")
     private String username;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId", fetch = FetchType.LAZY)
+    @Size(max = 45)
+    @Column(name = "password")
+    private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
     private List<Address> addressList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountId")
     private List<Orders> ordersList;
     @JoinColumn(name = "role_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Role roleId;
 
     public Account() {
@@ -145,6 +148,14 @@ public class Account implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @XmlTransient

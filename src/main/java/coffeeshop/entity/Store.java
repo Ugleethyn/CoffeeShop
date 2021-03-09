@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +44,7 @@ public class Store implements Serializable {
     @Size(max = 45)
     @Column(name = "location")
     private String location;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeId")
     private List<Orders> ordersList;
 
     public Store() {

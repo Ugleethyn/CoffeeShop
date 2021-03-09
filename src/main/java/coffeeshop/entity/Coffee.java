@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -46,18 +45,18 @@ public class Coffee implements Serializable {
     @JoinTable(name = "coffee_has_ingredients", joinColumns = {
         @JoinColumn(name = "Coffee_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "Ingredients_id", referencedColumnName = "id")})
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Ingredients> ingredientsList;
     @JoinColumn(name = "size_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private CoffeeSize sizeId;
     @JoinColumn(name = "type_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private CoffeeType typeId;
     @JoinColumn(name = "sugar_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Sugar sugarId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffee", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffee")
     private List<OrderHasCoffee> orderHasCoffeeList;
 
     public Coffee() {

@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -70,9 +69,9 @@ public class Address implements Serializable {
     @Column(name = "doorbell_name")
     private String doorbellName;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Account customerId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressidAddress", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressidAddress")
     private List<Orders> ordersList;
 
     public Address() {

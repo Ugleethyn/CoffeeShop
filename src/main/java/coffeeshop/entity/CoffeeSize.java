@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,7 +54,7 @@ public class CoffeeSize implements Serializable {
     @NotNull
     @Column(name = "pricefactor")
     private BigDecimal pricefactor;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sizeId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sizeId")
     private List<Coffee> coffeeList;
 
     public CoffeeSize() {

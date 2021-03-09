@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,7 +53,7 @@ public class Snack implements Serializable {
     @Size(max = 45)
     @Column(name = "imgsrc")
     private String imgsrc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "snack", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "snack")
     private List<OrderHasSnack> orderHasSnackList;
 
     public Snack() {

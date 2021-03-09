@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class CoffeeTypeServiceImpl {
+public class CoffeeTypeServiceImpl implements CoffeeTypeService{
 
     @Autowired
     private CoffeeTypeRepo coffeeTypeRepo;
