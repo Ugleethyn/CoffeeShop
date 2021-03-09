@@ -5,7 +5,10 @@
  */
 package coffeeshop.controller;
 
+import coffeeshop.service.CoffeeSizeService;
+import coffeeshop.service.CoffeeSugarService;
 import coffeeshop.service.CoffeeTypeService;
+import coffeeshop.service.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +24,19 @@ public class MenuController {
 
     @Autowired
     private CoffeeTypeService coffeeTypeService;
-    
+    @Autowired
+    private CoffeeSizeService coffeeSizeService;
+    @Autowired
+    private CoffeeSugarService coffeeSugarService;
+    @Autowired
+    private IngredientsService ingredientsService;
+
     @RequestMapping
     public ModelAndView showTrainers(ModelAndView modelAndView) {
         modelAndView.addObject("coffeeTypes", coffeeTypeService.findAll());
+        modelAndView.addObject("coffeeSizes", coffeeSizeService.findAll());
+        modelAndView.addObject("coffeeSugar", coffeeSugarService.findAll());
+        modelAndView.addObject("Ingredients", ingredientsService.findAll());
         modelAndView.setViewName("menu");
         return modelAndView;
     }

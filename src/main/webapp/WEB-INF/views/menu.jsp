@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 
@@ -136,81 +137,44 @@
                                     <span class="close">&times;</span>
                                     <div class="formcoffe">
                                         <form action="">
+
                                             <div>
-                                                <h5>Please select coffee size <span
-                                                        class="important">*</span></h5>
-                                                <div class="funkyradio">
-                                                    <div class="funkyradio-warning ">
-                                                        <input type="radio" name="size" id="size1" />
-                                                        <label for="size1">Small</label>
+                                                <h5>Please select coffee size <span class="important">*</span></h5>
+                                                <c:forEach items="${coffeeSizes}" var = "coffeeSize">
+                                                    <div class="funkyradio">
+                                                        <div class="funkyradio funkyradio-warning ">
+                                                            <input type="radio" name="size" id="${coffeeSize.id}"/>
+                                                            <label for="${coffeeSize.id}">${coffeeSize.sname} </label>
+                                                        </div>
                                                     </div>
-                                                    <div class="funkyradio-warning ">
-                                                        <input type="radio" name="size" id="size2"
-                                                               checked />
-                                                        <label for="size2">Classic</label>
-                                                    </div>
-                                                    <div class="funkyradio-warning ">
-                                                        <input type="radio" name="size" id="size3" />
-                                                        <label for="size3">Grande</label>
-                                                    </div>
-                                                </div>
+                                                </c:forEach>
                                             </div>
 
                                             <div>
-                                                <h5>Please select coffee sugar <span
-                                                        class="important">*</span></h5>
-                                                <div class="funkyradio">
-                                                    <div class="funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="sugar1" />
-                                                        <label for="sugar1">Sweet</label>
+                                                <h5>Please select coffee sugar <span class="important">*</span></h5>
+                                                <c:forEach items="${coffeeSugar}" var = "sugar">
+                                                    <div class="funkyradio">
+                                                        <div class="funkyradio funkyradio-warning ">
+                                                            <input type="radio" name="sugar" id="${sugar.id}" />
+                                                            <label for="${sugar.id}">${sugar.sdescr} </label>
+                                                        </div>
                                                     </div>
-                                                    <div class="funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="sugar2"
-                                                               checked />
-                                                        <label for="sugar2">Medium</label>
-                                                    </div>
-                                                    <div class="funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="sugar3" />
-                                                        <label for="sugar3">No Sugar</label>
-                                                    </div>
-                                                </div>
+                                                </c:forEach>
                                             </div>
+
 
 
                                             <div>
                                                 <h5>Please select ingredients</h5>
-                                                <div class="funkyradio">
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="checkbox1" />
-                                                        <label for="checkbox1">Milk</label>
+                                                <c:forEach items="${Ingredients}" var = "ingredients">
+                                                    <div class="funkyradio">
+                                                        <div class="funkyradio-warning">
+                                                            <input type="checkbox" name="checkbox"
+                                                                   id="checkbox1" />
+                                                            <label for="checkbox1">${ingredients.iname}</label>
+                                                        </div>
                                                     </div>
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="checkbox2" />
-                                                        <label for="checkbox2">Coconut</label>
-                                                    </div>
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="checkbox3" />
-                                                        <label for="checkbox3">Chocolate</label>
-                                                    </div>
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="checkbox4" />
-                                                        <label for="checkbox4">Kanella</label>
-                                                    </div>
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="checkbox5" />
-                                                        <label for="checkbox5">Caramell</label>
-                                                    </div>
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="checkbox6" />
-                                                        <label for="checkbox6">Kourkoumas</label>
-                                                    </div>
-                                                </div>
+                                                </c:forEach>
                                             </div>
                                             <div> <input type="number" name="quantity" value="1"
                                                          class="quantity" />
