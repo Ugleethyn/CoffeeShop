@@ -95,7 +95,7 @@
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Is time to drink a coffee? Order it now</p>
-                                    <a href="menu.html"><button class="button"><span>Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/menu"><button class="button"><span>Order </span></button></a>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -103,7 +103,7 @@
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Would you like to taste a snack? Order it now</p>
-                                    <a href="menu.html"><button class="button"><span>Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/menu"><button class="button"><span>Order </span></button></a>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -111,7 +111,7 @@
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Is time to drink a coffee? Order it now</p>
-                                    <a href="menu.html"><button class="button"><span>Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/menu"><button class="button"><span>Order </span></button></a>
                                 </div>
                             </div>
                         </div>
