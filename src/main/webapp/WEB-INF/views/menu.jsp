@@ -29,7 +29,7 @@
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="#" class="logo">
+                <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
 
@@ -140,41 +140,39 @@
 
                                             <div>
                                                 <h5>Please select coffee size <span class="important">*</span></h5>
-                                                <c:forEach items="${coffeeSizes}" var = "coffeeSize">
-                                                    <div class="funkyradio">
+                                                <div class="funkyradio">
+                                                    <c:forEach items="${coffeeSizes}" var = "coffeeSize">
                                                         <div class="funkyradio funkyradio-warning ">
                                                             <input type="radio" name="size" id="${coffeeSize.id}"/>
                                                             <label for="${coffeeSize.id}">${coffeeSize.sname} </label>
                                                         </div>
-                                                    </div>
-                                                </c:forEach>
+                                                    </c:forEach>
+                                                </div>
                                             </div>
 
                                             <div>
                                                 <h5>Please select coffee sugar <span class="important">*</span></h5>
-                                                <c:forEach items="${coffeeSugar}" var = "sugar">
-                                                    <div class="funkyradio">
+                                                <div class="funkyradio">
+                                                    <c:forEach items="${coffeeSugar}" var = "sugar">
                                                         <div class="funkyradio funkyradio-warning ">
                                                             <input type="radio" name="sugar" id="${sugar.id}" />
                                                             <label for="${sugar.id}">${sugar.sdescr} </label>
                                                         </div>
-                                                    </div>
-                                                </c:forEach>
+                                                    </c:forEach>
+                                                </div>
                                             </div>
-
-
 
                                             <div>
                                                 <h5>Please select ingredients</h5>
-                                                <c:forEach items="${Ingredients}" var = "ingredients">
-                                                    <div class="funkyradio">
+                                                <div class="funkyradio">
+                                                    <c:forEach items="${Ingredients}" var = "ingredients">
                                                         <div class="funkyradio-warning">
                                                             <input type="checkbox" name="checkbox"
-                                                                   id="checkbox1" />
+                                                                   id="${ingredients.id}" />
                                                             <label for="checkbox1">${ingredients.iname}</label>
                                                         </div>
-                                                    </div>
-                                                </c:forEach>
+                                                    </c:forEach>
+                                                </div>
                                             </div>
                                             <div> <input type="number" name="quantity" value="1"
                                                          class="quantity" />
@@ -194,7 +192,7 @@
 
                         <h1>Snacks</h1>
                         <div class="row">
-                            
+
                             <c:forEach items="${snacks}" var = "snack">
                                 <div class="col-sm-4">
                                     <div class="shop-item">
