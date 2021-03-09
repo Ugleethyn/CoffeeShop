@@ -143,8 +143,8 @@
                                                 <div class="funkyradio">
                                                     <c:forEach items="${coffeeSizes}" var = "coffeeSize">
                                                         <div class="funkyradio funkyradio-warning ">
-                                                            <input type="radio" name="size" id="${coffeeSize.id}"/>
-                                                            <label for="${coffeeSize.id}">${coffeeSize.sname} </label>
+                                                            <input type="radio" name="size" id="${coffeeSize.sname}"/>
+                                                            <label for="${coffeeSize.sname}">${coffeeSize.sname} </label>
                                                         </div>
                                                     </c:forEach>
                                                 </div>
@@ -155,8 +155,8 @@
                                                 <div class="funkyradio">
                                                     <c:forEach items="${coffeeSugar}" var = "sugar">
                                                         <div class="funkyradio funkyradio-warning ">
-                                                            <input type="radio" name="sugar" id="${sugar.id}" />
-                                                            <label for="${sugar.id}">${sugar.sdescr} </label>
+                                                            <input type="radio" name="sugar" id="${sugar.sdescr}" />
+                                                            <label for="${sugar.sdescr}">${sugar.sdescr} </label>
                                                         </div>
                                                     </c:forEach>
                                                 </div>
@@ -168,8 +168,8 @@
                                                     <c:forEach items="${Ingredients}" var = "ingredients">
                                                         <div class="funkyradio-warning">
                                                             <input type="checkbox" name="checkbox"
-                                                                   id="${ingredients.id}" />
-                                                            <label for="checkbox1">${ingredients.iname}</label>
+                                                                   id="${ingredients.iname}" />
+                                                            <label for="${ingredients.iname}">${ingredients.iname}</label>
                                                         </div>
                                                     </c:forEach>
                                                 </div>
