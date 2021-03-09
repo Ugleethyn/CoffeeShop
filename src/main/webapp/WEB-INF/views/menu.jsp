@@ -194,298 +194,77 @@
 
                         <h1>Snacks</h1>
                         <div class="row">
+                            
+                            <c:forEach items="${snacks}" var = "snack">
+                                <div class="col-sm-4">
+                                    <div class="shop-item">
 
-
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
+                                        <div class="info hoveritem">
+                                            <div class="row">
+                                                <div class="price col-md-12">
+                                                    <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
+                                                </div>
+                                                <div class="price col-md-12">
+                                                    <h5> ${snack.sname} </h5>
+                                                </div>
+                                                <div class="price col-md-12 col align-self-end">
+                                                    <h5 class="price-text-color"> €${snack.sunitprice} </h5>
+                                                </div>
                                             </div>
-                                            <div class="price col-md-12">
-                                                <h5> Τυρόπιτα </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
+                                            <div class="separator clear-left">
+                                                <p class="btn-add">
+                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
+                                                                                          class="hidden-sm">Add to cart</a>
+                                                </p>
 
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
+                                                <p class="btn-quantity">
+                                                    Quantity:
+                                                    <input type="number" value="1" class="quantity">
+                                                </p>
+                                            </div>
+                                            <div class="clearfix">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Ζαμπονοτυρόπιτα </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Pizza </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Τυρόπιτα κουρού </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Κασερόπιτα </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
 
                         <h1>Drinks</h1>
                         <div class="row">
+                            <c:forEach items="${drinks}" var = "drink">
+                                <div class="col-sm-4">
+                                    <div class="shop-item">
 
-
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
+                                        <div class="info hoveritem">
+                                            <div class="row">
+                                                <div class="price col-md-12">
+                                                    <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
+                                                </div>
+                                                <div class="price col-md-12">
+                                                    <h5> ${drink.dname} </h5>
+                                                </div>
+                                                <div class="price col-md-12 col align-self-end">
+                                                    <h5 class="price-text-color"> €${drink.dunitprice} </h5>
+                                                </div>
                                             </div>
-                                            <div class="price col-md-12">
-                                                <h5> Coca-Cola </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.00 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
+                                            <div class="separator clear-left">
+                                                <p class="btn-add">
+                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
+                                                                                          class="hidden-sm">Add to cart</a>
+                                                </p>
 
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
+                                                <p class="btn-quantity">
+                                                    Quantity:
+                                                    <input type="number" value="1" class="quantity">
+                                                </p>
+                                            </div>
+                                            <div class="clearfix">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Sprite </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Πορτοκαλάδα Fanta </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-item">
-
-                                    <div class="info hoveritem">
-                                        <div class="row">
-                                            <div class="price col-md-12">
-                                                <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
-                                            </div>
-                                            <div class="price col-md-12">
-                                                <h5> Monster </h5>
-                                            </div>
-                                            <div class="price col-md-12 col align-self-end">
-                                                <h5 class="price-text-color"> €2.80 </h5>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                      class="hidden-sm">Add to cart</a>
-                                            </p>
-
-                                            <p class="btn-quantity">
-                                                Quantity:
-                                                <input type="number" value="1" class="quantity">
-                                            </p>
-                                        </div>
-                                        <div class="clearfix">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
