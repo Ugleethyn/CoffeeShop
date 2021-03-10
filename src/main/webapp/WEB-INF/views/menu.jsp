@@ -121,7 +121,7 @@
                                             <div class="separator clear-left">
                                                 <p class="btn-add">
                                                     <i class="fa fa-shopping-cart"></i>
-                                                    <a class="hidden-sm" id="myBtn">Add to cart</a>
+                                                    <a class="hidden-sm myBtn">Add to cart</a>
                                                 </p>
                                             </div>
                                             <div class="clearfix">
