@@ -1,12 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Quick Coffee - Login</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet"
@@ -17,15 +15,14 @@
     </head>
 
     <body>
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
+            
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
-
             </div>
 
             <!-- Menu For Desktop Device -->
@@ -57,7 +54,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/cart" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                            height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                            height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                         <path
                                             d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                         </svg> Cart</a>
@@ -72,10 +69,8 @@
 
         <div class="background">
 
-
             <!-- Page Content -->
             <div class="container cartcont">
-
                 <div id="login">
                     <div class="container">
                         <div id="login-row" class="row justify-content-center align-items-center">
@@ -95,7 +90,7 @@
                                             <a href="menu.html"><button class="button lgnbtn"><span>Login </span></button></a>
                                         </div>
                                         <div id="register-link" class="text-right">
-                                            <a href="#" class="text-info">Register here</a>
+                                            <a href="${pageContext.request.contextPath}/register" class="text-info">Register here</a>
                                         </div>
                                     </form>
                                 </div>
@@ -103,7 +98,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -114,22 +108,20 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>

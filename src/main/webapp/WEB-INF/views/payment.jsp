@@ -99,22 +99,20 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>
@@ -122,14 +120,13 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-info-single location">
                             <h2 class="title">Address</h2>
-                            <h6 class="copyrighttext"> ΔΙΑΚΟΣ ΓΕΩΡΓΙΟΣ ΘΩΜΑΣ<br> Αγίου Σπυρίδωνος 30, Αιγάλεω 122 43</h6>
+                            <h6 class="copyrighttext"> Nikolaou Plastira 8<br> Aigaleo 12242</h6>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-info-single location">
-
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2159.7628164473044!2d23.677737899792234!3d38.0035907939023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bcad2f600229%3A0xe23cb5903685855!2zzpTOmc6RzprOn86jIM6TzpXOqc6hzpPOmc6fzqMgzpjOqc6czpHOow!5e0!3m2!1sel!2sgr!4v1614946725755!5m2!1sel!2sgr"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.03731652767897!2d23.68237087174767!3d37.993496642855426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bcb079ef11e3%3A0x5d5a1b265910580!2zzp3Ouc66LiDOoM67zrHPg8-Ezq7Pgc6xIDgsIM6RzrnOs86szrvOtc-JIDEyMiA0Mg!5e0!3m2!1sel!2sgr!4v1615127573355!5m2!1sel!2sgr"
                                 width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>

@@ -124,22 +124,20 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>
@@ -168,8 +166,6 @@
                     </div>
                 </div>
         </footer>
-        <!-- /.container -->
-
 
         <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
