@@ -262,7 +262,10 @@ max-width: 600px;
 height: 500px;
 background-color: #fff;
 }
-
+.float{
+  float: left;
+  width: 50%;
+}
 .headertext{
   color: #f4511e;
 }
