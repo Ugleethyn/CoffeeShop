@@ -14,12 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
-
-
+    
     <!-- Start Navbar Area -->
     <div class="navbar-area">
         <!-- Menu For Mobile Device -->
