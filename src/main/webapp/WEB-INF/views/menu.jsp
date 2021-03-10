@@ -184,8 +184,7 @@
                                                 </c:forEach>
                                             </div>
                                         </div>
-                                        <div> <input type="number" name="quantity" value="1"
-                                                     class="quantity" />
+                                        <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
                                             <label for="quantity">Quantity</label>
                                         </div>
 
@@ -227,7 +226,7 @@
 
                                                     <p class="btn-quantity">
                                                         Quantity:
-                                                        <input type="number" value="1" class="quantity">
+                                                        <input type="number" value="1" class="quantity" min="1">
                                                     </p>
                                                 </div>
                                                 <div class="clearfix">
@@ -266,7 +265,7 @@
 
                                                     <p class="btn-quantity">
                                                         Quantity:
-                                                        <input type="number" value="1" class="quantity">
+                                                        <input type="number" value="1" class="quantity" min="1">
                                                     </p>
                                                 </div>
                                                 <div class="clearfix">
