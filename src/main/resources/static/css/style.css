@@ -18,6 +18,10 @@
   margin: 0 auto;
   width: 100%;
 }
+.img-catalog {
+  height: 64px;
+  max-width: 188px;
+}
 
 .shop-item .info {
   padding: 10px;
@@ -45,6 +49,7 @@ div.sticky {
 
 div.filters {
   top: 100px !important;
+  margin-bottom: 12%;
 }
 
 .col-md-3 {
@@ -163,6 +168,9 @@ div.filters {
   background-color: #222222;
   height: 100px;
 }
+
+
+
 .nav-item {
   padding: 0 !important;
   margin: 0;

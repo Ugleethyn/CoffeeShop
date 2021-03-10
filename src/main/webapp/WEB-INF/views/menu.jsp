@@ -13,6 +13,7 @@
         <link rel="stylesheet"
               href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+        <link rel="icon" href="img/logo.png" type="image/png">
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -194,7 +195,7 @@
 
                         <section id="snacks">
                             <h1>Snacks</h1>
-                            <div class="row">
+                            <div class="row mg-b-30">
 
                                 <c:forEach items="${snacks}" var = "snack">
                                     <div class="col-sm-4">
@@ -234,7 +235,7 @@
 
                         <section id="drinks">
                             <h1>Drinks</h1>
-                            <div class="row">
+                            <div class="row mg-b-30">
                                 <c:forEach items="${drinks}" var = "drink">
                                     <div class="col-sm-4">
                                         <div class="shop-item">
