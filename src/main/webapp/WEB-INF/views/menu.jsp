@@ -84,186 +84,199 @@
                     <div class="col-md-3">
                         <div class="sticky filters">
                             <ul class="list-group">
-                                <li class="list-group-item"> Coffees
-                                    <span class="badge">145</span>
-                                </li>
-                                <li class="list-group-item"> Snacks
-                                    <span class="badge">123</span>
-                                </li>
-                                <li class="list-group-item"> Drinks
-                                    <span class="badge">114</span>
-                                </li>
+                                <a href="#coffees">
+                                    <li class="list-group-item"> Coffees
+                                        <span class="badge">145</span>
+                                    </li>
+                                </a>
+                                <a href="#snacks">
+                                    <li class="list-group-item"> Snacks
+                                        <span class="badge">123</span>
+                                    </li>
+                                </a>
+                                <a href="#drinks">
+                                    <li class="list-group-item"> Drinks
+                                        <span class="badge">114</span>
+                                    </li>
+                                </a>
                             </ul>
                         </div>
                     </div>
 
 
                     <div class="col-md-9">
-                        <h1>Coffees</h1>
-                        <div class="row mg-b-30">
+                        <section id="coffees">
 
-                            <c:forEach items="${coffeeTypes}" var = "coffeeType">
-                                <div class="col-sm-4">
-                                    <div class="shop-item">
+                            <h1>Coffees</h1>
+                            <div class="row mg-b-30">
 
-                                        <div class="info hoveritem">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h5><img src="img/coffee.png" class="img-responsive" alt="a" /></h5>
+                                <c:forEach items="${coffeeTypes}" var = "coffeeType">
+                                    <div class="col-sm-4">
+                                        <div class="shop-item">
+
+                                            <div class="info hoveritem">
+                                                <div class="row">
+                                                    <div class="price col-md-12">
+                                                        <h5><img src="img/coffee.png" class="img-responsive" alt="a" /></h5>
+                                                    </div>
+                                                    <div class="price col-md-12">
+                                                        <h5>${coffeeType.tname}</h5>
+                                                    </div>
+                                                    <div class="price col-md-12 col align-self-end">
+                                                        <h5 class="price-text-color">€ ${coffeeType.cunitprice}</h5>
+                                                    </div>
                                                 </div>
-                                                <div class="price col-md-12">
-                                                    <h5>${coffeeType.tname}</h5>
+                                                <div class="separator clear-left">
+                                                    <p class="btn-add">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                        <a class="hidden-sm myBtn">Add to cart</a>
+                                                    </p>
                                                 </div>
-                                                <div class="price col-md-12 col align-self-end">
-                                                    <h5 class="price-text-color">€ ${coffeeType.cunitprice}</h5>
+                                                <div class="clearfix">
                                                 </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                    <a class="hidden-sm myBtn">Add to cart</a>
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:forEach>
+                                </c:forEach>
+                            </div>
+                        </section>
 
-                            <div id="myModal" class="modal ">
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <div class="formcoffe">
-                                        <form action="">
+                        <div id="myModal" class="modal ">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="formcoffe">
+                                    <form action="">
 
-                                            <div>
-                                                <h5>Please select coffee size <span class="important">*</span></h5>
-                                                <div class="funkyradio">
-                                                    <c:forEach items="${coffeeSizes}" var = "coffeeSize">
-                                                        <div class="funkyradio funkyradio-warning ">
-                                                            <input type="radio" name="size" id="${coffeeSize.sname}"/>
-                                                            <label for="${coffeeSize.sname}">${coffeeSize.sname}${coffeeSize.pricefactor}€</label>
-                                                        </div>
-                                                    </c:forEach>
-                                                </div>
+                                        <div>
+                                            <h5>Please select coffee size <span class="important">*</span></h5>
+                                            <div class="funkyradio">
+                                                <c:forEach items="${coffeeSizes}" var = "coffeeSize">
+                                                    <div class="funkyradio funkyradio-warning ">
+                                                        <input type="radio" name="size" id="${coffeeSize.sname}"/>
+                                                        <label for="${coffeeSize.sname}">${coffeeSize.sname}${coffeeSize.pricefactor}€</label>
+                                                    </div>
+                                                </c:forEach>
                                             </div>
+                                        </div>
 
-                                            <div>
-                                                <h5>Please select coffee sugar <span class="important">*</span></h5>
-                                                <div class="funkyradio">
-                                                    <c:forEach items="${coffeeSugar}" var = "sugar">
-                                                        <div class="funkyradio funkyradio-warning ">
-                                                            <input type="radio" name="sugar" id="${sugar.sdescr}" />
-                                                            <label for="${sugar.sdescr}">${sugar.sdescr} </label>
-                                                        </div>
-                                                    </c:forEach>
-                                                </div>
+                                        <div>
+                                            <h5>Please select coffee sugar <span class="important">*</span></h5>
+                                            <div class="funkyradio">
+                                                <c:forEach items="${coffeeSugar}" var = "sugar">
+                                                    <div class="funkyradio funkyradio-warning ">
+                                                        <input type="radio" name="sugar" id="${sugar.sdescr}" />
+                                                        <label for="${sugar.sdescr}">${sugar.sdescr} </label>
+                                                    </div>
+                                                </c:forEach>
                                             </div>
+                                        </div>
 
-                                            <div>
-                                                <h5>Please select ingredients</h5>
-                                                <div class="funkyradio">
-                                                    <c:forEach items="${Ingredients}" var = "ingredients">
-                                                        <div class="funkyradio-warning">
-                                                            <input type="checkbox" name="checkbox"
-                                                                   id="${ingredients.iname}" />
-                                                            <label for="${ingredients.iname}">${ingredients.iname}</label>
-                                                        </div>
-                                                    </c:forEach>
-                                                </div>
+                                        <div>
+                                            <h5>Please select ingredients</h5>
+                                            <div class="funkyradio">
+                                                <c:forEach items="${Ingredients}" var = "ingredients">
+                                                    <div class="funkyradio-warning">
+                                                        <input type="checkbox" name="checkbox"
+                                                               id="${ingredients.iname}" />
+                                                        <label for="${ingredients.iname}">${ingredients.iname}</label>
+                                                    </div>
+                                                </c:forEach>
                                             </div>
-                                            <div> <input type="number" name="quantity" value="1"
-                                                         class="quantity" />
-                                                <label for="quantity">Quantity</label>
-                                            </div>
+                                        </div>
+                                        <div> <input type="number" name="quantity" value="1"
+                                                     class="quantity" />
+                                            <label for="quantity">Quantity</label>
+                                        </div>
 
-                                            <div class="btnplace"><button
-                                                    class="button btnpopup"><span>Submit </span></button>
-                                            </div>
+                                        <div class="btnplace"><button
+                                                class="button btnpopup"><span>Submit </span></button>
+                                        </div>
 
-                                        </form>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
 
 
-                        <h1>Snacks</h1>
-                        <div class="row">
+                        <section id="snacks">
+                            <h1>Snacks</h1>
+                            <div class="row">
 
-                            <c:forEach items="${snacks}" var = "snack">
-                                <div class="col-sm-4">
-                                    <div class="shop-item">
+                                <c:forEach items="${snacks}" var = "snack">
+                                    <div class="col-sm-4">
+                                        <div class="shop-item">
 
-                                        <div class="info hoveritem">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
+                                            <div class="info hoveritem">
+                                                <div class="row">
+                                                    <div class="price col-md-12">
+                                                        <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
+                                                    </div>
+                                                    <div class="price col-md-12">
+                                                        <h5> ${snack.sname} </h5>
+                                                    </div>
+                                                    <div class="price col-md-12 col align-self-end">
+                                                        <h5 class="price-text-color"> €${snack.sunitprice} </h5>
+                                                    </div>
                                                 </div>
-                                                <div class="price col-md-12">
-                                                    <h5> ${snack.sname} </h5>
-                                                </div>
-                                                <div class="price col-md-12 col align-self-end">
-                                                    <h5 class="price-text-color"> €${snack.sunitprice} </h5>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                          class="hidden-sm">Add to cart</a>
-                                                </p>
+                                                <div class="separator clear-left">
+                                                    <p class="btn-add">
+                                                        <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
+                                                                                              class="hidden-sm">Add to cart</a>
+                                                    </p>
 
-                                                <p class="btn-quantity">
-                                                    Quantity:
-                                                    <input type="number" value="1" class="quantity">
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
+                                                    <p class="btn-quantity">
+                                                        Quantity:
+                                                        <input type="number" value="1" class="quantity">
+                                                    </p>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:forEach>
-                        </div>
+                                </c:forEach>
+                            </div>
+                        </section>
 
-                        <h1>Drinks</h1>
-                        <div class="row">
-                            <c:forEach items="${drinks}" var = "drink">
-                                <div class="col-sm-4">
-                                    <div class="shop-item">
+                        <section id="drinks">
+                            <h1>Drinks</h1>
+                            <div class="row">
+                                <c:forEach items="${drinks}" var = "drink">
+                                    <div class="col-sm-4">
+                                        <div class="shop-item">
 
-                                        <div class="info hoveritem">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
+                                            <div class="info hoveritem">
+                                                <div class="row">
+                                                    <div class="price col-md-12">
+                                                        <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
+                                                    </div>
+                                                    <div class="price col-md-12">
+                                                        <h5> ${drink.dname} </h5>
+                                                    </div>
+                                                    <div class="price col-md-12 col align-self-end">
+                                                        <h5 class="price-text-color"> €${drink.dunitprice} </h5>
+                                                    </div>
                                                 </div>
-                                                <div class="price col-md-12">
-                                                    <h5> ${drink.dname} </h5>
-                                                </div>
-                                                <div class="price col-md-12 col align-self-end">
-                                                    <h5 class="price-text-color"> €${drink.dunitprice} </h5>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
-                                                                                          class="hidden-sm">Add to cart</a>
-                                                </p>
+                                                <div class="separator clear-left">
+                                                    <p class="btn-add">
+                                                        <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
+                                                                                              class="hidden-sm">Add to cart</a>
+                                                    </p>
 
-                                                <p class="btn-quantity">
-                                                    Quantity:
-                                                    <input type="number" value="1" class="quantity">
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
+                                                    <p class="btn-quantity">
+                                                        Quantity:
+                                                        <input type="number" value="1" class="quantity">
+                                                    </p>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:forEach>
-                        </div>
+                                </c:forEach>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
