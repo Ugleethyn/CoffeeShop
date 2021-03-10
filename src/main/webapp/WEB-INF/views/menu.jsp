@@ -311,14 +311,14 @@
                     </div>
                 </div>
             </div>
-
-            <section class="copyright">
-                <div class="container">
+            <div class="copyright">
+                <div class="container" style="width: 100%;">
                     <div class="row">
-                        <p class="col-md-12">© 2021 by Company</p>
+                        <div class="col-md-12">
+                            <p>© 2021 by Company</p>
+                        </div>
                     </div>
                 </div>
-            </section>
         </footer>
 
         <script src="js/script.js"></script>
