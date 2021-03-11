@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +16,6 @@
 
     <body>
 
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
@@ -25,7 +23,6 @@
                 <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
-
             </div>
 
             <!-- Menu For Desktop Device -->
@@ -72,10 +69,8 @@
 
         <div class="background">
 
-
             <!-- Page Content -->
             <div class="container cartcont">
-
                 <div id="login">
                     <div class="container ">
                         <div id="login-row" class="row justify-content-center align-items-center">
@@ -91,7 +86,6 @@
                                             <label for="username" class="text-info">E-mail:</label><br>
                                             <input type="text" name="username" id="username" class="form-control">
                                         </div>
-
                                         <div class="form-group float">
                                             <label for="username" class="text-info">First Name:</label><br>
                                             <input type="text" name="username" id="username" class="form-control">
@@ -100,8 +94,6 @@
                                             <label for="username" class="text-info">Last Name:</label><br>
                                             <input type="text" name="username" id="username" class="form-control">
                                         </div>
-
-
                                         <div class="form-group float">
                                             <label for="password" class="text-info">Password:</label><br>
                                             <input type="text" name="password" id="password" class="form-control">
@@ -110,13 +102,12 @@
                                             <label for="password" class="text-info">Repeat Password:</label><br>
                                             <input type="text" name="password" id="password" class="form-control">
                                         </div>
-
                                         <div class="form-group">
                                             <a href="menu.html"><button class="button lgnbtn"><span>Register
                                                     </span></button></a>
                                         </div>
                                         <div id="register-link" class="text-right">
-                                            <a href="#" class="text-info">Login here</a>
+                                            <a href="${pageContext.request.contextPath}/login" class="text-info">Login here</a>
                                         </div>
                                     </form>
                                 </div>
@@ -124,7 +115,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -135,22 +125,20 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="http://www.nextbootstrap.com/" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>
