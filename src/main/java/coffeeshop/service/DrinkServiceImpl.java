@@ -6,6 +6,7 @@
 package coffeeshop.service;
 
 import coffeeshop.entity.Drink;
+import coffeeshop.entity.Drinkstype;
 import coffeeshop.repository.DrinkRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class DrinkServiceImpl implements DrinkService {
     @Autowired
     private DrinkRepo drinkRepo;
 
-    public List<Drink> findAll() {
+    public List<Drinkstype> findAll() {
         return drinkRepo.findAll();
     }
 

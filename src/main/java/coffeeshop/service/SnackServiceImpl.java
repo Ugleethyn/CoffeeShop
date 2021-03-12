@@ -5,7 +5,7 @@
  */
 package coffeeshop.service;
 
-import coffeeshop.entity.Snack;
+import coffeeshop.entity.Snacktype;
 import coffeeshop.repository.SnackRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class SnackServiceImpl implements SnackService {
     @Autowired
     private SnackRepo snackRepo;
 
-    public List<Snack> findAll() {
+    public List<Snacktype> findAll() {
         return snackRepo.findAll();
     }
 

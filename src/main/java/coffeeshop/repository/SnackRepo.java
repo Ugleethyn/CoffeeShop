@@ -5,7 +5,7 @@
  */
 package coffeeshop.repository;
 
-import coffeeshop.entity.Snack;
+import coffeeshop.entity.Snacktype;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Ugleethyn
  */
 @Repository
-public interface SnackRepo extends JpaRepository<Snack, Integer> {
+public interface SnackRepo extends JpaRepository<Snacktype, Integer> {
     
 }

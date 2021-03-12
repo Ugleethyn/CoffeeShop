@@ -5,7 +5,7 @@
  */
 package coffeeshop.service;
 
-import coffeeshop.entity.Snack;
+import coffeeshop.entity.Snacktype;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface SnackService {
 
-    public List<Snack> findAll();
+    public List<Snacktype> findAll();
 }
