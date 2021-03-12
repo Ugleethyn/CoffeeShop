@@ -30,10 +30,10 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Ugleethyn
+ * @author gkolo
  */
 @Entity
-@Table(name = "orders")
+@Table(name = "order")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o")
@@ -59,14 +59,14 @@ public class Orders implements Serializable {
     @NotNull
     @Column(name = "totalprice")
     private BigDecimal totalprice;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "status")
-    private short status;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders")
-    private List<OrderHasDrink> orderHasDrinkList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders")
-    private List<OrderHasSnack> orderHasSnackList;
+    private Integer status;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
+    private List<Snack> snackList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
+    private List<Drink> drinkList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
+    private List<Coffee> coffeeList;
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Account accountId;
@@ -79,8 +79,6 @@ public class Orders implements Serializable {
     @JoinColumn(name = "store_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Store storeId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders")
-    private List<OrderHasCoffee> orderHasCoffeeList;
 
     public Orders() {
     }
@@ -89,11 +87,10 @@ public class Orders implements Serializable {
         this.id = id;
     }
 
-    public Orders(Integer id, Date odate, BigDecimal totalprice, short status) {
+    public Orders(Integer id, Date odate, BigDecimal totalprice) {
         this.id = id;
         this.odate = odate;
         this.totalprice = totalprice;
-        this.status = status;
     }
 
     public Integer getId() {
@@ -120,30 +117,39 @@ public class Orders implements Serializable {
         this.totalprice = totalprice;
     }
 
-    public short getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(short status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
     @XmlTransient
-    public List<OrderHasDrink> getOrderHasDrinkList() {
-        return orderHasDrinkList;
+    public List<Snack> getSnackList() {
+        return snackList;
     }
 
-    public void setOrderHasDrinkList(List<OrderHasDrink> orderHasDrinkList) {
-        this.orderHasDrinkList = orderHasDrinkList;
+    public void setSnackList(List<Snack> snackList) {
+        this.snackList = snackList;
     }
 
     @XmlTransient
-    public List<OrderHasSnack> getOrderHasSnackList() {
-        return orderHasSnackList;
+    public List<Drink> getDrinkList() {
+        return drinkList;
     }
 
-    public void setOrderHasSnackList(List<OrderHasSnack> orderHasSnackList) {
-        this.orderHasSnackList = orderHasSnackList;
+    public void setDrinkList(List<Drink> drinkList) {
+        this.drinkList = drinkList;
+    }
+
+    @XmlTransient
+    public List<Coffee> getCoffeeList() {
+        return coffeeList;
+    }
+
+    public void setCoffeeList(List<Coffee> coffeeList) {
+        this.coffeeList = coffeeList;
     }
 
     public Account getAccountId() {
@@ -176,15 +182,6 @@ public class Orders implements Serializable {
 
     public void setStoreId(Store storeId) {
         this.storeId = storeId;
-    }
-
-    @XmlTransient
-    public List<OrderHasCoffee> getOrderHasCoffeeList() {
-        return orderHasCoffeeList;
-    }
-
-    public void setOrderHasCoffeeList(List<OrderHasCoffee> orderHasCoffeeList) {
-        this.orderHasCoffeeList = orderHasCoffeeList;
     }
 
     @Override

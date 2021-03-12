@@ -6,26 +6,22 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Ugleethyn
+ * @author gkolo
  */
 @Entity
 @Table(name = "drink")
@@ -33,9 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Drink.findAll", query = "SELECT d FROM Drink d")
     , @NamedQuery(name = "Drink.findById", query = "SELECT d FROM Drink d WHERE d.id = :id")
-    , @NamedQuery(name = "Drink.findByDname", query = "SELECT d FROM Drink d WHERE d.dname = :dname")
-    , @NamedQuery(name = "Drink.findByDunitprice", query = "SELECT d FROM Drink d WHERE d.dunitprice = :dunitprice")
-    , @NamedQuery(name = "Drink.findByImgsrc", query = "SELECT d FROM Drink d WHERE d.imgsrc = :imgsrc")})
+    , @NamedQuery(name = "Drink.findByIquant", query = "SELECT d FROM Drink d WHERE d.iquant = :iquant")})
 public class Drink implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,17 +38,14 @@ public class Drink implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
-    @Column(name = "dname")
-    private String dname;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "dunitprice")
-    private BigDecimal dunitprice;
-    @Size(max = 45)
-    @Column(name = "imgsrc")
-    private String imgsrc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "drink")
-    private List<OrderHasDrink> orderHasDrinkList;
+    @Column(name = "iquant")
+    private Integer iquant;
+    @JoinColumn(name = "drinkstype_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Drinkstype drinkstypeId;
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Orders orderId;
 
     public Drink() {
     }
@@ -71,37 +62,28 @@ public class Drink implements Serializable {
         this.id = id;
     }
 
-    public String getDname() {
-        return dname;
+    public Integer getIquant() {
+        return iquant;
     }
 
-    public void setDname(String dname) {
-        this.dname = dname;
+    public void setIquant(Integer iquant) {
+        this.iquant = iquant;
     }
 
-    public BigDecimal getDunitprice() {
-        return dunitprice;
+    public Drinkstype getDrinkstypeId() {
+        return drinkstypeId;
     }
 
-    public void setDunitprice(BigDecimal dunitprice) {
-        this.dunitprice = dunitprice;
+    public void setDrinkstypeId(Drinkstype drinkstypeId) {
+        this.drinkstypeId = drinkstypeId;
     }
 
-    public String getImgsrc() {
-        return imgsrc;
+    public Orders getOrderId() {
+        return orderId;
     }
 
-    public void setImgsrc(String imgsrc) {
-        this.imgsrc = imgsrc;
-    }
-
-    @XmlTransient
-    public List<OrderHasDrink> getOrderHasDrinkList() {
-        return orderHasDrinkList;
-    }
-
-    public void setOrderHasDrinkList(List<OrderHasDrink> orderHasDrinkList) {
-        this.orderHasDrinkList = orderHasDrinkList;
+    public void setOrderId(Orders orderId) {
+        this.orderId = orderId;
     }
 
     @Override

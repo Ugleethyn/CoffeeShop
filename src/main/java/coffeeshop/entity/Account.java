@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Ugleethyn
+ * @author gkolo
  */
 @Entity
 @Table(name = "account")
@@ -75,16 +75,16 @@ public class Account implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "username")
     private String username;
-    @Size(max = 45)
+    @Size(max = 68)
     @Column(name = "password")
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
     private List<Address> addressList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountId")
-    private List<Orders> ordersList;
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Role roleId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountId")
+    private List<Orders> ordersList;
 
     public Account() {
     }
@@ -167,6 +167,14 @@ public class Account implements Serializable {
         this.addressList = addressList;
     }
 
+    public Role getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
+    }
+
     @XmlTransient
     public List<Orders> getOrdersList() {
         return ordersList;
@@ -174,14 +182,6 @@ public class Account implements Serializable {
 
     public void setOrdersList(List<Orders> ordersList) {
         this.ordersList = ordersList;
-    }
-
-    public Role getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Role roleId) {
-        this.roleId = roleId;
     }
 
     @Override

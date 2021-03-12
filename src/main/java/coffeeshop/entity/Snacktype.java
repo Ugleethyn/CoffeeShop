@@ -19,7 +19,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -29,15 +28,15 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author gkolo
  */
 @Entity
-@Table(name = "coffee_type")
+@Table(name = "snacktype")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CoffeeType.findAll", query = "SELECT c FROM CoffeeType c")
-    , @NamedQuery(name = "CoffeeType.findById", query = "SELECT c FROM CoffeeType c WHERE c.id = :id")
-    , @NamedQuery(name = "CoffeeType.findByTname", query = "SELECT c FROM CoffeeType c WHERE c.tname = :tname")
-    , @NamedQuery(name = "CoffeeType.findByCunitprice", query = "SELECT c FROM CoffeeType c WHERE c.cunitprice = :cunitprice")
-    , @NamedQuery(name = "CoffeeType.findByImgsrc", query = "SELECT c FROM CoffeeType c WHERE c.imgsrc = :imgsrc")})
-public class CoffeeType implements Serializable {
+    @NamedQuery(name = "Snacktype.findAll", query = "SELECT s FROM Snacktype s")
+    , @NamedQuery(name = "Snacktype.findById", query = "SELECT s FROM Snacktype s WHERE s.id = :id")
+    , @NamedQuery(name = "Snacktype.findBySname", query = "SELECT s FROM Snacktype s WHERE s.sname = :sname")
+    , @NamedQuery(name = "Snacktype.findBySunitprice", query = "SELECT s FROM Snacktype s WHERE s.sunitprice = :sunitprice")
+    , @NamedQuery(name = "Snacktype.findByImgsrc", query = "SELECT s FROM Snacktype s WHERE s.imgsrc = :imgsrc")})
+public class Snacktype implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,33 +44,23 @@ public class CoffeeType implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "tname")
-    private String tname;
+    @Size(max = 45)
+    @Column(name = "sname")
+    private String sname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "cunitprice")
-    private BigDecimal cunitprice;
+    @Column(name = "sunitprice")
+    private BigDecimal sunitprice;
     @Size(max = 45)
     @Column(name = "imgsrc")
     private String imgsrc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "typeId")
-    private List<Coffee> coffeeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "snacktypeId")
+    private List<Snack> snackList;
 
-    public CoffeeType() {
+    public Snacktype() {
     }
 
-    public CoffeeType(Integer id) {
+    public Snacktype(Integer id) {
         this.id = id;
-    }
-
-    public CoffeeType(Integer id, String tname, BigDecimal cunitprice) {
-        this.id = id;
-        this.tname = tname;
-        this.cunitprice = cunitprice;
     }
 
     public Integer getId() {
@@ -82,20 +71,20 @@ public class CoffeeType implements Serializable {
         this.id = id;
     }
 
-    public String getTname() {
-        return tname;
+    public String getSname() {
+        return sname;
     }
 
-    public void setTname(String tname) {
-        this.tname = tname;
+    public void setSname(String sname) {
+        this.sname = sname;
     }
 
-    public BigDecimal getCunitprice() {
-        return cunitprice;
+    public BigDecimal getSunitprice() {
+        return sunitprice;
     }
 
-    public void setCunitprice(BigDecimal cunitprice) {
-        this.cunitprice = cunitprice;
+    public void setSunitprice(BigDecimal sunitprice) {
+        this.sunitprice = sunitprice;
     }
 
     public String getImgsrc() {
@@ -107,12 +96,12 @@ public class CoffeeType implements Serializable {
     }
 
     @XmlTransient
-    public List<Coffee> getCoffeeList() {
-        return coffeeList;
+    public List<Snack> getSnackList() {
+        return snackList;
     }
 
-    public void setCoffeeList(List<Coffee> coffeeList) {
-        this.coffeeList = coffeeList;
+    public void setSnackList(List<Snack> snackList) {
+        this.snackList = snackList;
     }
 
     @Override
@@ -125,10 +114,10 @@ public class CoffeeType implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CoffeeType)) {
+        if (!(object instanceof Snacktype)) {
             return false;
         }
-        CoffeeType other = (CoffeeType) object;
+        Snacktype other = (Snacktype) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -137,7 +126,7 @@ public class CoffeeType implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.CoffeeType[ id=" + id + " ]";
+        return "coffeeshop.entity.Snacktype[ id=" + id + " ]";
     }
     
 }

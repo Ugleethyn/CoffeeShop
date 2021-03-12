@@ -8,7 +8,6 @@ package coffeeshop.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,7 +17,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,14 +24,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Ugleethyn
+ * @author gkolo
  */
 @Entity
 @Table(name = "coffee")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Coffee.findAll", query = "SELECT c FROM Coffee c")
-    , @NamedQuery(name = "Coffee.findById", query = "SELECT c FROM Coffee c WHERE c.id = :id")})
+    , @NamedQuery(name = "Coffee.findById", query = "SELECT c FROM Coffee c WHERE c.id = :id")
+    , @NamedQuery(name = "Coffee.findByCquantity", query = "SELECT c FROM Coffee c WHERE c.cquantity = :cquantity")})
 public class Coffee implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,6 +41,8 @@ public class Coffee implements Serializable {
     @NotNull
     @Column(name = "id")
     private Integer id;
+    @Column(name = "cquantity")
+    private Integer cquantity;
     @JoinTable(name = "coffee_has_ingredients", joinColumns = {
         @JoinColumn(name = "Coffee_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "Ingredients_id", referencedColumnName = "id")})
@@ -53,11 +54,12 @@ public class Coffee implements Serializable {
     @JoinColumn(name = "type_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CoffeeType typeId;
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Orders orderId;
     @JoinColumn(name = "sugar_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Sugar sugarId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffee")
-    private List<OrderHasCoffee> orderHasCoffeeList;
 
     public Coffee() {
     }
@@ -72,6 +74,14 @@ public class Coffee implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getCquantity() {
+        return cquantity;
+    }
+
+    public void setCquantity(Integer cquantity) {
+        this.cquantity = cquantity;
     }
 
     @XmlTransient
@@ -99,21 +109,20 @@ public class Coffee implements Serializable {
         this.typeId = typeId;
     }
 
+    public Orders getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Orders orderId) {
+        this.orderId = orderId;
+    }
+
     public Sugar getSugarId() {
         return sugarId;
     }
 
     public void setSugarId(Sugar sugarId) {
         this.sugarId = sugarId;
-    }
-
-    @XmlTransient
-    public List<OrderHasCoffee> getOrderHasCoffeeList() {
-        return orderHasCoffeeList;
-    }
-
-    public void setOrderHasCoffeeList(List<OrderHasCoffee> orderHasCoffeeList) {
-        this.orderHasCoffeeList = orderHasCoffeeList;
     }
 
     @Override
