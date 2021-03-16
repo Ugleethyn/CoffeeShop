@@ -141,7 +141,7 @@
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <div class="formcoffe">
-                                    <form action="">
+                                    <form class="demo" action="">
 
                                         <div>
                                             <h5>Please select coffee size <span class="important">*</span></h5>
