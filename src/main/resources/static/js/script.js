@@ -1,4 +1,4 @@
-// Get the modal
+
 const form = document.getElementById('demo');
 const sizeradios = form.elements.sizes;
 const defaultsize = sizeradios[0];
@@ -8,7 +8,7 @@ const sugarradios = form.elements.sugar;
 const defaultsugar = sugarradios[0];
 defaultsugar.checked = true;
 
-
+// Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
