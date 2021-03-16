@@ -66,10 +66,7 @@
             </div>
         </div>
         <!-- End Navbar Area -->
-
         <div class="background">
-
-
             <div class="container section-ourTeam cartcont">
                 <div class="row">
                     <div class="col-md-12 ourTeam-hedding text-center">
