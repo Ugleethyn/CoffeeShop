@@ -32,9 +32,9 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountRepo accountRepo;
     @Autowired
-    PasswordEncoder passwordEncoder;
-    @Autowired
     RoleRepo roleRepo;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public Account findByUsername(String username) {
@@ -43,15 +43,15 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         Account account = findByUsername(username);
-        //if user not exists then throw the exception
         if (account == null) {
-            throw new UsernameNotFoundException("Invalid username");
+            throw new UsernameNotFoundException("Invalid Username");
+        } else {
+            List<GrantedAuthority> authorities = convertRolesToGrantedAuthorities(account.getRoles());
+            User userOfSpringSecurity = new User(account.getUsername(), account.getPassword(), authorities);
+            return userOfSpringSecurity;
         }
-        //else return The User Object that Spring Security needs
-        List<GrantedAuthority> authorities = convertRolesToGrantedAuthorities((List<Role>) account.getRoles());
-        User userOfSpringSecurity = new User(account.getUsername(), account.getPassword(), authorities);
-        return userOfSpringSecurity;
     }
 
     private List<GrantedAuthority> convertRolesToGrantedAuthorities(List<Role> roles) {

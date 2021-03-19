@@ -12,9 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  *
  * @author Ugleethyn
  */
-public interface AccountService extends UserDetailsService{
+public interface AccountService extends UserDetailsService {
 
-    Account findByUsername(String username);
+    public Account findByUsername(String username);
 
-    Account saveUser(Account account);
+    public Account saveUser(Account account);
 }

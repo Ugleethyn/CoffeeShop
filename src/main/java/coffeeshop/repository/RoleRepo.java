@@ -21,6 +21,4 @@ public interface RoleRepo extends JpaRepository<Role, Integer> {
     @Query("SELECT r FROM Role r WHERE r.rname = :rname")
     public Role findByRname(@Param("rname") String rname);
 
-    public Role findByRnameContaining(String rname);
-
 }

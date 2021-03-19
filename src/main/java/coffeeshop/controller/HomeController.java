@@ -1,50 +1,58 @@
 package coffeeshop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String home() {
         return "home";
     }
 
-    @GetMapping("/about")
+    @RequestMapping("/about")
     public String about() {
         return "about";
     }
 
-    @GetMapping("/contact")
+    @RequestMapping("/contact")
     public String contact() {
         return "contact";
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
-
-    @GetMapping("/login")
+    @RequestMapping("/login")
     public String login() {
         return "login";
     }
 
-    @GetMapping("/cart")
+    @RequestMapping("/cart")
     public String cart() {
         return "cart";
     }
 
-    @GetMapping("/checkout")
+    @RequestMapping("/checkout")
     public String checkout() {
         return "checkout";
     }
 
-    @GetMapping("/payment")
+    @RequestMapping("/payment")
     public String payment() {
         return "payment";
+    }
+
+    @RequestMapping("/logout")
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/";
     }
 }
