@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -79,6 +81,9 @@ public class Account implements Serializable {
     @NotNull
     @Column(name = "tel")
     private int tel;
+    @JoinTable(name = "account_has_role", joinColumns = {
+        @JoinColumn(name = "account_id", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "role_id", referencedColumnName = "id")})
     @ManyToMany
     private List<Role> roles;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
@@ -103,6 +108,11 @@ public class Account implements Serializable {
         this.tel = tel;
     }
 
+    @XmlTransient
+    public List<Role> getRoles() {
+        return roles;
+    }
+
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
@@ -112,10 +122,6 @@ public class Account implements Serializable {
             roles = new ArrayList();
         }
         roles.add(role);
-    }
-
-    public List<Role> getRoles() {
-        return roles;
     }
 
     public Integer getId() {

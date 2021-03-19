@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet"href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="../img/logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light ">
                     <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                        <img src="img/logo.png" alt="logo.png">
+                        <img src="../img/logo.png" alt="logo.png">
                     </a>
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
@@ -91,7 +91,7 @@
                                         <td>
                                             <figure class="itemside align-items-center">
                                                 <div class="aside"><img
-                                                        src="img/coffee.png"
+                                                        src="../img/coffee.png"
                                                         class="img-sm"></div>
                                                 <figcaption class="info"> <a href="#" class="title text-dark"
                                                         data-abc="true">Freddo Cappuccino</a>
@@ -110,7 +110,7 @@
                                         <td>
                                             <figure class="itemside align-items-center">
                                                 <div class="aside"><img
-                                                        src="img/drink.png"
+                                                        src="../img/drink.png"
                                                         class="img-sm"></div>
                                                 <figcaption class="info"> <a href="#" class="title text-dark"
                                                         data-abc="true">Coca Colla 330 Ml</a>
@@ -129,7 +129,7 @@
                                         <td>
                                             <figure class="itemside align-items-center">
                                                 <div class="aside"><img
-                                                        src="img/coffee.png"
+                                                        src="../img/coffee.png"
                                                         class="img-sm"></div>
                                                 <figcaption class="info"> <a href="#" class="title text-dark"
                                                         data-abc="true">Freddo Esspresso</a>

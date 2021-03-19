@@ -12,9 +12,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet"href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="icon" href="img/logo.png" type="image/png">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="icon" href="img/logo.png" type="image/png">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" href="../img/logo.png" type="image/png">
     </head>
 
     <body>
@@ -25,7 +24,7 @@
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
-                    <img src="img/logo.png" alt="logo.png">
+                    <img src="../img/logo.png" alt="../logo.png">
                 </a>
 
             </div>
@@ -35,7 +34,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
                         <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                            <img src="img/logo.png" alt="logo.png">
+                            <img src="../img/logo.png" alt="logo.png">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">

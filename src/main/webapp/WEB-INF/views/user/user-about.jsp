@@ -1,27 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Quick Coffee - Register</title>
+        <title>Quick Coffee - About us</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="icon" href="img/logo.png" type="image/png">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="../img/logo.png" type="image/png">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" href="../img/logo.png" type="image/png">
     </head>
 
     <body>
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
-                    <img src="img/logo.png" alt="logo.png">
+                    <img src="../img/logo.png" alt="logo.png">
                 </a>
             </div>
             <!-- Menu For Desktop Device -->
@@ -29,7 +29,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
                         <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                            <img src="img/logo.png" alt="logo.png">
+                            <img src="../img/logo.png" alt="logo.png">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
@@ -40,22 +40,20 @@
                                     <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
+                                    <a href="${pageContext.request.contextPath}/about" class="nav-link active">About us</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/register" class="nav-link active">Sign Up</a>
+                                    <a href="${pageContext.request.contextPath}/register" class="nav-link">Sign Up</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                            height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                         </svg> Cart</a>
                                 </li>
                             </ul>
@@ -68,48 +66,61 @@
 
         <div class="background">
 
-            <!-- Page Content -->
-            <div class="container cartcont">
-                <div id="login">
-                    <div class="container ">
-                        <div id="login-row" class="row justify-content-center align-items-center">
-                            <div id="login-column" class="col-md-6">
-                                <div id="register" class="col-md-12 ">
-                                    <form id="login-form" class="form" action="" method="post">
-                                        <h3 class="text-center headertext">Register</h3>
-                                        <div class="form-group">
-                                            <label for="username" class="text-info">Username:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="text-info">E-mail:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="username" class="text-info">First Name:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="username" class="text-info">Last Name:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="password" class="text-info">Password:</label><br>
-                                            <input type="text" name="password" id="password" class="form-control">
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="password" class="text-info">Repeat Password:</label><br>
-                                            <input type="text" name="password" id="password" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <a href="menu.html"><button class="button lgnbtn"><span>Register
-                                                    </span></button></a>
-                                        </div>
-                                        <div id="register-link" class="text-right">
-                                            <a href="${pageContext.request.contextPath}/login" class="text-info">Login here</a>
-                                        </div>
-                                    </form>
-                                </div>
+
+            <div class="container section-ourTeam">
+                <div class="row">
+                    <div class="col-md-12 ourTeam-hedding text-center">
+                        <h1>Our Team</h1>
+                        <p>Tasos, Maria and Giorgos, founders and managers of Quick Kafe, are  working  with enthusiasm, passion for excellence and devotion to taste your daily pleasure, coffee.
+                            From the sorting of the raw material and the exquisite blend to the variaty of tasting options and the advanced equipment, our purpose is
+                            to offer every day only the best. 
+                            The know-how, the creativity, the fun and the passion start primarily from our employees.
+                            With a smile and positive energy, they are always by the customer's side, ready to suggest and answer any questions. </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="row section-success ourTeam-box text-center">
+                            <div class="col-md-12 section1">
+                                <img src="/demo/meet01.png">
+                            </div>
+                            <div class="col-md-12 section2">
+                                <p>MARIA KOUTRA</p>
+                            </div>
+                            <div class="col-md-12 section3">
+                                <a href="https://github.com/MariaKoutra"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="row section-info ourTeam-box text-center">
+                            <div class="col-md-12 section1">
+                                <img src="/demo/meet02.png">
+                            </div>
+                            <div class="col-md-12 section2">
+                                <p>GIORGOS KOLOVADIS</p>
+                            </div>
+                            <div class="col-md-12 section3">
+                                <a href="https://github.com/kolobei"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="row section-danger ourTeam-box text-center">
+                            <div class="col-md-12 section1">
+                                <img src="/demo/meet03.png">
+                            </div>
+                            <div class="col-md-12 section2">
+                                <p>TASOS KLADIS</p>
+                            </div>
+                            <div class="col-md-12 section3">
+                                <a href="https://github.com/Ugleethyn"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/in/tasos-kladis-35691115a/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -157,6 +168,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="copyright">
                 <div class="container" style="width: 100%;">
                     <div class="row">

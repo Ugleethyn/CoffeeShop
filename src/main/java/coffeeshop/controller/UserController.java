@@ -22,4 +22,28 @@ public class UserController {
         return "user/user-home";
     }
 
+    @RequestMapping("/about")
+    public String about() {
+        return "user/user-about";
+    }
+
+    @RequestMapping("/contact")
+    public String contact() {
+        return "user/user-contact";
+    }
+
+    @RequestMapping("/cart")
+    public String cart() {
+        return "user/user-cart";
+    }
+
+    @RequestMapping("/checkout")
+    public String checkout() {
+        return "user/user-checkout";
+    }
+
+    @RequestMapping("/payment")
+    public String payment() {
+        return "user/user-payment";
+    }
 }

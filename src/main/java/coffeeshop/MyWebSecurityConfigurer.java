@@ -12,11 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
+public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    AccountService accountService;
-    
+    private AccountService accountService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
@@ -28,26 +28,33 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasRole("USER")
-                .antMatchers("user/").authenticated() .and() //after this link user is asked
+                .antMatchers("/user/*").authenticated()
+                .and()
                 .formLogin()
                 .loginPage("/loginPage")
                 .loginProcessingUrl("/authenticate")
+                .defaultSuccessUrl("/user", true)
                 .permitAll()
-                .and().logout().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/access-denied") ;
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .permitAll()
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/access-denied");
     }
-    
+
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(accountService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
-    
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+
 }
