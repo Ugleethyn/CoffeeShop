@@ -136,16 +136,12 @@
                             </div>
                         </section>
 
-                        <div id="myModal" class="modal">
+                        <div id="myModal" class="modal ">
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <div class="formcoffe">
-<<<<<<< HEAD
                                     <form action="${pageContext.request.contextPath}/login" method="GET">
-=======
-                                    <form class="demo" action="">
->>>>>>> e75024120ed980e7adfedeee9f2fa85161619987
 
                                         <div>
                                             <h5>Please select coffee size <span class="important">*</span></h5>
