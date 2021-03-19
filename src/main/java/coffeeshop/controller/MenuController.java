@@ -5,12 +5,8 @@
  */
 package coffeeshop.controller;
 
-import coffeeshop.service.CoffeeSizeService;
-import coffeeshop.service.CoffeeSugarService;
-import coffeeshop.service.CoffeeTypeService;
-import coffeeshop.service.DrinkService;
-import coffeeshop.service.IngredientsService;
-import coffeeshop.service.SnackService;
+import coffeeshop.service.CategoryService;
+import coffeeshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,26 +21,18 @@ import org.springframework.web.servlet.ModelAndView;
 public class MenuController {
 
     @Autowired
-    private CoffeeTypeService coffeeTypeService;
+    private ProductService productService;
     @Autowired
-    private CoffeeSizeService coffeeSizeService;
-    @Autowired
-    private CoffeeSugarService coffeeSugarService;
-    @Autowired
-    private IngredientsService ingredientsService;
-    @Autowired
-    private DrinkService drinkService;
-    @Autowired
-    private SnackService snackService;
+    private CategoryService categoryService;
 
     @RequestMapping
     public ModelAndView showTrainers(ModelAndView modelAndView) {
-        modelAndView.addObject("coffeeTypes", coffeeTypeService.findAll());
-        modelAndView.addObject("coffeeSizes", coffeeSizeService.findAll());
-        modelAndView.addObject("coffeeSugar", coffeeSugarService.findAll());
-        modelAndView.addObject("Ingredients", ingredientsService.findAll());
-        modelAndView.addObject("snacks", snackService.findAll());
-        modelAndView.addObject("drinks", drinkService.findAll());
+        modelAndView.addObject("coffeeTypes", productService.findAllCoffees());
+        modelAndView.addObject("snackTypes", productService.findAllSnacks());
+        modelAndView.addObject("drinkTypes", productService.findAllDrinks());
+        modelAndView.addObject("ingredients", categoryService.findAllIngredients());
+        modelAndView.addObject("coffeeSizes", categoryService.findAllSizes());
+        modelAndView.addObject("coffeSugar", categoryService.findAllSugars());
         modelAndView.setViewName("menu");
         return modelAndView;
     }

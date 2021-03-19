@@ -1,37 +1,34 @@
+let modal = document.getElementById("myModal");
 
-const form = document.getElementById('demo');
-const sizeradios = form.elements.sizes;
-const defaultsize = sizeradios[0];
-defaultsize.checked = true;
 
-const sugarradios = form.elements.sugar;
-const defaultsugar = sugarradios[0];
-defaultsugar.checked = true;
+let btn = document.querySelectorAll(".myBtn");
 
-// Get the modal
-var modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
 
-// Get the button that opens the modal
-var btn = document.querySelectorAll(".myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
 btn.forEach(function (e) {
-  e.onclick = function () {
-    modal.style.display = "block";
-  };
+    e.onclick = function () {
+        modal.style.display = "block";
+    };
 });
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-}
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
+span.onclick = function () {
     modal.style.display = "none";
-  }
-}
+};
+
+
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+    ;
+};
+
+let form = document.querySelector('.demo');
+let sizeradios = form.elements.size;
+let defaultsize = sizeradios[0];
+defaultsize.checked = true;
+
+let sugarradios = form.elements.sugar;
+let defaultsugar = sugarradios[0];
+defaultsugar.checked = true;

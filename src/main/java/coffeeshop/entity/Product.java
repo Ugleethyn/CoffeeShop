@@ -7,36 +7,34 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author gkolo
+ * @author Ugleethyn
  */
 @Entity
-@Table(name = "drinkstype")
+@Table(name = "product")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Drinkstype.findAll", query = "SELECT d FROM Drinkstype d")
-    , @NamedQuery(name = "Drinkstype.findById", query = "SELECT d FROM Drinkstype d WHERE d.id = :id")
-    , @NamedQuery(name = "Drinkstype.findByDname", query = "SELECT d FROM Drinkstype d WHERE d.dname = :dname")
-    , @NamedQuery(name = "Drinkstype.findByDunitprice", query = "SELECT d FROM Drinkstype d WHERE d.dunitprice = :dunitprice")
-    , @NamedQuery(name = "Drinkstype.findByImgsrc", query = "SELECT d FROM Drinkstype d WHERE d.imgsrc = :imgsrc")})
-public class Drinkstype implements Serializable {
+    @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
+    , @NamedQuery(name = "Product.findById", query = "SELECT p FROM Product p WHERE p.id = :id")
+    , @NamedQuery(name = "Product.findByPname", query = "SELECT p FROM Product p WHERE p.pname = :pname")
+    , @NamedQuery(name = "Product.findByBaseprice", query = "SELECT p FROM Product p WHERE p.baseprice = :baseprice")
+    , @NamedQuery(name = "Product.findByImgsrc", query = "SELECT p FROM Product p WHERE p.imgsrc = :imgsrc")})
+public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,21 +43,22 @@ public class Drinkstype implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Size(max = 45)
-    @Column(name = "dname")
-    private String dname;
+    @Column(name = "pname")
+    private String pname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "dunitprice")
-    private BigDecimal dunitprice;
-    @Size(max = 45)
+    @Column(name = "baseprice")
+    private BigDecimal baseprice;
+    @Size(max = 65)
     @Column(name = "imgsrc")
     private String imgsrc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "drinkstypeId")
-    private List<Drink> drinkList;
+    @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private CatA catAId;
 
-    public Drinkstype() {
+    public Product() {
     }
 
-    public Drinkstype(Integer id) {
+    public Product(Integer id) {
         this.id = id;
     }
 
@@ -71,20 +70,20 @@ public class Drinkstype implements Serializable {
         this.id = id;
     }
 
-    public String getDname() {
-        return dname;
+    public String getPname() {
+        return pname;
     }
 
-    public void setDname(String dname) {
-        this.dname = dname;
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
-    public BigDecimal getDunitprice() {
-        return dunitprice;
+    public BigDecimal getBaseprice() {
+        return baseprice;
     }
 
-    public void setDunitprice(BigDecimal dunitprice) {
-        this.dunitprice = dunitprice;
+    public void setBaseprice(BigDecimal baseprice) {
+        this.baseprice = baseprice;
     }
 
     public String getImgsrc() {
@@ -95,13 +94,12 @@ public class Drinkstype implements Serializable {
         this.imgsrc = imgsrc;
     }
 
-    @XmlTransient
-    public List<Drink> getDrinkList() {
-        return drinkList;
+    public CatA getCatAId() {
+        return catAId;
     }
 
-    public void setDrinkList(List<Drink> drinkList) {
-        this.drinkList = drinkList;
+    public void setCatAId(CatA catAId) {
+        this.catAId = catAId;
     }
 
     @Override
@@ -114,10 +112,10 @@ public class Drinkstype implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Drinkstype)) {
+        if (!(object instanceof Product)) {
             return false;
         }
-        Drinkstype other = (Drinkstype) object;
+        Product other = (Product) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -126,7 +124,7 @@ public class Drinkstype implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Drinkstype[ id=" + id + " ]";
+        return "coffeeshop.entity.Product[ id=" + id + " ]";
     }
     
 }

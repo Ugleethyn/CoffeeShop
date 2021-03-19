@@ -15,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -24,13 +22,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Ugleethyn
  */
 @Entity
-@Table(name = "role")
+@Table(name = "product_has_category")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r")
-    , @NamedQuery(name = "Role.findById", query = "SELECT r FROM Role r WHERE r.id = :id")
-    , @NamedQuery(name = "Role.findByRname", query = "SELECT r FROM Role r WHERE r.rname = :rname")})
-public class Role implements Serializable {
+    @NamedQuery(name = "ProductHasCategory.findAll", query = "SELECT p FROM ProductHasCategory p")
+    , @NamedQuery(name = "ProductHasCategory.findById", query = "SELECT p FROM ProductHasCategory p WHERE p.id = :id")})
+public class ProductHasCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,22 +35,12 @@ public class Role implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "rname")
-    private String rname;
 
-    public Role() {
+    public ProductHasCategory() {
     }
 
-    public Role(Integer id) {
+    public ProductHasCategory(Integer id) {
         this.id = id;
-    }
-
-    public Role(Integer id, String rname) {
-        this.id = id;
-        this.rname = rname;
     }
 
     public Integer getId() {
@@ -62,14 +49,6 @@ public class Role implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getRname() {
-        return rname;
-    }
-
-    public void setRname(String rname) {
-        this.rname = rname;
     }
 
     @Override
@@ -82,10 +61,10 @@ public class Role implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Role)) {
+        if (!(object instanceof ProductHasCategory)) {
             return false;
         }
-        Role other = (Role) object;
+        ProductHasCategory other = (ProductHasCategory) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -94,7 +73,7 @@ public class Role implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Role[ id=" + id + " ]";
+        return "coffeeshop.entity.ProductHasCategory[ id=" + id + " ]";
     }
     
 }

@@ -18,14 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author gkolo
+ * @author Ugleethyn
  */
 @Entity
 @Table(name = "payment")
@@ -33,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Payment.findAll", query = "SELECT p FROM Payment p")
     , @NamedQuery(name = "Payment.findById", query = "SELECT p FROM Payment p WHERE p.id = :id")
-    , @NamedQuery(name = "Payment.findByPname", query = "SELECT p FROM Payment p WHERE p.pname = :pname")})
+    , @NamedQuery(name = "Payment.findByType", query = "SELECT p FROM Payment p WHERE p.type = :type")})
 public class Payment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,12 +41,10 @@ public class Payment implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "pname")
-    private String pname;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentId")
+    @Size(max = 45)
+    @Column(name = "type")
+    private String type;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentid")
     private List<Orders> ordersList;
 
     public Payment() {
@@ -55,11 +52,6 @@ public class Payment implements Serializable {
 
     public Payment(Integer id) {
         this.id = id;
-    }
-
-    public Payment(Integer id, String pname) {
-        this.id = id;
-        this.pname = pname;
     }
 
     public Integer getId() {
@@ -70,12 +62,12 @@ public class Payment implements Serializable {
         this.id = id;
     }
 
-    public String getPname() {
-        return pname;
+    public String getType() {
+        return type;
     }
 
-    public void setPname(String pname) {
-        this.pname = pname;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @XmlTransient

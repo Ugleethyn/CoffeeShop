@@ -5,14 +5,18 @@
  */
 package coffeeshop.service;
 
-import coffeeshop.entity.Snacktype;
+import coffeeshop.entity.Category;
 import java.util.List;
 
 /**
  *
  * @author Ugleethyn
  */
-public interface SnackService {
+public interface CategoryService {
 
-    public List<Snacktype> findAll();
+    public List<Category> findAllIngredients();
+
+    public List<Category> findAllSugars();
+
+    public List<Category> findAllSizes();
 }

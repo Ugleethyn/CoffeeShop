@@ -6,6 +6,7 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -14,8 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author gkolo
+ * @author Ugleethyn
  */
 @Entity
 @Table(name = "account")
@@ -35,12 +35,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a")
     , @NamedQuery(name = "Account.findById", query = "SELECT a FROM Account a WHERE a.id = :id")
-    , @NamedQuery(name = "Account.findByCfirstname", query = "SELECT a FROM Account a WHERE a.cfirstname = :cfirstname")
-    , @NamedQuery(name = "Account.findByClastname", query = "SELECT a FROM Account a WHERE a.clastname = :clastname")
-    , @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email")
-    , @NamedQuery(name = "Account.findByTelnumber", query = "SELECT a FROM Account a WHERE a.telnumber = :telnumber")
+    , @NamedQuery(name = "Account.findByFirstname", query = "SELECT a FROM Account a WHERE a.firstname = :firstname")
+    , @NamedQuery(name = "Account.findByLastname", query = "SELECT a FROM Account a WHERE a.lastname = :lastname")
     , @NamedQuery(name = "Account.findByUsername", query = "SELECT a FROM Account a WHERE a.username = :username")
-    , @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password")})
+    , @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password")
+    , @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email")
+    , @NamedQuery(name = "Account.findByTel", query = "SELECT a FROM Account a WHERE a.tel = :tel")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,39 +51,39 @@ public class Account implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "cfirstname")
-    private String cfirstname;
+    @Size(min = 1, max = 20)
+    @Column(name = "firstname")
+    private String firstname;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "clastname")
-    private String clastname;
+    @Size(min = 1, max = 20)
+    @Column(name = "lastname")
+    private String lastname;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "username")
+    private String username;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 68)
+    @Column(name = "password")
+    private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 40)
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "telnumber")
-    private String telnumber;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "username")
-    private String username;
-    @Size(max = 68)
-    @Column(name = "password")
-    private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
+    @Column(name = "tel")
+    private int tel;
+    @ManyToMany
+    private List<Role> roles;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
     private List<Address> addressList;
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Role roleId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
     private List<Orders> ordersList;
 
     public Account() {
@@ -93,13 +93,29 @@ public class Account implements Serializable {
         this.id = id;
     }
 
-    public Account(Integer id, String cfirstname, String clastname, String email, String telnumber, String username) {
+    public Account(Integer id, String firstname, String lastname, String username, String password, String email, int tel) {
         this.id = id;
-        this.cfirstname = cfirstname;
-        this.clastname = clastname;
-        this.email = email;
-        this.telnumber = telnumber;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.username = username;
+        this.password = password;
+        this.email = email;
+        this.tel = tel;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public void addRole(Role role) {
+        if (roles == null) {
+            roles = new ArrayList();
+        }
+        roles.add(role);
+    }
+
+    public List<Role> getRoles() {
+        return roles;
     }
 
     public Integer getId() {
@@ -110,36 +126,20 @@ public class Account implements Serializable {
         this.id = id;
     }
 
-    public String getCfirstname() {
-        return cfirstname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setCfirstname(String cfirstname) {
-        this.cfirstname = cfirstname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getClastname() {
-        return clastname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setClastname(String clastname) {
-        this.clastname = clastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelnumber() {
-        return telnumber;
-    }
-
-    public void setTelnumber(String telnumber) {
-        this.telnumber = telnumber;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {
@@ -158,6 +158,22 @@ public class Account implements Serializable {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getTel() {
+        return tel;
+    }
+
+    public void setTel(int tel) {
+        this.tel = tel;
+    }
+
     @XmlTransient
     public List<Address> getAddressList() {
         return addressList;
@@ -165,14 +181,6 @@ public class Account implements Serializable {
 
     public void setAddressList(List<Address> addressList) {
         this.addressList = addressList;
-    }
-
-    public Role getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Role roleId) {
-        this.roleId = roleId;
     }
 
     @XmlTransient
@@ -208,5 +216,5 @@ public class Account implements Serializable {
     public String toString() {
         return "coffeeshop.entity.Account[ id=" + id + " ]";
     }
-    
+
 }

@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author gkolo
+ * @author Ugleethyn
  */
 @Entity
 @Table(name = "store")
@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Store.findAll", query = "SELECT s FROM Store s")
     , @NamedQuery(name = "Store.findById", query = "SELECT s FROM Store s WHERE s.id = :id")
-    , @NamedQuery(name = "Store.findByLocation", query = "SELECT s FROM Store s WHERE s.location = :location")})
+    , @NamedQuery(name = "Store.findByLocation", query = "SELECT s FROM Store s WHERE s.location = :location")
+    , @NamedQuery(name = "Store.findByStorename", query = "SELECT s FROM Store s WHERE s.storename = :storename")})
 public class Store implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,10 +42,13 @@ public class Store implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
+    @Size(max = 80)
     @Column(name = "location")
     private String location;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeId")
+    @Size(max = 45)
+    @Column(name = "storename")
+    private String storename;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeid")
     private List<Orders> ordersList;
 
     public Store() {
@@ -68,6 +72,14 @@ public class Store implements Serializable {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getStorename() {
+        return storename;
+    }
+
+    public void setStorename(String storename) {
+        this.storename = storename;
     }
 
     @XmlTransient

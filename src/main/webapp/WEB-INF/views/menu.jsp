@@ -115,10 +115,10 @@
                                                         <h5><img src="img/coffee.png" class="img-responsive" alt="a" /></h5>
                                                     </div>
                                                     <div class="price col-md-12">
-                                                        <h5>${coffeeType.tname}</h5>
+                                                        <h5>${coffeeType.pname}</h5>
                                                     </div>
                                                     <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color">€ ${coffeeType.cunitprice}</h5>
+                                                        <h5 class="price-text-color">€ ${coffeeType.baseprice}</h5>
                                                     </div>
                                                 </div>
                                                 <div class="separator clear-left">
@@ -141,15 +141,15 @@
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <div class="formcoffe">
-                                    <form action="">
+                                    <form action="${pageContext.request.contextPath}/login" method="GET">
 
                                         <div>
                                             <h5>Please select coffee size <span class="important">*</span></h5>
                                             <div class="funkyradio">
                                                 <c:forEach items="${coffeeSizes}" var = "coffeeSize">
                                                     <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="size" id="${coffeeSize.sname}"/>
-                                                        <label for="${coffeeSize.sname}">${coffeeSize.sname}${coffeeSize.pricefactor}€</label>
+                                                        <input type="radio" name="size" id="${coffeeSize.cname}"/>
+                                                        <label for="${coffeeSize.cname}">${coffeeSize.cname}</label>
                                                     </div>
                                                 </c:forEach>
                                             </div>
@@ -158,10 +158,10 @@
                                         <div>
                                             <h5>Please select coffee sugar <span class="important">*</span></h5>
                                             <div class="funkyradio">
-                                                <c:forEach items="${coffeeSugar}" var = "sugar">
+                                                <c:forEach items="${coffeSugar}" var = "sugar">
                                                     <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="${sugar.sdescr}" />
-                                                        <label for="${sugar.sdescr}">${sugar.sdescr} </label>
+                                                        <input type="radio" name="sugar" id="${sugar.cname}" />
+                                                        <label for="${sugar.cname}">${sugar.cname} </label>
                                                     </div>
                                                 </c:forEach>
                                             </div>
@@ -170,11 +170,11 @@
                                         <div>
                                             <h5>Please select ingredients</h5>
                                             <div class="funkyradio">
-                                                <c:forEach items="${Ingredients}" var = "ingredients">
+                                                <c:forEach items="${ingredients}" var = "ingredients">
                                                     <div class="funkyradio-warning">
                                                         <input type="checkbox" name="checkbox"
-                                                               id="${ingredients.iname}" />
-                                                        <label for="${ingredients.iname}">${ingredients.iname}</label>
+                                                               id="${ingredients.cname}" />
+                                                        <label for="${ingredients.cname}">${ingredients.cname}</label>
                                                     </div>
                                                 </c:forEach>
                                             </div>
@@ -183,8 +183,7 @@
                                             <label for="quantity">Quantity</label>
                                         </div>
 
-                                        <div class="btnplace"><button
-                                                class="button btnpopup"><span>Submit </span></button>
+                                        <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
                                         </div>
 
                                     </form>
@@ -197,7 +196,7 @@
                             <h1>Snacks</h1>
                             <div class="row mg-b-30">
 
-                                <c:forEach items="${snacks}" var = "snack">
+                                <c:forEach items="${snackTypes}" var = "snack">
                                     <div class="col-sm-4">
                                         <div class="shop-item">
 
@@ -207,15 +206,15 @@
                                                         <h5> <img src="img/snack.png" class="img-responsive" alt="a" /> </h5>
                                                     </div>
                                                     <div class="price col-md-12">
-                                                        <h5> ${snack.sname} </h5>
+                                                        <h5> ${snack.pname} </h5>
                                                     </div>
                                                     <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> €${snack.sunitprice} </h5>
+                                                        <h5 class="price-text-color"> €${snack.baseprice} </h5>
                                                     </div>
                                                 </div>
                                                 <div class="separator clear-left">
                                                     <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
+                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/login"
                                                                                               class="hidden-sm">Add to cart</a>
                                                     </p>
 
@@ -236,7 +235,7 @@
                         <section id="drinks">
                             <h1>Drinks</h1>
                             <div class="row mg-b-30">
-                                <c:forEach items="${drinks}" var = "drink">
+                                <c:forEach items="${drinkTypes}" var = "drink">
                                     <div class="col-sm-4">
                                         <div class="shop-item">
 
@@ -246,15 +245,15 @@
                                                         <h5> <img src="img/drink.png" class="img-responsive" alt="a" /> </h5>
                                                     </div>
                                                     <div class="price col-md-12">
-                                                        <h5> ${drink.dname} </h5>
+                                                        <h5> ${drink.pname} </h5>
                                                     </div>
                                                     <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> €${drink.dunitprice} </h5>
+                                                        <h5 class="price-text-color"> €${drink.baseprice} </h5>
                                                     </div>
                                                 </div>
                                                 <div class="separator clear-left">
                                                     <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com"
+                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/login"
                                                                                               class="hidden-sm">Add to cart</a>
                                                     </p>
 

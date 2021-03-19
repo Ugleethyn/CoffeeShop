@@ -20,88 +20,71 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author gkolo
+ * @author Ugleethyn
  */
 @Entity
 @Table(name = "address")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
-    , @NamedQuery(name = "Address.findByIdAddress", query = "SELECT a FROM Address a WHERE a.idAddress = :idAddress")
-    , @NamedQuery(name = "Address.findByStreetNumber", query = "SELECT a FROM Address a WHERE a.streetNumber = :streetNumber")
+    , @NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = :id")
     , @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street")
-    , @NamedQuery(name = "Address.findByZipCode", query = "SELECT a FROM Address a WHERE a.zipCode = :zipCode")
+    , @NamedQuery(name = "Address.findByNumber", query = "SELECT a FROM Address a WHERE a.number = :number")
+    , @NamedQuery(name = "Address.findByCity", query = "SELECT a FROM Address a WHERE a.city = :city")
+    , @NamedQuery(name = "Address.findByZipcode", query = "SELECT a FROM Address a WHERE a.zipcode = :zipcode")
     , @NamedQuery(name = "Address.findByFloor", query = "SELECT a FROM Address a WHERE a.floor = :floor")
-    , @NamedQuery(name = "Address.findByDoorbellName", query = "SELECT a FROM Address a WHERE a.doorbellName = :doorbellName")})
+    , @NamedQuery(name = "Address.findByDoorbell", query = "SELECT a FROM Address a WHERE a.doorbell = :doorbell")})
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idAddress")
-    private Integer idAddress;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 6)
-    @Column(name = "street_number")
-    private String streetNumber;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 25)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 45)
     @Column(name = "street")
     private String street;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "zip_code")
-    private int zipCode;
-    @Size(max = 10)
+    @Size(max = 45)
+    @Column(name = "number")
+    private String number;
+    @Size(max = 45)
+    @Column(name = "city")
+    private String city;
+    @Size(max = 45)
+    @Column(name = "zipcode")
+    private String zipcode;
+    @Size(max = 15)
     @Column(name = "floor")
     private String floor;
-    @Size(max = 45)
-    @Column(name = "doorbell_name")
-    private String doorbellName;
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @Size(max = 15)
+    @Column(name = "doorbell")
+    private String doorbell;
+    @JoinColumn(name = "Account_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Account customerId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressidAddress")
+    private Account accountid;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressid")
     private List<Orders> ordersList;
 
     public Address() {
     }
 
-    public Address(Integer idAddress) {
-        this.idAddress = idAddress;
+    public Address(Integer id) {
+        this.id = id;
     }
 
-    public Address(Integer idAddress, String streetNumber, String street, int zipCode) {
-        this.idAddress = idAddress;
-        this.streetNumber = streetNumber;
-        this.street = street;
-        this.zipCode = zipCode;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getIdAddress() {
-        return idAddress;
-    }
-
-    public void setIdAddress(Integer idAddress) {
-        this.idAddress = idAddress;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getStreet() {
@@ -112,12 +95,28 @@ public class Address implements Serializable {
         this.street = street;
     }
 
-    public int getZipCode() {
-        return zipCode;
+    public String getNumber() {
+        return number;
     }
 
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public String getFloor() {
@@ -128,20 +127,20 @@ public class Address implements Serializable {
         this.floor = floor;
     }
 
-    public String getDoorbellName() {
-        return doorbellName;
+    public String getDoorbell() {
+        return doorbell;
     }
 
-    public void setDoorbellName(String doorbellName) {
-        this.doorbellName = doorbellName;
+    public void setDoorbell(String doorbell) {
+        this.doorbell = doorbell;
     }
 
-    public Account getCustomerId() {
-        return customerId;
+    public Account getAccountid() {
+        return accountid;
     }
 
-    public void setCustomerId(Account customerId) {
-        this.customerId = customerId;
+    public void setAccountid(Account accountid) {
+        this.accountid = accountid;
     }
 
     @XmlTransient
@@ -156,7 +155,7 @@ public class Address implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idAddress != null ? idAddress.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -167,7 +166,7 @@ public class Address implements Serializable {
             return false;
         }
         Address other = (Address) object;
-        if ((this.idAddress == null && other.idAddress != null) || (this.idAddress != null && !this.idAddress.equals(other.idAddress))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -175,7 +174,7 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Address[ idAddress=" + idAddress + " ]";
+        return "coffeeshop.entity.Address[ id=" + id + " ]";
     }
     
 }

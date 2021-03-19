@@ -18,23 +18,22 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author gkolo
+ * @author Ugleethyn
  */
 @Entity
-@Table(name = "sugar")
+@Table(name = "cat_b")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Sugar.findAll", query = "SELECT s FROM Sugar s")
-    , @NamedQuery(name = "Sugar.findById", query = "SELECT s FROM Sugar s WHERE s.id = :id")
-    , @NamedQuery(name = "Sugar.findBySdescr", query = "SELECT s FROM Sugar s WHERE s.sdescr = :sdescr")})
-public class Sugar implements Serializable {
+    @NamedQuery(name = "CatB.findAll", query = "SELECT c FROM CatB c")
+    , @NamedQuery(name = "CatB.findById", query = "SELECT c FROM CatB c WHERE c.id = :id")
+    , @NamedQuery(name = "CatB.findByCatBName", query = "SELECT c FROM CatB c WHERE c.catBName = :catBName")})
+public class CatB implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,24 +41,17 @@ public class Sugar implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "sdescr")
-    private String sdescr;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sugarId")
-    private List<Coffee> coffeeList;
+    @Size(max = 45)
+    @Column(name = "cat_b_name")
+    private String catBName;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "catBId")
+    private List<Category> categoryList;
 
-    public Sugar() {
+    public CatB() {
     }
 
-    public Sugar(Integer id) {
+    public CatB(Integer id) {
         this.id = id;
-    }
-
-    public Sugar(Integer id, String sdescr) {
-        this.id = id;
-        this.sdescr = sdescr;
     }
 
     public Integer getId() {
@@ -70,21 +62,21 @@ public class Sugar implements Serializable {
         this.id = id;
     }
 
-    public String getSdescr() {
-        return sdescr;
+    public String getCatBName() {
+        return catBName;
     }
 
-    public void setSdescr(String sdescr) {
-        this.sdescr = sdescr;
+    public void setCatBName(String catBName) {
+        this.catBName = catBName;
     }
 
     @XmlTransient
-    public List<Coffee> getCoffeeList() {
-        return coffeeList;
+    public List<Category> getCategoryList() {
+        return categoryList;
     }
 
-    public void setCoffeeList(List<Coffee> coffeeList) {
-        this.coffeeList = coffeeList;
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
     }
 
     @Override
@@ -97,10 +89,10 @@ public class Sugar implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Sugar)) {
+        if (!(object instanceof CatB)) {
             return false;
         }
-        Sugar other = (Sugar) object;
+        CatB other = (CatB) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -109,7 +101,7 @@ public class Sugar implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Sugar[ id=" + id + " ]";
+        return "coffeeshop.entity.CatB[ id=" + id + " ]";
     }
     
 }

@@ -5,14 +5,18 @@
  */
 package coffeeshop.service;
 
-import coffeeshop.entity.Drinkstype;
+import coffeeshop.entity.Product;
 import java.util.List;
 
 /**
  *
  * @author Ugleethyn
  */
-public interface DrinkService {
+public interface ProductService {
 
-    public List<Drinkstype> findAll();
+    public List<Product> findAllCoffees();
+
+    public List<Product> findAllDrinks();
+
+    public List<Product> findAllSnacks();
 }

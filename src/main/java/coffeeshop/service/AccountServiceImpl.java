@@ -49,7 +49,7 @@ public class AccountServiceImpl implements AccountService {
             throw new UsernameNotFoundException("Invalid username");
         }
         //else return The User Object that Spring Security needs
-        List<GrantedAuthority> authorities = convertRolesToGrantedAuthorities((List<Role>) account.getRoleId());
+        List<GrantedAuthority> authorities = convertRolesToGrantedAuthorities((List<Role>) account.getRoles());
         User userOfSpringSecurity = new User(account.getUsername(), account.getPassword(), authorities);
         return userOfSpringSecurity;
     }
@@ -68,8 +68,8 @@ public class AccountServiceImpl implements AccountService {
         String plainPassword = account.getPassword();
         String hashedPassword = passwordEncoder.encode(plainPassword);
         account.setPassword(hashedPassword);
-        Role role = roleRepo.findByRnameContaining("USER");
-        account.setRoleId(role);
+        Role role = roleRepo.findByRname("ROLE_USER");
+        account.addRole(role);
         account = accountRepo.save(account);
         return account;
     }
