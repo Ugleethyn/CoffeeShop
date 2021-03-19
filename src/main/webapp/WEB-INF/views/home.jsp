@@ -21,12 +21,12 @@
 
         <!-- Start Navbar Area -->
         <div class="navbar-area">
+            
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
-
             </div>
 
             <!-- Menu For Desktop Device -->
@@ -73,7 +73,6 @@
 
         <div class="background">
 
-
             <!-- Page Content -->
             <div class="container">
 
@@ -110,10 +109,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
 

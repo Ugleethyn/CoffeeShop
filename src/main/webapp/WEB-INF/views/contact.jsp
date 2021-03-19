@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Quick Coffee - Contact us</title>
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,15 +19,14 @@
 
     <body>
 
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
+            
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
-
             </div>
 
             <!-- Menu For Desktop Device -->
@@ -71,7 +71,6 @@
 
         <div class="background">
 
-
             <div class="container section-ourTeam">
                 <div class="row">
                     <div class="col-md-12 ourTeam-hedding text-center">
@@ -102,7 +101,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 

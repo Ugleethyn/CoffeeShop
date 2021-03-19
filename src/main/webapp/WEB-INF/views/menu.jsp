@@ -19,9 +19,9 @@
 
     <body>
 
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
+            
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
@@ -71,10 +71,11 @@
             </div>
         </div>
         <!-- End Navbar Area -->
+        
         <div class="background">
+            
             <!-- Page Content -->
             <div class="container section-ourTeam">
-                <!-- /.row -->
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sticky filters">
@@ -98,13 +99,10 @@
                         </div>
                     </div>
 
-
                     <div class="col-md-9">
                         <section id="coffees">
-
                             <h1>Coffees</h1>
                             <div class="row mg-b-30">
-
                                 <c:forEach items="${coffeeTypes}" var = "coffeeType">
                                     <div class="col-sm-4">
                                         <div class="shop-item">
@@ -140,9 +138,8 @@
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <span class="close">&times;</span>
-                                <div class="formcoffe">
+                                <div class="formcoffee">
                                     <form action="${pageContext.request.contextPath}/login" method="GET">
-
                                         <div>
                                             <h5>Please select coffee size <span class="important">*</span></h5>
                                             <div class="funkyradio">
@@ -158,7 +155,7 @@
                                         <div>
                                             <h5>Please select coffee sugar <span class="important">*</span></h5>
                                             <div class="funkyradio">
-                                                <c:forEach items="${coffeSugar}" var = "sugar">
+                                                <c:forEach items="${coffeeSugar}" var = "sugar">
                                                     <div class="funkyradio funkyradio-warning ">
                                                         <input type="radio" name="sugar" id="${sugar.cname}" />
                                                         <label for="${sugar.cname}">${sugar.cname} </label>

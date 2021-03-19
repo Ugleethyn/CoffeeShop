@@ -21,6 +21,7 @@
 
         <!-- Start Navbar Area -->
         <div class="navbar-area">
+            
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
@@ -33,7 +34,7 @@
             <div class="main-nav navbr">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
-                        <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                        <a class="navbar-brand" href="${pageContext.request.contextPath}/user">
                             <img src="img/logo.png" alt="logo.png">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -45,10 +46,10 @@
                                     <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
+                                    <a href="${pageContext.request.contextPath}/user/about" class="nav-link">About us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
+                                    <a href="${pageContext.request.contextPath}/usercontact" class="nav-link">Contact</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/register" class="nav-link">Sign Up</a>
@@ -73,7 +74,6 @@
 
         <div class="background">
 
-
             <!-- Page Content -->
             <div class="container">
 
@@ -90,7 +90,7 @@
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Is time to drink a coffee? Order it now</p>
-                                    <a href="${pageContext.request.contextPath}/menu"><button class="button"><span>Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button"><span>Order </span></button></a>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -98,7 +98,7 @@
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Would you like to taste a snack? Order it now</p>
-                                    <a href="${pageContext.request.contextPath}/menu"><button class="button"><span>Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button"><span>Order </span></button></a>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -106,14 +106,12 @@
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Is time to drink a coffee? Order it now</p>
-                                    <a href="${pageContext.request.contextPath}/menu"><button class="button"><span>Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button"><span>Order </span></button></a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -124,11 +122,11 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
@@ -137,7 +135,7 @@
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>

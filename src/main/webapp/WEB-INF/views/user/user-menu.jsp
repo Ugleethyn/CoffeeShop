@@ -8,7 +8,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <title>Quick Coffee - Menu</title>
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
@@ -19,15 +21,13 @@
 
     <body>
 
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="${pageContext.request.contextPath}" class="logo">
+                <a href="${pageContext.request.contextPath}/user" class="logo">
                     <img src="../img/logo.png" alt="logo.png">
                 </a>
-
             </div>
 
             <!-- Menu For Desktop Device -->
@@ -71,10 +71,11 @@
             </div>
         </div>
         <!-- End Navbar Area -->
+        
         <div class="background">
+            
             <!-- Page Content -->
             <div class="container section-ourTeam">
-                <!-- /.row -->
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sticky filters">
@@ -98,7 +99,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-md-9">
                         <section id="coffees">
 
@@ -108,17 +108,16 @@
                                 <c:forEach items="${coffeeTypes}" var = "coffeeType">
                                     <div class="col-sm-4">
                                         <div class="shop-item">
-
                                             <div class="info hoveritem">
                                                 <div class="row">
                                                     <div class="price col-md-12">
-                                                        <h5><img src="../img/coffee.png" class="img-responsive" alt="a" /></h5>
+                                                        <h5><img src="../img/coffee.png" class="img-responsive" alt="Coffee" /></h5>
                                                     </div>
                                                     <div class="price col-md-12">
                                                         <h5>${coffeeType.pname}</h5>
                                                     </div>
                                                     <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color">€ ${coffeeType.baseprice}</h5>
+                                                        <h5 class="price-text-color"> € ${coffeeType.baseprice} </h5>
                                                     </div>
                                                 </div>
                                                 <div class="separator clear-left">
@@ -140,9 +139,8 @@
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <span class="close">&times;</span>
-                                <div class="formcoffe">
-                                    <form action="${pageContext.request.contextPath}/login" method="GET">
-
+                                <div class="formcoffee">
+                                    <form action="${pageContext.request.contextPath}/user/cart" method="GET">
                                         <div>
                                             <h5>Please select coffee size <span class="important">*</span></h5>
                                             <div class="funkyradio">
@@ -154,11 +152,11 @@
                                                 </c:forEach>
                                             </div>
                                         </div>
-
+                                        
                                         <div>
                                             <h5>Please select coffee sugar <span class="important">*</span></h5>
                                             <div class="funkyradio">
-                                                <c:forEach items="${coffeSugar}" var = "sugar">
+                                                <c:forEach items="${coffeeSugar}" var = "sugar">
                                                     <div class="funkyradio funkyradio-warning ">
                                                         <input type="radio" name="sugar" id="${sugar.cname}" />
                                                         <label for="${sugar.cname}">${sugar.cname} </label>
@@ -191,7 +189,6 @@
                             </div>
                         </div>
 
-
                         <section id="snacks">
                             <h1>Snacks</h1>
                             <div class="row mg-b-30">
@@ -203,21 +200,20 @@
                                             <div class="info hoveritem">
                                                 <div class="row">
                                                     <div class="price col-md-12">
-                                                        <h5> <img src="../img/snack.png" class="img-responsive" alt="a" /> </h5>
+                                                        <h5> <img src="../img/snack.png" class="img-responsive" alt="Snack" /> </h5>
                                                     </div>
                                                     <div class="price col-md-12">
                                                         <h5> ${snack.pname} </h5>
                                                     </div>
                                                     <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> €${snack.baseprice} </h5>
+                                                        <h5 class="price-text-color"> € ${snack.baseprice} </h5>
                                                     </div>
                                                 </div>
                                                 <div class="separator clear-left">
                                                     <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/login"
+                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/user/cart"
                                                                                               class="hidden-sm">Add to cart</a>
                                                     </p>
-
                                                     <p class="btn-quantity">
                                                         Quantity:
                                                         <input type="number" value="1" class="quantity" min="1">
@@ -238,25 +234,23 @@
                                 <c:forEach items="${drinkTypes}" var = "drink">
                                     <div class="col-sm-4">
                                         <div class="shop-item">
-
                                             <div class="info hoveritem">
                                                 <div class="row">
                                                     <div class="price col-md-12">
-                                                        <h5> <img src="../img/drink.png" class="img-responsive" alt="a" /> </h5>
+                                                        <h5> <img src="../img/drink.png" class="img-responsive" alt="Drink" /> </h5>
                                                     </div>
                                                     <div class="price col-md-12">
                                                         <h5> ${drink.pname} </h5>
                                                     </div>
                                                     <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> €${drink.baseprice} </h5>
+                                                        <h5 class="price-text-color"> € ${drink.baseprice} </h5>
                                                     </div>
                                                 </div>
                                                 <div class="separator clear-left">
                                                     <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/login"
+                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/user/cart"
                                                                                               class="hidden-sm">Add to cart</a>
                                                     </p>
-
                                                     <p class="btn-quantity">
                                                         Quantity:
                                                         <input type="number" value="1" class="quantity" min="1">
@@ -282,11 +276,11 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
@@ -295,7 +289,7 @@
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>

@@ -6,7 +6,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <title>Quick Coffee - About us</title>
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,23 +20,25 @@
     <body>
         <!-- Start Navbar Area -->
         <div class="navbar-area">
+            
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="../img/logo.png" alt="logo.png">
                 </a>
             </div>
+                    
             <!-- Menu For Desktop Device -->
             <div class="main-nav navbr">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
-                        <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                        <a class="navbar-brand" href="${pageContext.request.contextPath}/user">
                             <img src="../img/logo.png" alt="logo.png">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
+                                    <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
@@ -65,7 +69,6 @@
         <!-- End Navbar Area -->
 
         <div class="background">
-
 
             <div class="container section-ourTeam">
                 <div class="row">
@@ -135,11 +138,11 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/about" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="${pageContext.request.contextPath}/contact" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
@@ -148,7 +151,7 @@
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/payment" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>
