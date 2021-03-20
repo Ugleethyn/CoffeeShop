@@ -81,68 +81,76 @@
                                     <thead class="text-muted">
                                         <tr class="small text-uppercase">
                                             <th scope="col">Product</th>
-                                            <th scope="col" width="120">Quantity</th>
-                                            <th scope="col" width="120">Price</th>
-                                            <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                                            <th scope="col" width="120" class="headcolumns">Quantity</th>
+                                            <th scope="col" width="120" class=" headcolumns">Price</th>
+                                            <th scope="col" class="d-none d-md-block headcolumns" width="200"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td class="columns">
                                                 <figure class="itemside align-items-center">
                                                     <div class="aside"><img
-                                                            src="../img/coffee.png"
+                                                            src="img/coffee.png"
                                                             class="img-sm"></div>
                                                     <figcaption class="info"> <a href="#" class="title text-dark"
                                                                                  data-abc="true">Freddo Cappuccino</a>
                                                     </figcaption>
                                                 </figure>
                                             </td>
-                                            <td>
+                                            <td class="columns">
                                                 <input type="number" value="1" min="1" class="quantity">
-                                            <td>
+                                            </td>
+                                            <td class="columns">
                                                 <div class="price-wrap"> <var class="price">€01.80</var> </div>
                                             </td>
-                                            <td class="text-right d-none d-md-block"><a href="" class="btn btn-light"
-                                                                                        data-abc="true"> Remove</a> </td>
+                                            <td class="columns"> 
+                                                <a href=""
+                                                   class="btn btn-light btn-round remove" data-abc="true"> Remove</a> 
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="columns">
                                                 <figure class="itemside align-items-center">
                                                     <div class="aside"><img
-                                                            src="../img/drink.png"
+                                                            src="img/drink.png"
                                                             class="img-sm"></div>
                                                     <figcaption class="info"> <a href="#" class="title text-dark"
                                                                                  data-abc="true">Coca Colla 330 Ml</a>
                                                     </figcaption>
                                                 </figure>
                                             </td>
-                                            <td>
-                                                <input type="number" value="1" min="1" class="quantity"></td>
-                                            <td>
+                                            <td class="columns">
+                                                <input type="number" value="1" min="1" class="quantity">
+                                            </td>
+                                            <td class="columns">
                                                 <div class="price-wrap"> <var class="price">€02.00</var></div>
                                             </td>
-                                            <td class="text-right d-none d-md-block"> <a href=""
-                                                                                         class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
+                                            <td class="columns"> 
+                                                <a href=""
+                                                   class="btn btn-light btn-round remove" data-abc="true"> Remove</a>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="columns">
                                                 <figure class="itemside align-items-center">
                                                     <div class="aside"><img
-                                                            src="../img/coffee.png"
+                                                            src="img/coffee.png"
                                                             class="img-sm"></div>
                                                     <figcaption class="info"> <a href="#" class="title text-dark"
                                                                                  data-abc="true">Freddo Esspresso</a>
                                                     </figcaption>
                                                 </figure>
                                             </td>
-                                            <td>
+                                            <td class="columns">
                                                 <input type="number" value="1" min="1" class="quantity"></td>
-                                            <td>
+                                            <td class="columns">
                                                 <div class="price-wrap"> <var class="price">€01.70</var></div>
                                             </td>
-                                            <td class="text-right d-none d-md-block"><a href=""
-                                                                                        class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
+                                            <td class="columns"> 
+                                                <a href=""
+                                                   class="btn btn-light btn-round remove" data-abc="true"> Remove</a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
