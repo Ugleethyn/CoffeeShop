@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .mg-b-30 {
   margin-bottom: 30px;
 }
@@ -6,7 +14,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  padding-top: 150px;
+  padding-top: 50px;
   padding-bottom: 150px;
 }
 .shop-item {
@@ -164,9 +172,28 @@ div.filters {
 
 /******************************************************** HEADER **********************************************/
 
+.navbar-area {
+  padding: 0 13%;
+  background-color: #212529;
+  color: #ffffff;
+}
+
+.mean-bar {
+  background-color: #212529 !important;
+  width: 100% !important;
+}
+
 .navbr {
-  background-color: #222222;
-  height: 100px;
+  background-color: #212529;
+  height: 100%;
+  width: 100% !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .nav-item {
@@ -175,6 +202,10 @@ div.filters {
   align-items: center;
   margin-right: 15px;
   margin-left: 15px;
+}
+
+.nav-item:focus, .nav-link:focus {
+  color: #f4511e !important;
 }
 
 .active {
@@ -189,6 +220,24 @@ div.filters {
 .nav-link:hover {
   color: #f4511e !important;
 }
+
+#select {
+  position: absolute;
+  top: 35px;
+}
+
+.dropdown-item {
+  padding-top: 8px;
+}
+
+.dropdown-item:hover {
+  color: #f4511e !important;
+}
+
+.dropdown-menu {
+  padding: 0 !important;
+}
+
 /************************************************************ FOOTER *******************************************/
 .span-or {
   display: block;
@@ -247,6 +296,12 @@ footer.nb-footer .copyright p {
   max-width: 600px;
   height: 500px;
   background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#register-link {
+  margin-top: -50px;
 }
 
 .headertext {
@@ -415,6 +470,8 @@ footer.nb-footer .copyright p {
   font-size: 13px;
 }
 
+
+
 .container-fluid {
   margin-top: 70px;
 }
@@ -578,8 +635,26 @@ a {
   font-size: 20px;
   width: 100%;
 }
+
 @media (max-width: 990px) {
+  .navbar-area {
+    padding: 0 5%;
+  }
   .nav-link {
     left: 0%;
+    color: #212519 !important;
+    height: 100% !important;
+    width: 85% !important;
+  }
+  .mean-bar{
+    height: 100% !important;
+  }
+
+  .navbar-area {
+    height: 56px !important;
+  }
+
+  .active {
+    color: #f4511e !important;
   }
 }

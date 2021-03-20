@@ -30,9 +30,7 @@
             </div>
 
             <!-- Menu For Desktop Device -->
-            <div class="main-nav navbr">
-                <div class="container">
-                    <nav class="navbar navbar-expand-md navbar-light ">
+                    <nav class="navbar navbar-expand-lg navbar-light ">
                         <a class="navbar-brand" href="${pageContext.request.contextPath}">
                             <img src="img/logo.png" alt="logo.png">
                         </a>
@@ -67,8 +65,6 @@
                         </div>
                     </nav>
                 </div>
-            </div>
-        </div>
         <!-- End Navbar Area -->
 
         <div class="background">

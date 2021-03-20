@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,9 +26,7 @@
                 </a>
             </div>
             <!-- Menu For Desktop Device -->
-            <div class="main-nav navbr">
-                <div class="container">
-                    <nav class="navbar navbar-expand-md navbar-light ">
+                    <nav class="navbar navbar-expand-lg navbar-light ">
                         <a class="navbar-brand" href="${pageContext.request.contextPath}">
                             <img src="img/logo.png" alt="logo.png">
                         </a>
@@ -62,8 +61,6 @@
                         </div>
                     </nav>
                 </div>
-            </div>
-        </div>
         <!-- End Navbar Area -->
 
         <div class="background">
@@ -75,40 +72,53 @@
                         <div id="login-row" class="row justify-content-center align-items-center">
                             <div id="login-column" class="col-md-6">
                                 <div id="register" class="col-md-12 ">
-                                    <form id="login-form" class="form" action="" method="post">
+                                    <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
                                         <h3 class="text-center headertext">Register</h3>
+                                        
                                         <div class="form-group">
+                                            <label for="email" class="text-info">E-mail:</label><br>
+                                            <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" />
+                                                <form:errors></form:errors>
+                                        </div>
+                                        <div class="form-group float">
                                             <label for="username" class="text-info">Username:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="text-info">E-mail:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
+                                            <form:input path="username" id="username" class="form-control" placeholder="Username *" />
+                                                <form:errors>Invalid Username</form:errors>
                                         </div>
                                         <div class="form-group float">
-                                            <label for="username" class="text-info">First Name:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
+                                            <label for="tel" class="text-info">Tel:</label><br>
+                                            <form:input path="tel" id="tel" class="form-control" placeholder="tel number *" value="" />
+                                                <form:errors></form:errors>
                                         </div>
                                         <div class="form-group float">
-                                            <label for="username" class="text-info">Last Name:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
+                                            <label for="firstname" class="text-info">First Name:</label><br>
+                                            <form:input path="firstname" id="firstname"  class="form-control" placeholder="First Name *" />
+                                                <form:errors></form:errors>
+                                        </div>
+                                        
+                                        <div class="form-group float">
+                                            <label for="lastname" class="text-info">Last Name:</label><br>
+                                            <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" />
+                                                <form:errors></form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="password" class="text-info">Password:</label><br>
-                                            <input type="text" name="password" id="password" class="form-control">
+                                            <form:password path="password" id="password"  class="form-control" placeholder="Your password *" />
+                                                <form:errors></form:errors>
                                         </div>
                                         <div class="form-group float">
-                                            <label for="password" class="text-info">Repeat Password:</label><br>
-                                            <input type="text" name="password" id="password" class="form-control">
+                                            <label for="password1" class="text-info">Repeat Password:</label><br>
+                                            <form:password path="password" id="password1"  class="form-control" placeholder="Your password *" />
+                                                <form:errors></form:errors>
                                         </div>
                                         <div class="form-group">
-                                            <a href="menu.html"><button class="button lgnbtn"><span>Register
+                                            <a><button type="submit" class="button lgnbtn"><span>Register
                                                     </span></button></a>
                                         </div>
                                         <div id="register-link" class="text-right">
                                             <a href="${pageContext.request.contextPath}/login" class="text-info">Login here</a>
                                         </div>
-                                    </form>
+                                    </form:form>
                                 </div>
                             </div>
                         </div>
