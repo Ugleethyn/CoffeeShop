@@ -141,7 +141,7 @@
                                             <div class="funkyradio">
                                                 <c:forEach items="${coffeeSizes}" var = "coffeeSize">
                                                     <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="size" id="${coffeeSize.cname}"/>
+                                                        <input type="radio" name="size" id="${coffeeSize.cname}" class="sizes" />
                                                         <label for="${coffeeSize.cname}">${coffeeSize.cname}</label>
                                                     </div>
                                                 </c:forEach>
@@ -153,7 +153,7 @@
                                             <div class="funkyradio">
                                                 <c:forEach items="${coffeeSugar}" var = "sugar">
                                                     <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="${sugar.cname}" />
+                                                        <input type="radio" name="sugar" id="${sugar.cname}" class="sugars" />
                                                         <label for="${sugar.cname}">${sugar.cname} </label>
                                                     </div>
                                                 </c:forEach>
