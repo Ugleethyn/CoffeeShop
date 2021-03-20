@@ -70,8 +70,9 @@ public class Account implements Serializable {
     private String email;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 10, max = 10)
     @Column(name = "tel")
-    private int tel;
+    private String tel;
     @JoinTable(name = "account_has_role", joinColumns = {
         @JoinColumn(name = "account_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "role_id", referencedColumnName = "id")})
@@ -89,7 +90,7 @@ public class Account implements Serializable {
         this.id = id;
     }
 
-    public Account(Integer id, String firstname, String lastname, String username, String password, String email, int tel) {
+    public Account(Integer id, String firstname, String lastname, String username, String password, String email, String tel) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -163,11 +164,11 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 

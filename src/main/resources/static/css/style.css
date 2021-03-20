@@ -333,6 +333,10 @@ footer.nb-footer .copyright p {
   padding: 10px;
   font-size: 20px;
 }
+
+#registermsg{
+    margin: 0 !important;
+}
 /***************************************************CONTAINER ***********************************/
 .carousel-caption {
   position: sticky;
