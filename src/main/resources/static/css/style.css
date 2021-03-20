@@ -685,7 +685,7 @@ a {
     width: 65px;
   }
   .quantity{
-    margin-top: 0;
+    margin-top: 5px;
   }
   .table td a {
     margin-top: 0;
@@ -694,7 +694,7 @@ a {
     width: 68px;
   }
   .price {
-    margin-top: 0;
+    margin-top: 5px;
     width: 65px;
   }
   .headcolumns {
