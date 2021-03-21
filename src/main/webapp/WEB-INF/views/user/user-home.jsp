@@ -9,10 +9,9 @@
 
         <title>Quick Coffee</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="img/logo.png" type="image/png">
     </head>
@@ -47,7 +46,7 @@
                             <a href="${pageContext.request.contextPath}/user/about" class="nav-link">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/usercontact" class="nav-link">Contact</a>
+                            <a href="${pageContext.request.contextPath}/user/contact" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
