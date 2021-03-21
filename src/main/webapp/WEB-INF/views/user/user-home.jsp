@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
-        <link href="..css/style.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="..img/logo.png" type="image/png">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link rel="icon" href="img/logo.png" type="image/png">
     </head>
 
     <body>
