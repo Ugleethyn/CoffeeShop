@@ -20,10 +20,9 @@
 
         <!-- Start Navbar Area -->
         <div class="navbar-area">
-
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="${pageContext.request.contextPath}" class="logo">
+                <a href="${pageContext.request.contextPath}/user" class="logo">
                     <img src="../img/logo.png" alt="logo.png">
                 </a>
             </div>
@@ -36,16 +35,16 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
+                            <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
+                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
+                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/contact" class="nav-link active">Contact</a>
+                            <a href="${pageContext.request.contextPath}/user/contact" class="nav-link active">Contact</a>
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,8 +57,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            <a href="${pageContext.request.contextPath}/user/cart" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                                                         height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                 </svg> Cart</a>
                         </li>
                     </ul>
