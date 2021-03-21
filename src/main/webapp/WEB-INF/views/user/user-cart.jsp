@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Quick Coffee - Cart</title>
+        
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
@@ -22,14 +23,14 @@
 
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="${pageContext.request.contextPath}" class="logo">
+                <a href="${pageContext.request.contextPath}/user" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
             </div>
 
             <!-- Menu For Desktop Device -->
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/user">
                     <img src="../img/logo.png" alt="logo.png">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -51,9 +52,9 @@
                                 My Profile
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/settings">Settings</a>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/history">Order History</a>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Logout</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/history">Order History</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/logout">Logout</a>
                             </div>
                         </li>
                         <li class="nav-item">

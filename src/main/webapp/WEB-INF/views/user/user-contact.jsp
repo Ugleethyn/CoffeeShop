@@ -29,7 +29,7 @@
 
             <!-- Menu For Desktop Device -->
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/user">
                     <img src="../img/logo.png" alt="logo.png">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -51,8 +51,8 @@
                                 My Profile
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/settings">Settings</a>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/history">Order History</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/history">Order History</a>
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Logout</a>
                             </div>
                         </li>

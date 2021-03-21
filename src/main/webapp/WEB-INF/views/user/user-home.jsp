@@ -23,7 +23,7 @@
 
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="${pageContext.request.contextPath}" class="logo">
+                <a href="${pageContext.request.contextPath}/user" class="logo">
                     <img src="img/logo.png" alt="logo.png">
                 </a>
 
@@ -53,8 +53,8 @@
                                 My Profile
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/settings">Settings</a>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/history">Order History</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/history">Order History</a>
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Logout</a>
                             </div>
                         </li>
