@@ -41,13 +41,13 @@
                             <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/menu" class="nav-link active">Catalog</a>
+                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link active">Catalog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/about" class="nav-link ">About us</a>
+                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link ">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
+                            <a href="${pageContext.request.contextPath}/user/contact" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
