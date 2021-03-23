@@ -12,8 +12,8 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="img/logo.png" type="image/png">
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
 
     <body>
@@ -24,7 +24,7 @@
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}/user" class="logo">
-                    <img src="img/logo.png" alt="logo.png">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
 
             </div>
@@ -85,7 +85,7 @@
                         </ol>
                         <div class="carousel-inner carouselindex">
                             <div class="carousel-item active">
-                                <img src="img/coffeebg.jpg" class="d-block w-100" alt="...">
+                                <img src="${pageContext.request.contextPath}/img/coffeebg.jpg" class="d-block w-100" alt="...">
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Is time to drink a coffee? Order it now</p>
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="img/snackbg.jpg" class="d-block w-100" alt="...">
+                                <img src="${pageContext.request.contextPath}/img/snackbg.jpg" class="d-block w-100" alt="...">
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Would you like to taste a snack? Order it now</p>
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="img/shopbg.jpg" class="d-block w-100" alt="...">
+                                <img src="${pageContext.request.contextPath}/img/shopbg.jpg" class="d-block w-100" alt="...">
                                 <div class="carousel-caption">
                                     <h2>Welcome to our cafeteria!</h2>
                                     <p>Is time to drink a coffee? Order it now</p>
@@ -165,7 +165,7 @@
         </footer>
 
         <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-        <script src="../js/script.js"></script>
+        <script src="${pageContext.request.contextPath}/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

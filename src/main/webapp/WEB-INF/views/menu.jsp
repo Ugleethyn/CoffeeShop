@@ -12,8 +12,8 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
-        <link href="css/style.css" type="text/css" rel="stylesheet">
-        <link rel="icon" href="img/logo.png" type="image/png">
+        <link href="${pageContext.request.contextPath}/css/style.css" type="text/css" rel="stylesheet">
+        <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
 
     <body>
@@ -24,7 +24,7 @@
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
-                    <img src="img/logo.png" alt="logo.png">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
 
             </div>
@@ -32,7 +32,7 @@
             <!-- Menu For Desktop Device -->
                     <nav class="navbar navbar-expand-lg navbar-light ">
                         <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                            <img src="img/logo.png" alt="logo.png">
+                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
@@ -105,7 +105,7 @@
                                             <div class="info hoveritem">
                                                 <div class="row">
                                                     <div class="price col-md-12">
-                                                        <h5><img src="img/coffee.png" class="img-responsive" alt="a" /></h5>
+                                                        <h5><img src="${pageContext.request.contextPath}/img/coffee.png" class="img-responsive" alt="a" /></h5>
                                                     </div>
                                                     <div class="price col-md-12">
                                                         <h5>${coffeeType.pname}</h5>
@@ -317,7 +317,7 @@
                 </div>
         </footer>
 
-        <script src="js/script.js"></script>
+        <script src="${pageContext.request.contextPath}/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
