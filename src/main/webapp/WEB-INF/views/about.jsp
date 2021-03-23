@@ -10,8 +10,8 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="icon" href="img/logo.png" type="image/png">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/img/logo.png" >
     </head>
 
     <body>
