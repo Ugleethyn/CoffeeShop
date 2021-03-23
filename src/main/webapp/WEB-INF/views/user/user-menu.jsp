@@ -141,6 +141,7 @@
                                     <form action="${pageContext.request.contextPath}/user/cart" method="GET">
                                         <div>
                                             <h5>Please select coffee size <span class="important">*</span></h5>
+                                            
                                             <div class="funkyradio">
                                                 <c:forEach items="${coffeeSizes}" var = "coffeeSize">
                                                     <div class="funkyradio funkyradio-warning ">

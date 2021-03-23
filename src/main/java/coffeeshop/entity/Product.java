@@ -45,8 +45,19 @@ public class Product implements Serializable {
     @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatA catAId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Product() {
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Product(Integer id) {
@@ -117,5 +128,5 @@ public class Product implements Serializable {
     public String toString() {
         return "coffeeshop.entity.Product[ id=" + id + " ]";
     }
-    
+
 }
