@@ -148,6 +148,7 @@
                                                         <label for="${coffeeSize.cname}">${coffeeSize.cname}</label>
                                                     </div>
                                                 </c:forEach>
+                                       
                                             </div>
                                         </div>
 
