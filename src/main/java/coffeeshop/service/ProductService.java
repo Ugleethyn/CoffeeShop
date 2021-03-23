@@ -10,4 +10,6 @@ public interface ProductService {
     public List<Product> findAllDrinks();
 
     public List<Product> findAllSnacks();
+
+    public Product findById(int id);
 }
