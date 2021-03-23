@@ -11,7 +11,11 @@
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+<<<<<<< HEAD
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
+=======
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/img/logo.png" >
+>>>>>>> 98bd9fe4f3b9a93de1f132b80dee3c49d1e8d220
     </head>
 
     <body>
