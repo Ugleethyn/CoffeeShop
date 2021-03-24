@@ -2,11 +2,14 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -74,11 +77,14 @@ public class Account implements Serializable {
     @Size(min = 10, max = 10)
     @Column(name = "tel")
     private String tel;
-    @JoinTable(name = "account_has_role", joinColumns = {
-        @JoinColumn(name = "account_id", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "role_id", referencedColumnName = "id")})
-    @ManyToMany
-    private List<Role> roles;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "account_has_role",
+            joinColumns = @JoinColumn(name = "account_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet();
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
     private List<Address> addressList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
@@ -102,17 +108,17 @@ public class Account implements Serializable {
     }
 
     @XmlTransient
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
     public void addRole(Role role) {
         if (roles == null) {
-            roles = new ArrayList();
+            roles = new HashSet();
         }
         roles.add(role);
     }

@@ -1,23 +1,26 @@
 package coffeeshop;
 
 import coffeeshop.service.AccountService;
+import coffeeshop.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private AccountService accountService;
-
+    @Bean
+    public UserDetailsService userDetailsService(){
+        return new UserDetailsServiceImpl();
+    }
+    
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
@@ -25,8 +28,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
+        http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/user/*").authenticated()
@@ -41,6 +43,8 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .permitAll()
                 .and()
+                .rememberMe().key("AbcdefgHiJKLmnOpqrsut0123456789")
+                .and()
                 .exceptionHandling()
                 .accessDeniedPage("/access-denied");
     }
@@ -48,7 +52,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(accountService);
+        provider.setUserDetailsService(userDetailsService());
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
