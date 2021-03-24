@@ -44,6 +44,7 @@ public class MyWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .rememberMe().key("AbcdefgHiJKLmnOpqrsut0123456789")
+                .tokenValiditySeconds(3 *24 * 60 * 60)
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/access-denied");

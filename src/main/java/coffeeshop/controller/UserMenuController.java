@@ -1,12 +1,15 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.Category;
+import coffeeshop.entity.MyUserDetails;
 import coffeeshop.entity.Product;
 import coffeeshop.service.CategoryService;
 import coffeeshop.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,17 +58,9 @@ public class UserMenuController {
         return "user/user-menu";
     }
     
-//
-//    @RequestMapping
-//    public ModelAndView showTrainers(ModelAndView modelAndView) {
-//        modelAndView.addObject("coffeeTypes", productService.findAllCoffees());
-//        modelAndView.addObject("snackTypes", productService.findAllSnacks());
-//        modelAndView.addObject("drinkTypes", productService.findAllDrinks());
-//        modelAndView.addObject("ingredients", categoryService.findAllIngredients());
-//        modelAndView.addObject("coffeeSizes", categoryService.findAllSizes());
-//        modelAndView.addObject("coffeeSugar", categoryService.findAllSugars());
-//        modelAndView.setViewName("user/user-menu");
-//        return modelAndView;
-//    }
+  @ModelAttribute("user")
+    public MyUserDetails fakes (@AuthenticationPrincipal MyUserDetails user){
+        return user;
+    }
 
 }

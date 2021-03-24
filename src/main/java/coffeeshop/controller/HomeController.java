@@ -2,6 +2,7 @@ package coffeeshop.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -14,22 +15,38 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home() {
-        return "home";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "home";
+        }
+        return "redirect:/user";
     }
 
     @RequestMapping("/about")
     public String about() {
-        return "about";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "about";
+        }
+        return "redirect:/user";
     }
 
     @RequestMapping("/contact")
     public String contact() {
-        return "contact";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "contact";
+        }
+        return "redirect:/user";
     }
 
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "login";
+        }
+        return "redirect:/user";
     }
 
     @RequestMapping("/cart")
