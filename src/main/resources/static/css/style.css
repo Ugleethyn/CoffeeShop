@@ -290,15 +290,15 @@ footer.nb-footer .copyright p {
 /**************************************************** LOGIN & REFISTER FORM /****************************************************/
 #login .container #login-row #login-column #login-box {
   max-width: 600px;
-  height: 320px;
+  height: 340px;
   background-color: #fff;
 }
 #register {
   max-width: 600px;
-  height: 500px;
+  height: 480px;
   background-color: #fff;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 0;
 }
 
 #register-link {
