@@ -45,20 +45,20 @@ public class Product implements Serializable {
     @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatA catAId;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+//    @ManyToOne
+//    @JoinColumn(name = "product_id")
+//    private Category category;
 
     public Product() {
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 
     public Product(Integer id) {
         this.id = id;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coffeeshop.controller;
 
 import coffeeshop.entity.Item;
@@ -17,14 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- *
-<<<<<<< HEAD
- * @author Maria
-=======
- * @author Ugleethyn
->>>>>>> d8218a8742a24d03653bc8337d0140b72023a601
- */
 @Controller
 @RequestMapping("user/cart")
 public class CartController {
