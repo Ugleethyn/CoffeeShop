@@ -1,13 +1,15 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,11 +31,20 @@ public class OrderDetails implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
+
     @Column(name = "quantity")
     private Integer quantity;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "unitprice")
-    private BigDecimal unitprice;
+    private float unitprice;
 
     public OrderDetails() {
     }
@@ -50,6 +61,22 @@ public class OrderDetails implements Serializable {
         this.id = id;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
@@ -58,11 +85,11 @@ public class OrderDetails implements Serializable {
         this.quantity = quantity;
     }
 
-    public BigDecimal getUnitprice() {
+    public float getUnitprice() {
         return unitprice;
     }
 
-    public void setUnitprice(BigDecimal unitprice) {
+    public void setUnitprice(float unitprice) {
         this.unitprice = unitprice;
     }
 
@@ -90,5 +117,5 @@ public class OrderDetails implements Serializable {
     public String toString() {
         return "coffeeshop.entity.OrderDetails[ id=" + id + " ]";
     }
-    
+
 }

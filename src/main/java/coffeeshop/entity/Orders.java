@@ -1,11 +1,11 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,11 +41,16 @@ public class Orders implements Serializable {
     private Date odate;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "orderprice")
-    private BigDecimal orderprice;
+    private float orderprice;
     @Size(max = 150)
     @Column(name = "comments")
     private String comments;
-    @JoinColumn(name = "Account_id", referencedColumnName = "id")
+    
+@JoinColumn(name = "Order_Details_id",  referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private OrderDetails orderDetails;
+
+@JoinColumn(name = "Account_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Account accountid;
     @JoinColumn(name = "Address_id", referencedColumnName = "id")
@@ -81,11 +86,11 @@ public class Orders implements Serializable {
         this.odate = odate;
     }
 
-    public BigDecimal getOrderprice() {
+    public float getOrderprice() {
         return orderprice;
     }
 
-    public void setOrderprice(BigDecimal orderprice) {
+    public void setOrderprice(float orderprice) {
         this.orderprice = orderprice;
     }
 
@@ -153,5 +158,5 @@ public class Orders implements Serializable {
     public String toString() {
         return "coffeeshop.entity.Orders[ id=" + id + " ]";
     }
-    
+
 }
