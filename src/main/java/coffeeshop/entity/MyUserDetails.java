@@ -21,6 +21,10 @@ public class MyUserDetails implements UserDetails {
 
     private Account account;
 
+    public Account getAccount() {
+        return account;
+    }
+
     public MyUserDetails(Account account) {
         this.account = account;
     }
@@ -29,7 +33,7 @@ public class MyUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Role> roles = account.getRoles();
         List<SimpleGrantedAuthority> authoroties = new ArrayList();
-        for(Role role : roles){
+        for (Role role : roles) {
             authoroties.add(new SimpleGrantedAuthority(role.getRname()));
         }
         return authoroties;

@@ -1,7 +1,10 @@
 package coffeeshop.controller;
 
+import coffeeshop.entity.MyUserDetails;
+import coffeeshop.service.AccountService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,12 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomeController {
 
+    @Autowired
+    AccountService accountService;
+
     @RequestMapping("/")
     public String home() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "home";
         }
+        if( "giorgos".equals( accountService.getCurrentlyLoggedInAccount(authentication).getUsername())){
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>true");
+        }else{
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>false");
+        }
+        
         return "redirect:/user";
     }
 
@@ -28,7 +40,7 @@ public class HomeController {
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "about";
         }
-        return "redirect:/user";
+        return "redirect:/user/about";
     }
 
     @RequestMapping("/contact")
@@ -37,7 +49,7 @@ public class HomeController {
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "contact";
         }
-        return "redirect:/user";
+        return "redirect:/user/contact";
     }
 
     @RequestMapping("/login")
