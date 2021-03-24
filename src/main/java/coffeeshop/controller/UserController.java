@@ -23,16 +23,6 @@ public class UserController {
         return "user/user-contact";
     }
 
-    @RequestMapping("/cart")
-    public String cart() {
-        return "user/user-cart";
-    }
-
-    @RequestMapping("/checkout")
-    public String checkout() {
-        return "user/user-checkout";
-    }
-
     @RequestMapping("/payment")
     public String payment() {
         return "user/user-payment";

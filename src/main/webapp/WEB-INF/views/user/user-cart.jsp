@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Quick Coffee - Cart</title>
-        
+
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
@@ -59,7 +61,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/cart" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                           height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                                                                                                height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                 </svg> Cart</a>
@@ -87,71 +89,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="columns">
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img
-                                                            src="img/coffee.png"
-                                                            class="img-sm"></div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                 data-abc="true">Freddo Cappuccino</a>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td class="columns">
-                                                <input type="number" value="1" min="1" class="quantity">
-                                            </td>
-                                            <td class="columns">
-                                                <div class="price-wrap"> <var class="price">€01.80</var> </div>
-                                            </td>
-                                            <td class="columns"> 
-                                                <a href=""
-                                                   class="btn btn-light btn-round remove" data-abc="true"> Remove</a> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="columns">
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img
-                                                            src="img/drink.png"
-                                                            class="img-sm"></div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                 data-abc="true">Coca Colla 330 Ml</a>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td class="columns">
-                                                <input type="number" value="1" min="1" class="quantity">
-                                            </td>
-                                            <td class="columns">
-                                                <div class="price-wrap"> <var class="price">€02.00</var></div>
-                                            </td>
-                                            <td class="columns"> 
-                                                <a href=""
-                                                   class="btn btn-light btn-round remove" data-abc="true"> Remove</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="columns">
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img
-                                                            src="img/coffee.png"
-                                                            class="img-sm"></div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                 data-abc="true">Freddo Esspresso</a>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td class="columns">
-                                                <input type="number" value="1" min="1" class="quantity"></td>
-                                            <td class="columns">
-                                                <div class="price-wrap"> <var class="price">€01.70</var></div>
-                                            </td>
-                                            <td class="columns"> 
-                                                <a href=""
-                                                   class="btn btn-light btn-round remove" data-abc="true"> Remove</a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach items="${cartItems}" var = "cartItem">
+                                            <tr>
+                                                <td class="columns">
+                                                    <figure class="itemside align-items-center">
+                                                        <div class="aside"><img
+                                                                src="img/coffee.png"
+                                                                class="img-sm"></div>
+                                                        <figcaption class="info"> <a href="#" class="title text-dark"
+                                                                                     data-abc="true">${cartItem.product.pname}</a>
+                                                        </figcaption>
+                                                    </figure>
+                                                </td>
+                                                <td class="columns">
+                                                    <input type="number" value="${cartItem.quantity}" min="1" class="quantity">
+                                                </td>
+                                                <td class="columns">
+                                                    <div class="price-wrap"> <var class="price">${cartItem.product.baseprice}</var> </div>
+                                                </td>
+                                                <td class="columns"> 
+                                                    <a href=""
+                                                       class="btn btn-light btn-round remove" data-abc="true"> Remove</a> 
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

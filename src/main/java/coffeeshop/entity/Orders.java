@@ -45,12 +45,12 @@ public class Orders implements Serializable {
     @Size(max = 150)
     @Column(name = "comments")
     private String comments;
-    
-@JoinColumn(name = "Order_Details_id",  referencedColumnName = "id")
+
+    @JoinColumn(name = "Order_Details_id", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
     private OrderDetails orderDetails;
 
-@JoinColumn(name = "Account_id", referencedColumnName = "id")
+    @JoinColumn(name = "Account_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Account accountid;
     @JoinColumn(name = "Address_id", referencedColumnName = "id")
@@ -68,6 +68,14 @@ public class Orders implements Serializable {
 
     public Orders(Integer id) {
         this.id = id;
+    }
+
+    public OrderDetails getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(OrderDetails orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
     public Integer getId() {

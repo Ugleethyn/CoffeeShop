@@ -21,8 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "OrderDetails.findAll", query = "SELECT o FROM OrderDetails o")
     , @NamedQuery(name = "OrderDetails.findById", query = "SELECT o FROM OrderDetails o WHERE o.id = :id")
-    , @NamedQuery(name = "OrderDetails.findByQuantity", query = "SELECT o FROM OrderDetails o WHERE o.quantity = :quantity")
-    , @NamedQuery(name = "OrderDetails.findByUnitprice", query = "SELECT o FROM OrderDetails o WHERE o.unitprice = :unitprice")})
+    , @NamedQuery(name = "OrderDetails.findByQuantity", query = "SELECT o FROM OrderDetails o WHERE o.quantity = :quantity")})
 public class OrderDetails implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,9 +41,6 @@ public class OrderDetails implements Serializable {
 
     @Column(name = "quantity")
     private Integer quantity;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "unitprice")
-    private float unitprice;
 
     public OrderDetails() {
     }
@@ -83,14 +79,6 @@ public class OrderDetails implements Serializable {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    public float getUnitprice() {
-        return unitprice;
-    }
-
-    public void setUnitprice(float unitprice) {
-        this.unitprice = unitprice;
     }
 
     @Override

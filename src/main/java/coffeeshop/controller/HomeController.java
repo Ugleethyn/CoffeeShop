@@ -25,12 +25,6 @@ public class HomeController {
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "home";
         }
-        if( "giorgos".equals( accountService.getCurrentlyLoggedInAccount(authentication).getUsername())){
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>true");
-        }else{
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>false");
-        }
-        
         return "redirect:/user";
     }
 
@@ -60,12 +54,7 @@ public class HomeController {
         }
         return "redirect:/user";
     }
-
-    @RequestMapping("/cart")
-    public String cart() {
-        return "cart";
-    }
-
+    
     @RequestMapping("/checkout")
     public String checkout() {
         return "checkout";

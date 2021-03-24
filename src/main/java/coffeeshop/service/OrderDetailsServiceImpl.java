@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class CartServiceImpl implements CartService{
-    
+public class OrderDetailsServiceImpl implements OrderDetailsService {
+
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
 

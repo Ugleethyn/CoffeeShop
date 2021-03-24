@@ -4,7 +4,7 @@ import coffeeshop.entity.Account;
 import coffeeshop.entity.OrderDetails;
 import java.util.List;
 
-public interface CartService {
+public interface OrderDetailsService {
     
      public List<OrderDetails> listOfItems(Account account);
      
