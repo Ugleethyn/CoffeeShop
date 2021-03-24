@@ -13,7 +13,7 @@ public class AuthenticationController {
 
     @GetMapping("/access-denied")
     public String showAccessDeniedPage() {
-        return "access-denied";
+        return "/user/user-home";
     }
 
 }
