@@ -36,8 +36,8 @@ public class OrderDetails implements Serializable {
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
-    private Account account;
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Orders order;
 
     @Column(name = "quantity")
     private Integer quantity;
@@ -65,12 +65,12 @@ public class OrderDetails implements Serializable {
         this.product = product;
     }
 
-    public Account getAccount() {
-        return account;
+    public Orders getOrder() {
+        return order;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setOrder(Orders order) {
+        this.order = order;
     }
 
     public Integer getQuantity() {

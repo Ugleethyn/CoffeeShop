@@ -2,11 +2,12 @@ package coffeeshop.service;
 
 import coffeeshop.entity.Account;
 import coffeeshop.entity.OrderDetails;
+import coffeeshop.entity.Orders;
 import java.util.List;
 
 public interface OrderDetailsService {
     
-     public List<OrderDetails> listOfItems(Account account);
+     List<OrderDetails> getOrderDetailsByOrder(Orders order);
      
      
 }

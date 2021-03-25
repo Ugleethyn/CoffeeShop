@@ -2,7 +2,10 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -45,6 +49,10 @@ public class Product implements Serializable {
     @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatA catAId;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<OrderDetails> orderDetails;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<ProductHasCategory> catprod;
 //    @ManyToOne
 //    @JoinColumn(name = "product_id")
 //    private Category category;
@@ -103,6 +111,24 @@ public class Product implements Serializable {
     public void setCatAId(CatA catAId) {
         this.catAId = catAId;
     }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public List<ProductHasCategory> getCatprod() {
+        return catprod;
+    }
+
+    public void setCatprod(List<ProductHasCategory> catprod) {
+        this.catprod = catprod;
+    }
+    
+    
 
     @Override
     public int hashCode() {

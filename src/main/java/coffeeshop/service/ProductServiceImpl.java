@@ -33,5 +33,10 @@ public class ProductServiceImpl implements ProductService {
         optionalProduct = Optional.of(product);
         return product;
     }
+    
+    @Override
+    public Product save(Product product) {
+        return productRepo.save(product);
+    }
 
 }

@@ -1,11 +1,11 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,18 +39,15 @@ public class Orders implements Serializable {
     private Integer id;
     @Column(name = "odate")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date odate;
+    private LocalDate dateCreated;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "orderprice")
     private float orderprice;
     @Size(max = 150)
     @Column(name = "comments")
     private String comments;
-
-    @JoinColumn(name = "Order_Details_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private OrderDetails orderDetails;
-
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetails> orderDetails;
     @JoinColumn(name = "Account_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Account accountid;
@@ -70,13 +68,6 @@ public class Orders implements Serializable {
         this.id = id;
     }
 
-    public OrderDetails getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(OrderDetails orderDetails) {
-        this.orderDetails = orderDetails;
-    }
 
     public Integer getId() {
         return id;
@@ -86,12 +77,12 @@ public class Orders implements Serializable {
         this.id = id;
     }
 
-    public Date getOdate() {
-        return odate;
+    public LocalDate getDateCreated() {
+        return dateCreated;
     }
 
-    public void setOdate(Date odate) {
-        this.odate = odate;
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public float getOrderprice() {

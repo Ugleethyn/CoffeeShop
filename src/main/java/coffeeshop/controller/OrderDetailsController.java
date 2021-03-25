@@ -7,8 +7,10 @@ package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
 import coffeeshop.entity.OrderDetails;
+import coffeeshop.entity.Orders;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.OrderDetailsService;
+import coffeeshop.service.OrderService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -31,12 +33,15 @@ public class OrderDetailsController {
 
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/cart")
     public String showCart(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Account account = accountService.getCurrentlyLoggedInAccount(authentication);
-        List<OrderDetails> cartItems = orderDetailsService.listOfItems(account);
+        Orders order = orderService.create(order);
+        List<OrderDetails> cartItems = orderDetailsService.getOrderDetailsByOrder(order);
         model.addAttribute("cartItems", cartItems);
         return "user/user-cart";
     }

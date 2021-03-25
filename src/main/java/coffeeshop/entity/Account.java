@@ -49,33 +49,33 @@ public class Account implements Serializable {
     @Basic(optional = false)
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 20)
-    @Column(name = "firstname")
+    @Column(name = "firstname", nullable = false)
     private String firstname;
     @Basic(optional = false)
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 20)
-    @Column(name = "lastname")
+    @Column(name = "lastname", nullable = false)
     private String lastname;
     @Basic(optional = false)
     @NotBlank(message = "Userame is mandatory")
     @Size(min = 1, max = 20)
-    @Column(name = "username")
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
     @Basic(optional = false)
     @NotBlank(message = "Password is mandatory")
     @Size(min = 1, max = 68)
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotBlank(message = "Email is mandatory")
     @Size(min = 1, max = 40)
-    @Column(name = "email")
+    @Column(name = "email", nullable = false,unique = true)
     private String email;
     @Basic(optional = false)
     @NotBlank(message = "Tel. is mandatory")
     @Size(min = 10, max = 10)
-    @Column(name = "tel")
+    @Column(name = "tel", nullable = false)
     private String tel;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -85,10 +85,10 @@ public class Account implements Serializable {
     )
     private Set<Role> roles = new HashSet();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
-    private List<Address> addressList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
-    private List<Orders> ordersList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
+    private List<Address> addresses;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
+    private List<Orders> orders;
 
     public Account() {
     }
@@ -180,21 +180,21 @@ public class Account implements Serializable {
     }
 
     @XmlTransient
-    public List<Address> getAddressList() {
-        return addressList;
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
-    public void setAddressList(List<Address> addressList) {
-        this.addressList = addressList;
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
     @XmlTransient
-    public List<Orders> getOrdersList() {
-        return ordersList;
+    public List<Orders> getOrders() {
+        return orders;
     }
 
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 
     @Override
