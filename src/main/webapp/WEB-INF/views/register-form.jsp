@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label for="email" class="text-info">E-mail:</label><br>
                                             <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" />
-                                                <form:errors></form:errors>
+                                            <form:errors path="email"></form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="username" class="text-info">Username:</label><br>
