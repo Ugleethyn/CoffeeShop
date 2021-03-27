@@ -36,14 +36,14 @@ public class OrderDetailsController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/cart")
-    public String showCart(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Account account = accountService.getCurrentlyLoggedInAccount(authentication);
-        Orders order = orderService.create(order);
-        List<OrderDetails> cartItems = orderDetailsService.getOrderDetailsByOrder(order);
-        model.addAttribute("cartItems", cartItems);
-        return "user/user-cart";
-    }
+//    @GetMapping("/cart")
+//    public String showCart(Model model) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        Account account = accountService.getCurrentlyLoggedInAccount(authentication);
+//        Orders order = orderService.create(order);
+//        List<OrderDetails> cartItems = orderDetailsService.getOrderDetailsByOrder(order);
+//        model.addAttribute("cartItems", cartItems);
+//        return "user/user-cart";
+//    }
 
 }

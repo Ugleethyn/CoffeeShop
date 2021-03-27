@@ -5,6 +5,7 @@ import coffeeshop.entity.MyUserDetails;
 import coffeeshop.entity.Role;
 import coffeeshop.repository.AccountRepo;
 import coffeeshop.repository.RoleRepo;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +24,11 @@ public class AccountServiceImpl implements AccountService {
     RoleRepo roleRepo;
     @Autowired
     PasswordEncoder passwordEncoder;
+    
+    
+    public List<Account> getAllAccounts(){
+        return accountRepo.findAll();
+    }
 
     @Override
     public Account findByUsername(String username) {

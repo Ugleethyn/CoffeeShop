@@ -14,6 +14,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductsRepo productRepo;
+    
+    public List<Product> getAllProducts(){
+        return productRepo.findAll();
+    }
 
     public List<Product> findAllCoffees() {
         return productRepo.findAllByCatAId(1);

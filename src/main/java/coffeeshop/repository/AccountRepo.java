@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface AccountRepo extends JpaRepository<Account, Integer> {
 
     @Query(value = "SELECT a FROM Account a WHERE a.username = :username")
-    public Account findByUsername(@Param("username") String username);
+    Account findByUsername(@Param("username") String username);
 
 }

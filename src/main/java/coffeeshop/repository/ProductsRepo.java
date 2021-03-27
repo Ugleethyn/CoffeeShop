@@ -13,6 +13,9 @@ public interface ProductsRepo extends JpaRepository<Product, Integer> {
     @Query("SELECT p FROM Product p WHERE p.catAId.id = :cat_a_id")
     List<Product> findAllByCatAId(@Param("cat_a_id") int id);
     
+    //find the products by categories name
+    List<Product> findByCategory_Cname(String categoryName);
+    
     Product save(Product product);
     
     //find products by order details
