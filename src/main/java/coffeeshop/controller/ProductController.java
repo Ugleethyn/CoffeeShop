@@ -5,15 +5,13 @@
  */
 package coffeeshop.controller;
 
+import coffeeshop.entity.Product;
+import coffeeshop.service.ProductService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 /**
  *
@@ -21,6 +19,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 public class ProductController {
+    
+    @Autowired
+    ProductService productService;
+    
+    
+    @ModelAttribute("products")
+    public List<Product> getProducts() {
+        return productService.getAllProducts();
+    }
+    
+    @GetMapping ("/viewProducts")
+    public String showProducts(){
+        return "admin/admin-products";
+    }
     
 //    @RequestMapping(value = "/create", method = RequestMethod.POST)
 //    public String create(Product product, RedirectAttributes attributes){
