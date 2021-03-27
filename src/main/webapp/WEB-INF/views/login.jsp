@@ -79,7 +79,7 @@
                                         <p class="text-muted text-center" id="registermsg" style="color: red">Successfully Registered.Now Sign in!!</p>
                                     </c:if>
                                     <c:if test="${param.eroors != null}"> 
-                                        <p class="text-muted text-center" id="registermsg" style="color: red">Invalid Credentials!@</p>
+                                        <p class="text-muted text-center" id="registermsg" style="color: red">Invalid Credentials!</p>
                                     </c:if>
                                     <form:form id="login-form" class="form" action="${pageContext.request.contextPath}/authenticate" method="POST">
                                         <h3 class="text-center headertext">Login</h3>
