@@ -7,11 +7,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface AccountService extends UserDetailsService {
     
-    public List<Account> getAllAccounts();
+    List<Account> getAllAccounts();
+    
+    List<Account> getAdmins();
 
-    public Account findByUsername(String username);
+    Account findByUsername(String username);
 
-    public Account saveUser(Account account);
+    Account saveUser(Account account);
 
-    public Account getCurrentlyLoggedInAccount(Authentication authentication);
+    Account getCurrentlyLoggedInAccount(Authentication authentication);
 }

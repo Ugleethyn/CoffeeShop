@@ -14,6 +14,8 @@ public interface AccountRepo extends JpaRepository<Account, Integer> {
     Account findByUsername(@Param("username") String username);
     
     
-    List<Account> findByRoleId(int id);
+    @Query("SELECT a FROM Account as a WHERE a.id IN"
+        + " (SELECT r.account_id FROM account_has_role as r WHERE r.role_id = :roleid)")
+    List<Account> findByRoleId(@Param("roleid") int id);
 
 }
