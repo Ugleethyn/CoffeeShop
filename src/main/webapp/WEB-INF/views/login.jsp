@@ -76,17 +76,20 @@
                             <div id="login-column" class="col-md-6">
                                 <div id="login-box" class="col-md-12">
                                     <c:if test="${param.register != null}"> 
-                                        <p class="text-muted text-center" id="registermsg">Successfully Registered.Now Sign in!!</p>
+                                        <p class="text-muted text-center" id="registermsg" style="color: red">Successfully Registered.Now Sign in!!</p>
+                                    </c:if>
+                                    <c:if test="${param.eroors != null}"> 
+                                        <p class="text-muted text-center" id="registermsg" style="color: red">Invalid Credentials!@</p>
                                     </c:if>
                                     <form:form id="login-form" class="form" action="${pageContext.request.contextPath}/authenticate" method="POST">
                                         <h3 class="text-center headertext">Login</h3>
                                         <div class="form-group">
                                             <label for="username" class="text-info">Username:</label><br>
-                                            <input type="text" name="username" id="username" class="form-control">
+                                            <input type="text" name="username" id="username" class="form-control" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="text-info">Password:</label><br>
-                                            <input type="password" name="password" id="password" class="form-control">
+                                            <input type="password" name="password" id="password" class="form-control" required="required">
                                         </div>
 
                                         <div class="form-group">

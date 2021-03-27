@@ -76,38 +76,38 @@
                                         
                                         <div class="form-group">
                                             <label for="email" class="text-info">E-mail:</label><br>
-                                            <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" />
+                                            <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" required="required"/>
                                             <form:errors path="email"></form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="username" class="text-info">Username:</label><br>
-                                            <form:input path="username" id="username" class="form-control" placeholder="Username *" />
+                                            <form:input path="username" id="username" class="form-control" placeholder="Username *" required="required"/>
                                                 <form:errors>Invalid Username</form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="tel" class="text-info">Tel:</label><br>
-                                            <form:input path="tel" id="tel" class="form-control" placeholder="tel number *" value="" />
+                                            <form:input path="tel" id="tel" class="form-control" placeholder="tel number *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="firstname" class="text-info">First Name:</label><br>
-                                            <form:input path="firstname" id="firstname"  class="form-control" placeholder="First Name *" />
+                                            <form:input path="firstname" id="firstname"  class="form-control" placeholder="First Name *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
                                         
                                         <div class="form-group float">
                                             <label for="lastname" class="text-info">Last Name:</label><br>
-                                            <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" />
+                                            <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="password" class="text-info">Password:</label><br>
-                                            <form:password path="password" id="password"  class="form-control" placeholder="Your password *" />
+                                            <form:password path="password" id="password"  class="form-control" placeholder="Your password *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
                                         <div class="form-group float">
                                             <label for="password1" class="text-info">Repeat Password:</label><br>
-                                            <form:password path="password" id="password1"  class="form-control" placeholder="Your password *" />
+                                            <form:password path="password" id="password1"  class="form-control" placeholder="Your password *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
                                         <div class="form-group">
