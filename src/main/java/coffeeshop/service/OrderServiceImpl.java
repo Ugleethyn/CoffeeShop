@@ -8,6 +8,7 @@ package coffeeshop.service;
 import coffeeshop.entity.Orders;
 import coffeeshop.repository.OrdersRepo;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Orders create(Orders order) {
-        order.setDateCreated(LocalDate.now());
+        order.setDateCreated(LocalDateTime.now());
         return this.ordersRepo.save(order);
     }
 

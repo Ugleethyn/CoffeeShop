@@ -9,7 +9,7 @@ public interface AccountService extends UserDetailsService {
     
     List<Account> getAllAccounts();
     
-    List<Account> getAdmins();
+//    List<Account> getAdmins();
 
     Account findByUsername(String username);
 

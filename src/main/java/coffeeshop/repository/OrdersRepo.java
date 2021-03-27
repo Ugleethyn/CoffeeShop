@@ -24,7 +24,7 @@ public interface OrdersRepo  extends JpaRepository<Orders, Integer>{
     
 //    Orders save(Orders order);
     
-    // get orders by accountId
-    List<Orders> findOrderByAccount_AccountId(int accountId);
+//    // get orders by accountId
+//    List<Orders> findOrderByAccount_AccountId(int accountId);
     
 }

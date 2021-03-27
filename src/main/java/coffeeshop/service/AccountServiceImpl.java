@@ -73,9 +73,9 @@ public class AccountServiceImpl implements AccountService {
         return account;
     }
 
-    @Override
-    public List<Account> getAdmins() {
-        return accountRepo.findByRoleId(1);
-    }
+//    @Override
+//    public List<Account> getAdmins() {
+//        return accountRepo.findByRoleId(1);
+//    }
 
 }

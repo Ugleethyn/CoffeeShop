@@ -2,6 +2,7 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o")
     , @NamedQuery(name = "Orders.findById", query = "SELECT o FROM Orders o WHERE o.id = :id")
-    , @NamedQuery(name = "Orders.findByOdate", query = "SELECT o FROM Orders o WHERE o.odate = :odate")
+//    , @NamedQuery(name = "Orders.findByOdate", query = "SELECT o FROM Orders o WHERE o.odate = :odate")
     , @NamedQuery(name = "Orders.findByOrderprice", query = "SELECT o FROM Orders o WHERE o.orderprice = :orderprice")
     , @NamedQuery(name = "Orders.findByComments", query = "SELECT o FROM Orders o WHERE o.comments = :comments")})
 public class Orders implements Serializable {
@@ -38,8 +39,8 @@ public class Orders implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "odate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDate dateCreated;
+//    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime dateCreated;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "orderprice")
     private float orderprice;
@@ -77,11 +78,11 @@ public class Orders implements Serializable {
         this.id = id;
     }
 
-    public LocalDate getDateCreated() {
+    public LocalDateTime getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(LocalDate dateCreated) {
+    public void setDateCreated(LocalDateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
 
