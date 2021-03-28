@@ -35,9 +35,9 @@
 		</div>
 		<ul class="nav menu">
 			<li class="active"><a href="${pageContext.request.contextPath}/admin"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
-			<li><a href="${pageContext.request.contextPath}/admin/accounts"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
-			<li><a href="${pageContext.request.contextPath}/admin/accounts"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
-			<li><a href="orders.html"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
 			<li><a href="coffees.html"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
 			<li><a href="drinks.html"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
 			<li><a href="snacks.html"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>

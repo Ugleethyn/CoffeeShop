@@ -20,7 +20,6 @@ public interface OrdersRepo  extends JpaRepository<Orders, Integer>{
     
     
     
-    List<Orders> findAll();
     
 //    Orders save(Orders order);
     

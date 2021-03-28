@@ -35,7 +35,7 @@ public class Payment implements Serializable {
     @Size(max = 45)
     @Column(name = "type")
     private String type;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentid")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "payment")
     private List<Orders> ordersList;
 
     public Payment() {

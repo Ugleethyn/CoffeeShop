@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "order")
@@ -28,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o")
     , @NamedQuery(name = "Orders.findById", query = "SELECT o FROM Orders o WHERE o.id = :id")
 //    , @NamedQuery(name = "Orders.findByOdate", query = "SELECT o FROM Orders o WHERE o.odate = :odate")
-    , @NamedQuery(name = "Orders.findByOrderprice", query = "SELECT o FROM Orders o WHERE o.orderprice = :orderprice")
+    , @NamedQuery(name = "Orders.findByPrice", query = "SELECT o FROM Orders o WHERE o.price = :price")
     , @NamedQuery(name = "Orders.findByComments", query = "SELECT o FROM Orders o WHERE o.comments = :comments")})
 public class Orders implements Serializable {
 
@@ -39,11 +40,11 @@ public class Orders implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "odate")
-//    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateCreated;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "orderprice")
-    private float orderprice;
+    private double price;
     @Size(max = 150)
     @Column(name = "comments")
     private String comments;
@@ -57,7 +58,7 @@ public class Orders implements Serializable {
     private Address addressid;
     @JoinColumn(name = "Payment_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Payment paymentid;
+    private Payment payment;
     @JoinColumn(name = "Store_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Store storeid;
@@ -86,12 +87,12 @@ public class Orders implements Serializable {
         this.dateCreated = dateCreated;
     }
 
-    public float getOrderprice() {
-        return orderprice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setOrderprice(float orderprice) {
-        this.orderprice = orderprice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getComments() {
@@ -119,11 +120,11 @@ public class Orders implements Serializable {
     }
 
     public Payment getPaymentid() {
-        return paymentid;
+        return payment;
     }
 
-    public void setPaymentid(Payment paymentid) {
-        this.paymentid = paymentid;
+    public void setPaymentid(Payment payment) {
+        this.payment = payment;
     }
 
     public Store getStoreid() {
@@ -133,6 +134,24 @@ public class Orders implements Serializable {
     public void setStoreid(Store storeid) {
         this.storeid = storeid;
     }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+    
+    
 
     @Override
     public int hashCode() {
