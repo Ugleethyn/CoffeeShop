@@ -43,18 +43,18 @@ public class AdminController {
         return "admin/admin-orders";
     }
     
-//    @GetMapping("/admins")
-//    public String showAdmins(Model model){
-//        List<Account> admins = accountService.getAdmins();
-//        model.addAttribute("admins", admins);
-//        return "admin/admin-users";
-//    }
+    @GetMapping("/admins")
+    public String showAdmins(Model model){
+        List<Account> admins = accountService.getAdmins();
+        model.addAttribute("admins", admins);
+        return "admin/admin-accounts";
+    }
     
-//    @GetMapping("/users")
-//    public String showUders(Model model){
-//        List<Account> users = accountService.getUsers();
-//        model.addAttribute("users", users);
-//        return "admin/admin-users";
-//    }
+    @GetMapping("/users")
+    public String showUders(Model model){
+        List<Account> users = accountService.getUsers();
+        model.addAttribute("users", users);
+        return "admin/admin-accounts";
+    }
     
 }
