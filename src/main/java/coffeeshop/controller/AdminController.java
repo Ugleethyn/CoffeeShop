@@ -43,14 +43,14 @@ public class AdminController {
         return "admin/admin-orders";
     }
     
-    @GetMapping("/admins")
+    @GetMapping("/accounts")
     public String showAdmins(Model model){
         List<Account> admins = accountService.getAdmins();
         model.addAttribute("admins", admins);
         return "admin/admin-accounts";
     }
     
-    @GetMapping("/users")
+    @GetMapping("/accounts")
     public String showUders(Model model){
         List<Account> users = accountService.getUsers();
         model.addAttribute("users", users);

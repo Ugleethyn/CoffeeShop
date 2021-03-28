@@ -12,7 +12,7 @@ public interface OrderDetailsRepo extends JpaRepository<OrderDetails, Integer>{
     
 //    public List<OrderDetails> findByOrders(Orders order);
     
-    //find order details by orderId
-    List<OrderDetails> findByOrders_OrderId(int orderId);
+//    //find order details by orderId
+//    List<OrderDetails> findByOrders_OrderId(int orderId);
 
 }

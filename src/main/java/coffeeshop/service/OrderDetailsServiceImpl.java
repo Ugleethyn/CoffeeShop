@@ -16,10 +16,10 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
 
-    @Override
-    public List<OrderDetails> getOrderDetailsByOrder(Orders order) {
-        return orderDetailsRepo.findByOrders_OrderId(order.getId());
-    }
+//    @Override
+//    public List<OrderDetails> getOrderDetailsByOrder(Orders order) {
+//        return orderDetailsRepo.findByOrders_OrderId(order.getId());
+//    }
 
     
 

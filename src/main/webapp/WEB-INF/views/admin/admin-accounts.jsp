@@ -34,14 +34,14 @@
 			<div class="clear"></div>
 		</div>
 		<ul class="nav menu">
-			<li><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
-			<li class="active"><a href="users.html"><em class="fa fa-user-circle">&nbsp;</em> Members</a></li>
-			<li><a href="newOrders.html"><em class="fa fa-cart-plus">&nbsp;</em> New Orders</a></li>
-			<li><a href="orders.html"><em class="fa fa-cart-arrow-down">&nbsp;</em> All Orders</a></li>
+			<li class="active"><a href="${pageContext.request.contextPath}/admin"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/accounts"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/accounts"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
+			<li><a href="orders.html"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
 			<li><a href="coffees.html"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
 			<li><a href="drinks.html"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
 			<li><a href="snacks.html"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="${pageContext.request.contextPath}/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 		
@@ -70,39 +70,32 @@
 				</tr>
 			  </thead>
 			  <tbody>
-				<tr>
-				  <th scope="row">1</th>
-				  <td>Anastasios</td>
-				  <td>Kladis</td>
-				  <td>Ugleethyn</td>
-				  <td>fakes@hotmail.com</td>
-				  <td>User</td>
-				  <td><a href="login.html"><em class="fa fa-address-book-o"></em> Address</a></td>
-				  <td><a href="login.html"><em class="fa fa-shopping-cart"></em> Orders</a></td>
-				  <td><a href="login.html"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
-				</tr>
-				<tr>
-				  <th scope="row">2</th>
-				  <td>Gewrgios</td>
-				  <td>Kolovadis</td>
-				  <td>Demon777</td>
-				  <td>lepa@hotmail.com</td>
-				  <td>Admin</td>
-				  <td><a href="login.html"><em class="fa fa-address-book-o"></em> Address</a></td>
-				  <td><a href="login.html"><em class="fa fa-shopping-cart"></em> Orders</a></td>
-				  <td><a href="login.html"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
-				</tr>
-				<tr>
-				  <th scope="row">3</th>
-				  <td>Maria</td>
-				  <td>Koutra</td>
-				  <td>Baristis</td>
-				  <td>kavouris@gmail.com</td>
-				  <td>User</td>
-				  <td><a href="login.html"><em class="fa fa-address-book-o"></em> Address</a></td>
-				  <td><a href="login.html"><em class="fa fa-shopping-cart"></em> Orders</a></td>
-				  <td><a href="login.html"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
-				</tr>
+                                <c:forEach items="${admins}" var = "account">
+                                    <tr>
+                                        <th scope="row">"${account.id}"</th>
+                                        <td>"${account.firstname}"</td>
+                                        <td>"${account.lastname}"</td>
+                                        <td>"${account.username}"</td>
+                                        <td>"${account.email}"</td>
+                                        <td>"${account.tel}"</td>
+                                        <td><a href="#"><em class="fa fa-address-book-o"></em> Address</a></td>
+                                        <td><a href="#"><em class="fa fa-shopping-cart"></em> Orders</a></td>
+                                        <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
+                                    </tr>
+                                </c:forEach>
+				<c:forEach items="${users}" var = "account">
+                                    <tr>
+                                        <th scope="row">"${account.id}"</th>
+                                        <td>"${account.firstname}"</td>
+                                        <td>"${account.lastname}"</td>
+                                        <td>"${account.username}"</td>
+                                        <td>"${account.email}"</td>
+                                        <td>"${account.tel}"</td>
+                                        <td><a href="#"><em class="fa fa-address-book-o"></em> Address</a></td>
+                                        <td><a href="#"><em class="fa fa-shopping-cart"></em> Orders</a></td>
+                                        <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
+                                    </tr>
+                                </c:forEach>
 			  </tbody>
 			</table>
 		  </div>
