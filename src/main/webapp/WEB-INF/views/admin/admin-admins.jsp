@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Accounts</title>
+        <title>Admins</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
 </head>
     <body>

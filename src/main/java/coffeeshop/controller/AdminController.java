@@ -29,12 +29,12 @@ public class AdminController {
         return "admin/admin-home";
     }
     
-    @GetMapping ("/products")
-    public String showProducts(Model model){
-        List<Product> products = productService.getAllProducts();
-        model.addAttribute("products", products);
-        return "admin/admin-products";
-    }
+//    @GetMapping ("/products")
+//    public String showProducts(Model model){
+//        List<Product> products = productService.getAllProducts();
+//        model.addAttribute("products", products);
+//        return "admin/admin-products";
+//    }
     
     @GetMapping ("/orders")
     public String showOrders(Model model){
@@ -55,6 +55,27 @@ public class AdminController {
         List<Account> users = accountService.getUsers();
         model.addAttribute("users", users);
         return "admin/admin-users";
+    }
+    
+    @GetMapping("/coffees")
+    public String showCoffees(Model model){
+        List<Product> coffees = productService.findAllCoffees();
+        model.addAttribute("coffees", coffees);
+        return "admin/admin-coffees";
+    }
+    
+    @GetMapping("/drinks")
+    public String showDrinks(Model model){
+        List<Product> drinks = productService.findAllDrinks();
+        model.addAttribute("drinks", drinks);
+        return "admin/admin-drinks";
+    }
+    
+    @GetMapping("/snacks")
+    public String showSnacks(Model model){
+        List<Product> snacks = productService.findAllSnacks();
+        model.addAttribute("snacks", snacks);
+        return "admin/admin-snacks";
     }
     
 }
