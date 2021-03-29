@@ -66,7 +66,7 @@
                             <tr>
                                 <th scope="row">${coffee.id}</th>
                                 <td>${coffee.pname}</td>
-                                <td><em class="fa fa-eur"></em>${coffee.baseprice}</td>
+                                <td><em class="fa fa-eur"></em>${coffee.baseprice}€</td>
                                 <td><a href="#"><em class="fa fa-pencil-square-o"></em>Edit</a><a href="#"><em class="fa fa-times"></em>Delete</a></td>
                             </tr>
                         </c:forEach>

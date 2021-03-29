@@ -66,7 +66,7 @@
                             <tr>
                                 <th scope="row">${drink.id}</th>
                                 <td>${drink.pname}</td>
-                                <td><em class="fa fa-eur"></em>${drink.baseprice}</td>
+                                <td><em class="fa fa-eur"></em>${drink.baseprice}€</td>
                                 <td><a href="#"><em class="fa fa-pencil-square-o"></em>Edit</a><a href="#"><em class="fa fa-times"></em>Delete</a></td>
                             </tr>
                         </c:forEach>
