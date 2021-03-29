@@ -9,17 +9,14 @@ import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author gkolo
- */
+
 @Repository
 public interface OrdersRepo  extends JpaRepository<Orders, Integer>{
     
-    
-    
+
     
 //    Orders save(Orders order);
     

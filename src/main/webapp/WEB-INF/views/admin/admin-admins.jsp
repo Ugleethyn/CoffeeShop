@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Orders</title>
+        <title>Accounts</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
 </head>
     <body>
@@ -31,9 +31,9 @@
 		</div>
 		<ul class="nav menu">
 			<li><a href="${pageContext.request.contextPath}/admin"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
-			<li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
+			<li class="active"><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
 			<li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
-			<li class="active"><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
+			<li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
 			<li><a href="coffees.html"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
 			<li><a href="drinks.html"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
 			<li><a href="snacks.html"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
@@ -47,7 +47,7 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">All Orders</li>
+				<li class="active">Members</li>
 			</ol>
 		</div><!--/.row-->
 		<div class="table-responsive">
@@ -55,32 +55,36 @@
 			  <thead>
 				<tr>
 				  <th scope="col">#</th>
-				  <th scope="col">Date Time</th>
-				  <th scope="col">Price</th>
-				  <th scope="col">Payment</th>
-				  <th scope="col">Comments</th>
+				  <th scope="col">First Name</th>
+				  <th scope="col">Last Name</th>
+				  <th scope="col">Username</th>
+				  <th scope="col">E-mail</th>
+				  <th scope="col">Tel.</th>
 				  <th scope="col">Address</th>
-				  <th scope="col">Customer</th>
-				  <th scope="col">Products</th>
-				  <th scope="col">Edit</th>
+				  <th scope="col">Orders</th>
+				  <th scope="col">Actions</th>
 				</tr>
 			  </thead>
 			  <tbody>
-				<c:forEach items="${orders}" var = "order">
+                                <c:forEach items="${admins}" var = "account">
                                     <tr>
-                                        <th scope="row">${order.id}</th>
-                                        <td>${order.dateCreated}</td>
-                                        <td>${order.price}€</td>
-                                        <td>${order.payment.type}</td>
-                                        <td>${order.comments}</td>
+                                        <th scope="row">${account.id}</th>
+                                        <td>${account.firstname}</td>
+                                        <td>${account.lastname}</td>
+                                        <td>${account.username}</td>
+                                        <td>${account.email}</td>
+                                        <td>${account.tel}</td>
                                         <td><a href="#"><em class="fa fa-address-book-o"></em> Address</a></td>
-                                        <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
-                                        <td><a href="#"><em class="fa fa-product-hunt"></em> Products</a></td>
+                                        <td><a href="#"><em class="fa fa-shopping-cart"></em> Orders</a></td>
                                         <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                                     </tr>
                                 </c:forEach>
 			  </tbody>
 			</table>
 		  </div>
-	</div>
+
+		
+	</div>	<!--/.main-->
+		
+</body>
 </html>

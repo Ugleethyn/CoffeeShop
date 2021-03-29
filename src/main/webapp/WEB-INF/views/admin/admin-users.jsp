@@ -66,19 +66,6 @@
 				</tr>
 			  </thead>
 			  <tbody>
-                                <c:forEach items="${admins}" var = "account">
-                                    <tr>
-                                        <th scope="row">${account.id}</th>
-                                        <td>${account.firstname}</td>
-                                        <td>${account.lastname}</td>
-                                        <td>${account.username}</td>
-                                        <td>${account.email}</td>
-                                        <td>${account.tel}</td>
-                                        <td><a href="#"><em class="fa fa-address-book-o"></em> Address</a></td>
-                                        <td><a href="#"><em class="fa fa-shopping-cart"></em> Orders</a></td>
-                                        <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
-                                    </tr>
-                                </c:forEach>
 				<c:forEach items="${users}" var = "account">
                                     <tr>
                                         <th scope="row">${account.id}</th>

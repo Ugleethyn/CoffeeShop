@@ -47,14 +47,14 @@ public class AdminController {
     public String showAdmins(Model model){
         List<Account> admins = accountService.getAdmins();
         model.addAttribute("admins", admins);
-        return "admin/admin-accounts";
+        return "admin/admin-admins";
     }
     
     @GetMapping("/users")
     public String showUsers(Model model){
         List<Account> users = accountService.getUsers();
         model.addAttribute("users", users);
-        return "admin/admin-accounts";
+        return "admin/admin-users";
     }
     
 }
