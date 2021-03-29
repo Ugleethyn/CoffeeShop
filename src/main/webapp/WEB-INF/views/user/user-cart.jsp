@@ -89,7 +89,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${cartItems}" var = "cartItem">
+                                        <c:forEach items="${session.cart}" var = "cartItem">
                                             <tr>
                                                 <td class="columns">
                                                     <figure class="itemside align-items-center">
@@ -105,7 +105,7 @@
                                                     <input type="number" value="${cartItem.quantity}" min="1" class="quantity">
                                                 </td>
                                                 <td class="columns">
-                                                    <div class="price-wrap"> <var class="price">${cartItem.product.baseprice}</var> </div>
+                                                    <div class="price-wrap"> <var class="price">${cartItem.product.baseprice * cartItem.quantity}</var> </div>
                                                 </td>
                                                 <td class="columns"> 
                                                     <a href=""
@@ -123,7 +123,7 @@
                             <div class="card-body">
                                 <dl class="dlist-align">
                                     <dt>Total price:</dt>
-                                    <dd class="text-right ml-3">€69.97</dd>
+                                    <dd class="text-right ml-3">${total}</dd>
                                 </dl>
                                 <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
                                 <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
