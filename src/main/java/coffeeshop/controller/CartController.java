@@ -1,6 +1,5 @@
 package coffeeshop.controller;
 
-import coffeeshop.entity.Category;
 import coffeeshop.entity.OrderDetails;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,6 @@
 package coffeeshop.service;
 
-import coffeeshop.entity.Account;
 import coffeeshop.entity.OrderDetails;
-import coffeeshop.entity.Orders;
 import coffeeshop.repository.OrderDetailsRepo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
