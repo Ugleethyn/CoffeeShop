@@ -52,22 +52,11 @@ public class Product implements Serializable {
     private CatA catAId;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ProductHasCategory> catprod;
-//    @ManyToOne
-//    @JoinColumn(name = "product_id")
-//    private Category category;
+
 
     public Product() {
     }
 
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
 
     public Product(Integer id) {
         this.id = id;
@@ -121,15 +110,6 @@ public class Product implements Serializable {
         this.orderDetails = orderDetails;
     }
 
-    public List<ProductHasCategory> getCatprod() {
-        return catprod;
-    }
-
-    public void setCatprod(List<ProductHasCategory> catprod) {
-        this.catprod = catprod;
-    }
-    
-    
 
     @Override
     public int hashCode() {

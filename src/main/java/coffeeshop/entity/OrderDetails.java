@@ -1,7 +1,9 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,11 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "order_details")
@@ -30,17 +35,20 @@ public class OrderDetails implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
-
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Orders order;
-
+    private Orders orders;
     @Column(name = "quantity")
     private Integer quantity;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "details_categories",
+            joinColumns = {@JoinColumn(name = "order_details_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
+    private List<Category> categories;
+    
 
     public OrderDetails() {
     }
@@ -66,11 +74,11 @@ public class OrderDetails implements Serializable {
     }
 
     public Orders getOrder() {
-        return order;
+        return orders;
     }
 
-    public void setOrder(Orders order) {
-        this.order = order;
+    public void setOrder(Orders orders) {
+        this.orders = orders;
     }
 
     public Integer getQuantity() {
@@ -80,6 +88,17 @@ public class OrderDetails implements Serializable {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    @XmlTransient
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+    
+    
 
     @Override
     public int hashCode() {

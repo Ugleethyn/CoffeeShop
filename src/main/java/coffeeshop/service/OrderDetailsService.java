@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface OrderDetailsService {
     
-//     List<OrderDetails> getOrderDetailsByOrder(Orders order);
+     List<OrderDetails> getOrderDetailsByOrder(int id);
+     
+     
+   
      
      
 }

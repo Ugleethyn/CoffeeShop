@@ -1,9 +1,11 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
+import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Product;
 import coffeeshop.service.AccountService;
+import coffeeshop.service.OrderDetailsService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.ProductService;
 import java.util.List;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,6 +26,8 @@ public class AdminController {
     private OrderService orderService;
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private OrderDetailsService orderDetailsservice;
 
     @GetMapping
     public String adminHome() {
@@ -76,6 +81,14 @@ public class AdminController {
         List<Product> snacks = productService.findAllSnacks();
         model.addAttribute("snacks", snacks);
         return "admin/admin-snacks";
+    }
+    
+    
+    @GetMapping("/orderdetails/{id}")
+    public String showOrderDetails(@PathVariable(name = "id") int id, Model model){
+        List<OrderDetails> orderDetails = orderDetailsservice.getOrderDetailsByOrder(id);
+        model.addAttribute("orderDetails", orderDetails);
+        return ("admin/admin-orderdetails");
     }
     
 }

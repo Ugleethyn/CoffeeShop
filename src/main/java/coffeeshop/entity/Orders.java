@@ -51,7 +51,7 @@ public class Orders implements Serializable {
     @Size(max = 150)
     @Column(name = "comments")
     private String comments;
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
     @JoinColumn(name = "Account_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

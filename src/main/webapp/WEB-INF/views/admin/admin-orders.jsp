@@ -75,7 +75,7 @@
                                         <td>${order.comments}</td>
                                         <td><a href="#"><em class="fa fa-address-book-o"></em> Address</a></td>
                                         <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
-                                        <td><a href="#"><em class="fa fa-product-hunt"></em> Products</a></td>
+                                        <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${order.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
                                         <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                                     </tr>
                                 </c:forEach>

@@ -44,16 +44,7 @@ public class Category implements Serializable {
     @JoinColumn(name = "cat_b_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatB catBId;
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<ProductHasCategory> prodcat;
-
-    public List<ProductHasCategory> getProdcat() {
-        return prodcat;
-    }
-
-    public void setProdcat(List<ProductHasCategory> prodcat) {
-        this.prodcat = prodcat;
-    }
+ 
 
     public Category() {
     }
