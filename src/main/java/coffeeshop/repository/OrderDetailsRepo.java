@@ -18,15 +18,16 @@ public interface OrderDetailsRepo extends JpaRepository<OrderDetails, Integer>{
 //    List<OrderDetails> findByOrders_OrderId(int orderId);
     
     
-    @Query(value = "SELECT *" +
-                        " FROM order_details od" +
-                        " JOIN product p" +
-                        " ON od.product_id = p.id" +
-                        " LEFT OUTER JOIN details_categories odc" +
-                        " ON od.id = odc.order_details_id" +
-                        " LEFT OUTER JOIN category cat" +
-                        " ON odc.category_id = cat.id" +
-                        " WHERE od.order_id = :orderid", nativeQuery = true)
+    @Query(value = "SELECT od.*, p.*, group_concat(cname)" +
+                        "FROM order_details od" +
+                            " JOIN product p" +
+                            " ON od.product_id = p.id" +
+                            " LEFT OUTER JOIN details_categories odc" +
+                            " ON od.id = odc.order_details_id" +
+                            " LEFT OUTER JOIN category cat" +
+                            " ON odc.category_id = cat.id" +
+                            " where od.order_id= :orderid" +
+                            " group by od.id;", nativeQuery = true)
     List<OrderDetails> findByFk(@Param("orderid") int orderid);
     
     
