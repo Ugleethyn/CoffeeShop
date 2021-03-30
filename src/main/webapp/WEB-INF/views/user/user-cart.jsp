@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -51,12 +52,12 @@
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Profile
+                                <sec:authentication property="principal.username" />
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/user/history">Order History</a>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/user/logout">Logout</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Logout</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -89,7 +90,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${session.cart}" var = "cartItem">
+                                        <c:forEach items="${cart}" var = "orderDetails">
                                             <tr>
                                                 <td class="columns">
                                                     <figure class="itemside align-items-center">
@@ -97,15 +98,15 @@
                                                                 src="img/coffee.png"
                                                                 class="img-sm"></div>
                                                         <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                     data-abc="true">${cartItem.product.pname}</a>
+                                                                                     data-abc="true">${orderDetails.product.pname}</a>
                                                         </figcaption>
                                                     </figure>
                                                 </td>
                                                 <td class="columns">
-                                                    <input type="number" value="${cartItem.quantity}" min="1" class="quantity">
+                                                    <input type="number" value="${orderDetails.quantity}" min="1" class="quantity">
                                                 </td>
                                                 <td class="columns">
-                                                    <div class="price-wrap"> <var class="price">${cartItem.product.baseprice * cartItem.quantity}</var> </div>
+                                                    <div class="price-wrap"> <var class="price">${orderDetails.unitPrice}</var> </div>
                                                 </td>
                                                 <td class="columns"> 
                                                     <a href=""

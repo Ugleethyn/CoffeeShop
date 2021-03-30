@@ -45,10 +45,17 @@ public class OrderDetails implements Serializable {
     private Integer quantity;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "details_categories",
-            joinColumns = {@JoinColumn(name = "order_details_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
+            joinColumns = {
+                @JoinColumn(name = "order_details_id", referencedColumnName = "id")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "category_id", referencedColumnName = "id")})
     private List<Category> categories;
-    
+    @JoinColumn(name = "size_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CoffeeSize coffeeSize;
+
+    @Column(name = "unitprice")
+    private double unitPrice;
 
     public OrderDetails() {
     }
@@ -97,8 +104,22 @@ public class OrderDetails implements Serializable {
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
-    
-    
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public CoffeeSize getCoffeeSize() {
+        return coffeeSize;
+    }
+
+    public void setCoffeeSize(CoffeeSize coffeeSize) {
+        this.coffeeSize = coffeeSize;
+    }
 
     @Override
     public int hashCode() {

@@ -12,18 +12,21 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class OrderDetailsServiceImpl implements OrderDetailsService {
-
+    
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
-
-
+    
     @Override
     public List<OrderDetails> getOrderDetailsByOrder(int id) {
         return orderDetailsRepo.findByFk(id);
     }
-
     
+    public OrderDetails saveOrderDetails(OrderDetails orderDetail) {
+        return orderDetailsRepo.save(orderDetail);
+    }
 
+    public OrderDetails findById(int id) {
+        return orderDetailsRepo.findById(id);
+    }
     
-
 }
