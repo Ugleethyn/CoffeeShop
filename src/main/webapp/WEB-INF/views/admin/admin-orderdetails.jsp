@@ -66,7 +66,7 @@
                             <tr>
                                 <td>${orderDetail.order.id}</td>
                                 <td>${orderDetail.product.pname}</td>
-                                <td>${orderDetail.product.basePrice}€</td>
+                                <td>${orderDetail.product.baseprice}€</td>
                                 <td>${orderDetail.quantity}</td>
                                 <td>
                                     <c:forEach items="${orderDetail.categories}" var="category">

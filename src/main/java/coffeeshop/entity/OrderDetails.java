@@ -89,7 +89,7 @@ public class OrderDetails implements Serializable {
         this.quantity = quantity;
     }
 
-    @XmlTransient
+//    @XmlTransient
     public List<Category> getCategories() {
         return categories;
     }

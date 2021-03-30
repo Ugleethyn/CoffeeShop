@@ -11,10 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -44,6 +45,8 @@ public class Category implements Serializable {
     @JoinColumn(name = "cat_b_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatB catBId;
+    @ManyToMany(mappedBy="categories")
+    private List<OrderDetails> orderDetails;
  
 
     public Category() {
@@ -84,6 +87,17 @@ public class Category implements Serializable {
     public void setCatBId(CatB catBId) {
         this.catBId = catBId;
     }
+
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+    
+    
 
     @Override
     public int hashCode() {
