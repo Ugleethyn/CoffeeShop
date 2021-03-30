@@ -55,6 +55,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Order ID</th>
+                            <th scope="col">Cart Item ID</th>
                             <th scope="col">Product name</th>
                             <th scope="col">Product Price</th>
                             <th scope="col">Quantity</th>
@@ -65,6 +66,7 @@
                         <c:forEach items="${orderDetails}" var = "orderDetail">
                             <tr>
                                 <td>${orderDetail.order.id}</td>
+                                <td>${orderDetail.id}</td>
                                 <td>${orderDetail.product.pname}</td>
                                 <td>${orderDetail.product.baseprice}€</td>
                                 <td>${orderDetail.quantity}</td>
