@@ -23,9 +23,6 @@ window.onclick = function (event) {
   };
 };
 
-let sizes = document.querySelectorAll('.sizes');
-let defaultsize = sizes[0];
-defaultsize.checked = true;
 
 let sugars = document.querySelectorAll('.sugars');
 let defaultsugar = sugars[0];

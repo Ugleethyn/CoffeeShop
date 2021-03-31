@@ -40,11 +40,6 @@ public class MenuController {
         return categoryService.findAllIngredients();
     }
 
-    @ModelAttribute("coffeeSizes")
-    public List<Category> getCoffeeSizes() {
-        return categoryService.findAllSizes();
-    }
-
     @ModelAttribute("coffeeSugar")
     public List<Category> getCoffeeSugar() {
         return categoryService.findAllSugars();

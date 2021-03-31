@@ -135,17 +135,6 @@
                                 <span class="close">&times;</span>
                                 <div class="formcoffee">
                                     <form action="${pageContext.request.contextPath}/login" method="GET">
-                                        <div>
-                                            <h5>Please select coffee size <span class="important">*</span></h5>
-                                            <div class="funkyradio">
-                                                <c:forEach items="${coffeeSizes}" var = "coffeeSize">
-                                                    <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="size" id="${coffeeSize.cname}" class="sizes" />
-                                                        <label for="${coffeeSize.cname}">${coffeeSize.cname}</label>
-                                                    </div>
-                                                </c:forEach>
-                                            </div>
-                                        </div>
 
                                         <div>
                                             <h5>Please select coffee sugar <span class="important">*</span></h5>
