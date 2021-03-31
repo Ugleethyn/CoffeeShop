@@ -1,6 +1,5 @@
 package coffeeshop.controller;
 
-import coffeeshop.entity.MyUserDetails;
 import coffeeshop.service.AccountService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

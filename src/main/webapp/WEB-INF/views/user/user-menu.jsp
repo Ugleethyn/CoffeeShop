@@ -52,7 +52,7 @@
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Profile
+                                <sec:authentication property="principal.username" />
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
@@ -136,7 +136,7 @@
                                             <span class="close">&times;</span>
                                             <div class="formcoffee">
                                                 <p>${coffeeType.id}</p>
-                                                <form action="${pageContext.request.contextPath}/user/cart" method="GET">
+                                                <form>
 
                                                     <div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>

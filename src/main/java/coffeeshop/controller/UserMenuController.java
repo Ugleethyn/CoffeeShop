@@ -1,7 +1,6 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.Category;
-import coffeeshop.entity.MyUserDetails;
 import coffeeshop.entity.Product;
 import coffeeshop.service.CategoryService;
 import coffeeshop.service.ProductService;
@@ -54,9 +53,6 @@ public class UserMenuController {
         return "user/user-menu";
     }
     
-  @ModelAttribute("user")
-    public MyUserDetails fakes (@AuthenticationPrincipal MyUserDetails user){
-        return user;
-    }
+
 
 }

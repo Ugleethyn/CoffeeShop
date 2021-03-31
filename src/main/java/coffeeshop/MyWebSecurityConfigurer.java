@@ -1,7 +1,6 @@
 package coffeeshop;
 
 import coffeeshop.service.AccountService;
-import coffeeshop.service.UserDetailsServiceImpl;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
