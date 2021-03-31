@@ -1,36 +1,35 @@
-let modal = document.getElementById("myModal");
-
-
+let sugars = document.querySelectorAll('.sugars');
+let modal = document.querySelectorAll(".modules");
 let btn = document.querySelectorAll(".myBtn");
+let span = document.querySelectorAll(".close");
 
-let span = document.getElementsByClassName("close")[0];
 
-btn.forEach(function (e) {
-  e.onclick = function () {
-    modal.style.display = "block";
-  };
+for (let i = 0; i < btn.length; i++) {
+    btn[i].onclick = function () {
+        modal[i].style.display = "block";
+    };
+}
+;
+
+for (let i = 0; i < modal.length; i++) {
+    for (let j = 0; j < sugars.length; j += 3) {
+        sugars[j].checked = true;
+    }
+}
+;
+
+
+span.forEach(function (e) {
+    e.onclick = function () {
+        modal.forEach(function (e) {
+            e.style.display = "none";
+        });
+    };
 });
-
-
-span.onclick = function () {
-  modal.style.display = "none";
-};
-
 
 window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  };
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+    ;
 };
-
-let sizes = document.querySelectorAll('.sizes');
-let defaultsize = sizes[0];
-defaultsize.checked = true;
-
-let sugars = document.querySelectorAll('.sugars');
-let defaultsugar = sugars[0];
-defaultsugar.checked = true;
-
-$(document).ready(function() {
-  $(".dropdown-toggle").dropdown();
-});

@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Category.findById", query = "SELECT c FROM Category c WHERE c.id = :id")
     , @NamedQuery(name = "Category.findByCname", query = "SELECT c FROM Category c WHERE c.cname = :cname")
     , @NamedQuery(name = "Category.findByCprice", query = "SELECT c FROM Category c WHERE c.cprice = :cprice")})
-public class Category implements Serializable {
+public class Category implements Serializable, Comparable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,9 +43,8 @@ public class Category implements Serializable {
     @JoinColumn(name = "cat_b_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatB catBId;
-    @ManyToMany(mappedBy="categories")
+    @ManyToMany(mappedBy = "categories")
     private List<OrderDetails> orderDetails;
- 
 
     public Category() {
     }
@@ -86,7 +85,6 @@ public class Category implements Serializable {
         this.catBId = catBId;
     }
 
-
     public List<OrderDetails> getOrderDetails() {
         return orderDetails;
     }
@@ -94,8 +92,6 @@ public class Category implements Serializable {
     public void setOrderDetails(List<OrderDetails> orderDetails) {
         this.orderDetails = orderDetails;
     }
-    
-    
 
     @Override
     public int hashCode() {
@@ -119,7 +115,12 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Category[ id=" + id + " ]";
+        return cname;
     }
-    
+
+    @Override
+    public int compareTo(Object o) {
+        return this.id - ((Category) o).id;
+    }
+
 }

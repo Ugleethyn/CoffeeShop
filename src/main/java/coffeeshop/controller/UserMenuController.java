@@ -1,11 +1,9 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.Category;
-import coffeeshop.entity.CoffeeSize;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Product;
 import coffeeshop.service.CategoryService;
-import coffeeshop.service.CoffeeSizeService;
 import coffeeshop.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +20,6 @@ public class UserMenuController {
     private ProductService productService;
     @Autowired
     private CategoryService categoryService;
-    @Autowired
-    private CoffeeSizeService coffeeSizeService;
 
     @ModelAttribute("coffeeTypes")
     public List<Product> getCoffeeTypes() {
@@ -43,11 +39,6 @@ public class UserMenuController {
     @ModelAttribute("ingredients")
     public List<Category> getIngredients() {
         return categoryService.findAllIngredients();
-    }
-
-    @ModelAttribute("coffeeSizes")
-    public List<CoffeeSize> getCoffeeSizes() {
-        return coffeeSizeService.findAll();
     }
 
     @ModelAttribute("coffeeSugar")

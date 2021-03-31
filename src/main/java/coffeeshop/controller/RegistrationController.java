@@ -24,11 +24,7 @@ public class RegistrationController {
 
     @GetMapping("/register")
     public String register(@ModelAttribute("account") Account account) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "register-form";
-        }
-        return "redirect:/user";
+        return "register-form";
     }
 
     @PostMapping("/register")
@@ -38,12 +34,5 @@ public class RegistrationController {
         }
         accountService.saveUser(account);
         return "redirect:/login?register";
-    }
-    
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public String handleException(RedirectAttributes attributes){
-        String minima = "Could not commit transaction";
-        attributes.addFlashAttribute("message", minima);
-        return "redirect:/register-form";
     }
 }

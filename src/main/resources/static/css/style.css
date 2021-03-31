@@ -795,3 +795,8 @@ a {
 .snkdrnkbtn{
     border: 0px;
 }
+
+.categories-cart{
+    color: grey;
+    font-size: 10px;
+}

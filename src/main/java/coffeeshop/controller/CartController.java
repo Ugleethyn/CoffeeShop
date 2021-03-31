@@ -25,10 +25,6 @@ public class CartController {
     public String buy(@ModelAttribute("orderDetails") @Valid OrderDetails orderDetails, Model model, HttpSession session) {
         List<OrderDetails> cart = new ArrayList();
         double unitprice = (orderDetails.getProduct().getBaseprice()) * orderDetails.getQuantity();
-        if (orderDetails.getCoffeeSize() != null) {
-            double price = (unitprice) + (orderDetails.getCoffeeSize().getSizeprice());
-            unitprice = price;
-        }
         orderDetails.setUnitPrice(unitprice);
 
         if (session.getAttribute("cart") == null) {
@@ -52,7 +48,7 @@ public class CartController {
 
     private int checkIfExists(List<OrderDetails> orderDetails, OrderDetails orderDetail) {
         for (int i = 0; i < orderDetails.size(); i++) {
-            if (orderDetails.get(i).getProduct().getId() == orderDetail.getProduct().getId()) {
+            if (orderDetails.get(i) == orderDetail) {
                 return i;
             }
         }

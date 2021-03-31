@@ -124,7 +124,7 @@
                                                     <div class="separator clear-left">
                                                         <p class="btn-add">
                                                             <i class="fa fa-shopping-cart"></i>
-                                                            <a class="hidden-sm myBtn">Add to cart</a>
+                                                            <a class="hidden-sm myBtn" >Add to cart</a>
                                                         </p>
                                                     </div>
                                                     <div class="clearfix">
@@ -133,32 +133,18 @@
                                             </div>
                                         </div>
 
-
-                                        <div id="myModal" class="modal ">
+                                        <div id="myModal" class="modal modules">
                                             <!-- Modal content -->
                                             <div class="modal-content">
                                                 <span class="close">&times;</span>
                                                 <div class="formcoffee">
                                                     <div>
-                                                        <h5>Please select coffee size <span class="important">*</span></h5>
-                                                        <div class="funkyradio">
-                                                            <c:forEach items="${coffeeSizes}" var = "coffeeSize">
-                                                                <div class="funkyradio funkyradio-warning ">
-                                                                    <input type="radio" name="coffeeSize" id="${coffeeSize.sname}" class="sizes" value="${coffeeSize.id}" />
-                                                                    <label for="${coffeeSize.sname}">${coffeeSize.sname}</label>
-                                                                </div>
-                                                            </c:forEach>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>
                                                         <div class="funkyradio">
                                                             <c:forEach items="${coffeeSugar}" var = "sugar">
                                                                 <div class="funkyradio funkyradio-warning ">
-                                                                    <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}" class="sugars"  />
-                                                                    <label for="${sugar.cname}">${sugar.cname} </label>
+                                                                    <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" />
+                                                                    <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
                                                                 </div>
                                                             </c:forEach>
                                                         </div>
@@ -169,8 +155,8 @@
                                                         <div class="funkyradio">
                                                             <c:forEach items="${ingredients}" var = "ingredients">
                                                                 <div class="funkyradio-warning">
-                                                                    <input type="checkbox" name="categories"  id="${ingredients.cname}"  value="${ingredients.id}"/>
-                                                                    <label for="${ingredients.cname}">${ingredients.cname}</label>
+                                                                    <input type="checkbox" name="categories"  id="${ingredients.cname}${coffeeType.pname}"  value="${ingredients.id}"/>
+                                                                    <label for="${ingredients.cname}${coffeeType.pname}">${ingredients.cname}</label>
                                                                 </div>
                                                             </c:forEach>
                                                         </div>
@@ -178,8 +164,8 @@
                                                     <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
                                                         <label for="quantity">Quantity</label>
                                                     </div>
-
-                                                    <div class="btnplace"><button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
+                                                    <div class="btnplace">
+                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -25,8 +25,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> findAllSizes() {
-        return categoryRepo.findAllByCatBId(1);
+    public Category findById(int id) {
+        return categoryRepo.findById(id).get();
     }
 
 }

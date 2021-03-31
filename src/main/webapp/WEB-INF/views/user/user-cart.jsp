@@ -99,6 +99,7 @@
                                                                 class="img-sm"></div>
                                                         <figcaption class="info"> <a href="#" class="title text-dark"
                                                                                      data-abc="true">${orderDetails.product.pname}</a>
+                                                                                     <p class="categories-cart">${orderDetails.categories}</p>
                                                         </figcaption>
                                                     </figure>
                                                 </td>

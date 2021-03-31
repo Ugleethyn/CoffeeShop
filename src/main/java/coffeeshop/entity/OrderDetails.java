@@ -49,9 +49,6 @@ public class OrderDetails implements Serializable {
             inverseJoinColumns = {
                 @JoinColumn(name = "category_id", referencedColumnName = "id")})
     private List<Category> categories;
-    @JoinColumn(name = "size_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CoffeeSize coffeeSize;
 
     @Column(name = "unitprice")
     private double unitPrice;
@@ -112,14 +109,6 @@ public class OrderDetails implements Serializable {
         this.unitPrice = unitPrice;
     }
 
-    public CoffeeSize getCoffeeSize() {
-        return coffeeSize;
-    }
-
-    public void setCoffeeSize(CoffeeSize coffeeSize) {
-        this.coffeeSize = coffeeSize;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -144,5 +133,4 @@ public class OrderDetails implements Serializable {
     public String toString() {
         return "coffeeshop.entity.OrderDetails[ id=" + id + " ]";
     }
-
 }

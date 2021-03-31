@@ -5,9 +5,13 @@ import coffeeshop.entity.MyUserDetails;
 import coffeeshop.entity.Role;
 import coffeeshop.repository.AccountRepo;
 import coffeeshop.repository.RoleRepo;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,11 +28,6 @@ public class AccountServiceImpl implements AccountService {
     RoleRepo roleRepo;
     @Autowired
     PasswordEncoder passwordEncoder;
-    
-    
-    public List<Account> getAllAccounts(){
-        return accountRepo.findAll();
-    }
 
     @Override
     public Account findByUsername(String username) {
@@ -41,18 +40,22 @@ public class AccountServiceImpl implements AccountService {
         Account account = findByUsername(username);
         if (account == null) {
             throw new UsernameNotFoundException("Invalid Username");
+        } else {
+            List<GrantedAuthority> authorities = convertRolesToGrantedAuthorities(account.getRoles());
+            User userOfSpringSecurity = new User(account.getUsername(), account.getPassword(), authorities);
+            return userOfSpringSecurity;
         }
-        return new MyUserDetails(account);
     }
 
-//    private List<GrantedAuthority> convertRolesToGrantedAuthorities(List<Role> roles) {
-//        List<GrantedAuthority> authorities = new ArrayList();
-//        for (Role r : roles) {
-//            GrantedAuthority authority = new SimpleGrantedAuthority(r.getRname());
-//            authorities.add(authority);
-//        }
-//        return authorities;
-//    }
+    private List<GrantedAuthority> convertRolesToGrantedAuthorities(List<Role> roles) {
+        List<GrantedAuthority> authorities = new ArrayList();
+        for (Role r : roles) {
+            GrantedAuthority authority = new SimpleGrantedAuthority(r.getRname());
+            authorities.add(authority);
+        }
+        return authorities;
+    }
+
     @Override
     public Account saveUser(Account account) {
         String plainPassword = account.getPassword();
@@ -64,22 +67,11 @@ public class AccountServiceImpl implements AccountService {
         return account;
     }
 
-    public Account getCurrentlyLoggedInAccount(Authentication authentication) {
-        if (authentication == null) {
-            return null;
-        }
-        Account account = null;
-        account = ((MyUserDetails) authentication.getPrincipal()).getAccount();
-        return account;
-    }
-
-
     public List<Account> getAdmins() {
         return accountRepo.findByRoleId(1);
     }
-    
+
     public List<Account> getUsers() {
         return accountRepo.findByRoleId(2);
     }
-
 }
