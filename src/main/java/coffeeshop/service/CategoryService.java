@@ -9,5 +9,4 @@ public interface CategoryService {
 
     public List<Category> findAllSugars();
 
-    public List<Category> findAllSizes();
 }
