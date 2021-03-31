@@ -130,52 +130,54 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="myModal" class="modal modules">
+                                        <!-- Modal content -->
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <div class="formcoffee">
+                                                <p>${coffeeType.id}</p>
+                                                <form action="${pageContext.request.contextPath}/user/cart" method="GET">
+
+                                                    <div>
+                                                        <h5>Please select coffee sugar <span class="important">*</span></h5>
+                                                        <div class="funkyradio">
+                                                            <c:forEach items="${coffeeSugar}" var = "sugar">
+                                                                <div class="funkyradio funkyradio-warning ">
+                                                                    <input type="radio" name="sugar" id="${sugar.cname}${coffeeType.pname}" class="sugars" />
+                                                                    <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
+                                                                </div>
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <h5>Please select ingredients</h5>
+                                                        <div class="funkyradio">
+                                                            <c:forEach items="${ingredients}" var = "ingredients">
+                                                                <div class="funkyradio-warning">
+                                                                    <input type="checkbox" name="checkbox"
+                                                                           id="${ingredients.cname}${coffeeType.pname}" />
+                                                                    <label for="${ingredients.cname}${coffeeType.pname}">${ingredients.cname}</label>
+                                                                </div>
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+                                                    <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
+                                                        <label for="quantity">Quantity</label>
+                                                    </div>
+
+                                                    <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </c:forEach>
                             </div>
                         </section>
 
-                        <div id="myModal" class="modal ">
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <div class="formcoffee">
-                                    <form action="${pageContext.request.contextPath}/user/cart" method="GET">
-                                        
-                                        <div>
-                                            <h5>Please select coffee sugar <span class="important">*</span></h5>
-                                            <div class="funkyradio">
-                                                <c:forEach items="${coffeeSugar}" var = "sugar">
-                                                    <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="${sugar.cname}" class="sugars" />
-                                                        <label for="${sugar.cname}">${sugar.cname} </label>
-                                                    </div>
-                                                </c:forEach>
-                                            </div>
-                                        </div>
 
-                                        <div>
-                                            <h5>Please select ingredients</h5>
-                                            <div class="funkyradio">
-                                                <c:forEach items="${ingredients}" var = "ingredients">
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="${ingredients.cname}" />
-                                                        <label for="${ingredients.cname}">${ingredients.cname}</label>
-                                                    </div>
-                                                </c:forEach>
-                                            </div>
-                                        </div>
-                                        <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
-                                            <label for="quantity">Quantity</label>
-                                        </div>
-
-                                        <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
 
                         <section id="snacks">
                             <h1>Snacks</h1>
