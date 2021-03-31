@@ -1,21 +1,10 @@
 package coffeeshop.service;
 
-import coffeeshop.entity.Account;
+import coffeeshop.entity.OrderDetails;
 import java.util.List;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import javax.servlet.http.HttpSession;
 
-public interface CartService extends UserDetailsService {
+public interface CartService {
     
-    List<Account> getAllAccounts();
-    
-    List<Account> getAdmins();
-    
-    List<Account> getUsers();
-
-    Account findByUsername(String username);
-
-    Account saveUser(Account account);
-
-    Account getCurrentlyLoggedInAccount(Authentication authentication);
+    public List<OrderDetails> addToCart(OrderDetails orderDetails, HttpSession session);
 }

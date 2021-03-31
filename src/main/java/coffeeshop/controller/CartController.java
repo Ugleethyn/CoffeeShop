@@ -1,10 +1,12 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.OrderDetails;
+import coffeeshop.service.CartService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("user/cart")
 public class CartController {
+    
+    @Autowired
+    private CartService cartService;
 
     @GetMapping
     public String showCart() {
@@ -23,36 +28,10 @@ public class CartController {
 
     @PostMapping("/process")
     public String buy(@ModelAttribute("orderDetails") @Valid OrderDetails orderDetails, Model model, HttpSession session) {
-        List<OrderDetails> cart = new ArrayList();
-        double unitprice = (orderDetails.getProduct().getBaseprice()) * orderDetails.getQuantity();
-        orderDetails.setUnitPrice(unitprice);
-
-        if (session.getAttribute("cart") == null) {
-            cart.add(orderDetails);
-            session.setAttribute("cart", cart);
-        } else {
-            cart = (List<OrderDetails>) session.getAttribute("cart");
-            int index = checkIfExists(cart, orderDetails);
-            if (index == -1) {
-                cart.add(orderDetails);
-            } else {
-                int quantity = cart.get(index).getQuantity() + 1;
-                cart.get(index).setQuantity(quantity);
-                unitprice = cart.get(index).getUnitPrice()+cart.get(index).getProduct().getBaseprice();
-                cart.get(index).setUnitPrice(unitprice);
-            }
-        }
+        List<OrderDetails> cart =cartService.addToCart(orderDetails, session);
         model.addAttribute("cart", cart);
         return "redirect:/user/menu";
     }
 
-    private int checkIfExists(List<OrderDetails> orderDetails, OrderDetails orderDetail) {
-        for (int i = 0; i < orderDetails.size(); i++) {
-            if (orderDetails.get(i) == orderDetail) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
 }
