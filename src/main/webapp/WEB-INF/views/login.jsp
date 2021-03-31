@@ -76,10 +76,10 @@
                             <div id="login-column" class="col-md-6">
                                 <div id="login-box" class="col-md-12">
                                     <c:if test="${param.register != null}"> 
-                                        <p class="text-muted text-center" id="registermsg" style="color: red">Successfully Registered.Now Sign in!!</p>
+                                        <p class="text-center registermsg" style="color: red">Successfully Registered.Now Sign in!!</p>
                                     </c:if>
-                                    <c:if test="${param.eroors != null}"> 
-                                        <p class="text-muted text-center" id="registermsg" style="color: red">Invalid Credentials!</p>
+                                    <c:if test="${param.error != null}"> 
+                                        <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
                                     </c:if>
                                     <form:form id="login-form" class="form" action="${pageContext.request.contextPath}/authenticate" method="POST">
                                         <h3 class="text-center headertext">Login</h3>
