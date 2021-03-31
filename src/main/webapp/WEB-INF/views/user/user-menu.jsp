@@ -52,7 +52,7 @@
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <sec:authentication property="principal.username" />
+                                My Profile
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
