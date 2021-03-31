@@ -1,9 +1,4 @@
-<%-- 
-    Document   : admin-home
-    Created on : Mar 28, 2021, 5:59:19 PM
-    Author     : gkolo
---%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +24,7 @@
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Admin Name</div>
+				<div class="profile-usertitle-name"><sec:authentication property="principal.username" /></div>
 			</div>
 			<div class="clear"></div>
 		</div>

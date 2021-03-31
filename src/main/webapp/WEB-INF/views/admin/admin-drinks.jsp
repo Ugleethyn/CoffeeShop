@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
         <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
             <div class="profile-sidebar">
                 <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">Admin Name</div>
+                    <div class="profile-usertitle-name"><sec:authentication property="principal.username" /></div>
                 </div>
                 <div class="clear"></div>
             </div>
