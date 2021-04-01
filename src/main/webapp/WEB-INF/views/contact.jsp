@@ -88,7 +88,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="row section-info ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <img src="img/livechat.png">
+                                <a href="${pageContext.request.contextPath}/chat"><img src="img/livechat.png"></a>
                             </div>
                             <div class="col-md-12 section2">
                                 <p>Live Chat</p>
@@ -108,7 +108,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/chat" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
                                 <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>

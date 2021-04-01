@@ -1,6 +1,7 @@
 package coffeeshop.service;
 
 import coffeeshop.entity.Account;
+import coffeeshop.entity.MyUserDetails;
 import coffeeshop.entity.Role;
 import coffeeshop.repository.AccountRepo;
 import coffeeshop.repository.RoleRepo;

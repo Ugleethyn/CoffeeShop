@@ -100,16 +100,16 @@
                                             <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
-                                        <div class="form-group float">
+                                        <div class="form-group float" style="width: 100%">
                                             <label for="password" class="text-info">Password:</label><br>
                                             <form:password path="password" id="password"  class="form-control" placeholder="Your password *" required="required"/>
                                                 <form:errors></form:errors>
                                         </div>
-                                        <div class="form-group float">
+<!--                                        <div class="form-group float">
                                             <label for="password1" class="text-info">Repeat Password:</label><br>
                                             <form:password path="password" id="password1"  class="form-control" placeholder="Your password *" required="required"/>
                                                 <form:errors></form:errors>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <a><button type="submit" class="button lgnbtn"><span>Register
                                                     </span></button></a>
@@ -135,7 +135,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/chat" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
                                 <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
