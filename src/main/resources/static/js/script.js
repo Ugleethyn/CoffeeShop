@@ -11,7 +11,7 @@ for (let i = 0; i < btn.length; i++) {
 }
 ;
 
-for (let i = 0; i < btn.length; i++) {
+for (let i = 0; i < modal.length; i++) {
     for (let j = 0; j < sugars.length; j += 3) {
         sugars[j].checked = true;
     }
@@ -27,9 +27,11 @@ span.forEach(function (e) {
     };
 });
 
+
 window.onclick = function (event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-    ;
+  modal.forEach(function (f) {
+    if (event.target === f) {
+      f.style.display = "none";
+    };
+  });
 };

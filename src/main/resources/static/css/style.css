@@ -170,6 +170,11 @@ div.filters {
     right: 0;
 }
 
+.savesbtn {
+  padding: 10px;
+  margin-right: 50px;
+}
+
 /******************************************************** HEADER **********************************************/
 
 .navbar-area {
@@ -346,6 +351,22 @@ footer.nb-footer .copyright p {
 
 .carouselindex {
     height: 400px;
+}
+
+/**************************************** CHECKOUT *****************************/
+#add_address {
+  color: #f4511e;
+}
+#add_address:hover {
+  text-decoration: underline;
+}
+#comments {
+  width: 100%;
+  height: 80px !important;
+  border-radius: 5px;
+}
+#amount {
+  font-size: 20px;
 }
 
 /**************************************** POP UP FORM *****************************/
