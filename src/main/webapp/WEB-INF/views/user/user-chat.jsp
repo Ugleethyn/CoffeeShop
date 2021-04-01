@@ -7,38 +7,34 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Quick Coffee</title>
-
+        <title>Quick Coffee - Live Chat</title>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
-        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
 
     <body>
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
 
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="${pageContext.request.contextPath}/user" class="logo">
+                <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
-
             </div>
 
             <!-- Menu For Desktop Device -->
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/user">
-                    <img src="img/logo.png" alt="logo.png">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user" class="nav-link active">Home</a>
+                            <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
@@ -51,7 +47,7 @@
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <sec:authentication property="principal.username" />
+                                <sec:authentication property="principal.username" />
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
@@ -60,10 +56,8 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/cart" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                     height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg> Cart</a>
                         </li>
                     </ul>
@@ -74,44 +68,54 @@
 
         <div class="background">
 
-            <!-- Page Content -->
-            <div class="container">
+            <div class="container cartcont">
+                <noscript>
+                <h2>Sorry! Your browser doesn't support Javascript</h2>
+                </noscript>
+                <div id="login">
+                    <div class="container" id="username-page">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12 username-page-container" style="height: auto; padding-bottom: 15px;">
+                                    <form id="usernameForm" name="usernameForm" class="form login-form">
+                                        <h3 class="text-center headertext" style="margin-bottom: 20px; padding-top: 20px;">Type your username</h3>
+                                        <div class="form-group">
+                                            <input type="text" id="name" autocomplete="off" class="form-control" placeholder="Username">
+                                        </div>
+                                        <div class="form-group" style="text-align: center;">
+                                            <button type="submit" class="button lgnbtn username-submit"><span>Chat
+                                                </span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container hidden" id="chat-page">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12 chat-container" style="height: auto;">
+                                    <form id="messageForm" name="messageForm" nameForm="messageForm" class="form login-form">
+                                        <h3 class="text-center headertext" style="margin-bottom: 20px;">Live Chat</h3>
+                                        <div class="connecting">
+                                            Connecting...
+                                        </div>
+                                        <ul id="messageArea">
 
-                <div class="bd-example">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators my-4">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner carouselindex">
-                            <div class="carousel-item active">
-                                <img src="${pageContext.request.contextPath}/img/coffeebg.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption">
-                                    <h2>Welcome to our cafeteria!</h2>
-                                    <p>Is time to drink a coffee? Order it now</p>
-                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button"><span>Order </span></button></a>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="${pageContext.request.contextPath}/img/snackbg.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption">
-                                    <h2>Welcome to our cafeteria!</h2>
-                                    <p>Would you like to taste a snack? Order it now</p>
-                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button"><span>Order </span></button></a>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="${pageContext.request.contextPath}/img/shopbg.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption">
-                                    <h2>Welcome to our cafeteria!</h2>
-                                    <p>Is time to drink a coffee? Order it now</p>
-                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button"><span>Order </span></button></a>
+                                        </ul>
+                                        <div class="form-group">
+                                            <div class="input-group clearfix">
+                                                <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                                                <button type="submit" class="primary" style="padding-left: 10px; padding-right: 10px;">Send</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -122,11 +126,11 @@
                         <div class="footer-info-single">
                             <h2 class="title">information</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
+                                <li><a href="${pageContext.request.contextPath}/user/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user/chat" title="Live Chat"><i
+                                <li><a href="${pageContext.request.contextPath}/user/chat" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
+                                <li><a href="${pageContext.request.contextPath}/user/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>
                             </ul>
                         </div>
@@ -135,7 +139,7 @@
                         <div class="footer-info-single">
                             <h2 class="title">Payment</h2>
                             <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
+                                <li><a href="${pageContext.request.contextPath}/user/payment" title=""><i
                                             class="fa fa-angle-double-right"></i> Supported Methods</a></li>
                             </ul>
                         </div>
@@ -155,6 +159,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="copyright">
                 <div class="container" style="width: 100%;">
                     <div class="row">
@@ -164,9 +169,9 @@
                     </div>
                 </div>
         </footer>
-
-        <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-        <script src="${pageContext.request.contextPath}/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>                                    
+        <script src="${pageContext.request.contextPath}/js/userchat.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

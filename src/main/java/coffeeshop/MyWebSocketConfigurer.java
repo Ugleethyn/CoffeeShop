@@ -23,6 +23,7 @@ public class MyWebSocketConfigurer implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws").withSockJS();
+        registry.addEndpoint("/user/ws").withSockJS();
     }
 
     @Override
