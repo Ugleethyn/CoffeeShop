@@ -40,7 +40,7 @@ public class Category implements Serializable {
     @Column(name = "cname")
     private String cname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "cprice")
+    @Column(name = "cprice", precision=4, scale=2)
     private BigDecimal cprice;
     @JoinColumn(name = "cat_b_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

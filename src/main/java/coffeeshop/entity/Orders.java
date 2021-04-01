@@ -46,7 +46,7 @@ public class Orders implements Serializable {
 //    @Min(value=000.00)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @DecimalMin("000.00")
     @DecimalMax("999.00") 
-    @Column(name = "orderprice")
+    @Column(name = "orderprice", precision=5, scale=2)
     private double price;
     @Size(max = 150)
     @Column(name = "comments")

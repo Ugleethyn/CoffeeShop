@@ -9,12 +9,7 @@ for (let i=0; i<btn.length; i++){
     };
 };
 
-for (let i=0; i<modal.length; i++){
-    for(let j=0; j<sugars.length; j+=3){
-        sugars[j].checked=true;
-    }
-};
-   
+
 
 span.forEach(function (e) {
   e.onclick = function () {  
@@ -24,8 +19,10 @@ span.forEach(function (e) {
     };
 });
 
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  };
+window.onclick = function (e) {
+  modal.forEach(function (f) {
+    if (e.target === f) {
+      f.style.display = "none";
+    };
+  });
 };

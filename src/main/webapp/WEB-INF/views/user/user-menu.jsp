@@ -136,7 +136,7 @@
                                             <span class="close">&times;</span>
                                             <div class="formcoffee">
                                                 <p>${coffeeType.id}</p>
-                                                <form>
+                                                
 
                                                     <div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>
@@ -169,7 +169,7 @@
                                                     <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
                                                     </div>
 
-                                                </form>
+                                                
                                             </div>
                                         </div>
                                     </div>
