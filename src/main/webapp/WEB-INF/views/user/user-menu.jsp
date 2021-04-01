@@ -136,7 +136,11 @@
                                             <span class="close">&times;</span>
                                             <div class="formcoffee">
                                                 <p>${coffeeType.id}</p>
+<<<<<<< HEAD
                                                 
+=======
+                                                <form action="${pageContext.request.contextPath}/user/cart" method="GET">
+>>>>>>> parent of 70f639b (Revert "Revert "18:12"")
 
                                                     <div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>
@@ -169,7 +173,11 @@
                                                     <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
                                                     </div>
 
+<<<<<<< HEAD
                                                 
+=======
+                                                </form>
+>>>>>>> parent of 70f639b (Revert "Revert "18:12"")
                                             </div>
                                         </div>
                                     </div>

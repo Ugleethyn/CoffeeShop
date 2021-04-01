@@ -18,23 +18,32 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RegistrationController {
-    
+
     @Autowired
-    AccountService accountService;
-    
+    private AccountService accountService;
+
     @GetMapping("/register")
     public String register(@ModelAttribute("account") Account account) {
-        return "register-form";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "register-form";
+        }
+        return "redirect:/user";
     }
-    
-    
+
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("account") Account account, BindingResult result){
-        if(result.hasErrors()){
+    public String register(@Valid @ModelAttribute("account") Account account, BindingResult result) {
+        if (result.hasErrors()) {
             return "register-form";
         }
         accountService.saveUser(account);
         return "redirect:/login?register";
     }
     
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public String handleException(RedirectAttributes attributes){
+        String minima = "Could not commit transaction";
+        attributes.addFlashAttribute("message", minima);
+        return "redirect:/register-form";
+    }
 }

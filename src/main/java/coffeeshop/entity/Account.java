@@ -83,7 +83,7 @@ public class Account implements Serializable {
             joinColumns = @JoinColumn(name = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roles;
+    private Set<Role> roles = new HashSet();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
     private List<Address> addresses;
@@ -108,17 +108,17 @@ public class Account implements Serializable {
     }
 
     @XmlTransient
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
-    public void addRole(Role role){
-        if(roles == null){
-            roles = new ArrayList();
+    public void addRole(Role role) {
+        if (roles == null) {
+            roles = new HashSet();
         }
         roles.add(role);
     }
