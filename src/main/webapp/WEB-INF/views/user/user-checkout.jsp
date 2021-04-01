@@ -88,34 +88,26 @@
                                         <h4 class="my-2">Your order info</h4>
                                         <!--Grid row-->
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="md-form my-3">
-                                                    <input type="text" id="address" class="form-control" placeholder="Hpeirou 2, Athens, 12241">
-                                                    <label for="address" class="text-info">Billing Address</label>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md">
+                                                        <select class="custom-select d-block w-100" id="address">
+                                                            <c:forEach items="${address}" var = "address">
+                                                                <option value="${address.id}">${address.street} ${address.number} ${address.city}, ${address.zipcode}, Doorbell Name : ${address.doorbell}, Floor : ${address.floor}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                        <label for="address">Address</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="md-form my-3">
-                                                    <input type="text" id="tel" class="form-control" placeholder="1000266451">
+                                                    <input type="text" id="tel" class="form-control" value="${account.tel}" readonly>
                                                     <label for="tel" class="text-info">Telephone</label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--Grid row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="md-form">
-                                                    <input type="text" id="doorbell" class="form-control" placeholder="Petrakos">
-                                                    <label for="doorbell" class="text-info">Name on doorbell</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="md-form">
-                                                    <input type="text" id="floor" class="form-control" placeholder="2">
-                                                    <label for="floor" class="text-info">Floor</label>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="my-4" id="add_address">
                                             <h6>
                                                 <a class="myBtn">Order to a new address</a>
@@ -218,7 +210,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <h4>Total amount</h4>
-                                            <p id="amount">$ 15</p>
+                                            <p id="amount">€ ${finalprice}</p>
                                         </div>
                                     </div>
                                     <div class="row">
