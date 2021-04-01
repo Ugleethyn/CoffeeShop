@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
@@ -8,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Quick Coffee - Cart</title>
+        <title>Quick Coffee - Menu</title>
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -25,7 +27,7 @@
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}/user" class="logo">
-                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="../logo.png">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
             </div>
 
@@ -40,17 +42,17 @@
                             <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
+                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link active">Catalog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link">About us</a>
+                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link ">About us</a>
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/contact" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item dropdown" id="drop">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <sec:authentication property="principal.username" />
+                                <sec:authentication property="principal.username" />
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/user/settings">Settings</a>
@@ -59,10 +61,8 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/cart" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                           height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            <a href="${pageContext.request.contextPath}/user/cart" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg> Cart</a>
                         </li>
                     </ul>
@@ -72,124 +72,173 @@
         <!-- End Navbar Area -->
 
         <div class="background">
+            <main class="mt-5 pt-4">
+                <div class="container">
 
-            <div class="container">
-                <div class="row">
-                    <aside class="col-lg-9">
-                        <div class="card">
-                            <div class="table-responsive">
-                                <table class="table table-borderless table-shopping-cart">
-                                    <thead class="text-muted">
-                                        <tr class="small text-uppercase">
-                                            <th scope="col">Product</th>
-                                            <th scope="col" width="120">Quantity</th>
-                                            <th scope="col" width="120">Price</th>
-                                            <th scope="col" class="text-right d-none d-md-block" width="200"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img
-                                                            src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574342017/rTVSl.jpg"
-                                                            class="img-sm"></div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                 data-abc="true">Tshirt with round nect</a>
-                                                        <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td> <select class="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select> </td>
-                                            <td>
-                                                <div class="price-wrap"> <var class="price">$10.00</var> <small
-                                                        class="text-muted"> $9.20 each </small> </div>
-                                            </td>
-                                            <td class="text-right d-none d-md-block"> <a
-                                                    data-original-title="Save to Wishlist" title="" href=""
-                                                    class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i
-                                                        class="fa fa-heart"></i></a> <a href="" class="btn btn-light"
-                                                                                data-abc="true"> Remove</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img
-                                                            src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574342054/imgrc0078783629.jpg"
-                                                            class="img-sm"></div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                 data-abc="true">Flower Formal T-shirt</a>
-                                                        <p class="text-muted small">SIZE: L <br> Brand: ADDA </p>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td> <select class="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select> </td>
-                                            <td>
-                                                <div class="price-wrap"> <var class="price">$15</var> <small
-                                                        class="text-muted"> $12 each </small> </div>
-                                            </td>
-                                            <td class="text-right d-none d-md-block"> <a
-                                                    data-original-title="Save to Wishlist" title="" href=""
-                                                    class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i
-                                                        class="fa fa-heart"></i></a> <a href=""
-                                                                                class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img
-                                                            src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574342208/ra_unisex_tshirt_x2200_fafafa_ca443f4786_front-c_267_146_1000_1000-bg_f8f8f8.u1.jpg"
-                                                            class="img-sm"></div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                 data-abc="true">Printed White Tshirt</a>
-                                                        <p class="small text-muted">SIZE:M <br> Brand: Cantabil</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td> <select class="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select> </td>
-                                            <td>
-                                                <div class="price-wrap"> <var class="price">$9</var> <small
-                                                        class="text-muted"> $6 each</small> </div>
-                                            </td>
-                                            <td class="text-right d-none d-md-block"> <a
-                                                    data-original-title="Save to Wishlist" title="" href=""
-                                                    class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i
-                                                        class="fa fa-heart"></i></a> <a href=""
-                                                                                class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <!--Grid row-->
+                    <div class="row justify-content-center">
+                        <!--Grid column-->
+                        <div class="col-md-9 mb-3">
+
+                            <!--Card-->
+                            <div class="card">
+                                <h2 class="my-4 h2 text-center headertext">Complete your order</h2>
+                                <form class="card-body">
+                                    <div class="order_details">
+                                        <h4 class="my-2">Your order info</h4>
+                                        <!--Grid row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="md-form my-3">
+                                                    <input type="text" id="address" class="form-control" placeholder="Hpeirou 2, Athens, 12241">
+                                                    <label for="address" class="text-info">Billing Address</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="md-form my-3">
+                                                    <input type="text" id="tel" class="form-control" placeholder="1000266451">
+                                                    <label for="tel" class="text-info">Telephone</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Grid row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <input type="text" id="doorbell" class="form-control" placeholder="Petrakos">
+                                                    <label for="doorbell" class="text-info">Name on doorbell</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <input type="text" id="floor" class="form-control" placeholder="2">
+                                                    <label for="floor" class="text-info">Floor</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="my-4" id="add_address">
+                                            <h6>
+                                                <a class="myBtn">Order to a new address</a>
+                                            </h6>
+                                        </div>
+
+                                        <!-- Modal content -->
+                                        <div id="myModal" class="modal modules">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <div class="details">
+                                                    <h4 class="mb-4">Please complete your details: </h4>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="street" class="form-control">
+                                                                <label for="street" class="text-info">Street</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="number" class="form-control">
+                                                                <label for="number" class="text-info">Number</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="city" class="form-control">
+                                                                <label for="city" class="text-info">City</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="zip" class="form-control">
+                                                                <label for="zip" class="text-info">Zip code</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="floor" class="form-control">
+                                                                <label for="floor" class="text-info">Floor</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="doorbell" class="form-control">
+                                                                <label for="doorbell" class="text-info">Name on doorbell</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6">
+                                                            <div class="md-form">
+                                                                <input type="text" id="tel" class="form-control">
+                                                                <label for="tel" class="text-info">Telephone</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 my-4 text-center">
+                                                            <div class="btnplace"><button class="button btnpopup">
+                                                                    <span>Submit</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="mb-4">
+                                    <div class="row my-3">
+                                        <div class="col-md-6">
+                                            <h4>Payment method</h4>
+                                            <div class="d-block my-3">
+                                                <div class="custom-control custom-radio">
+                                                    <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" checked
+                                                           required>
+                                                    <label class="custom-control-label" for="cash">Cash</label>
+                                                </div>
+                                                <div class="custom-control custom-radio">
+                                                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                                    <label class="custom-control-label" for="paypal">Paypal</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4>Total amount</h4>
+                                            <p id="amount">$ 15</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="comments" class="text-info">Comments</label>
+                                            <textarea name="comments" id="comments" maxlength="150"></textarea>
+                                        </div>
+                                        <div class="col-md-6 my-5 text-center">
+                                            <div class="checkoutcenter">
+                                                <a href="menu.html"><button class="button checkoutbtn"><span>Continue to checkout
+                                                        </span></button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </aside>
-                    <aside class="col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <dl class="dlist-align">
-                                    <dt>Total price:</dt>
-                                    <dd class="text-right ml-3">$69.97</dd>
-                                </dl>
-                                <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
-                                <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
-                            </div>
-                        </div>
-                    </aside>
+                    </div>
                 </div>
-            </div>
+            </main>
         </div>
 
         <footer class="nb-footer">
@@ -241,6 +290,7 @@
                     </div>
                 </div>
         </footer>
+
         <script src="${pageContext.request.contextPath}/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 

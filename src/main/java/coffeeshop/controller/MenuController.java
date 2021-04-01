@@ -45,21 +45,5 @@ public class MenuController {
         return categoryService.findAllSugars();
     }
 
-    @GetMapping()
-    public String showUserMenu(@ModelAttribute("cart") Product product) {
-        return "menu";
-    }
-    
-//    @RequestMapping
-//    public ModelAndView showTrainers(ModelAndView modelAndView) {
-//        modelAndView.addObject("coffeeTypes", productService.findAllCoffees());
-//        modelAndView.addObject("snackTypes", productService.findAllSnacks());
-//        modelAndView.addObject("drinkTypes", productService.findAllDrinks());
-//        modelAndView.addObject("ingredients", categoryService.findAllIngredients());
-//        modelAndView.addObject("coffeeSizes", categoryService.findAllSizes());
-//        modelAndView.addObject("coffeeSugar", categoryService.findAllSugars());
-//        modelAndView.setViewName("menu");
-//        return modelAndView;
-//    }
 
 }

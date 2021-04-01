@@ -40,7 +40,7 @@ public class Product implements Serializable {
     @Column(name = "pname")
     private String pname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "baseprice")
+    @Column(name = "baseprice", precision=4, scale=2)
     private Double baseprice;
     @Size(max = 65)
     @Column(name = "imgsrc")

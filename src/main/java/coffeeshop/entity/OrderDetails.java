@@ -2,6 +2,7 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,7 +52,7 @@ public class OrderDetails implements Serializable {
                 @JoinColumn(name = "category_id", referencedColumnName = "id")})
     private List<Category> categories;
 
-    @Column(name = "unitprice")
+    @Column(name = "unitprice", precision=4, scale=2)
     private double unitPrice;
 
     public OrderDetails() {
@@ -118,17 +119,26 @@ public class OrderDetails implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof OrderDetails)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        OrderDetails other = (OrderDetails) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final OrderDetails other = (OrderDetails) obj;
+        if (!Objects.equals(this.product, other.product)) {
+            return false;
+        }
+        if (!Objects.equals(this.categories, other.categories)) {
             return false;
         }
         return true;
     }
+
 
     @Override
     public String toString() {

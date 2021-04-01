@@ -2,6 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 
@@ -80,16 +81,21 @@
                     <aside class="col-lg-9">
                         <div class="card">
                             <div class="table-responsive">
-                                <table class="table table-borderless table-shopping-cart">
-                                    <thead class="text-muted">
-                                        <tr class="small text-uppercase">
-                                            <th scope="col">Product</th>
-                                            <th scope="col" width="120" class="headcolumns">Quantity</th>
-                                            <th scope="col" width="120" class=" headcolumns">Price</th>
-                                            <th scope="col" class="d-none d-md-block headcolumns" width="200"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                <c:set var = "list" value = "${cart}"/>
+
+                                <c:if test="${fn:length(list) == 0}">
+                                    <h5 class="emptycart">You don't have any product in your cart</h5>
+                                </c:if>
+                                <c:if test="${fn:length(list) > 0}">
+                                    <table class="table table-borderless table-shopping-cart">
+                                        <thead class="text-muted">
+                                            <tr class="small text-uppercase">
+                                                <th scope="col">Product</th>
+                                                <th scope="col" width="120" class="headcolumns">Quantity</th>
+                                                <th scope="col" width="120" class=" headcolumns">Price</th>
+                                                <th scope="col" class="d-none d-md-block headcolumns" width="200"></th>
+                                            </tr>
+                                        </thead>
                                         <c:forEach items="${cart}" var = "orderDetails">
                                             <tr>
                                                 <td class="columns">
@@ -99,7 +105,7 @@
                                                                 class="img-sm"></div>
                                                         <figcaption class="info"> <a href="#" class="title text-dark"
                                                                                      data-abc="true">${orderDetails.product.pname}</a>
-                                                                                     <p class="categories-cart">${orderDetails.categories}</p>
+                                                            <p class="categories-cart">${orderDetails.categories}</p>
                                                         </figcaption>
                                                     </figure>
                                                 </td>
@@ -115,8 +121,11 @@
                                                 </td>
                                             </tr>
                                         </c:forEach>
+                                   
+                                    <tbody>
                                     </tbody>
                                 </table>
+                                     
                             </div>
                         </div>
                     </aside>
@@ -129,6 +138,7 @@
                                 </dl>
                                 <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
                                 <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
+                                </c:if>
                             </div>
                         </div>
                     </aside>

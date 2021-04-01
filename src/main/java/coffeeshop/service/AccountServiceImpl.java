@@ -74,4 +74,13 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> getUsers() {
         return accountRepo.findByRoleId(2);
     }
+
+    public Account getCurrentlyLoggedInAccount(Authentication authentication) {
+        if (authentication == null) {
+            return null;
+        }
+        Account account = null;
+        account = ((MyUserDetails) authentication.getPrincipal()).getAccount();
+        return account;
+    }
 }

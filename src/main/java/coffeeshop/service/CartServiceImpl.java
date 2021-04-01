@@ -38,7 +38,7 @@ public class CartServiceImpl implements CartService{
 
     private int checkIfExists(List<OrderDetails> orderDetails, OrderDetails orderDetail) {
         for (int i = 0; i < orderDetails.size(); i++) {
-            if (orderDetails.get(i) == orderDetail) {
+            if (orderDetails.get(i).equals(orderDetail)) {
                 return i;
             }
         }

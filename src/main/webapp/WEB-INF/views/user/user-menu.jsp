@@ -161,7 +161,7 @@
                                                             </c:forEach>
                                                         </div>
                                                     </div>
-                                                    <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
+                                                    <div> <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
                                                         <label for="quantity">Quantity</label>
                                                     </div>
                                                     <div class="btnplace">
@@ -206,8 +206,7 @@
                                                             <button name="product" value="${snack.id}" class="snkdrnkbtn"><span>Add To Card</span></button>
                                                         </p>
                                                         <p class="btn-quantity">
-                                                            Quantity:
-                                                            <input type="number" name="quantity" value="1" class="quantity" min="1">
+                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" max="10" id="${snack.id}">
                                                         </p>
                                                     </div>
                                                     <div class="clearfix">
@@ -251,7 +250,7 @@
                                                         </p>
                                                         <p class="btn-quantity">
                                                             Quantity:
-                                                            <input type="number" name="quantity" value="1" class="quantity" min="1">
+                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" id="${drink.pname}">
                                                         </p>
                                                     </div>
                                                     <div class="clearfix">

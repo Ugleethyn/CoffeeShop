@@ -2,7 +2,6 @@ package coffeeshop.controller;
 
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.service.CartService;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("user/cart")
 public class CartController {
-    
+
     @Autowired
     private CartService cartService;
 
@@ -28,10 +27,9 @@ public class CartController {
 
     @PostMapping("/process")
     public String buy(@ModelAttribute("orderDetails") @Valid OrderDetails orderDetails, Model model, HttpSession session) {
-        List<OrderDetails> cart =cartService.addToCart(orderDetails, session);
+        List<OrderDetails> cart = cartService.addToCart(orderDetails, session);
         model.addAttribute("cart", cart);
         return "redirect:/user/menu";
     }
-
 
 }
