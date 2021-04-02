@@ -10,8 +10,6 @@ for (let i = 0; i < btn.length; i++) {
 }
 ;
 
-
-
 span.forEach(function (e) {
     e.onclick = function () {
         modal.forEach(function (e) {

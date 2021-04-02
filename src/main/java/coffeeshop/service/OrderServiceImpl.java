@@ -14,7 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
@@ -40,11 +39,6 @@ public class OrderServiceImpl implements OrderService {
     public Orders create(Orders order) {
         order.setDateCreated(LocalDateTime.now());
         return this.ordersRepo.save(order);
-    }
-
-    @Override
-    public void update(Orders order) {
-        this.ordersRepo.save(order);
     }
 
     public void setOrder(Orders order, HttpSession session) {

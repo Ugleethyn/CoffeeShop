@@ -29,7 +29,7 @@ public class UserSettingsController {
     private AddressService addressService;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping
     public String showSettings() {

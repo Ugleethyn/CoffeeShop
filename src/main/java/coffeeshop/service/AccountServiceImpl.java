@@ -24,11 +24,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class AccountServiceImpl implements AccountService {
 
     @Autowired
-    AccountRepo accountRepo;
+    private AccountRepo accountRepo;
     @Autowired
-    RoleRepo roleRepo;
+    private RoleRepo roleRepo;
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Account findByUsername(String username) {

@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface OrderDetailsService {
 
-    public List<OrderDetails> getOrderDetailsByOrder(int id);
+    List<OrderDetails> getOrderDetailsByOrder(int id);
 
-    public OrderDetails saveOrderDetails(OrderDetails orderDetail);
+    OrderDetails saveOrderDetails(OrderDetails orderDetail);
 
-    public OrderDetails findById(int id);
+    OrderDetails findById(int id);
 }

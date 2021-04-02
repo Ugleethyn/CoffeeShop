@@ -23,10 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-/**
- *
- * @author Ugleethyn
- */
 @Controller
 @RequestMapping("/user/checkout")
 public class CheckoutController {

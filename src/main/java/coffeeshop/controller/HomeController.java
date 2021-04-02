@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomeController {
 
-    @Autowired
-    AccountService accountService;
-
     @RequestMapping("/")
     public String home() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -53,7 +50,7 @@ public class HomeController {
         }
         return "redirect:/user";
     }
-    
+
     @RequestMapping("/checkout")
     public String checkout() {
         return "checkout";

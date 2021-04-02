@@ -10,9 +10,7 @@ public interface OrderService {
 
     Orders create(Orders order);
 
-    void update(Orders order);
-
-    public void setOrder(Orders order, HttpSession session);
+    void setOrder(Orders order, HttpSession session);
 
     Orders getAddress(int addressid);
 
