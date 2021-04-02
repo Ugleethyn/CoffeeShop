@@ -1,9 +1,7 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -53,10 +51,8 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
 
-
     public Product() {
     }
-
 
     public Product(Integer id) {
         this.id = id;
@@ -109,7 +105,6 @@ public class Product implements Serializable {
     public void setOrderDetails(List<OrderDetails> orderDetails) {
         this.orderDetails = orderDetails;
     }
-
 
     @Override
     public int hashCode() {

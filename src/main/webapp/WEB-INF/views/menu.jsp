@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +21,7 @@
 
         <!-- Start Navbar Area -->
         <div class="navbar-area">
-            
+
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
@@ -30,66 +31,74 @@
             </div>
 
             <!-- Menu For Desktop Device -->
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-                        <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
-                        </a>
-                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/menu" class="nav-link active">Catalog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/register" class="nav-link">Sign Up</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                            height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                        </svg> Cart</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/menu" class="nav-link active">Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/register" class="nav-link">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                                                     height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg> Cart</a>
+                        </li>
+                    </ul>
                 </div>
+            </nav>
+        </div>
         <!-- End Navbar Area -->
-        
+
         <div class="background">
-            
+
             <!-- Page Content -->
             <div class="container section-ourTeam">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sticky filters">
                             <ul class="list-group">
-                                <a href="#coffees">
-                                    <li class="list-group-item"> Coffees
-                                        <span class="badge">145</span>
-                                    </li>
-                                </a>
-                                <a href="#snacks">
-                                    <li class="list-group-item"> Snacks
-                                        <span class="badge">123</span>
-                                    </li>
-                                </a>
-                                <a href="#drinks">
-                                    <li class="list-group-item"> Drinks
-                                        <span class="badge">114</span>
-                                    </li>
-                                </a>
+                                <c:set var = "coffees" value = "${coffeeTypes}"/>
+                                <c:set var = "drinks" value = "${snackTypes}" />
+                                <c:set var = "snacks" value = "${drinkTypes}" />
+                                
+                             <button class="filterbtn" onclick="allProducts()">
+                                <li class="list-group-item"> All products
+                                    <span class="badge">${fn:length(coffees)+fn:length(drinks)+fn:length(snacks)}</span></li>
+                            </button>
+
+                            <button class="filterbtn" onclick="coffeeFilter()">
+                                <li class="list-group-item"> Coffees
+                                    <span class="badge">${fn:length(coffees)}</span></li>
+                            </button>
+
+                            <button class="filterbtn" onclick="snackFilter()">
+                                <li class="list-group-item"> Snacks
+                                    <span class="badge">${fn:length(snacks)}</span></li>
+                            </button>
+
+                            <button class="filterbtn" onclick="drinkFilter()">
+                                <li class="list-group-item"> Drinks
+                                    <span class="badge">${fn:length(drinks)}</span></li>
+                            </button>
                             </ul>
                         </div>
                     </div>
@@ -135,7 +144,6 @@
                                 <span class="close">&times;</span>
                                 <div class="formcoffee">
                                     <form action="${pageContext.request.contextPath}/login" method="GET">
-
                                         <div>
                                             <h5>Please select coffee sugar <span class="important">*</span></h5>
                                             <div class="funkyradio">
@@ -317,10 +325,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-            // Mean Menu
-            jQuery('.mean-menu').meanmenu({
-                meanScreenWidth: "991"
-            });
+                                    // Mean Menu
+                                    jQuery('.mean-menu').meanmenu({
+                                        meanScreenWidth: "991"
+                                    });
         </script>
     </body>
 

@@ -9,4 +9,6 @@ public interface CategoryService {
 
     List<Category> findAllSugars();
 
+    Category findById(int id);
+
 }

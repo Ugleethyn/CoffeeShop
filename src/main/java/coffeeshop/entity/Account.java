@@ -2,9 +2,7 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,8 +23,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.DynamicUpdate;
+
 
 @Entity
+@DynamicUpdate
 @Table(name = "account")
 @XmlRootElement
 @NamedQueries({
@@ -62,15 +63,14 @@ public class Account implements Serializable {
     @Column(name = "username", nullable = false, unique = true)
     private String username;
     @Basic(optional = false)
-    @NotBlank(message = "Password is mandatory")
-    @Size(min = 1, max = 68)
-    @Column(name = "password", nullable = false)
+    @NotNull
+    @Size(min = 4, max = 68)
+    @Column(name = "password")
     private String password;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation@Basic(optional = false)
     @NotBlank(message = "Email is mandatory")
     @Size(min = 1, max = 40)
-    @Column(name = "email", nullable = false,unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Basic(optional = false)
     @NotBlank(message = "Tel. is mandatory")
@@ -83,7 +83,7 @@ public class Account implements Serializable {
             joinColumns = @JoinColumn(name = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles = new HashSet();
+    private List<Role> roles = new ArrayList();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
     private List<Address> addresses;
@@ -108,17 +108,17 @@ public class Account implements Serializable {
     }
 
     @XmlTransient
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 
     public void addRole(Role role) {
         if (roles == null) {
-            roles = new HashSet();
+            roles = new ArrayList();
         }
         roles.add(role);
     }
@@ -219,7 +219,7 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Account[ id=" + id + " ]";
+        return "__________________________Account: id=" + id + "_____" + "username="+ username + "_____" + "email=" + email + "_____" + "tel="+ tel + "_____";
     }
 
 }

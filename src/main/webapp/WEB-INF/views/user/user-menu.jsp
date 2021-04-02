@@ -2,35 +2,30 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Quick Coffee - Menu</title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
+        <title>Quick Coffee - Menu</title>
     </head>
-
     <body>
-
         <!-- Start Navbar Area -->
         <div class="navbar-area">
-
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}/user" class="logo">
                     <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
             </div>
-
             <!-- Menu For Desktop Device -->
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <a class="navbar-brand" href="${pageContext.request.contextPath}/user">
@@ -70,62 +65,69 @@
             </nav>
         </div>
         <!-- End Navbar Area -->
-
         <div class="background">
-
             <!-- Page Content -->
             <div class="container section-ourTeam">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sticky filters">
                             <ul class="list-group">
-                                <a href="#coffees">
+                                <c:set var = "coffees" value = "${coffeeTypes}"/>
+                                <c:set var = "drinks" value = "${snackTypes}" />
+                                <c:set var = "snacks" value = "${drinkTypes}" />
+
+                                <button class="filterbtn" onclick="allProducts()">
+                                    <li class="list-group-item"> All products
+                                        <span class="badge">${fn:length(coffees)+fn:length(drinks)+fn:length(snacks)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="coffeeFilter()">
                                     <li class="list-group-item"> Coffees
-                                        <span class="badge">145</span>
-                                    </li>
-                                </a>
-                                <a href="#snacks">
+                                        <span class="badge">${fn:length(coffees)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="snackFilter()">
                                     <li class="list-group-item"> Snacks
-                                        <span class="badge">123</span>
-                                    </li>
-                                </a>
-                                <a href="#drinks">
+                                        <span class="badge">${fn:length(snacks)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="drinkFilter()">
                                     <li class="list-group-item"> Drinks
-                                        <span class="badge">114</span>
-                                    </li>
-                                </a>
+                                        <span class="badge">${fn:length(drinks)}</span></li>
+                                </button>
                             </ul>
                         </div>
                     </div>
-
                     <div class="col-md-9">
                         <section id="coffees">
-
                             <h1>Coffees</h1>
-                            <div class="row mg-b-30">
-
-                                <c:forEach items="${coffeeTypes}" var = "coffeeType">
-                                    <div class="col-sm-4">
-                                        <div class="shop-item">
-                                            <div class="info hoveritem">
-                                                <div class="row">
-                                                    <div class="price col-md-12">
-                                                        <h5><img src="${pageContext.request.contextPath}/img/coffee.png" class="img-responsive" alt="Coffee" /></h5>
+                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                                <div class="row mg-b-30">
+                                    <c:forEach items="${coffeeTypes}" var = "coffeeType">
+                                        <div class="col-sm-4">
+                                            <div class="shop-item">
+                                                <div class="info hoveritem">
+                                                    <div class="row">
+                                                        <div class="price col-md-12">
+                                                            <h5><img src="${pageContext.request.contextPath}/img/coffee.png" class="img-responsive" alt="Coffee" /></h5>
+                                                        </div>
+                                                        <div class="price col-md-12">
+                                                            <h5>
+                                                                ${coffeeType.pname}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="price col-md-12 col align-self-end">
+                                                            <h5 class="price-text-color"> € ${coffeeType.baseprice} </h5>
+                                                        </div>
                                                     </div>
-                                                    <div class="price col-md-12">
-                                                        <h5>${coffeeType.pname}</h5>
+                                                    <div class="separator clear-left">
+                                                        <p class="btn-add">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <a class="hidden-sm myBtn" >Add to cart</a>
+                                                        </p>
                                                     </div>
-                                                    <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> € ${coffeeType.baseprice} </h5>
+                                                    <div class="clearfix">
                                                     </div>
-                                                </div>
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                        <a class="hidden-sm myBtn">Add to cart</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
                                                 </div>
                                             </div>
                                         </div>
@@ -136,18 +138,19 @@
                                             <span class="close">&times;</span>
                                             <div class="formcoffee">
                                                 <p>${coffeeType.id}</p>
-<<<<<<< HEAD
-                                                
-=======
                                                 <form action="${pageContext.request.contextPath}/user/cart" method="GET">
->>>>>>> parent of 70f639b (Revert "Revert "18:12"")
-
+                                        <div id="myModal" class="modal modules">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <div class="formcoffee">
                                                     <div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>
                                                         <div class="funkyradio">
                                                             <c:forEach items="${coffeeSugar}" var = "sugar">
                                                                 <div class="funkyradio funkyradio-warning ">
                                                                     <input type="radio" name="categories" id="${sugar.cname}${coffeeType.pname}" value="${sugar.id}" class="sugars" />
+                                                                    <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
                                                                     <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
                                                                 </div>
                                                             </c:forEach>
@@ -161,6 +164,7 @@
                                                                 <div class="funkyradio-warning">
                                                                     <input type="checkbox" name="checkbox"
                                                                            id="${ingredients.cname}${coffeeType.pname}" />
+                                                                    <input type="checkbox" name="categories"  id="${ingredients.cname}${coffeeType.pname}"  value="${ingredients.id}"/>
                                                                     <label for="${ingredients.cname}${coffeeType.pname}">${ingredients.cname}</label>
                                                                 </div>
                                                             </c:forEach>
@@ -172,96 +176,115 @@
 
                                                     <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
                                                     </div>
-
-<<<<<<< HEAD
-                                                
-=======
                                                 </form>
->>>>>>> parent of 70f639b (Revert "Revert "18:12"")
                                             </div>
                                         </div>
                                     </div>
                                 </c:forEach>
                             </div>
                         </section>
-
-
-
-                        <section id="snacks">
-                            <h1>Snacks</h1>
-                            <div class="row mg-b-30">
-
-                                <c:forEach items="${snackTypes}" var = "snack">
-                                    <div class="col-sm-4">
-                                        <div class="shop-item">
-
-                                            <div class="info hoveritem">
-                                                <div class="row">
-                                                    <div class="price col-md-12">
-                                                        <h5> <img src="${pageContext.request.contextPath}/img/snack.png" class="img-responsive" alt="Snack" /> </h5>
                                                     </div>
-                                                    <div class="price col-md-12">
-                                                        <h5> ${snack.pname} </h5>
+                                                    <div> <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
+                                                        <label for="quantity">Quantity</label>
                                                     </div>
-                                                    <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> € ${snack.baseprice} </h5>
+                                                    <div class="btnplace">
+                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
                                                     </div>
-                                                </div>
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/user/cart"
-                                                                                              class="hidden-sm">Add to cart</a>
-                                                    </p>
-                                                    <p class="btn-quantity">
-                                                        Quantity:
-                                                        <input type="number" value="1" class="quantity" min="1">
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:forEach>
+                                    </c:forEach>
+                                </form:form>
                             </div>
+                        </section>
+                        <section id="snacks">
+                            <h1>Snacks</h1>
+                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                                <div class="row mg-b-30">
+
+                                    <c:forEach items="${snackTypes}" var = "snack">
+                                        <div class="col-sm-4">
+                                            <div class="shop-item">
+
+                                                <div class="info hoveritem">
+                                                    <div class="row">
+                                                        <div class="price col-md-12">
+                                                            <h5> <img src="${pageContext.request.contextPath}/img/snack.png" class="img-responsive" alt="Snack" /> </h5>
+                                                        </div>
+                                                        <div class="price col-md-12">
+                                                            <h5>
+                                                                ${snack.pname}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="price col-md-12 col align-self-end">
+
+                                                            <h5 class="price-text-color"> € ${snack.baseprice} </h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator clear-left">
+                                                        <p class="btn-add">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <button name="product" value="${snack.id}" class="snkdrnkbtn"><span>Add To Card</span></button>
+                                                        </p>
+                                                        <p class="btn-quantity">
+                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" max="10" id="${snack.id}">
+                                                        </p>
+                                                    </div>
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </form:form>
                         </section>
 
                         <section id="drinks">
                             <h1>Drinks</h1>
-                            <div class="row mg-b-30">
-                                <c:forEach items="${drinkTypes}" var = "drink">
-                                    <div class="col-sm-4">
-                                        <div class="shop-item">
-                                            <div class="info hoveritem">
-                                                <div class="row">
-                                                    <div class="price col-md-12">
-                                                        <h5> <img src="${pageContext.request.contextPath}/img/drink.png" class="img-responsive" alt="Drink" /> </h5>
+                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                                <div class="row mg-b-30">
+
+                                    <c:forEach items="${drinkTypes}" var = "drink">
+                                        <div class="col-sm-4">
+                                            <div class="shop-item">
+
+                                                <div class="info hoveritem">
+                                                    <div class="row">
+                                                        <div class="price col-md-12">
+                                                            <h5> <img src="${pageContext.request.contextPath}/img/drink.png" class="img-responsive" alt="Snack" /> </h5>
+                                                        </div>
+                                                        <div class="price col-md-12">
+                                                            <h5>
+                                                                ${drink.pname}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="price col-md-12 col align-self-end">
+
+                                                            <h5 class="price-text-color"> € ${drink.baseprice} </h5>
+                                                        </div>
                                                     </div>
-                                                    <div class="price col-md-12">
-                                                        <h5> ${drink.pname} </h5>
+                                                    <div class="separator clear-left">
+                                                        <p class="btn-add">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <button name="product" value="${drink.id}"  class="snkdrnkbtn"><span>Add To Card</span></button>
+                                                        </p>
+                                                        <p class="btn-quantity">
+                                                            Quantity:
+                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" id="${drink.pname}">
+                                                        </p>
                                                     </div>
-                                                    <div class="price col-md-12 col align-self-end">
-                                                        <h5 class="price-text-color"> € ${drink.baseprice} </h5>
+                                                    <div class="clearfix">
                                                     </div>
-                                                </div>
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/user/cart"
-                                                                                              class="hidden-sm">Add to cart</a>
-                                                    </p>
-                                                    <p class="btn-quantity">
-                                                        Quantity:
-                                                        <input type="number" value="1" class="quantity" min="1">
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:forEach>
-                            </div>
+                                    </c:forEach>
+                                </div>
+                            </form:form>
                         </section>
+
+
                     </div>
                 </div>
             </div>
@@ -329,10 +352,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-            // Mean Menu
-            jQuery('.mean-menu').meanmenu({
-                meanScreenWidth: "991"
-            });
+                                    // Mean Menu
+                                    jQuery('.mean-menu').meanmenu({
+                                        meanScreenWidth: "991"
+                                    });
         </script>
     </body>
 

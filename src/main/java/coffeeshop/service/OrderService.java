@@ -1,26 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coffeeshop.service;
 
 import coffeeshop.entity.Orders;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author gkolo
- */
 public interface OrderService {
-    
+
     List<Orders> getAllOrders();
-    
+
     Orders create(Orders order);
-    
-    void update(Orders order);
-    
+
     Orders getAddress(int addressid);
-    
+
+    void setOrder(Orders order, HttpSession session);
+
+    Orders getAddress(int addressid);
+
     List<Orders> getOrdersByAccount(int accountid);
 }

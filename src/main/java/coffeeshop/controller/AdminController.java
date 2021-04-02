@@ -38,13 +38,6 @@ public class AdminController {
         return "admin/admin-home";
     }
     
-//    @GetMapping ("/products")
-//    public String showProducts(Model model){
-//        List<Product> products = productService.getAllProducts();
-//        model.addAttribute("products", products);
-//        return "admin/admin-products";
-//    }
-    
     @GetMapping ("/orders")
     public String showOrders(Model model){
         List<Orders> orders = orderService.getAllOrders();

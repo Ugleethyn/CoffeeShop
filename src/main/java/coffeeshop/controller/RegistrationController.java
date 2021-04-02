@@ -39,9 +39,9 @@ public class RegistrationController {
         accountService.saveUser(account);
         return "redirect:/login?register";
     }
-    
+
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public String handleException(RedirectAttributes attributes){
+    public String handleException(RedirectAttributes attributes) {
         String minima = "Could not commit transaction";
         attributes.addFlashAttribute("message", minima);
         return "redirect:/register-form";

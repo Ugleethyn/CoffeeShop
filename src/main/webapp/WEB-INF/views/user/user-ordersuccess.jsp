@@ -1,9 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 
@@ -12,13 +10,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Quick Coffee - Cart</title>
+        <title>Quick Coffee - Settings</title>
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/img/logo.png">
     </head>
 
     <body>
@@ -47,7 +45,7 @@
                             <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link">About us</a>
+                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link ">About us</a>
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/contact" class="nav-link">Contact</a>
@@ -63,10 +61,8 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/cart" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                                height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            <a href="${pageContext.request.contextPath}/user/cart" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg> Cart</a>
                         </li>
                     </ul>
@@ -76,74 +72,14 @@
         <!-- End Navbar Area -->
 
         <div class="background">
-
-            <div class="container">
+            <div class="container section-ourTeam cartcont">
                 <div class="row">
-                    <aside class="col-lg-9">
-                        <div class="card">
-                            <div class="table-responsive">
-                                <c:set var = "list" value = "${cart}"/>
-
-                                <c:if test="${fn:length(list) == 0}">
-                                    <h5 class="emptycart">You don't have any product in your cart</h5>
-                                </c:if>
-                                <c:if test="${fn:length(list) > 0}">
-                                    <table class="table table-borderless table-shopping-cart">
-                                        <thead class="text-muted">
-                                            <tr class="small text-uppercase">
-                                                <th scope="col">Product</th>
-                                                <th scope="col" width="120" class="headcolumns">Quantity</th>
-                                                <th scope="col" width="120" class=" headcolumns">Price</th>
-                                                <th scope="col" class="d-none d-md-block headcolumns" width="200"></th>
-                                            </tr>
-                                        </thead>
-                                        <c:forEach items="${cart}" var = "orderDetails">
-                                            <tr>
-                                                <td class="columns">
-                                                    <figure class="itemside align-items-center">
-                                                        <div class="aside"><img
-                                                                src="img/coffee.png"
-                                                                class="img-sm"></div>
-                                                        <figcaption class="info"> <a href="#" class="title text-dark"
-                                                                                     data-abc="true">${orderDetails.product.pname}</a>
-                                                            <p class="categories-cart">${orderDetails.categories}</p>
-                                                        </figcaption>
-                                                    </figure>
-                                                </td>
-                                                <td class="columns">
-                                                    <input type="number" value="${orderDetails.quantity}" min="1" class="quantity">
-                                                </td>
-                                                <td class="columns">
-                                                    <div class="price-wrap"> <var class="price">€ ${orderDetails.unitPrice}</var> </div>
-                                                </td>
-                                                <td class="columns"> 
-
-                                                    <button name="product" value="${orderDetails.product}" class="btn btn-light btn-round remove"><span>Remove</span></button>
-
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </aside>
-                        <aside class="col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <dl class="dlist-align">
-                                        <dt>Total price:</dt>
-                                        <dd class="text-right ml-3">${total}</dd>
-                                    </dl>
-                                    <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
-                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
-                                </c:if>
-                            </div>
-                        </div>
-                    </aside>
+                    <div class="col-md-12 ourTeam-hedding text-center">
+                        <h1>Your order has been successfully promoted to our store</h1>
+                        <p>Thank you for choosing us!!<br>
+                            Your order id is: ${order.id} 
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,7 +124,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="copyright">
                 <div class="container" style="width: 100%;">
                     <div class="row">
@@ -198,14 +133,13 @@
                     </div>
                 </div>
         </footer>
+
         <script src="${pageContext.request.contextPath}/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
