@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface CategoryRepo extends JpaRepository<Category, Integer> {
 
     @Query("SELECT c FROM Category c WHERE c.catBId.id = :cat_b_id")
-    public List<Category> findAllByCatBId(@Param("cat_b_id") int id);
+    List<Category> findAllByCatBId(@Param("cat_b_id") int id);
 
 }

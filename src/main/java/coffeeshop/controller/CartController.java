@@ -1,55 +1,41 @@
 package coffeeshop.controller;
 
-import coffeeshop.entity.Item;
-import coffeeshop.service.ProductService;
-import java.util.ArrayList;
+import coffeeshop.entity.OrderDetails;
+import coffeeshop.service.CartService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("user/cart")
 public class CartController {
 
     @Autowired
-    private ProductService productService;
+    private CartService cartService;
 
-    public String cart() {
+    @GetMapping
+    public String showCart() {
         return "user/user-cart";
     }
 
-    @RequestMapping(value = "buy/{id}", method = RequestMethod.GET)
-    public String cartBuy(@PathVariable("id") int id, ModelMap modelMap, HttpSession session) {
-        if (session.getAttribute("cart") == null) {
-            List<Item> cart = new ArrayList();
-            cart.add(new Item(productService.findById(id), 1));
-            session.setAttribute("cart", cart);
-        } else {
-            List<Item> cart = (List<Item>) session.getAttribute("cart");
-            int index = isExists(id, cart);
-            if (index == -1) {
-                cart.add(new Item(productService.findById(id), 1));
-            } else {
-                int quantity = cart.get(index).getQuantity() + 1;
-                cart.get(index).setQuantity(quantity);
-            }
-            session.setAttribute("cart", cart);
-        }
-        return "redirect:user/menu";
+    @PostMapping("/process")
+    public String buy(@ModelAttribute("orderDetails") @Valid OrderDetails orderDetails, Model model, HttpSession session) {
+        List<OrderDetails> cart = cartService.addToCart(orderDetails, session);
+        model.addAttribute("cart", cart);
+        return "redirect:/user/menu";
     }
 
-    private int isExists(int id, List<Item> cart) {
-        for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getProduct().getId() == id) {
-                return i;
-            }
-        }
-        return -1;
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute("orderDetails") @Valid OrderDetails orderDetails, Model model, HttpSession session) {
+        cartService.removeFromCart(orderDetails, session);
+        return "redirect:/user/cart";
     }
 
 }

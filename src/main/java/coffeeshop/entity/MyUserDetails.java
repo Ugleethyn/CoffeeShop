@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coffeeshop.entity;
 
 import java.util.ArrayList;
@@ -31,7 +26,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<Role> roles = account.getRoles();
+        List<Role> roles = account.getRoles();
         List<SimpleGrantedAuthority> authoroties = new ArrayList();
         for (Role role : roles) {
             authoroties.add(new SimpleGrantedAuthority(role.getRname()));

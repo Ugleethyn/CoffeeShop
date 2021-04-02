@@ -25,41 +25,41 @@
                 </a>
             </div>
             <!-- Menu For Desktop Device -->
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-                        <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
-                        </a>
-                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/register" class="nav-link active">Sign Up</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                                                            height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                        </svg> Cart</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/register" class="nav-link active">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                                                     height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg> Cart</a>
+                        </li>
+                    </ul>
                 </div>
+            </nav>
+        </div>
         <!-- End Navbar Area -->
 
         <div class="background">
@@ -73,49 +73,44 @@
                                 <div id="register" class="col-md-12 ">
                                     <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
                                         <h3 class="text-center headertext">Register</h3>
-                                        
+
                                         <div class="form-group">
                                             <label for="email" class="text-info">E-mail:</label><br>
-                                            <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" />
-                                                <form:errors></form:errors>
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="username" class="text-info">Username:</label><br>
-                                            <form:input path="username" id="username" class="form-control" placeholder="Username *" />
-                                                <form:errors>Invalid Username</form:errors>
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="tel" class="text-info">Tel:</label><br>
-                                            <form:input path="tel" id="tel" class="form-control" placeholder="tel number *" value="" />
-                                                <form:errors></form:errors>
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="firstname" class="text-info">First Name:</label><br>
-                                            <form:input path="firstname" id="firstname"  class="form-control" placeholder="First Name *" />
-                                                <form:errors></form:errors>
-                                        </div>
-                                        
-                                        <div class="form-group float">
-                                            <label for="lastname" class="text-info">Last Name:</label><br>
-                                            <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" />
-                                                <form:errors></form:errors>
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="password" class="text-info">Password:</label><br>
-                                            <form:password path="password" id="password"  class="form-control" placeholder="Your password *" />
-                                                <form:errors></form:errors>
-                                        </div>
-                                        <div class="form-group float">
-                                            <label for="password1" class="text-info">Repeat Password:</label><br>
-                                            <form:password path="password" id="password1"  class="form-control" placeholder="Your password *" />
-                                                <form:errors></form:errors>
-                                        </div>
-                                        <div class="form-group">
-                                            <a><button type="submit" class="button lgnbtn"><span>Register
-                                                    </span></button></a>
-                                        </div>
-                                        <div id="register-link" class="text-right">
-                                            <a href="${pageContext.request.contextPath}/login" class="text-info">Login here</a>
+                                            <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" required="required"/>
+                                            <form:errors path="email"></form:errors>
+                                            </div>
+                                            <div class="form-group float">
+                                                <label for="username" class="text-info">Username:</label><br>
+                                            <form:input path="username" id="username" class="form-control" placeholder="Username *" required="required"/>
+                                            <form:errors>Invalid Username</form:errors>
+                                            </div>
+                                            <div class="form-group float">
+                                                <label for="tel" class="text-info">Tel:</label><br>
+                                            <form:input path="tel" id="tel" class="form-control" placeholder="tel number *" required="required"/>
+                                            <form:errors></form:errors>
+                                            </div>
+                                            <div class="form-group float">
+                                                <label for="firstname" class="text-info">First Name:</label><br>
+                                            <form:input path="firstname" id="firstname"  class="form-control" placeholder="First Name *" required="required"/>
+                                            <form:errors></form:errors>
+                                            </div>
+
+                                            <div class="form-group float">
+                                                <label for="lastname" class="text-info">Last Name:</label><br>
+                                            <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" required="required"/>
+                                            <form:errors></form:errors>
+                                            </div>
+                                            <div class="form-group float" style="width: 100%;">
+                                                <label for="password" class="text-info">Password:</label><br>
+                                            <form:password path="password" id="password"  class="form-control" placeholder="Your password *" required="required"/>
+                                            <form:errors></form:errors>
+                                            </div>
+                                            <div class="form-group">
+                                                <a><button type="submit" class="button lgnbtn"><span>Register
+                                                        </span></button></a>
+                                            </div>
+                                            <div id="register-link" class="text-right">
+                                                <a href="${pageContext.request.contextPath}/login" class="text-info">Login here</a>
                                         </div>
                                     </form:form>
                                 </div>
@@ -191,6 +186,7 @@
                 meanScreenWidth: "991"
             });
         </script>
+
     </body>
 
 </html>

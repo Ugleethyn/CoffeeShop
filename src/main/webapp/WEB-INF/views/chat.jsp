@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Quick Coffee - About us</title>
+        <title>Quick Coffee - Live Chat</title>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
@@ -123,7 +123,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="${pageContext.request.contextPath}/about" title=""><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}" title=""><i
+                                <li><a href="${pageContext.request.contextPath}/chat" title=""><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
                                 <li><a href="${pageContext.request.contextPath}/contact" title=""><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>

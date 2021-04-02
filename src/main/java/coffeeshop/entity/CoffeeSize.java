@@ -10,15 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author Ugleethyn
+ */
 @Entity
-@Table(name = "product_has_category")
+@Table(name = "coffee_size")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ProductHasCategory.findAll", query = "SELECT p FROM ProductHasCategory p")
-    , @NamedQuery(name = "ProductHasCategory.findById", query = "SELECT p FROM ProductHasCategory p WHERE p.id = :id")})
-public class ProductHasCategory implements Serializable {
+    @NamedQuery(name = "CoffeeSize.findAll", query = "SELECT c FROM CoffeeSize c")
+    , @NamedQuery(name = "CoffeeSize.findById", query = "SELECT c FROM CoffeeSize c WHERE c.id = :id")
+    , @NamedQuery(name = "CoffeeSize.findBySname", query = "SELECT c FROM CoffeeSize c WHERE c.sname = :sname")})
+public class CoffeeSize implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -26,11 +32,16 @@ public class ProductHasCategory implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Size(max = 45)
+    @Column(name = "sname")
+    private String sname;
+    @Column(name = "sizeprice")
+    private int sizeprice;
 
-    public ProductHasCategory() {
+    public CoffeeSize() {
     }
 
-    public ProductHasCategory(Integer id) {
+    public CoffeeSize(Integer id) {
         this.id = id;
     }
 
@@ -42,6 +53,14 @@ public class ProductHasCategory implements Serializable {
         this.id = id;
     }
 
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -49,13 +68,21 @@ public class ProductHasCategory implements Serializable {
         return hash;
     }
 
+    public int getSizeprice() {
+        return sizeprice;
+    }
+
+    public void setSizeprice(int sizeprice) {
+        this.sizeprice = sizeprice;
+    }
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ProductHasCategory)) {
+        if (!(object instanceof CoffeeSize)) {
             return false;
         }
-        ProductHasCategory other = (ProductHasCategory) object;
+        CoffeeSize other = (CoffeeSize) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -64,7 +91,7 @@ public class ProductHasCategory implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.ProductHasCategory[ id=" + id + " ]";
+        return "coffeeshop.entity.CoffeeSize[ id=" + id + " ]";
     }
-    
+
 }

@@ -5,8 +5,10 @@ import java.util.List;
 
 public interface CategoryService {
 
-    public List<Category> findAllIngredients();
+    List<Category> findAllIngredients();
 
-    public List<Category> findAllSugars();
+    List<Category> findAllSugars();
+
+    Category findById(int id);
 
 }

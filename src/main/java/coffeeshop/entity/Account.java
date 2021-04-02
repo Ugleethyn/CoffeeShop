@@ -2,9 +2,7 @@ package coffeeshop.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,8 +23,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.DynamicUpdate;
+
 
 @Entity
+@DynamicUpdate
 @Table(name = "account")
 @XmlRootElement
 @NamedQueries({
@@ -49,33 +50,32 @@ public class Account implements Serializable {
     @Basic(optional = false)
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 20)
-    @Column(name = "firstname")
+    @Column(name = "firstname", nullable = false)
     private String firstname;
     @Basic(optional = false)
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 20)
-    @Column(name = "lastname")
+    @Column(name = "lastname", nullable = false)
     private String lastname;
     @Basic(optional = false)
     @NotBlank(message = "Userame is mandatory")
     @Size(min = 1, max = 20)
-    @Column(name = "username")
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
     @Basic(optional = false)
-    @NotBlank(message = "Password is mandatory")
-    @Size(min = 1, max = 68)
+    @NotNull
+    @Size(min = 4, max = 68)
     @Column(name = "password")
     private String password;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation@Basic(optional = false)
     @NotBlank(message = "Email is mandatory")
     @Size(min = 1, max = 40)
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Basic(optional = false)
     @NotBlank(message = "Tel. is mandatory")
     @Size(min = 10, max = 10)
-    @Column(name = "tel")
+    @Column(name = "tel", nullable = false)
     private String tel;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -83,12 +83,12 @@ public class Account implements Serializable {
             joinColumns = @JoinColumn(name = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles = new HashSet();
+    private List<Role> roles = new ArrayList();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
-    private List<Address> addressList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid")
-    private List<Orders> ordersList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
+    private List<Address> addresses;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
+    private List<Orders> orders;
 
     public Account() {
     }
@@ -108,17 +108,17 @@ public class Account implements Serializable {
     }
 
     @XmlTransient
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 
     public void addRole(Role role) {
         if (roles == null) {
-            roles = new HashSet();
+            roles = new ArrayList();
         }
         roles.add(role);
     }
@@ -180,21 +180,21 @@ public class Account implements Serializable {
     }
 
     @XmlTransient
-    public List<Address> getAddressList() {
-        return addressList;
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
-    public void setAddressList(List<Address> addressList) {
-        this.addressList = addressList;
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
     @XmlTransient
-    public List<Orders> getOrdersList() {
-        return ordersList;
+    public List<Orders> getOrders() {
+        return orders;
     }
 
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 
     @Override
@@ -219,7 +219,7 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Account[ id=" + id + " ]";
+        return "__________________________Account: id=" + id + "_____" + "username="+ username + "_____" + "email=" + email + "_____" + "tel="+ tel + "_____";
     }
 
 }
