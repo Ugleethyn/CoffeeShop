@@ -83,6 +83,7 @@
                                 <c:set var = "coffees" value = "${coffeeTypes}"/>
                                 <c:set var = "drinks" value = "${snackTypes}" />
                                 <c:set var = "snacks" value = "${drinkTypes}" />
+
                                 <button class="filterbtn" onclick="allProducts()">
                                     <li class="list-group-item"> All products
                                         <span class="badge">${fn:length(coffees)+fn:length(drinks)+fn:length(snacks)}</span></li>

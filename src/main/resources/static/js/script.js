@@ -3,10 +3,6 @@ let modal = document.querySelectorAll(".modules");
 let btn = document.querySelectorAll(".myBtn");
 let span = document.querySelectorAll(".close");
 
-let span = document.querySelectorAll(".");
-let span = document.querySelectorAll(".close");
-
-
 for (let i = 0; i < btn.length; i++) {
     btn[i].onclick = function () {
         modal[i].style.display = "block";
@@ -24,13 +20,13 @@ span.forEach(function (e) {
 
 
 window.onclick = function (event) {
-  modal.forEach(function (f) {
-    if (event.target === f) {
-      f.style.display = "none";
-    };
-  });
+    modal.forEach(function (f) {
+        if (event.target === f) {
+            f.style.display = "none";
+        }
+        ;
+    });
 };
-
 
 function coffeeFilter() {
   document.getElementById("coffees").style.display = "block";
