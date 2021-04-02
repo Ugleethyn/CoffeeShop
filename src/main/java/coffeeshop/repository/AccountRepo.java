@@ -25,11 +25,4 @@ public interface AccountRepo extends JpaRepository<Account, Integer> {
     Account findByOrder(@Param("aid") int id);
     
 
-    @Query(value = "SELECT *"
-            + " FROM account a"
-            + " JOIN orders o"
-            + " ON a.id = o.Account_id"
-            + " WHERE a.id = :aid", nativeQuery = true)
-    Account findByOrder(@Param("aid") int id);
-
 }

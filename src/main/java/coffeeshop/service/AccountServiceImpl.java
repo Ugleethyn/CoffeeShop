@@ -110,12 +110,5 @@ public class AccountServiceImpl implements AccountService {
     public Account getUserByOrder(int accountid) {
         return accountRepo.findByOrder(accountid);
     }
-
-    @Override
-    public Account getUserByOrder(int accountid) {
-        return accountRepo.findByOrder(accountid);
-    }
-
-    
-
+  
 }

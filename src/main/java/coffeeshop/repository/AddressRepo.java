@@ -16,12 +16,5 @@ public interface AddressRepo extends JpaRepository<Address, Integer>{
     @Query(value = "SELECT a FROM Address a JOIN FETCH a.accountid ac WHERE ac.id = :accountid")
     List<Address> findByAccount(@Param("accountid")int accountId);
    
-    
-
-public interface AddressRepo extends JpaRepository<Address, Integer> {
-
-    @Query(value = "SELECT a FROM Address a JOIN FETCH a.accountid ac WHERE ac.id = :accountid")
-    List<Address> findByAccount(@Param("accountid") int accountId);
-
 
 }

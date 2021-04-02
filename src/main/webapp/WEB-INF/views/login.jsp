@@ -65,9 +65,7 @@
             </nav>
         </div>
         <!-- End Navbar Area -->
-
         <div class="background">
-
             <!-- Page Content -->
             <div class="container cartcont">
                 <div id="login">
@@ -106,7 +104,6 @@
                 </div>
             </div>
         </div>
-
         <footer class="nb-footer">
             <div class="container">
                 <div class="row">
