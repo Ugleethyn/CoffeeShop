@@ -2,6 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 
@@ -79,21 +80,28 @@
                     <div class="col-md-3">
                         <div class="sticky filters">
                             <ul class="list-group">
-                                <a href="#coffees">
+                                <c:set var = "coffees" value = "${coffeeTypes}"/>
+                                <c:set var = "drinks" value = "${snackTypes}" />
+                                <c:set var = "snacks" value = "${drinkTypes}" />
+                                <button class="filterbtn" onclick="allProducts()">
+                                    <li class="list-group-item"> All products
+                                        <span class="badge">${fn:length(coffees)+fn:length(drinks)+fn:length(snacks)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="coffeeFilter()">
                                     <li class="list-group-item"> Coffees
-                                        <span class="badge">145</span>
-                                    </li>
-                                </a>
-                                <a href="#snacks">
+                                        <span class="badge">${fn:length(coffees)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="snackFilter()">
                                     <li class="list-group-item"> Snacks
-                                        <span class="badge">123</span>
-                                    </li>
-                                </a>
-                                <a href="#drinks">
+                                        <span class="badge">${fn:length(snacks)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="drinkFilter()">
                                     <li class="list-group-item"> Drinks
-                                        <span class="badge">114</span>
-                                    </li>
-                                </a>
+                                        <span class="badge">${fn:length(drinks)}</span></li>
+                                </button>
                             </ul>
                         </div>
                     </div>
@@ -331,10 +339,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-            // Mean Menu
-            jQuery('.mean-menu').meanmenu({
-                meanScreenWidth: "991"
-            });
+                                    // Mean Menu
+                                    jQuery('.mean-menu').meanmenu({
+                                        meanScreenWidth: "991"
+                                    });
         </script>
     </body>
 
