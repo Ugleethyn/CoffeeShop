@@ -42,7 +42,7 @@
                             <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link active">Catalog</a>
+                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/about" class="nav-link ">About us</a>
@@ -87,151 +87,151 @@
                                     <div class="order_details">
                                         <h4 class="my-2">Your order info</h4>
                                         <!--Grid row-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md">
-                                                        <select class="custom-select d-block w-100" id="address">
-                                                            <c:forEach items="${address}" var = "address">
-                                                                <option value="${address.id}">${address.street} ${address.number} ${address.city}, ${address.zipcode}, Doorbell Name : ${address.doorbell}, Floor : ${address.floor}</option>
-                                                            </c:forEach>
-                                                        </select>
-                                                        <label for="address">Address</label>
+                                        <form:form action="${pageContext.request.contextPath}/user/checkout" method="POST" modelAttribute="order">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md">
+                                                            <select class="custom-select d-block w-100" id="address" name="addressid">
+                                                                <c:forEach items="${address}" var = "address">
+                                                                    <option  value="${address.id}">${address.street} ${address.number} ${address.city}, ${address.zipcode}, Doorbell Name : ${address.doorbell}, Floor : ${address.floor}</option>
+                                                                </c:forEach>
+                                                            </select>
+                                                            <label for="address">Address</label>
+                                                        </div>
                                                     </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form my-3">
+                                                        <input type="text" id="tel" class="form-control" value="${account.tel}" readonly>
+                                                        <label for="tel" class="text-info">Telephone</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="my-4" id="add_address">
+                                                <h6>
+                                                    <a class="myBtn">Order to a new address</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+
+                                        <hr class="mb-4">
+                                        <div class="row my-3">
+                                            <div class="col-md-6">
+                                                <h4>Payment method</h4>
+                                                <div class="d-block my-3">
+                                                    <c:forEach items="${payment}" var = "payment">
+                                                        <div class="custom-control custom-radio">
+                                                            <input id="${payment.type}" value="${payment.id}" name="payment" type="radio" class="custom-control-input" checked>
+                                                            <label class="custom-control-label" for="${payment.type}">${payment.type}</label>
+                                                        </div>
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="md-form my-3">
-                                                    <input type="text" id="tel" class="form-control" value="${account.tel}" readonly>
-                                                    <label for="tel" class="text-info">Telephone</label>
+                                                <h4>Total amount</h4>
+                                                <p id="amount">€ ${finalprice}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="comments" class="text-info">Comments</label>
+                                                <textarea name="comments" id="comments" maxlength="150"></textarea>
+                                            </div>
+                                            <div class="col-md-6 my-5 text-center">
+                                                <div class="checkoutcenter">
+                                                    <button class="button checkoutbtn"><span>Continue to checkout</span></button>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="my-4" id="add_address">
-                                            <h6>
-                                                <a class="myBtn">Order to a new address</a>
-                                            </h6>
-                                        </div>
-
-                                        <!-- Modal content -->
-                                        <div id="myModal" class="modal modules">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <div class="details">
-                                                    <h4 class="mb-4">Please complete your details: </h4>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="street" class="form-control">
-                                                                <label for="street" class="text-info">Street</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="number" class="form-control">
-                                                                <label for="number" class="text-info">Number</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="city" class="form-control">
-                                                                <label for="city" class="text-info">City</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="zip" class="form-control">
-                                                                <label for="zip" class="text-info">Zip code</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="floor" class="form-control">
-                                                                <label for="floor" class="text-info">Floor</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="doorbell" class="form-control">
-                                                                <label for="doorbell" class="text-info">Name on doorbell</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6">
-                                                            <div class="md-form">
-                                                                <input type="text" id="tel" class="form-control">
-                                                                <label for="tel" class="text-info">Telephone</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 my-4 text-center">
-                                                            <div class="btnplace"><button class="button btnpopup">
-                                                                    <span>Submit</span></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <hr class="mb-4">
-                                    <div class="row my-3">
-                                        <div class="col-md-6">
-                                            <h4>Payment method</h4>
-                                            <div class="d-block my-3">
-                                                <div class="custom-control custom-radio">
-                                                    <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" checked
-                                                           required>
-                                                    <label class="custom-control-label" for="cash">Cash</label>
-                                                </div>
-                                                <div class="custom-control custom-radio">
-                                                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="paypal">Paypal</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h4>Total amount</h4>
-                                            <p id="amount">€ ${finalprice}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="comments" class="text-info">Comments</label>
-                                            <textarea name="comments" id="comments" maxlength="150"></textarea>
-                                        </div>
-                                        <div class="col-md-6 my-5 text-center">
-                                            <div class="checkoutcenter">
-                                                <a href="menu.html"><button class="button checkoutbtn"><span>Continue to checkout
-                                                        </span></button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </form:form>
+        <!-- Modal content -->
+        <div id="myModal" class="modal modules">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="details">
+                    <h4 class="mb-4">Please complete your details: </h4>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4">
+                            <div class="md-form">
+                                <input type="text" id="street" class="form-control">
+                                <label for="street" class="text-info">Street</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4">
+                            <div class="md-form">
+                                <input type="text" id="number" class="form-control">
+                                <label for="number" class="text-info">Number</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4">
+                            <div class="md-form">
+                                <input type="text" id="city" class="form-control">
+                                <label for="city" class="text-info">City</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4">
+                            <div class="md-form">
+                                <input type="text" id="zip" class="form-control">
+                                <label for="zip" class="text-info">Zip code</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4">
+                            <div class="md-form">
+                                <input type="text" id="floor" class="form-control">
+                                <label for="floor" class="text-info">Floor</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6 mb-4">
+                            <div class="md-form">
+                                <input type="text" id="doorbell" class="form-control">
+                                <label for="doorbell" class="text-info">Name on doorbell</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form">
+                                <input type="text" id="tel" class="form-control">
+                                <label for="tel" class="text-info">Telephone</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-6 my-4 text-center">
+                            <div class="btnplace"><button class="button btnpopup">
+                                    <span>Submit</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
+
+
+
 
         <footer class="nb-footer">
             <div class="container">
