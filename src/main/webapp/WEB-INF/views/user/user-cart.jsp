@@ -116,28 +116,29 @@
                                                     <div class="price-wrap"> <var class="price">€ ${orderDetails.unitPrice}</var> </div>
                                                 </td>
                                                 <td class="columns"> 
-                                                    <a href=""
-                                                       class="btn btn-light btn-round remove" data-abc="true"> Remove</a> 
+
+                                                    <button name="product" value="${orderDetails.product}" class="btn btn-light btn-round remove"><span>Remove</span></button>
+
                                                 </td>
                                             </tr>
                                         </c:forEach>
-                                   
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                                     
+
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+
+                                </div>
                             </div>
-                        </div>
-                    </aside>
-                    <aside class="col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <dl class="dlist-align">
-                                    <dt>Total price:</dt>
-                                    <dd class="text-right ml-3">${total}</dd>
-                                </dl>
-                                <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
-                                <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
+                        </aside>
+                        <aside class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <dl class="dlist-align">
+                                        <dt>Total price:</dt>
+                                        <dd class="text-right ml-3">${total}</dd>
+                                    </dl>
+                                    <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
+                                    <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
                                 </c:if>
                             </div>
                         </div>

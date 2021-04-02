@@ -1,6 +1,7 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.OrderDetails;
+import coffeeshop.repository.OrderDetailsRepo;
 import coffeeshop.service.CartService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -30,6 +31,12 @@ public class CartController {
         List<OrderDetails> cart = cartService.addToCart(orderDetails, session);
         model.addAttribute("cart", cart);
         return "redirect:/user/menu";
+    }
+
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute("orderDetails") @Valid OrderDetails orderDetails, Model model, HttpSession session) {
+        cartService.removeFromCart(orderDetails, session);
+        return "redirect:/user/cart";
     }
 
 }

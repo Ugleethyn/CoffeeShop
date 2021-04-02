@@ -11,14 +11,6 @@ for (let i = 0; i < btn.length; i++) {
 }
 ;
 
-for (let i = 0; i < modal.length; i++) {
-    for (let j = 0; j < sugars.length; j += 3) {
-        sugars[j].checked = true;
-    }
-}
-;
-
-
 span.forEach(function (e) {
     e.onclick = function () {
         modal.forEach(function (e) {
