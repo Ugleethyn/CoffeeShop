@@ -6,6 +6,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +40,7 @@ public class Store implements Serializable {
     @Size(max = 45)
     @Column(name = "storename")
     private String storename;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeid")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeid", fetch = FetchType.LAZY)
     private List<Orders> ordersList;
 
     public Store() {

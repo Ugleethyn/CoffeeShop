@@ -6,6 +6,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +36,7 @@ public class Payment implements Serializable {
     @Size(max = 45)
     @Column(name = "type")
     private String type;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentid")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "payment", fetch = FetchType.LAZY)
     private List<Orders> ordersList;
 
     public Payment() {

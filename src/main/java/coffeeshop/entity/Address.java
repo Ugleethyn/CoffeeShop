@@ -61,7 +61,7 @@ public class Address implements Serializable {
     @ManyToOne(optional = false)
     private Account accountid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressid")
-    private List<Orders> ordersList;
+    private List<Orders> orders;
 
     public Address() {
     }
@@ -135,12 +135,12 @@ public class Address implements Serializable {
     }
 
     @XmlTransient
-    public List<Orders> getOrdersList() {
-        return ordersList;
+    public List<Orders> getOrders() {
+        return orders;
     }
 
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 
     @Override

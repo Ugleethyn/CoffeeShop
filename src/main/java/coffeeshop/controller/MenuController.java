@@ -6,6 +6,9 @@ import coffeeshop.service.CategoryService;
 import coffeeshop.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +23,16 @@ public class MenuController {
     @Autowired
     private CategoryService categoryService;
 
-        @ModelAttribute("coffeeTypes")
+    @GetMapping()
+    public String showMenu() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "menu";
+        }
+        return "redirect:/user/menu";
+    }
+
+    @ModelAttribute("coffeeTypes")
     public List<Product> getCoffeeTypes() {
         return productService.findAllCoffees();
     }
@@ -44,22 +56,5 @@ public class MenuController {
     public List<Category> getCoffeeSugar() {
         return categoryService.findAllSugars();
     }
-
-    @GetMapping()
-    public String showUserMenu(@ModelAttribute("cart") Product product) {
-        return "menu";
-    }
-    
-//    @RequestMapping
-//    public ModelAndView showTrainers(ModelAndView modelAndView) {
-//        modelAndView.addObject("coffeeTypes", productService.findAllCoffees());
-//        modelAndView.addObject("snackTypes", productService.findAllSnacks());
-//        modelAndView.addObject("drinkTypes", productService.findAllDrinks());
-//        modelAndView.addObject("ingredients", categoryService.findAllIngredients());
-//        modelAndView.addObject("coffeeSizes", categoryService.findAllSizes());
-//        modelAndView.addObject("coffeeSugar", categoryService.findAllSugars());
-//        modelAndView.setViewName("menu");
-//        return modelAndView;
-//    }
 
 }

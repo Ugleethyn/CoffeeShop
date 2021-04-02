@@ -1,6 +1,5 @@
 package coffeeshop.controller;
 
-import coffeeshop.entity.MyUserDetails;
 import coffeeshop.service.AccountService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
-    @Autowired
-    AccountService accountService;
 
     @RequestMapping("/")
     public String home() {
@@ -54,7 +50,7 @@ public class HomeController {
         }
         return "redirect:/user";
     }
-    
+
     @RequestMapping("/checkout")
     public String checkout() {
         return "checkout";

@@ -3,7 +3,6 @@ package coffeeshop.service;
 import coffeeshop.entity.Product;
 import coffeeshop.repository.ProductsRepo;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +13,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductsRepo productRepo;
+    
+    public List<Product> getAllProducts(){
+        return productRepo.findAll();
+    }
 
     public List<Product> findAllCoffees() {
         return productRepo.findAllByCatAId(1);
@@ -28,10 +31,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public Product findById(int id) {
-        Product product = null;
-        Optional<Product> optionalProduct = productRepo.findById(id);
-        optionalProduct = Optional.of(product);
-        return product;
+        return  productRepo.findById(id).get();
+    }
+    
+    @Override
+    public Product save(Product product) {
+        return productRepo.save(product);
     }
 
 }

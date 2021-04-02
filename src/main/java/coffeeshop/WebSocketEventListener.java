@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coffeeshop;
 
 import coffeeshop.entity.ChatMessage;
@@ -14,13 +9,11 @@ import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
-/**
- *
- * @author gkolo
- */
+
+
 @Component
 public class WebSocketEventListener {
-    
+
     private static final Logger logger = Logger.getLogger("WebSocketEventListener");
 
     @Autowired
@@ -35,8 +28,8 @@ public class WebSocketEventListener {
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
-        String username = (String)headerAccessor.getSessionAttributes().get("username");
-        if(username != null) {
+        String username = (String) headerAccessor.getSessionAttributes().get("username");
+        if (username != null) {
             logger.info("User Disconnected : " + username);
 
             ChatMessage chatMessage = new ChatMessage();
@@ -46,5 +39,4 @@ public class WebSocketEventListener {
             messagingTemplate.convertAndSend("/topic/public", chatMessage);
         }
     }
-    
 }

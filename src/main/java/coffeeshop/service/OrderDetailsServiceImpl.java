@@ -1,6 +1,5 @@
 package coffeeshop.service;
 
-import coffeeshop.entity.Account;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.repository.OrderDetailsRepo;
 import java.util.List;
@@ -15,8 +14,17 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
 
-    public List<OrderDetails> listOfItems(Account account) {
-        return orderDetailsRepo.findByAccount(account);
+    @Override
+    public List<OrderDetails> getOrderDetailsByOrder(int id) {
+        return orderDetailsRepo.findByFk(id);
+    }
+
+    public OrderDetails saveOrderDetails(OrderDetails orderDetail) {
+        return orderDetailsRepo.save(orderDetail);
+    }
+
+    public OrderDetails findById(int id) {
+        return orderDetailsRepo.findById(id);
     }
 
 }

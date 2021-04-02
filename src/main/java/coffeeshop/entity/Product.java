@@ -1,10 +1,12 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -38,27 +41,18 @@ public class Product implements Serializable {
     private String pname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "baseprice", precision=4, scale=2)
-    private BigDecimal baseprice;
+    private Double baseprice;
     @Size(max = 65)
     @Column(name = "imgsrc")
     private String imgsrc;
     @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatA catAId;
-//    @ManyToOne
-//    @JoinColumn(name = "product_id")
-//    private Category category;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderDetails> orderDetails;
 
     public Product() {
     }
-
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
 
     public Product(Integer id) {
         this.id = id;
@@ -80,11 +74,11 @@ public class Product implements Serializable {
         this.pname = pname;
     }
 
-    public BigDecimal getBaseprice() {
+    public Double getBaseprice() {
         return baseprice;
     }
 
-    public void setBaseprice(BigDecimal baseprice) {
+    public void setBaseprice(double baseprice) {
         this.baseprice = baseprice;
     }
 
@@ -102,6 +96,14 @@ public class Product implements Serializable {
 
     public void setCatAId(CatA catAId) {
         this.catAId = catAId;
+    }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
     @Override
