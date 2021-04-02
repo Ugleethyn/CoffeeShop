@@ -15,6 +15,7 @@ public interface AccountService extends UserDetailsService {
 
     List<Account> getUsers();
 
-    public Account getCurrentlyLoggedInAccount(Authentication authentication);
+    Account getCurrentlyLoggedInAccount(Authentication authentication);
 
+    Account update(Account account);
 }

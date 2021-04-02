@@ -19,7 +19,7 @@
         <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/img/logo.png">
     </head>
 
-<body>
+    <body>
 
         <!-- Start Navbar Area -->
         <div class="navbar-area">
@@ -83,7 +83,9 @@
                             <!--Card-->
                             <div class="card">
                                 <h2 class="my-4 h2 text-center headertext">My account</h2>
-                                <form class="card-body">
+
+                                <form:form action="${pageContext.request.contextPath}/user/settings/update" method="POST" modelAttribute="settings" cssClass="card-body">
+
                                     <div class="my_details">
 
                                         <h4 class="my-2">My details</h4>
@@ -91,7 +93,8 @@
                                         <div class="row">
                                             <div class="col-md">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="email" class="form-control">
+                                                    <input type="text" id="email" name="email" class="form-control" value="${account.email}">
+
                                                     <label for="email" class="text-info">Email</label>
                                                 </div>
                                             </div>
@@ -100,13 +103,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="firstName" class="form-control" placeholder="Nikos">
+                                                    <input type="text" id="firstName" name="firstname" class="form-control" value="${account.firstname}" readonly>
                                                     <label for="firstName" class="text-info">First name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="lastName" class="form-control" placeholder="Petrakos">
+                                                    <input type="text" id="lastName" name="lastname" class="form-control" value="${account.lastname}" readonly>
                                                     <label for="lastName" class="text-info">Last name</label>
                                                 </div>
                                             </div>
@@ -115,38 +118,28 @@
                                         <div class="row">
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="text" id="username" class="form-control" placeholder="Petrakos">
+                                                    <input type="text" id="username" name="username" class="form-control" value="${account.username}">
                                                     <label for="username" class="text-info">Username</label>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-6 my-2">
+                                                <div class="md-form">
+                                                    <input type="password" id="password" name="password" class="form-control">
+                                                    <label for="password" class="text-info">Password</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="text" id="tel" class="form-control" placeholder="1000266451">
+                                                    <input type="text" id="tel" name="tel" class="form-control" value="${account.tel}">
                                                     <label for="tel" class="text-info">Telephone</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <hr class="mb-4">
-                                    <div class="password">
-                                        <h4 class="my-2">Password</h4>
-                                        <!--Grid row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="md-form my-2">
-                                                    <input type="text" id="currenPassword" class="form-control">
-                                                    <label for="currenPassword" class="text-info">Current password</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="md-form my-2">
-                                                    <input type="text" id="newPassword" class="form-control">
-                                                    <label for="newPassword" class="text-info">New Password</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
                                     <hr class="mb-4">
@@ -156,8 +149,9 @@
                                         <div class="row">
                                             <div class="col-md">
                                                 <select class="custom-select d-block w-100" id="address">
-                                                    <option>Hpeirou 2, Athens, 12241</option>
-                                                    <option>Hpeirou 25, Athens, 12241</option>
+                                                    <c:forEach items="${address}" var = "address">
+                                                        <option value="${address.id}">${address.street} ${address.number} ${address.city}, ${address.zipcode},   Doorbell Name : ${address.doorbell},   Floor : ${address.floor}</option>
+                                                    </c:forEach>
                                                 </select>
                                                 <label for="address">Address</label>
                                             </div>
@@ -165,110 +159,94 @@
 
                                         <!--Grid row-->
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="md-form my-2">
-                                                    <input type="text" id="doorbell" class="form-control" placeholder="Petrakos">
-                                                    <label for="address" class="text-info">Name on doorbell</label>
+                                            <div class="col-md-6 my-4" id="add_address">
+                                                <h6><a class="myBtn">Add a new address</a></h6>
+                                            </div>
+
+                                            <div class="col-md-6 my-4">
+                                                <div class="btnplace">
+                                                    <a href="menu.html"><button class="button savesbtn"><span>Save changes</span></button></a>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="md-form my-2">
-                                                    <input type="text" id="floor" class="form-control" placeholder="2">
-                                                    <label for="floor" class="text-info">Floor</label>
+
+
+                                        </div>
+                                    </form:form>
+                                    <!-- Modal content -->
+                                    <div id="myModal" class="modal modules">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <div class="details">
+                                                <h4 class="mb-4">New address</h4>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="street" class="form-control">
+                                                            <label for="street" class="text-info">Street</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="number" class="form-control">
+                                                            <label for="number" class="text-info">Number</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="city" class="form-control">
+                                                            <label for="city" class="text-info">City</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="zip" class="form-control">
+                                                            <label for="zip" class="text-info">Zip code</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="floor" class="form-control">
+                                                            <label for="floor" class="text-info">Floor</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="doorbell" class="form-control">
+                                                            <label for="doorbell" class="text-info">Name on doorbell</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md my-3">
+                                                        <div class="btnplace"><button class="button btnpopup">
+                                                                <span>Submit</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
-                                    <!--Grid row-->
-                                    <div class="row">
-                                        <div class="col-md-6 my-4" id="add_address">
-                                            <h6><a class="myBtn">Add a new address</a></h6>
-                                        </div>
-
-                                        <!-- Modal content -->
-                                        <div id="myModal" class="modal modules">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <div class="details">
-                                                    <h4 class="mb-4">New address</h4>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="street" class="form-control">
-                                                                <label for="street" class="text-info">Street</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="number" class="form-control">
-                                                                <label for="number" class="text-info">Number</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="city" class="form-control">
-                                                                <label for="city" class="text-info">City</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="zip" class="form-control">
-                                                                <label for="zip" class="text-info">Zip code</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="floor" class="form-control">
-                                                                <label for="floor" class="text-info">Floor</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        <div class="col-md-6 mb-4">
-                                                            <div class="md-form">
-                                                                <input type="text" id="doorbell" class="form-control">
-                                                                <label for="doorbell" class="text-info">Name on doorbell</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md my-3">
-                                                            <div class="btnplace"><button class="button btnpopup">
-                                                                    <span>Submit</span></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 my-4">
-                                            <div class="btnplace">
-                                                <a href="menu.html"><button class="button savesbtn"><span>Save changes</span></button></a>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </form>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
         </div>
 

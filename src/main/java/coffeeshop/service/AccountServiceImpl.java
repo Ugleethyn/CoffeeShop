@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,7 +37,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         Account account = findByUsername(username);
         if (account == null) {
             throw new UsernameNotFoundException("Invalid Username");
@@ -83,4 +83,23 @@ public class AccountServiceImpl implements AccountService {
         account = ((MyUserDetails) authentication.getPrincipal()).getAccount();
         return account;
     }
+
+    @Override
+    public Account update(Account accountNew) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Account account = getCurrentlyLoggedInAccount(authentication);
+        setAccountDetails(account, accountNew);
+        return accountRepo.save(account);
+    }
+
+    private void setAccountDetails(Account account, Account accountNew) {
+        if (accountNew.getPassword().length() > 4) {
+            String hashedPassword = passwordEncoder.encode(accountNew.getPassword());
+            account.setPassword(hashedPassword);
+        }
+        account.setEmail(accountNew.getEmail());
+        account.setUsername(accountNew.getUsername());
+        account.setTel(accountNew.getTel());
+    }
+
 }

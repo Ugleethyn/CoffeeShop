@@ -23,9 +23,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+@DynamicUpdate
 @Table(name = "account")
 @XmlRootElement
 @NamedQueries({
@@ -217,7 +219,7 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "coffeeshop.entity.Account[ id=" + id + " ]";
+        return "__________________________Account: id=" + id + "_____" + "username="+ username + "_____" + "email=" + email + "_____" + "tel="+ tel + "_____";
     }
 
 }
