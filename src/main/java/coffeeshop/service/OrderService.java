@@ -1,14 +1,9 @@
 package coffeeshop.service;
 
-import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author gkolo
- */
 public interface OrderService {
 
     List<Orders> getAllOrders();
@@ -18,4 +13,8 @@ public interface OrderService {
     void update(Orders order);
 
     public void setOrder(Orders order, HttpSession session);
+
+    Orders getAddress(int addressid);
+
+    List<Orders> getOrdersByAccount(int accountid);
 }

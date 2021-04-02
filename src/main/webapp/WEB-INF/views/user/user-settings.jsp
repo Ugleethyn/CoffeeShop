@@ -175,7 +175,7 @@
                                             </div>
                                         </div>
                                     </form:form>
-                                    <form:form action="${pageContext.request.contextPath}/user/settings" method="POST" modelAttribute="address">
+                                    <form:form action="${pageContext.request.contextPath}/user/settings" method="POST" modelAttribute="newAddress">
                                         <!-- Modal content -->
                                         <div id="myModal" class="modal modules">
                                             <div class="modal-content">
@@ -192,9 +192,9 @@
                                                             </div>
                                                         </div>
                                                         <!--Grid column-->
-                                                        
-                                                        
-                                                        
+
+
+
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
                                                                 <input type="text" id="number" name="number" class="form-control">

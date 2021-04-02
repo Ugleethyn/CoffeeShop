@@ -1,18 +1,12 @@
 package coffeeshop.service;
 
 import coffeeshop.entity.OrderDetails;
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Ugleethyn
- */
 @Service
 @Transactional
 public class CartServiceImpl implements CartService {

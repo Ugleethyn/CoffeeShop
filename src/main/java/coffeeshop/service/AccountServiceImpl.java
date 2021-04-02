@@ -102,4 +102,13 @@ public class AccountServiceImpl implements AccountService {
         account.setTel(accountNew.getTel());
     }
 
+    public List<Account> getAllAccounts() {
+        return accountRepo.findAll();
+    }
+
+    @Override
+    public Account getUserByOrder(int accountid) {
+        return accountRepo.findByOrder(accountid);
+    }
+
 }

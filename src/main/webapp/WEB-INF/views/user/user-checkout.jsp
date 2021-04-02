@@ -83,220 +83,207 @@
                             <!--Card-->
                             <div class="card">
                                 <h2 class="my-4 h2 text-center headertext">Complete your order</h2>
-                                
+                                <form:form action="${pageContext.request.contextPath}/user/checkout/process" method="POST" modelAttribute="order" cssClass="card-body">
                                     <div class="order_details">
                                         <h4 class="my-2">Your order info</h4>
                                         <!--Grid row-->
-                                        <form:form action="${pageContext.request.contextPath}/user/checkout/process" method="POST" modelAttribute="order">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md">
-                                                            <select class="custom-select d-block w-100" id="address" name="addressid">
-                                                                <c:forEach items="${address}" var = "address">
-                                                                    <option  value="${address.id}">${address.street} ${address.number} ${address.city}, ${address.zipcode}, Doorbell Name : ${address.doorbell}, Floor : ${address.floor}</option>
-                                                                </c:forEach>
-                                                            </select>
-                                                            <label for="address">Address</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="md-form my-3">
-                                                        <input type="text" id="tel" class="form-control" value="${account.tel}" readonly>
-                                                        <label for="tel" class="text-info">Telephone</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="my-4" id="add_address">
-                                                <h6>
-                                                    <a class="myBtn">Order to a new address</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <hr class="mb-4">
-                                        <div class="row my-3">
-                                            <div class="col-md-6">
-                                                <h4>Payment method</h4>
-                                                <div class="d-block my-3">
-                                                    <c:forEach items="${payment}" var = "payment">
-                                                        <div class="custom-control custom-radio">
-                                                            <input id="${payment.type}" value="${payment.id}" name="payment" type="radio" class="custom-control-input" checked>
-                                                            <label class="custom-control-label" for="${payment.type}">${payment.type}</label>
-                                                        </div>
+                                        <div class="row">
+                                            <div class="col-md">
+                                                <select class="custom-select d-block w-100" id="address" name="addressid">
+                                                    <c:forEach items="${address}" var = "address">
+                                                        <option  value="${address.id}">${address.street} ${address.number} ${address.city}, ${address.zipcode}, Doorbell Name : ${address.doorbell}, Floor : ${address.floor}</option>
                                                     </c:forEach>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <h4>Total amount</h4>
-                                                <p id="amount">€ ${finalprice}</p>
+                                                </select>
+                                                <label for="address">Address</label>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="comments" class="text-info">Comments</label>
-                                                <textarea name="comments" id="comments" maxlength="150"></textarea>
-                                            </div>
-                                            <div class="col-md-6 my-5 text-center">
-                                                <div class="checkoutcenter">
-                                                    <button type="submit" class="button checkoutbtn"><span>Continue to checkout</span></button>
+                                            <div class="col-md-6">
+                                                <div class="md-form my-3">
+                                                    <input type="text" id="tel" class="form-control" value="${account.tel}" readonly>
+                                                    <label for="tel" class="text-info">Telephone</label>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="my-4" id="add_address">
+                                            <h6>
+                                                <a class="myBtn">Order to a new address</a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <hr class="mb-4">
+                                    <div class="row my-3">
+                                        <div class="col-md-6">
+                                            <h4>Payment method</h4>
+                                            <div class="d-block my-3">
+                                                <c:forEach items="${payment}" var = "payment">
+                                                    <div class="custom-control custom-radio">
+                                                        <input id="${payment.type}" value="${payment.id}" name="payment" type="radio" class="custom-control-input" checked>
+                                                        <label class="custom-control-label" for="${payment.type}">${payment.type}</label>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4>Total amount</h4>
+                                            <p id="amount">€ ${finalprice}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="comments" class="text-info">Comments</label>
+                                            <textarea name="comments" id="comments" maxlength="150"></textarea>
+                                        </div>
+                                        <div class="col-md-6 my-5 text-center">
+                                            <div class="checkoutcenter">
+                                                <button type="submit" class="button checkoutbtn"><span>Continue to checkout</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form:form>
+                                <form:form action="${pageContext.request.contextPath}/user/checkout/address" method="POST" modelAttribute="details" cssClass="card-body">
+                                    <!-- Modal content -->
+                                    <div id="myModal" class="modal modules">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <div class="details">
+                                                <h4 class="mb-4">Please complete your details: </h4>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="street" name="street" class="form-control">
+                                                            <label for="street" class="text-info">Street</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="number" name="number" class="form-control">
+                                                            <label for="number" class="text-info">Number</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="city" name="city" class="form-control">
+                                                            <label for="city" class="text-info">City</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="zip" name="zipcode" class="form-control">
+                                                            <label for="zip" class="text-info">Zip code</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Grid row-->
+                                                <div class="row">
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="floor" name="floor" class="form-control">
+                                                            <label for="floor" class="text-info">Floor</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid column-->
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="md-form">
+                                                            <input type="text" id="doorbell" name="doorbell" class="form-control">
+                                                            <label for="doorbell" class="text-info">Name on doorbell</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Grid column-->
+                                                <div class="col-md-6 my-4 text-center">
+                                                    <div class="btnplace"><button class="button btnpopup">
+                                                            <span>Submit</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form:form>
                         </div>
                     </div>
-                </main>
+                </div>
+        </div>
+    </main>
+</div>
+
+<footer class="nb-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">information</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
+                                    class="fa fa-angle-double-right"></i> About Us</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
+                                    class="fa fa-angle-double-right"></i> Live Chat</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
+                                    class="fa fa-angle-double-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
-        </form:form>
-        <!-- Modal content -->
-        <div id="myModal" class="modal modules">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="details">
-                    <h4 class="mb-4">Please complete your details: </h4>
-                    <!--Grid row-->
-                    <div class="row">
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" id="street" class="form-control">
-                                <label for="street" class="text-info">Street</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" id="number" class="form-control">
-                                <label for="number" class="text-info">Number</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-                    <div class="row">
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" id="city" class="form-control">
-                                <label for="city" class="text-info">City</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" id="zip" class="form-control">
-                                <label for="zip" class="text-info">Zip code</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-                    <div class="row">
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" id="floor" class="form-control">
-                                <label for="floor" class="text-info">Floor</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" id="doorbell" class="form-control">
-                                <label for="doorbell" class="text-info">Name on doorbell</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-                    <div class="row">
-                        <!--Grid column-->
-                        <div class="col-md-6">
-                            <div class="md-form">
-                                <input type="text" id="tel" class="form-control">
-                                <label for="tel" class="text-info">Telephone</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                        <div class="col-md-6 my-4 text-center">
-                            <div class="btnplace"><button class="button btnpopup">
-                                    <span>Submit</span></button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">Payment</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
+                                    class="fa fa-angle-double-right"></i> Supported Methods</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single location">
+                    <h2 class="title">Address</h2>
+                    <h6 class="copyrighttext"> Nikolaou Plastira 8<br> Aigaleo 12242</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single location">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.03731652767897!2d23.68237087174767!3d37.993496642855426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bcb079ef11e3%3A0x5d5a1b265910580!2zzp3Ouc66LiDOoM67zrHPg8-Ezq7Pgc6xIDgsIM6RzrnOs86szrvOtc-JIDEyMiA0Mg!5e0!3m2!1sel!2sgr!4v1615127573355!5m2!1sel!2sgr"
+                        width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
-
-
-
-
-        <footer class="nb-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single">
-                            <h2 class="title">information</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
-                                            class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
-                                            class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
-                                            class="fa fa-angle-double-right"></i> Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single">
-                            <h2 class="title">Payment</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
-                                            class="fa fa-angle-double-right"></i> Supported Methods</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single location">
-                            <h2 class="title">Address</h2>
-                            <h6 class="copyrighttext"> Nikolaou Plastira 8<br> Aigaleo 12242</h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single location">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.03731652767897!2d23.68237087174767!3d37.993496642855426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bcb079ef11e3%3A0x5d5a1b265910580!2zzp3Ouc66LiDOoM67zrHPg8-Ezq7Pgc6xIDgsIM6RzrnOs86szrvOtc-JIDEyMiA0Mg!5e0!3m2!1sel!2sgr!4v1615127573355!5m2!1sel!2sgr"
-                                width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
+    </div>
+    <div class="copyright">
+        <div class="container" style="width: 100%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>© 2021 by Company</p>
                 </div>
             </div>
-            <div class="copyright">
-                <div class="container" style="width: 100%;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>© 2021 by Company</p>
-                        </div>
-                    </div>
-                </div>
-        </footer>
+        </div>
+</footer>
 
-        <script src="${pageContext.request.contextPath}/js/script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script
-        src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
-        <script>
-            // Mean Menu
-            jQuery('.mean-menu').meanmenu({
-                meanScreenWidth: "991"
-            });
-        </script>
-    </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
+<script>
+    // Mean Menu
+    jQuery('.mean-menu').meanmenu({
+        meanScreenWidth: "991"
+    });
+</script>
+</body>
 
 </html>

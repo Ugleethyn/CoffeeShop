@@ -1,7 +1,6 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.OrderDetails;
-import coffeeshop.repository.OrderDetailsRepo;
 import coffeeshop.service.CartService;
 import java.util.List;
 import javax.servlet.http.HttpSession;

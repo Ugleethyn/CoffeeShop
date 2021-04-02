@@ -1,12 +1,10 @@
 package coffeeshop.service;
 
 import coffeeshop.entity.Account;
-import coffeeshop.entity.Category;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.repository.OrderDetailsRepo;
 import coffeeshop.repository.OrdersRepo;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -16,10 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author gkolo
- */
+
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
@@ -82,5 +77,15 @@ public class OrderServiceImpl implements OrderService {
             orderDetail.setOrder(order);
             orderDetailsRepo.save(orderDetail);
         }
+    }
+
+    @Override
+    public Orders getAddress(int addressid) {
+        return ordersRepo.findByAddressId(addressid);
+    }
+
+    @Override
+    public List<Orders> getOrdersByAccount(int accountid) {
+        return ordersRepo.findByAccountId(accountid);
     }
 }

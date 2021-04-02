@@ -19,6 +19,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "order_details")
@@ -44,7 +45,8 @@ public class OrderDetails implements Serializable {
     private Orders orders;
     @Column(name = "quantity")
     private Integer quantity;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
+    @Cascade(value = {org.hibernate.annotations.CascadeType.DETACH,org.hibernate.annotations.CascadeType.SAVE_UPDATE})
     @JoinTable(name = "details_categories",
             joinColumns = {
                 @JoinColumn(name = "order_details_id", referencedColumnName = "id")},

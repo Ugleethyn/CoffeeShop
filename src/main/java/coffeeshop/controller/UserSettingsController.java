@@ -2,13 +2,9 @@ package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
 import coffeeshop.entity.Address;
-import coffeeshop.entity.OrderDetails;
-import coffeeshop.entity.Product;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
-import coffeeshop.service.CheckoutService;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -50,34 +46,22 @@ public class UserSettingsController {
     public List<Address> showAddresses() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Account account = accountService.getCurrentlyLoggedInAccount(authentication);
-        return addressService.findAllByAccount(account);
+        return addressService.getAddresses(account.getId());
     }
 
     @PostMapping("/update")
     public String update(@Valid @ModelAttribute("settings") Account accountNew,
             BindingResult result, RedirectAttributes attributes) {
-
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        Account account = accountService.getCurrentlyLoggedInAccount(authentication);
-//        if (accountNew.getPassword().length() > 4) {
-//            String hashedPassword = passwordEncoder.encode(accountNew.getPassword());
-//            account.setPassword(hashedPassword);
-//        }
-//        account.setEmail(accountNew.getEmail());
-//        account.setUsername(accountNew.getUsername());
-//        account.setTel(accountNew.getTel());
         accountService.update(accountNew);
-
         String minima = "Your details updated successfully!";
         attributes.addFlashAttribute("message", minima);
         return "redirect:/user/settings";
     }
 
     @PostMapping
-    public String addAddress(@Valid @ModelAttribute("address") Account accountNew,
+    public String addAddress(@Valid @ModelAttribute("newAddress") Address addressNew,
             BindingResult result, RedirectAttributes attributes) {
-
-        accountService.update(accountNew);
+        addressService.addAddress(addressNew);
         return "redirect:/user/settings";
     }
 

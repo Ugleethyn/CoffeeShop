@@ -1,10 +1,12 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
+import coffeeshop.entity.Address;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Product;
 import coffeeshop.service.AccountService;
+import coffeeshop.service.AddressService;
 import coffeeshop.service.OrderDetailsService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.ProductService;
@@ -28,18 +30,13 @@ public class AdminController {
     private AccountService accountService;
     @Autowired
     private OrderDetailsService orderDetailsservice;
+    @Autowired
+    private AddressService addressService;
 
     @GetMapping
     public String adminHome() {
         return "admin/admin-home";
     }
-    
-//    @GetMapping ("/products")
-//    public String showProducts(Model model){
-//        List<Product> products = productService.getAllProducts();
-//        model.addAttribute("products", products);
-//        return "admin/admin-products";
-//    }
     
     @GetMapping ("/orders")
     public String showOrders(Model model){
@@ -90,5 +87,37 @@ public class AdminController {
         model.addAttribute("orderDetails", orderDetails);
         return ("admin/admin-orderdetails");
     }
+    
+    
+    @GetMapping("/address/{addressid}")
+    public String showAddress(@PathVariable(name = "addressid") int addressId, Model model){
+        Orders order = orderService.getAddress(addressId);
+        model.addAttribute("orders", order);
+        return ("admin/admin-address");
+    }
+    
+    
+    @GetMapping("/user/addresses/{accountid}")
+    public String getAddresses(@PathVariable (name = "accountid") int accountid, Model model){
+        List<Address> addresses = addressService.getAddresses(accountid);
+        model.addAttribute("address", addresses);
+        return ("admin/admin-address");
+    }
+    
+    @GetMapping("/user/orders/{accountid}")
+    public String getOrdersByUser(@PathVariable (name = "accountid") int accountid, Model model){
+        List<Orders> orders = orderService.getOrdersByAccount(accountid);
+        model.addAttribute("userOrders", orders);
+        return ("admin/admin-orders");
+    }
+    
+    
+    @GetMapping("/order/user/{accountid}")
+    public String getUserFromOrder(@PathVariable (name = "accountid") int accountid, Model model){
+        Account account  = accountService.getUserByOrder(accountid);
+        model.addAttribute("user", account);
+        return ("admin/admin-users");
+    }
+    
     
 }

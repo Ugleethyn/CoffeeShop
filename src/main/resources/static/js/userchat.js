@@ -1,4 +1,3 @@
-  
 'use strict';
 
 let usernamePage = document.querySelector('#username-page');
@@ -39,7 +38,7 @@ function onConnected() {
     stompClient.subscribe('/topic/public', onMessageReceived);
 
     // Tell your username to the server
-    stompClient.send("/app/chat.addUser",
+    stompClient.send("/app/user/chat.addUser",
         {},
         JSON.stringify({sender: username, type: 'JOIN'})
     );
@@ -64,7 +63,7 @@ function sendMessage(event) {
             type: 'CHAT'
         };
 
-        stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+        stompClient.send("/app/user/chat.sendMessage", {}, JSON.stringify(chatMessage));
         messageInput.value = '';
     };
     event.preventDefault();
@@ -121,3 +120,5 @@ function getAvatarColor(messageSender) {
 
 usernameForm.addEventListener('submit', connect, true);
 messageForm.addEventListener('submit', sendMessage, true);
+
+

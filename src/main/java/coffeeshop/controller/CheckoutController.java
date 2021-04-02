@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
 import coffeeshop.entity.Address;
-import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Payment;
-import coffeeshop.repository.OrderDetailsRepo;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
 import coffeeshop.service.CheckoutService;
@@ -53,7 +46,6 @@ public class CheckoutController {
     @Autowired
     private PaymentService paymentService;
 
-
     @GetMapping
     public String showCart() {
         return "user/user-checkout";
@@ -69,7 +61,7 @@ public class CheckoutController {
     public List<Address> showAddresses() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Account account = accountService.getCurrentlyLoggedInAccount(authentication);
-        return addressService.findAllByAccount(account);
+        return addressService.getAddresses(account.getId());
     }
 
     @ModelAttribute("finalprice")
@@ -91,6 +83,17 @@ public class CheckoutController {
         orderService.setOrder(order, session);
         attributes.addFlashAttribute("order", order);
         return "redirect:/user/successfull";
+    }
+
+    @PostMapping("/address")
+    public String addAddress(@Valid @ModelAttribute("details") Address addressNew,
+            BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            System.out.println(result.getAllErrors());
+            return "user/user-checkout";
+        }
+        addressService.addAddress(addressNew);
+        return "redirect:/user/checkout";
     }
 
 }
