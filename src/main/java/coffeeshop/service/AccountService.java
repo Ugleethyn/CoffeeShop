@@ -18,4 +18,7 @@ public interface AccountService extends UserDetailsService {
     Account saveUser(Account account);
 
     Account getCurrentlyLoggedInAccount(Authentication authentication);
+    
+    Account getUserByOrder(int accountid);
+    
 }

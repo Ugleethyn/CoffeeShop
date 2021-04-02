@@ -46,6 +46,11 @@ public class OrderServiceImpl implements OrderService{
     public Orders getAddress(int addressid) {
         return ordersRepo.findByAddressId(addressid);
     }
+
+    @Override
+    public List<Orders> getOrdersByAccount(int accountid) {
+        return ordersRepo.findByAccountId(accountid);
+    }
     
     
     

@@ -74,8 +74,21 @@
                                         <td>${order.payment.type}</td>
                                         <td>${order.comments}</td>
                                         <td><a href="${pageContext.request.contextPath}/admin/address/${order.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
-                                        <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
+                                        <td><a href="${pageContext.request.contextPath}/admin/order/user/${order.accountid.id}"><em class="fa fa-user-circle-o"></em> Customer</a></td>
                                         <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${order.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
+                                        <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
+                                    </tr>
+                                </c:forEach>
+                                <c:forEach items="${userOrders}" var = "uOrder">
+                                    <tr>
+                                        <th scope="row">${uOrder.id}</th>
+                                        <td>${uOrder.dateCreated}</td>
+                                        <td>${uOrder.price}€</td>
+                                        <td>${uOrder.payment.type}</td>
+                                        <td>${uOrder.comments}</td>
+                                        <td><a href="${pageContext.request.contextPath}/admin/address/${uOrder.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
+                                        <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
+                                        <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${uOrder.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
                                         <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                                     </tr>
                                 </c:forEach>

@@ -31,5 +31,12 @@ public interface OrdersRepo  extends JpaRepository<Orders, Integer>{
 //    List<Orders> findOrderByAccount_AccountId(int accountId);
     
     
+    @Query(value = "SELECT *" +
+                        " FROM orders o" +
+                        " JOIN account a" +
+                        " ON o.Account_id = a.id" +
+                        " WHERE o.Account_id= :accountid" +
+                        " ORDER BY o.odate DESC;", nativeQuery = true)
+    List<Orders> findByAccountId(@Param("accountid") int accountid);
     
 }

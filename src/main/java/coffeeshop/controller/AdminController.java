@@ -111,4 +111,20 @@ public class AdminController {
         return ("admin/admin-address");
     }
     
+    @GetMapping("/user/orders/{accountid}")
+    public String getOrdersByUser(@PathVariable (name = "accountid") int accountid, Model model){
+        List<Orders> orders = orderService.getOrdersByAccount(accountid);
+        model.addAttribute("userOrders", orders);
+        return ("admin/admin-orders");
+    }
+    
+    
+    @GetMapping("/order/user/{accountid}")
+    public String getUserFromOrder(@PathVariable (name = "accountid") int accountid, Model model){
+        Account account  = accountService.getUserByOrder(accountid);
+        model.addAttribute("user", account);
+        return ("admin/admin-users");
+    }
+    
+    
 }

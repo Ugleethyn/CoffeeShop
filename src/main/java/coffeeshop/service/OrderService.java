@@ -21,4 +21,6 @@ public interface OrderService {
     void update(Orders order);
     
     Orders getAddress(int addressid);
+    
+    List<Orders> getOrdersByAccount(int accountid);
 }

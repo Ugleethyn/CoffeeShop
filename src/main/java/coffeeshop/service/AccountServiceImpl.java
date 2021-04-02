@@ -82,4 +82,11 @@ public class AccountServiceImpl implements AccountService {
         return accountRepo.findByRoleId(2);
     }
 
+    @Override
+    public Account getUserByOrder(int accountid) {
+        return accountRepo.findByOrder(accountid);
+    }
+
+    
+
 }
