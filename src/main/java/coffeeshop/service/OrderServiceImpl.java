@@ -41,6 +41,11 @@ public class OrderServiceImpl implements OrderService{
     public void update(Orders order) {
         this.ordersRepo.save(order);
     }
+
+    @Override
+    public Orders getAddress(int addressid) {
+        return ordersRepo.findByAddressId(addressid);
+    }
     
     
     

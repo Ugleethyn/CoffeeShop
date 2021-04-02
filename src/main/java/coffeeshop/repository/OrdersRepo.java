@@ -5,11 +5,12 @@
  */
 package coffeeshop.repository;
 
-import coffeeshop.entity.OrderDetails;
+
 import coffeeshop.entity.Orders;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
@@ -17,10 +18,18 @@ import org.springframework.stereotype.Repository;
 public interface OrdersRepo  extends JpaRepository<Orders, Integer>{
     
 
+    @Query(value = "SELECT DISTINCT a.*, o.*" + 
+                        " FROM address a" +
+                        " JOIN orders o" +
+                        " ON a.id = o.Address_id" +
+                        " WHERE o.Address_id = :addressid", nativeQuery = true)
+    Orders  findByAddressId(@Param("addressid") int addressid);
     
 //    Orders save(Orders order);
     
 //    // get orders by accountId
 //    List<Orders> findOrderByAccount_AccountId(int accountId);
+    
+    
     
 }

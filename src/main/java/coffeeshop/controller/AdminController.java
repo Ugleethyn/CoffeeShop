@@ -1,6 +1,7 @@
 package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
+import coffeeshop.entity.Address;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Product;
@@ -89,6 +90,14 @@ public class AdminController {
         List<OrderDetails> orderDetails = orderDetailsservice.getOrderDetailsByOrder(id);
         model.addAttribute("orderDetails", orderDetails);
         return ("admin/admin-orderdetails");
+    }
+    
+    
+    @GetMapping("/address/{addressid}")
+    public String showAddress(@PathVariable(name = "addressid") int addressId, Model model){
+        Orders order = orderService.getAddress(addressId);
+        model.addAttribute("orders", order);
+        return ("admin/admin-address");
     }
     
 }

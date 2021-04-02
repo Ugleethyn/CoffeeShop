@@ -19,4 +19,6 @@ public interface OrderService {
     Orders create(Orders order);
     
     void update(Orders order);
+    
+    Orders getAddress(int addressid);
 }

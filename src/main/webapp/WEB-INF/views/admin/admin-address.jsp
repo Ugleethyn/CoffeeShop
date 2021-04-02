@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Orders</title>
+        <title>Address</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
 </head>
     <body>
@@ -47,7 +47,7 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">All Orders</li>
+				<li class="active">Address</li>
 			</ol>
 		</div><!--/.row-->
 		<div class="table-responsive">
@@ -55,30 +55,26 @@
 			  <thead>
 				<tr>
 				  <th scope="col">#</th>
-				  <th scope="col">Date Time</th>
-				  <th scope="col">Price</th>
-				  <th scope="col">Payment</th>
-				  <th scope="col">Comments</th>
-				  <th scope="col">Address</th>
-				  <th scope="col">Customer</th>
-				  <th scope="col">Products</th>
-				  <th scope="col">Edit</th>
+				  <th scope="col">Street</th>
+				  <th scope="col">Number</th>
+				  <th scope="col">City</th>
+				  <th scope="col">Zip</th>
+				  <th scope="col">Floor</th>
+                                  <th scope="col">Doorbell</th>
 				</tr>
 			  </thead>
 			  <tbody>
-				<c:forEach items="${orders}" var = "order">
+				
                                     <tr>
-                                        <th scope="row">${order.id}</th>
-                                        <td>${order.dateCreated}</td>
-                                        <td>${order.price}€</td>
-                                        <td>${order.payment.type}</td>
-                                        <td>${order.comments}</td>
-                                        <td><a href="${pageContext.request.contextPath}/admin/address/${order.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
-                                        <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
-                                        <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${order.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
-                                        <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
+                                        <th scope="row">${orders.addressid.id}</th>
+                                        <td>${orders.addressid.street}</td>
+                                        <td>${orders.addressid.number}</td>
+                                        <td>${orders.addressid.city}</td>
+                                        <td>${orders.addressid.zipcode}</td>
+                                        <td>${orders.addressid.floor}</td>
+                                        <td>${orders.addressid.doorbell}</td>
                                     </tr>
-                                </c:forEach>
+                                
 			  </tbody>
 			</table>
 		  </div>
