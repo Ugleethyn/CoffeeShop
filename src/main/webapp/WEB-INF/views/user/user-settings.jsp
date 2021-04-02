@@ -85,9 +85,7 @@
                                 <h2 class="my-4 h2 text-center headertext">My account</h2>
 
                                 <form:form action="${pageContext.request.contextPath}/user/settings/update" method="POST" modelAttribute="settings" cssClass="card-body">
-
                                     <div class="my_details">
-
                                         <h4 class="my-2">My details</h4>
                                         <!--Grid row-->
                                         <div class="row">
@@ -122,15 +120,6 @@
                                                     <label for="username" class="text-info">Username</label>
                                                 </div>
                                             </div>
-
-
-
-                                            <div class="col-md-6 my-2">
-                                                <div class="md-form">
-                                                    <input type="password" id="password" name="password" class="form-control">
-                                                    <label for="password" class="text-info">Password</label>
-                                                </div>
-                                            </div>
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
                                                     <input type="text" id="tel" name="tel" class="form-control" value="${account.tel}">
@@ -140,12 +129,29 @@
                                         </div>
                                     </div>
 
-
+                                    <hr class="mb-4">
+                                    <div class="password">
+                                        <h4 class="my-2">Password</h4>
+                                        <!--Grid row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="md-form my-2">
+                                                    <input type="password" id="currenPassword" name="password" class="form-control">
+                                                    <label for="currenPassword" class="text-info">Current password</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="md-form my-2">
+                                                    <input type="password" id="newPassword" name="password" class="form-control">
+                                                    <label for="newPassword" class="text-info">New Password</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <hr class="mb-4">
                                     <div class="my_addresses">
                                         <h4 class="my-2">My addresses</h4>
-
                                         <div class="row">
                                             <div class="col-md">
                                                 <select class="custom-select d-block w-100" id="address">
@@ -162,88 +168,88 @@
                                             <div class="col-md-6 my-4" id="add_address">
                                                 <h6><a class="myBtn">Add a new address</a></h6>
                                             </div>
-
                                             <div class="col-md-6 my-4">
                                                 <div class="btnplace">
                                                     <a href="menu.html"><button class="button savesbtn"><span>Save changes</span></button></a>
                                                 </div>
                                             </div>
-
-
                                         </div>
                                     </form:form>
-                                    <!-- Modal content -->
-                                    <div id="myModal" class="modal modules">
-                                        <div class="modal-content">
-                                            <span class="close">&times;</span>
-                                            <div class="details">
-                                                <h4 class="mb-4">New address</h4>
-                                                <!--Grid row-->
-                                                <div class="row">
-                                                    <!--Grid column-->
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="md-form">
-                                                            <input type="text" id="street" class="form-control">
-                                                            <label for="street" class="text-info">Street</label>
+                                    <form:form action="${pageContext.request.contextPath}/user/settings" method="POST" modelAttribute="address">
+                                        <!-- Modal content -->
+                                        <div id="myModal" class="modal modules">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <div class="details">
+                                                    <h4 class="mb-4">New address</h4>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="street" name="street" class="form-control">
+                                                                <label for="street" class="text-info">Street</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        
+                                                        
+                                                        
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="number" name="number" class="form-control">
+                                                                <label for="number" class="text-info">Number</label>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <!--Grid column-->
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="md-form">
-                                                            <input type="text" id="number" class="form-control">
-                                                            <label for="number" class="text-info">Number</label>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="city" name="city" class="form-control">
+                                                                <label for="city" class="text-info">City</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="zip" name="zipcode" class="form-control">
+                                                                <label for="zip" class="text-info">Zip code</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="floor" name="floor" class="form-control">
+                                                                <label for="floor" class="text-info">Floor</label>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid column-->
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="md-form">
+                                                                <input type="text" id="doorbell" name="doorbell" class="form-control">
+                                                                <label for="doorbell" class="text-info">Name on doorbell</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Grid row-->
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md my-3">
+                                                            <div class="btnplace"><button class="button btnpopup">
+                                                                    <span>Submit</span></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--Grid row-->
-                                                <div class="row">
-                                                    <!--Grid column-->
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="md-form">
-                                                            <input type="text" id="city" class="form-control">
-                                                            <label for="city" class="text-info">City</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid column-->
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="md-form">
-                                                            <input type="text" id="zip" class="form-control">
-                                                            <label for="zip" class="text-info">Zip code</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--Grid row-->
-                                                <div class="row">
-                                                    <!--Grid column-->
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="md-form">
-                                                            <input type="text" id="floor" class="form-control">
-                                                            <label for="floor" class="text-info">Floor</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid column-->
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="md-form">
-                                                            <input type="text" id="doorbell" class="form-control">
-                                                            <label for="doorbell" class="text-info">Name on doorbell</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--Grid row-->
-                                                <div class="row">
-                                                    <!--Grid column-->
-                                                    <div class="col-md my-3">
-                                                        <div class="btnplace"><button class="button btnpopup">
-                                                                <span>Submit</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                </div>
+                                    </form:form>
+                                </div> 
                             </div>
                         </div>
                     </div>

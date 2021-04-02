@@ -3,6 +3,9 @@ let modal = document.querySelectorAll(".modules");
 let btn = document.querySelectorAll(".myBtn");
 let span = document.querySelectorAll(".close");
 
+let span = document.querySelectorAll(".");
+let span = document.querySelectorAll(".close");
+
 
 for (let i = 0; i < btn.length; i++) {
     btn[i].onclick = function () {

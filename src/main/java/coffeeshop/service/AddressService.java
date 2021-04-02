@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface AddressService {
 
-    public List<Address> findAllByAccount(Account account);
+    List<Address> findAllByAccount(Account account);
 
+    Address addAddress(Address address);
 }

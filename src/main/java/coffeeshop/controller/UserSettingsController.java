@@ -66,12 +66,18 @@ public class UserSettingsController {
 //        account.setEmail(accountNew.getEmail());
 //        account.setUsername(accountNew.getUsername());
 //        account.setTel(accountNew.getTel());
-
-
         accountService.update(accountNew);
 
         String minima = "Your details updated successfully!";
         attributes.addFlashAttribute("message", minima);
+        return "redirect:/user/settings";
+    }
+
+    @PostMapping
+    public String addAddress(@Valid @ModelAttribute("address") Account accountNew,
+            BindingResult result, RedirectAttributes attributes) {
+
+        accountService.update(accountNew);
         return "redirect:/user/settings";
     }
 

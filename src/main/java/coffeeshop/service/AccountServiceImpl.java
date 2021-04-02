@@ -93,7 +93,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     private void setAccountDetails(Account account, Account accountNew) {
-        if (accountNew.getPassword().length() > 4) {
+        if (accountNew.getPassword().length() >= 4) {
             String hashedPassword = passwordEncoder.encode(accountNew.getPassword());
             account.setPassword(hashedPassword);
         }
