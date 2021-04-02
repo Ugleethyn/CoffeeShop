@@ -17,5 +17,5 @@ public interface OrderService {
 
     void update(Orders order);
 
-    public void setOrder(Orders order, List<OrderDetails> orderDetails, HttpSession session);
+    public void setOrder(Orders order, HttpSession session);
 }

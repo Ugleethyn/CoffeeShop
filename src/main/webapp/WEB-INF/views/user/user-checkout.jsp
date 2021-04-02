@@ -83,11 +83,11 @@
                             <!--Card-->
                             <div class="card">
                                 <h2 class="my-4 h2 text-center headertext">Complete your order</h2>
-                                <form class="card-body">
+                                
                                     <div class="order_details">
                                         <h4 class="my-2">Your order info</h4>
                                         <!--Grid row-->
-                                        <form:form action="${pageContext.request.contextPath}/user/checkout" method="POST" modelAttribute="order">
+                                        <form:form action="${pageContext.request.contextPath}/user/checkout/process" method="POST" modelAttribute="order">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
@@ -108,14 +108,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="my-4" id="add_address">
                                                 <h6>
                                                     <a class="myBtn">Order to a new address</a>
                                                 </h6>
                                             </div>
                                         </div>
-
                                         <hr class="mb-4">
                                         <div class="row my-3">
                                             <div class="col-md-6">
@@ -141,11 +139,10 @@
                                             </div>
                                             <div class="col-md-6 my-5 text-center">
                                                 <div class="checkoutcenter">
-                                                    <button class="button checkoutbtn"><span>Continue to checkout</span></button>
+                                                    <button type="submit" class="button checkoutbtn"><span>Continue to checkout</span></button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -26,6 +26,9 @@ public interface OrderDetailsRepo extends JpaRepository<OrderDetails, Integer> {
             + " WHERE od.order_id = :orderid", nativeQuery = true)
     List<OrderDetails> findByFk(@Param("orderid") int orderid);
 
-    public OrderDetails findById(int id);
+    OrderDetails findById(int id);
+
+    @Query(value = "INSERT INTO details_categories (order_details_id, category_id) VALUES (:orderDetails, :category);", nativeQuery = true)
+    void saveOrderDetailsCategory(@Param("orderDetails") int orderDetailsId, @Param("category") int categoryId);
 
 }

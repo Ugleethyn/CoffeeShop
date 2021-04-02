@@ -1,6 +1,7 @@
 package coffeeshop.service;
 
 import coffeeshop.entity.Account;
+import coffeeshop.entity.Category;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.repository.OrderDetailsRepo;
@@ -27,13 +28,13 @@ public class OrderServiceImpl implements OrderService {
     private OrdersRepo ordersRepo;
 
     @Autowired
-    private OrderDetailsRepo orderDetailsRepo;
-
-    @Autowired
     private AccountService accountService;
 
     @Autowired
     private CheckoutService checkoutService;
+
+    @Autowired
+    private OrderDetailsRepo orderDetailsRepo;
 
     public List<Orders> getAllOrders() {
         List<Orders> orders = ordersRepo.findAll();
@@ -51,22 +52,35 @@ public class OrderServiceImpl implements OrderService {
         this.ordersRepo.save(order);
     }
 
-    public void setOrder(Orders order, List<OrderDetails> orderDetails, HttpSession session) {
+    public void setOrder(Orders order, HttpSession session) {
+        List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
         //Set account to order
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Account account = accountService.getCurrentlyLoggedInAccount(authentication);
-        order.setAccountid(account);
+        order = setAccountToOrder(order);
         //Set date of the order
         LocalDateTime lt = LocalDateTime.now();
         order.setDateCreated(lt);
-        //Save Order to Currently order details
-        for (OrderDetails orderDetail : orderDetails) {
-            orderDetail.setOrder(order);
-            orderDetailsRepo.save(orderDetail);
-        }
         //Set final price to Order
         double finalprice = checkoutService.getPriceForCheckOut(session);
         order.setPrice(finalprice);
+        //Save Order to Currently order details and save OrderDetails
+        setOrderToOrderDetails(order, cart);
         ordersRepo.save(order);
+        //clear cart
+        cart.clear();
+        session.setAttribute("cart", cart);
+    }
+
+    private Orders setAccountToOrder(Orders order) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Account account = accountService.getCurrentlyLoggedInAccount(authentication);
+        order.setAccountid(account);
+        return order;
+    }
+
+    private void setOrderToOrderDetails(Orders order, List<OrderDetails> cart) {
+        for (OrderDetails orderDetail : cart) {
+            orderDetail.setOrder(order);
+            orderDetailsRepo.save(orderDetail);
+        }
     }
 }

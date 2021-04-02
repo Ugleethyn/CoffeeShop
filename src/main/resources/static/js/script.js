@@ -14,14 +14,6 @@ for (let i = 0; i < btn.length; i++) {
 }
 ;
 
-for (let i = 0; i < modal.length; i++) {
-    for (let j = 0; j < sugars.length; j += 3) {
-        sugars[j].checked = true;
-    }
-}
-;
-
-
 span.forEach(function (e) {
     e.onclick = function () {
         modal.forEach(function (e) {
@@ -38,3 +30,29 @@ window.onclick = function (event) {
     };
   });
 };
+
+
+function coffeeFilter() {
+  document.getElementById("coffees").style.display = "block";
+  document.getElementById("snacks").style.display = "none";
+  document.getElementById("drinks").style.display = "none";
+
+}
+
+function allProducts() {
+  document.getElementById("coffees").style.display = "block";
+  document.getElementById("snacks").style.display = "block";
+  document.getElementById("drinks").style.display = "block";
+}
+
+function snackFilter() {
+  document.getElementById("coffees").style.display = "none";
+  document.getElementById("snacks").style.display = "block";
+  document.getElementById("drinks").style.display = "none";
+}
+
+function drinkFilter() {
+  document.getElementById("coffees").style.display = "none";
+  document.getElementById("snacks").style.display = "none";
+  document.getElementById("drinks").style.display = "block";
+}

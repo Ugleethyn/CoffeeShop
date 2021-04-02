@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.security.core.userdetails.UserDetails;
+
 
 @Entity
 @DynamicUpdate

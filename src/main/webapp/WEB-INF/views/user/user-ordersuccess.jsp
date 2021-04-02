@@ -42,7 +42,7 @@
                             <a href="${pageContext.request.contextPath}/user" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link active">Catalog</a>
+                            <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/about" class="nav-link ">About us</a>
@@ -76,12 +76,9 @@
                 <div class="row">
                     <div class="col-md-12 ourTeam-hedding text-center">
                         <h1>Your order has been successfully promoted to our store</h1>
-                        <p>Thank you for choosing us to drink your coffee.<br>
-                            Order details : 
-                        <c:forEach items="${cart}" var = "orderDetails">
-                        ${orderDetails.product.pname} ${orderDetails.categories} ${orderDetails.quantity} € ${orderDetails.unitPrice}
-                        </c:forEach>
-                            </p>
+                        <p>Thank you for choosing us!!<br>
+                            Your order id is: ${order.id} 
+                        </p>
                     </div>
                 </div>
             </div>

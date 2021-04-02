@@ -10,6 +10,7 @@ import coffeeshop.entity.Address;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Payment;
+import coffeeshop.repository.OrderDetailsRepo;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
 import coffeeshop.service.CheckoutService;
@@ -22,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Ugleethyn
  */
 @Controller
-@RequestMapping("user/checkout")
+@RequestMapping("/user/checkout")
 public class CheckoutController {
 
     @Autowired
@@ -51,6 +52,7 @@ public class CheckoutController {
 
     @Autowired
     private PaymentService paymentService;
+
 
     @GetMapping
     public String showCart() {
@@ -80,17 +82,15 @@ public class CheckoutController {
         return paymentService.findAll();
     }
 
-    @PostMapping()
-    public String buy(@ModelAttribute("order") @Valid Orders order, RedirectAttributes attributes, HttpSession session) {
-        List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
-        orderService.setOrder(order, cart, session);
-        if(order==null){
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FALSE");
-        }else{
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRUE");
+    @PostMapping("/process")
+    public String checkout(@ModelAttribute("order") @Valid Orders order, BindingResult result, RedirectAttributes attributes, HttpSession session) {
+        if (result.hasErrors()) {
+            System.out.println(result.getAllErrors());
+            return "/user/checkout";
         }
-        attributes.addFlashAttribute("cart", cart);
+        orderService.setOrder(order, session);
         attributes.addFlashAttribute("order", order);
         return "redirect:/user/successfull";
     }
+
 }
