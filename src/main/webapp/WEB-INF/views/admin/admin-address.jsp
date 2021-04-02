@@ -20,7 +20,7 @@
                         <span class="sr-only">Toggle navigation</span></button>
                     <a class="navbar-brand" href="#"><span>Caffee</span>Admin</a>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </nav>
         <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
             <div class="profile-sidebar">
