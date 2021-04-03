@@ -47,8 +47,7 @@ public class Product implements Serializable {
     @Column(name = "imgsrc")
     private String imgsrc;
     @ManyToOne(optional = false)
-    @Cascade(value = {org.hibernate.annotations.CascadeType.DETACH,org.hibernate.annotations.CascadeType.SAVE_UPDATE})
-    @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
+    @JoinColumn(name = "cat_a_id", referencedColumnName = "id", insertable = true, updatable = true)
     private CatA catAId;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
@@ -58,6 +57,14 @@ public class Product implements Serializable {
 
     public Product(Integer id) {
         this.id = id;
+    }
+
+    public Product(Integer id, String pname, Double baseprice, String imgsrc, CatA catAId) {
+        this.id = id;
+        this.pname = pname;
+        this.baseprice = baseprice;
+        this.imgsrc = imgsrc;
+        this.catAId = catAId;
     }
 
     public Integer getId() {

@@ -67,7 +67,7 @@
                                 <th scope="row">${drink.id}</th>
                                 <td>${drink.pname}</td>
                                 <td><em class="fa fa-eur"></em>${drink.baseprice}</td>
-                                <td><a href="#"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/product/update/${drink.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

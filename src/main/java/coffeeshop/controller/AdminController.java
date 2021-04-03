@@ -15,14 +15,17 @@ import coffeeshop.service.ProductService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -129,10 +132,25 @@ public class AdminController {
     }
     
     
-    @GetMapping("/productform")
+    @RequestMapping(value= "/product/create", method = RequestMethod.GET)
     public String showForm(){
         return ("admin/admin-productform");
     }
+    
+    
+    @RequestMapping(value= "/product/create", method = RequestMethod.POST)
+    public String createProduct(@Valid Product product, BindingResult result, RedirectAttributes attributes){
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("errormsg", "Invalid name");
+            return "redirect:/product/create";
+        }
+        productService.save(product);
+        String minima = "*Product " + product.getPname() + " added successfully!";
+        attributes.addFlashAttribute("message", minima);
+        return "redirect:/admin/product/create";
+    }
+    
+    
     
     @ModelAttribute("cata")
     public List<CatA> showCategories() {
@@ -151,12 +169,22 @@ public class AdminController {
     public String update(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
-            return "redirect:/productform";
+            return "redirect:/admin/product/create";
         }
         productService.update(product);
         String minima = "*Product updated successfully!!";
         attributes.addFlashAttribute("message", minima);
-        return "redirect:/productform";
+        return "redirect:/admin/product/create";
+    }
+    
+    
+    
+    
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public String handleDataIntegrityViolationException(RedirectAttributes attributes) {
+        String minima = "Could not commit transaction!!";
+        attributes.addFlashAttribute("message", minima);
+        return "redirect:/admin/trainer";
     }
     
     

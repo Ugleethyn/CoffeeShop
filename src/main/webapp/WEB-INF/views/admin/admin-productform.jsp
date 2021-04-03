@@ -63,10 +63,10 @@
                             <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
                         </c:if>
                     </div>
-                    <c:if test="${product==null}">
+                    <c:if test="${product.id==null}">
                         <c:url value="/admin/product/create" var="link"/>
                     </c:if>
-                    <c:if test="${product!=null}">
+                    <c:if test="${product.id!=null}">
                         <c:url  value="/admin/product/update" var="link"/>
                     </c:if>
                     <form:form action="${link}" method="POST">
@@ -94,10 +94,9 @@
                         <div>
                             <label for="cata">Product Category :</label>
                             <br/>
-                            <select id="cata">
-                                <option value="" hidden>Choose category</option>
+                            <select id="catAId" name="catAId" value="${product.catAId}">
                                 <c:forEach items="${cata}" var="cat">
-                                    <option value="${product.catAId.id}">${cat.catAName}</option>
+                                    <option value="${cat.id}">${cat.catAName}</option>
                                 </c:forEach>
                             </select>
                             <p></p>

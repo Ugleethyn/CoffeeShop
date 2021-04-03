@@ -50,7 +50,7 @@
                     <li class="active">Coffees</li>
                 </ol>
             </div><!--/.row-->
-            <a href="${pageContext.request.contextPath}/admin/productform"><button class="button"><span>Create </span></button></a>
+            <a href="${pageContext.request.contextPath}/admin/product/create"><button class="button"><span>Create </span></button></a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
