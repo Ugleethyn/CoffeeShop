@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "product")
@@ -45,8 +46,9 @@ public class Product implements Serializable {
     @Size(max = 65)
     @Column(name = "imgsrc")
     private String imgsrc;
-    @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @Cascade(value = {org.hibernate.annotations.CascadeType.DETACH,org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+    @JoinColumn(name = "cat_a_id", referencedColumnName = "id")
     private CatA catAId;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;

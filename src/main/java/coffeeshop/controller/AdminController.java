@@ -2,21 +2,28 @@ package coffeeshop.controller;
 
 import coffeeshop.entity.Account;
 import coffeeshop.entity.Address;
+import coffeeshop.entity.CatA;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Product;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
+import coffeeshop.service.CatAService;
 import coffeeshop.service.OrderDetailsService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.ProductService;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/admin")
@@ -32,6 +39,8 @@ public class AdminController {
     private OrderDetailsService orderDetailsservice;
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private CatAService catAService;
 
     @GetMapping
     public String adminHome() {
@@ -117,6 +126,37 @@ public class AdminController {
         Account account  = accountService.getUserByOrder(accountid);
         model.addAttribute("user", account);
         return ("admin/admin-orderuser");
+    }
+    
+    
+    @GetMapping("/productform")
+    public String showForm(){
+        return ("admin/admin-productform");
+    }
+    
+    @ModelAttribute("cata")
+    public List<CatA> showCategories() {
+        return catAService.getAllCatA();
+    }
+    
+    
+    @GetMapping("/product/update/{pid}")
+    public String showFormUpdate(@PathVariable("pid") int pid, Model model) {
+        Product product = productService.findById(pid);
+        model.addAttribute("product", product);
+        return "admin/admin-productform";
+    }
+    
+    @PostMapping("/product/update")
+    public String update(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
+            return "redirect:/productform";
+        }
+        productService.update(product);
+        String minima = "*Product updated successfully!!";
+        attributes.addFlashAttribute("message", minima);
+        return "redirect:/productform";
     }
     
     

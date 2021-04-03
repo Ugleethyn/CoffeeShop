@@ -83,7 +83,7 @@
                             <!--Card-->
                             <div class="card">
                                 <h2 class="my-4 h2 text-center headertext">My account</h2>
-
+                                <p id="message" style="color: red; padding-left: 22px;">${message}</p>
                                 <form:form action="${pageContext.request.contextPath}/user/settings/update" method="POST" modelAttribute="settings" cssClass="card-body">
                                     <div class="my_details">
                                         <h4 class="my-2">My details</h4>
@@ -192,9 +192,6 @@
                                                             </div>
                                                         </div>
                                                         <!--Grid column-->
-
-
-
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
                                                                 <input type="text" id="number" name="number" class="form-control">

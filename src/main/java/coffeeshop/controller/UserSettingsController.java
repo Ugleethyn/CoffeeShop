@@ -24,13 +24,11 @@ public class UserSettingsController {
 
     @Autowired
     private AccountService accountService;
-
     @Autowired
     private AddressService addressService;
-
     @Autowired
     PasswordEncoder passwordEncoder;
-
+    
     @GetMapping
     public String showSettings() {
         return "user/user-settings";

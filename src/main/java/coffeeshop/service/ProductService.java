@@ -5,15 +5,17 @@ import java.util.List;
 
 public interface ProductService {
     
-    public List<Product> getAllProducts();
+    List<Product> getAllProducts();
 
-     List<Product> findAllCoffees();
+    List<Product> findAllCoffees();
 
-     List<Product> findAllDrinks();
+    List<Product> findAllDrinks();
 
-     List<Product> findAllSnacks();
+    List<Product> findAllSnacks();
 
-     Product findById(int id);
+    Product findById(int id);
     
-     Product save(Product product);
+    Product save(Product product);
+     
+    Product update(Product product); 
 }

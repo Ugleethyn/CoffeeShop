@@ -50,7 +50,7 @@
                     <li class="active">Coffees</li>
                 </ol>
             </div><!--/.row-->
-            <a href="menu.html"><button class="button"><span>Create </span></button></a>
+            <a href="${pageContext.request.contextPath}/admin/productform"><button class="button"><span>Create </span></button></a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -67,7 +67,7 @@
                                 <th scope="row">${coffee.id}</th>
                                 <td>${coffee.pname}</td>
                                 <td><em class="fa fa-eur"></em>${coffee.baseprice}</td>
-                                <td><a href="#"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/product/update/${coffee.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
