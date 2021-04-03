@@ -29,24 +29,23 @@ function coffeeFilter() {
     document.getElementById("coffees").style.display = "block";
     document.getElementById("snacks").style.display = "none";
     document.getElementById("drinks").style.display = "none";
-
-}
+};
 
 function allProducts() {
     document.getElementById("coffees").style.display = "block";
     document.getElementById("snacks").style.display = "block";
     document.getElementById("drinks").style.display = "block";
-}
+};
 
 function snackFilter() {
     document.getElementById("coffees").style.display = "none";
     document.getElementById("snacks").style.display = "block";
     document.getElementById("drinks").style.display = "none";
-}
+};
 
 function drinkFilter() {
     document.getElementById("coffees").style.display = "none";
     document.getElementById("snacks").style.display = "none";
     document.getElementById("drinks").style.display = "block";
-}
+};
 

@@ -16,12 +16,12 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> findAllIngredients() {
-        return categoryRepo.findAllByCatBId(1);
+        return categoryRepo.findAllByCatBId(2);
     }
 
     @Override
     public List<Category> findAllSugars() {
-        return categoryRepo.findAllByCatBId(2);
+        return categoryRepo.findAllByCatBId(3);
     }
 
     @Override
