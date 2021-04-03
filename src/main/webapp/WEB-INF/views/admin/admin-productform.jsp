@@ -38,6 +38,7 @@
                 <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa fa-heart-o">&nbsp;</em>Disabled</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
             </ul>
         </div><!--/.sidebar-->
@@ -71,7 +72,7 @@
                     </c:if>
                     <form:form action="${link}" method="POST">
                         <div>
-                            <input type="number" name="tid" value="${product.id}" hidden />
+                            <input type="number" name="id" value="${product.id}" hidden />
                         </div>
                         <div>
                             <label for="pname">Product Name :</label>

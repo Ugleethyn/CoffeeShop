@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllDrinks() {
         return productRepo.findAllByCatAId(3);
     }
-
+    
     public Product findById(int id) {
         return  productRepo.findById(id).get();
     }
@@ -42,6 +42,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product update(Product product) {
         return productRepo.save(product);
+    }
+
+    @Override
+    public List<Product> findAllDisabledProducts() {
+        return productRepo.findAllByCatAId(4);
     }
 
 }

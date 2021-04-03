@@ -12,6 +12,8 @@ public interface ProductService {
     List<Product> findAllDrinks();
 
     List<Product> findAllSnacks();
+    
+    List<Product> findAllDisabledProducts();
 
     Product findById(int id);
     

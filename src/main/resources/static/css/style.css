@@ -478,6 +478,7 @@ footer.nb-footer .copyright p {
 .cartbtn {
     padding: 2px;
     font-size: 13px;
+    
 }
 
 
@@ -564,6 +565,16 @@ a {
 .table td a {
     margin-top: 20px;
 }
+.priceQuanity{
+    margin-top: 0;
+}
+.cartQuantity{
+    margin-top: 0;
+}
+.remove{
+    padding: 0;
+}
+
 /************************************************* ABOUT US /**************************************************/
 
 .section-ourTeam {

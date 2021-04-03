@@ -92,6 +92,13 @@ public class AdminController {
         return "admin/admin-snacks";
     }
     
+    @GetMapping("/disabled")
+    public String showDisabledProducts(Model model){
+        List<Product> disabled = productService.findAllDisabledProducts();
+        model.addAttribute("disabled", disabled);
+        return "admin/admin-disabledproducts";
+    }
+    
     
     @GetMapping("/orderdetails/{id}")
     public String showOrderDetails(@PathVariable(name = "id") int id, Model model){
