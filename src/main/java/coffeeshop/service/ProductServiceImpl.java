@@ -40,11 +40,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(Product product) {
-        return productRepo.save(product);
-    }
-
-    @Override
     public List<Product> findAllDisabledProducts() {
         return productRepo.findAllByCatAId(4);
     }

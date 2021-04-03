@@ -1,6 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +10,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Orders</title>
+        <title>Coffees</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
     <body>
@@ -33,7 +34,7 @@
                 <li><a href="${pageContext.request.contextPath}/admin"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
@@ -49,36 +50,53 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">Order Details</li>
+                    <li class="active">Product Form</li>
                 </ol>
             </div><!--/.row-->
-            <div class="table-responsive">
+            <!--            <a href="menu.html"><button class="button"><span>Create </span></button></a>-->
+            <div class="table-responsive" style="margin-left: 20px;">
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Product name</th>
-                            <th scope="col">Product Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Characteristics</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${orderDetails}" var = "orderDetail">
-                            <tr>
-                                <td>${orderDetail.order.id}</td>
-                                <td>${orderDetail.product.pname}</td>
-                                <td>${orderDetail.product.baseprice}€</td>
-                                <td>${orderDetail.quantity}</td>
-                                <td>
-                                    <c:forEach items="${orderDetail.categories}" var="category">
-                                        <span>${category.cname}</span><br/>
-                                    </c:forEach>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
+                    <div class="h">
+                        <h2>Category's Form</h2>                   
+                        <hr/>
+                        <p>${message}</p>
+                        <p id="message">${errormsg}</p>
+                        <c:if test="${param.error != null}"> 
+                            <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
+                        </c:if>
+                    </div>
+                    <c:if test="${category.id==null}">
+                        <c:url value="/admin/category/create" var="link"/>
+                    </c:if>
+                    <c:if test="${category.id!=null}">
+                        <c:url  value="/admin/category/update" var="link"/>
+                    </c:if>
+                    <form:form action="${link}" method="POST">
+                        <div>
+                            <input type="number" name="id" value="${category.id}" hidden />
+                        </div>
+                        <div>
+                            <label for="pname">Category Name :</label>
+                            <br/>
+                            <input id="pname" type="text" placeholder="Category name" name="pname" value="${category.cname}" />
+                            <p></p>
+                        </div>
+                        <div>
+                            <label for="cata">Category :</label>
+                            <br/>
+                            <select id="catBId" name="catAId" value="${category.id}">
+                                <c:forEach items="${catb}" var="cat">
+                                    <option value="${cat.id}">${cat.catBName}</option>
+                                </c:forEach>
+                            </select>
+                            <p></p>
+                        </div>
+                        <div class="addform">
+                            <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Add/Update" />      
+                        </div>
+                    </form:form>
                 </table>
             </div>
         </div>
+    </body>
 </html>

@@ -11,4 +11,8 @@ public interface CategoryService {
 
     Category findById(int id);
 
+    Category save(Category category);
+
+    List<Category> findAll();
+
 }

@@ -29,4 +29,14 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepo.findById(id).get();
     }
 
+    @Override
+    public Category save(Category category) {
+        return categoryRepo.save(category);
+    }
+
+    @Override
+    public List<Category> findAll() {
+        return categoryRepo.findAll();
+    }
+
 }

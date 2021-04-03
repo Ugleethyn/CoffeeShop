@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Orders</title>
+        <title>Coffees</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
     <body>
@@ -33,11 +33,11 @@
                 <li><a href="${pageContext.request.contextPath}/admin"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
-                <li><a href="${pageContext.request.contextPath}/admin/categories"><em class="fa fa-arrows-alt">&nbsp;</em>Categories</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/admin/categories"><em class="fa fa-arrows-alt">&nbsp;</em>Categories</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa fa-ban">&nbsp;</em>Disabled Products</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
             </ul>
@@ -49,36 +49,30 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">Order Details</li>
+                    <li class="active">Coffees</li>
                 </ol>
             </div><!--/.row-->
+            <a href="${pageContext.request.contextPath}/admin/category/create"><button class="button"><span>Create </span></button></a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Product name</th>
-                            <th scope="col">Product Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Characteristics</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${orderDetails}" var = "orderDetail">
+                        <c:forEach items="${categories}" var = "category">
                             <tr>
-                                <td>${orderDetail.order.id}</td>
-                                <td>${orderDetail.product.pname}</td>
-                                <td>${orderDetail.product.baseprice}€</td>
-                                <td>${orderDetail.quantity}</td>
-                                <td>
-                                    <c:forEach items="${orderDetail.categories}" var="category">
-                                        <span>${category.cname}</span><br/>
-                                    </c:forEach>
-                                </td>
+                                <th scope="row">${category.id}</th>
+                                <td>${category.cname}</td>
+                                <td><a href="${pageContext.request.contextPath}/admin/categories/update/${category.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
             </div>
         </div>
+    </body>
 </html>
