@@ -44,7 +44,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="#">
+                    <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
                     <li class="active">Members</li>
@@ -79,26 +79,9 @@
                                 <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                             </tr>
                         </c:forEach>
-                        <tr>
-                            <th scope="row">${user.id}</th>
-                            <td>${user.firstname}</td>
-                            <td>${user.lastname}</td>
-                            <td>${user.username}</td>
-                            <td>${user.email}</td>
-                            <td>${user.tel}</td>
-                            <td>
-                                <!--<a href="${pageContext.request.contextPath}/admin/user/addresses/${user.id}"><em class="fa fa-address-book-o"></em> Address</a>-->
-                            </td>
-                            <td>
-                                <!--<a href="${pageContext.request.contextPath}/admin/user/orders/${user.id}"><em class="fa fa-shopping-cart"></em> Orders</a>-->
-                            </td>
-                            <td>
-                                <!--<a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a>-->
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
-        </div>	<!--/.main-->
+        </div>
     </body>
 </html>

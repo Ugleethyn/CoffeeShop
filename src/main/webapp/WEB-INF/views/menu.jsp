@@ -79,26 +79,26 @@
                                 <c:set var = "coffees" value = "${coffeeTypes}"/>
                                 <c:set var = "drinks" value = "${snackTypes}" />
                                 <c:set var = "snacks" value = "${drinkTypes}" />
-                                
-                             <button class="filterbtn" onclick="allProducts()">
-                                <li class="list-group-item"> All products
-                                    <span class="badge">${fn:length(coffees)+fn:length(drinks)+fn:length(snacks)}</span></li>
-                            </button>
 
-                            <button class="filterbtn" onclick="coffeeFilter()">
-                                <li class="list-group-item"> Coffees
-                                    <span class="badge">${fn:length(coffees)}</span></li>
-                            </button>
+                                <button class="filterbtn" onclick="allProducts()">
+                                    <li class="list-group-item"> All products
+                                        <span class="badge">${fn:length(coffees)+fn:length(drinks)+fn:length(snacks)}</span></li>
+                                </button>
 
-                            <button class="filterbtn" onclick="snackFilter()">
-                                <li class="list-group-item"> Snacks
-                                    <span class="badge">${fn:length(snacks)}</span></li>
-                            </button>
+                                <button class="filterbtn" onclick="coffeeFilter()">
+                                    <li class="list-group-item"> Coffees
+                                        <span class="badge">${fn:length(coffees)}</span></li>
+                                </button>
 
-                            <button class="filterbtn" onclick="drinkFilter()">
-                                <li class="list-group-item"> Drinks
-                                    <span class="badge">${fn:length(drinks)}</span></li>
-                            </button>
+                                <button class="filterbtn" onclick="snackFilter()">
+                                    <li class="list-group-item"> Snacks
+                                        <span class="badge">${fn:length(snacks)}</span></li>
+                                </button>
+
+                                <button class="filterbtn" onclick="drinkFilter()">
+                                    <li class="list-group-item"> Drinks
+                                        <span class="badge">${fn:length(drinks)}</span></li>
+                                </button>
                             </ul>
                         </div>
                     </div>
@@ -134,53 +134,50 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="myModal" class="modal modules">
+                                        <!-- Modal content -->
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <div class="formcoffee">
+                                                <form action="${pageContext.request.contextPath}/login" method="GET">
+                                                    <div>
+                                                        <h5>Please select coffee sugar <span class="important">*</span></h5>
+                                                        <div class="funkyradio">
+                                                            <c:forEach items="${coffeeSugar}" var = "sugar">
+                                                                <div class="funkyradio funkyradio-warning ">
+                                                                    <input type="radio" name="sugar" id="${sugar.cname}" class="sugars" />
+                                                                    <label for="${sugar.cname}">${sugar.cname} </label>
+                                                                </div>
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <h5>Please select ingredients</h5>
+                                                        <div class="funkyradio">
+                                                            <c:forEach items="${ingredients}" var = "ingredients">
+                                                                <div class="funkyradio-warning">
+                                                                    <input type="checkbox" name="checkbox"
+                                                                           id="${ingredients.cname}" />
+                                                                    <label for="${ingredients.cname}">${ingredients.cname}</label>
+                                                                </div>
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+                                                    <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
+                                                        <label for="quantity">Quantity</label>
+                                                    </div>
+
+                                                    <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>                
                                 </c:forEach>
                             </div>
                         </section>
-
-                        <div id="myModal" class="modal modules">
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <div class="formcoffee">
-                                    <form action="${pageContext.request.contextPath}/login" method="GET">
-                                        <div>
-                                            <h5>Please select coffee sugar <span class="important">*</span></h5>
-                                            <div class="funkyradio">
-                                                <c:forEach items="${coffeeSugar}" var = "sugar">
-                                                    <div class="funkyradio funkyradio-warning ">
-                                                        <input type="radio" name="sugar" id="${sugar.cname}" class="sugars" />
-                                                        <label for="${sugar.cname}">${sugar.cname} </label>
-                                                    </div>
-                                                </c:forEach>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <h5>Please select ingredients</h5>
-                                            <div class="funkyradio">
-                                                <c:forEach items="${ingredients}" var = "ingredients">
-                                                    <div class="funkyradio-warning">
-                                                        <input type="checkbox" name="checkbox"
-                                                               id="${ingredients.cname}" />
-                                                        <label for="${ingredients.cname}">${ingredients.cname}</label>
-                                                    </div>
-                                                </c:forEach>
-                                            </div>
-                                        </div>
-                                        <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
-                                            <label for="quantity">Quantity</label>
-                                        </div>
-
-                                        <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-
                         <section id="snacks">
                             <h1>Snacks</h1>
                             <div class="row mg-b-30">
@@ -325,10 +322,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-                                    // Mean Menu
-                                    jQuery('.mean-menu').meanmenu({
-                                        meanScreenWidth: "991"
-                                    });
+                                // Mean Menu
+                                jQuery('.mean-menu').meanmenu({
+                                    meanScreenWidth: "991"
+                                });
         </script>
     </body>
 

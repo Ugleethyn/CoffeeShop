@@ -116,7 +116,7 @@ public class AdminController {
     public String getUserFromOrder(@PathVariable (name = "accountid") int accountid, Model model){
         Account account  = accountService.getUserByOrder(accountid);
         model.addAttribute("user", account);
-        return ("admin/admin-users");
+        return ("admin/admin-orderuser");
     }
     
     

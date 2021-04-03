@@ -139,224 +139,225 @@
                                             <div class="formcoffee">
                                                 <p>${coffeeType.id}</p>
                                                 <form action="${pageContext.request.contextPath}/user/cart" method="GET">
-                                        <div id="myModal" class="modal modules">
-                                            <!-- Modal content -->
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <div class="formcoffee">
-                                                    <div>
-                                                        <h5>Please select coffee sugar <span class="important">*</span></h5>
-                                                        <div class="funkyradio">
-                                                            <c:forEach items="${coffeeSugar}" var = "sugar">
-                                                                <div class="funkyradio funkyradio-warning ">
-                                                                    <input type="radio" name="categories" id="${sugar.cname}${coffeeType.pname}" value="${sugar.id}" class="sugars" />
-                                                                    <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
-                                                                    <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
+                                                    <div id="myModal" class="modal modules">
+                                                        <!-- Modal content -->
+                                                        <div class="modal-content">
+                                                            <span class="close">&times;</span>
+                                                            <div class="formcoffee">
+                                                                <div>
+                                                                    <h5>Please select coffee sugar <span class="important">*</span></h5>
+                                                                    <div class="funkyradio">
+                                                                        <c:forEach items="${coffeeSugar}" var = "sugar">
+                                                                            <div class="funkyradio funkyradio-warning ">
+                                                                                <input type="radio" name="categories" id="${sugar.cname}${coffeeType.pname}" value="${sugar.id}" class="sugars" />
+                                                                                <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
+                                                                                <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
+                                                                            </div>
+                                                                        </c:forEach>
+                                                                    </div>
                                                                 </div>
-                                                            </c:forEach>
+
+                                                                <div>
+                                                                    <h5>Please select ingredients</h5>
+                                                                    <div class="funkyradio">
+                                                                        <c:forEach items="${ingredients}" var = "ingredients">
+                                                                            <div class="funkyradio-warning">
+                                                                                <input type="checkbox" name="checkbox"
+                                                                                       id="${ingredients.cname}${coffeeType.pname}" />
+                                                                                <input type="checkbox" name="categories"  id="${ingredients.cname}${coffeeType.pname}"  value="${ingredients.id}"/>
+                                                                                <label for="${ingredients.cname}${coffeeType.pname}">${ingredients.cname}</label>
+                                                                            </div>
+                                                                        </c:forEach>
+                                                                    </div>
+                                                                </div>
+                                                                <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
+                                                                    <label for="quantity">Quantity</label>
+                                                                </div>
+
+                                                                <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
 
-                                                    <div>
-                                                        <h5>Please select ingredients</h5>
-                                                        <div class="funkyradio">
-                                                            <c:forEach items="${ingredients}" var = "ingredients">
-                                                                <div class="funkyradio-warning">
-                                                                    <input type="checkbox" name="checkbox"
-                                                                           id="${ingredients.cname}${coffeeType.pname}" />
-                                                                    <input type="checkbox" name="categories"  id="${ingredients.cname}${coffeeType.pname}"  value="${ingredients.id}"/>
-                                                                    <label for="${ingredients.cname}${coffeeType.pname}">${ingredients.cname}</label>
-                                                                </div>
-                                                            </c:forEach>
-                                                        </div>
-                                                    </div>
-                                                    <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
-                                                        <label for="quantity">Quantity</label>
-                                                    </div>
-
-                                                    <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
-                                                    </div>
-                                                </form>
                                             </div>
+                                            </section>
+                                        </div>
+                                        <div> <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
+                                            <label for="quantity">Quantity</label>
+                                        </div>
+                                        <div class="btnplace">
+                                            <button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
+                                        </div>
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </form:form>
+            </div>
+        </section>
+        <section id="snacks">
+            <h1>Snacks</h1>
+            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                <div class="row mg-b-30">
+
+                    <c:forEach items="${snackTypes}" var = "snack">
+                        <div class="col-sm-4">
+                            <div class="shop-item">
+
+                                <div class="info hoveritem">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5> <img src="${pageContext.request.contextPath}/img/snack.png" class="img-responsive" alt="Snack" /> </h5>
+                                        </div>
+                                        <div class="price col-md-12">
+                                            <h5>
+                                                ${snack.pname}
+                                            </h5>
+                                        </div>
+                                        <div class="price col-md-12 col align-self-end">
+
+                                            <h5 class="price-text-color"> € ${snack.baseprice} </h5>
                                         </div>
                                     </div>
-                                </c:forEach>
-                            </div>
-                        </section>
-                                                    </div>
-                                                    <div> <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
-                                                        <label for="quantity">Quantity</label>
-                                                    </div>
-                                                    <div class="btnplace">
-                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
-                                </form:form>
-                            </div>
-                        </section>
-                        <section id="snacks">
-                            <h1>Snacks</h1>
-                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
-                                <div class="row mg-b-30">
-
-                                    <c:forEach items="${snackTypes}" var = "snack">
-                                        <div class="col-sm-4">
-                                            <div class="shop-item">
-
-                                                <div class="info hoveritem">
-                                                    <div class="row">
-                                                        <div class="price col-md-12">
-                                                            <h5> <img src="${pageContext.request.contextPath}/img/snack.png" class="img-responsive" alt="Snack" /> </h5>
-                                                        </div>
-                                                        <div class="price col-md-12">
-                                                            <h5>
-                                                                ${snack.pname}
-                                                            </h5>
-                                                        </div>
-                                                        <div class="price col-md-12 col align-self-end">
-
-                                                            <h5 class="price-text-color"> € ${snack.baseprice} </h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="separator clear-left">
-                                                        <p class="btn-add">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                            <button name="product" value="${snack.id}" class="snkdrnkbtn"><span>Add To Card</span></button>
-                                                        </p>
-                                                        <p class="btn-quantity">
-                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" max="10" id="${snack.id}">
-                                                        </p>
-                                                    </div>
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <button name="product" value="${snack.id}" class="snkdrnkbtn"><span>Add To Card</span></button>
+                                        </p>
+                                        <p class="btn-quantity">
+                                            <input type="number" name="quantity" value="1" class="quantity" min="1" max="10" id="${snack.id}">
+                                        </p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
                                 </div>
-                            </form:form>
-                        </section>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </form:form>
+        </section>
 
-                        <section id="drinks">
-                            <h1>Drinks</h1>
-                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
-                                <div class="row mg-b-30">
+        <section id="drinks">
+            <h1>Drinks</h1>
+            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                <div class="row mg-b-30">
 
-                                    <c:forEach items="${drinkTypes}" var = "drink">
-                                        <div class="col-sm-4">
-                                            <div class="shop-item">
+                    <c:forEach items="${drinkTypes}" var = "drink">
+                        <div class="col-sm-4">
+                            <div class="shop-item">
 
-                                                <div class="info hoveritem">
-                                                    <div class="row">
-                                                        <div class="price col-md-12">
-                                                            <h5> <img src="${pageContext.request.contextPath}/img/drink.png" class="img-responsive" alt="Snack" /> </h5>
-                                                        </div>
-                                                        <div class="price col-md-12">
-                                                            <h5>
-                                                                ${drink.pname}
-                                                            </h5>
-                                                        </div>
-                                                        <div class="price col-md-12 col align-self-end">
-
-                                                            <h5 class="price-text-color"> € ${drink.baseprice} </h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="separator clear-left">
-                                                        <p class="btn-add">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                            <button name="product" value="${drink.id}"  class="snkdrnkbtn"><span>Add To Card</span></button>
-                                                        </p>
-                                                        <p class="btn-quantity">
-                                                            Quantity:
-                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" id="${drink.pname}">
-                                                        </p>
-                                                    </div>
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="info hoveritem">
+                                    <div class="row">
+                                        <div class="price col-md-12">
+                                            <h5> <img src="${pageContext.request.contextPath}/img/drink.png" class="img-responsive" alt="Snack" /> </h5>
                                         </div>
-                                    </c:forEach>
+                                        <div class="price col-md-12">
+                                            <h5>
+                                                ${drink.pname}
+                                            </h5>
+                                        </div>
+                                        <div class="price col-md-12 col align-self-end">
+
+                                            <h5 class="price-text-color"> € ${drink.baseprice} </h5>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <button name="product" value="${drink.id}"  class="snkdrnkbtn"><span>Add To Card</span></button>
+                                        </p>
+                                        <p class="btn-quantity">
+                                            Quantity:
+                                            <input type="number" name="quantity" value="1" class="quantity" min="1" id="${drink.pname}">
+                                        </p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
                                 </div>
-                            </form:form>
-                        </section>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </form:form>
+        </section>
 
 
-                    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<footer class="nb-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">information</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
+                                    class="fa fa-angle-double-right"></i> About Us</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
+                                    class="fa fa-angle-double-right"></i> Live Chat</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
+                                    class="fa fa-angle-double-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single">
+                    <h2 class="title">Payment</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
+                                    class="fa fa-angle-double-right"></i> Supported Methods</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single location">
+                    <h2 class="title">Address</h2>
+                    <h6 class="copyrighttext"> Nikolaou Plastira 8<br> Aigaleo 12242</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-info-single location">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.03731652767897!2d23.68237087174767!3d37.993496642855426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bcb079ef11e3%3A0x5d5a1b265910580!2zzp3Ouc66LiDOoM67zrHPg8-Ezq7Pgc6xIDgsIM6RzrnOs86szrvOtc-JIDEyMiA0Mg!5e0!3m2!1sel!2sgr!4v1615127573355!5m2!1sel!2sgr"
+                        width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
-
-        <footer class="nb-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single">
-                            <h2 class="title">information</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
-                                            class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
-                                            class="fa fa-angle-double-right"></i> Live Chat</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
-                                            class="fa fa-angle-double-right"></i> Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single">
-                            <h2 class="title">Payment</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="${pageContext.request.contextPath}/user/payment" title="Payment"><i
-                                            class="fa fa-angle-double-right"></i> Supported Methods</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single location">
-                            <h2 class="title">Address</h2>
-                            <h6 class="copyrighttext"> Nikolaou Plastira 8<br> Aigaleo 12242</h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single location">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d393.03731652767897!2d23.68237087174767!3d37.993496642855426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bcb079ef11e3%3A0x5d5a1b265910580!2zzp3Ouc66LiDOoM67zrHPg8-Ezq7Pgc6xIDgsIM6RzrnOs86szrvOtc-JIDEyMiA0Mg!5e0!3m2!1sel!2sgr!4v1615127573355!5m2!1sel!2sgr"
-                                width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
+    </div>
+    <div class="copyright">
+        <div class="container" style="width: 100%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>© 2021 by Company</p>
                 </div>
             </div>
-            <div class="copyright">
-                <div class="container" style="width: 100%;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>© 2021 by Company</p>
-                        </div>
-                    </div>
-                </div>
-        </footer>
+        </div>
+</footer>
 
-        <script src="${pageContext.request.contextPath}/js/script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script
-        src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
-        <script>
-                                    // Mean Menu
-                                    jQuery('.mean-menu').meanmenu({
-                                        meanScreenWidth: "991"
-                                    });
-        </script>
-    </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
+<script>
+                            // Mean Menu
+                            jQuery('.mean-menu').meanmenu({
+                                meanScreenWidth: "991"
+                            });
+</script>
+</body>
 
 </html>
