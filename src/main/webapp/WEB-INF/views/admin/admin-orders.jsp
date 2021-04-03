@@ -69,7 +69,7 @@
                             <tr>
                                 <th scope="row">${order.id}</th>
                                 <td>${order.dateCreated}</td>
-                                <td>${order.price}€</td>
+                                <td><em class="fa fa-eur"></em>${order.price}</td>
                                 <td>${order.payment.type}</td>
                                 <td>${order.comments}</td>
                                 <td><a href="${pageContext.request.contextPath}/admin/address/${order.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
@@ -81,11 +81,11 @@
                             <tr>
                                 <th scope="row">${uOrder.id}</th>
                                 <td>${uOrder.dateCreated}</td>
-                                <td>${uOrder.price}€</td>
+                                <td><em class="fa fa-eur"></em>${uOrder.price}</td>
                                 <td>${uOrder.payment.type}</td>
                                 <td>${uOrder.comments}</td>
                                 <td><a href="${pageContext.request.contextPath}/admin/address/${uOrder.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
-                                <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/order/user/${uOrder.accountid.id}"><em class="fa fa-user-circle-o"></em> Customer</a></td>
                                 <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${uOrder.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
                             </tr>
                         </c:forEach>

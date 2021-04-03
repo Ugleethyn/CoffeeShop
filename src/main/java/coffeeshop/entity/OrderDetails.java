@@ -53,7 +53,6 @@ public class OrderDetails implements Serializable {
             inverseJoinColumns = {
                 @JoinColumn(name = "category_id", referencedColumnName = "id")})
     private List<Category> categories;
-
     @Column(name = "unitprice", precision=4, scale=2)
     private double unitPrice;
 
