@@ -20,13 +20,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrdersRepo ordersRepo;
-
     @Autowired
     private AccountService accountService;
-
     @Autowired
     private CheckoutService checkoutService;
-
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
 
@@ -82,4 +79,5 @@ public class OrderServiceImpl implements OrderService {
     public List<Orders> getOrdersByAccount(int accountid) {
         return ordersRepo.findByAccountId(accountid);
     }
+
 }

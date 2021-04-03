@@ -37,6 +37,7 @@
                 <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa fa-heart-o">&nbsp;</em>Disabled</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
             </ul>
         </div><!--/.sidebar-->
@@ -44,7 +45,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="#">
+                    <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
                     <li class="active">All Orders</li>
@@ -62,7 +63,6 @@
                             <th scope="col">Address</th>
                             <th scope="col">Customer</th>
                             <th scope="col">Products</th>
-                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,26 +70,24 @@
                             <tr>
                                 <th scope="row">${order.id}</th>
                                 <td>${order.dateCreated}</td>
-                                <td>${order.price}€</td>
+                                <td><em class="fa fa-eur"></em>${order.price}</td>
                                 <td>${order.payment.type}</td>
                                 <td>${order.comments}</td>
                                 <td><a href="${pageContext.request.contextPath}/admin/address/${order.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
                                 <td><a href="${pageContext.request.contextPath}/admin/order/user/${order.accountid.id}"><em class="fa fa-user-circle-o"></em> Customer</a></td>
                                 <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${order.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
-                                <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                             </tr>
                         </c:forEach>
                         <c:forEach items="${userOrders}" var = "uOrder">
                             <tr>
                                 <th scope="row">${uOrder.id}</th>
                                 <td>${uOrder.dateCreated}</td>
-                                <td>${uOrder.price}€</td>
+                                <td><em class="fa fa-eur"></em>${uOrder.price}</td>
                                 <td>${uOrder.payment.type}</td>
                                 <td>${uOrder.comments}</td>
                                 <td><a href="${pageContext.request.contextPath}/admin/address/${uOrder.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
-                                <td><a href="#"><em class="fa fa-user-circle-o"></em> Customer</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/order/user/${uOrder.accountid.id}"><em class="fa fa-user-circle-o"></em> Customer</a></td>
                                 <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${uOrder.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
-                                <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

@@ -7,13 +7,17 @@ public interface ProductService {
     
     List<Product> getAllProducts();
 
-     List<Product> findAllCoffees();
+    List<Product> findAllCoffees();
 
-     List<Product> findAllDrinks();
+    List<Product> findAllDrinks();
 
-     List<Product> findAllSnacks();
-
-     Product findById(int id);
+    List<Product> findAllSnacks();
     
-     Product save(Product product);
+    List<Product> findAllDisabledProducts();
+
+    Product findById(int id);
+    
+    Product save(Product product);
+     
+    Product update(Product product); 
 }

@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Coffees</title>
+        <title>Disabled Products</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
     <body>
@@ -34,10 +34,10 @@
                 <li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
-                <li><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa fa-heart-o">&nbsp;</em>Disabled</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa-minus-octagon">&nbsp;</em>Disabled</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
             </ul>
         </div><!--/.sidebar-->
@@ -48,7 +48,7 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">Coffees</li>
+                    <li class="active">Disabled Products</li>
                 </ol>
             </div><!--/.row-->
             <a href="${pageContext.request.contextPath}/admin/product/create"><button class="button"><span>Create </span></button></a>
@@ -63,12 +63,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${coffees}" var = "coffee">
+                        <c:forEach items="${disabled}" var = "disable">
                             <tr>
-                                <th scope="row">${coffee.id}</th>
-                                <td>${coffee.pname}</td>
-                                <td><em class="fa fa-eur"></em>${coffee.baseprice}</td>
-                                <td><a href="${pageContext.request.contextPath}/admin/product/update/${coffee.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
+                                <th scope="row">${disable.id}</th>
+                                <td>${disable.pname}</td>
+                                <td><em class="fa fa-eur"></em>${disable.baseprice}</td>
+                                <td><a href="${pageContext.request.contextPath}/admin/product/update/${disable.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

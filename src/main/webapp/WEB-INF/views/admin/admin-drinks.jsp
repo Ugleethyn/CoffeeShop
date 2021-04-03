@@ -37,6 +37,7 @@
                 <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li class="active"><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa fa-heart-o">&nbsp;</em>Disabled</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
             </ul>
         </div><!--/.sidebar-->
@@ -44,13 +45,13 @@
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="#">
+                    <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
                     <li class="active">Drinks</li>
                 </ol>
             </div><!--/.row-->
-            <a href="menu.html"><button class="button"><span>Create </span></button></a>
+            <a href="${pageContext.request.contextPath}/admin/product/create"><button class="button"><span>Create </span></button></a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -66,8 +67,8 @@
                             <tr>
                                 <th scope="row">${drink.id}</th>
                                 <td>${drink.pname}</td>
-                                <td><em class="fa fa-eur"></em>${drink.baseprice}€</td>
-                                <td><a href="#"><em class="fa fa-pencil-square-o"></em>Edit</a><a href="#"><em class="fa fa-times"></em>Delete</a></td>
+                                <td><em class="fa fa-eur"></em>${drink.baseprice}</td>
+                                <td><a href="${pageContext.request.contextPath}/admin/product/update/${drink.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

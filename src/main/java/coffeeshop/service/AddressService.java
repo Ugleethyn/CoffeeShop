@@ -8,4 +8,5 @@ public interface AddressService {
     Address addAddress(Address address);
 
     List<Address> getAddresses(int accountId);
+
 }

@@ -41,6 +41,7 @@ public class UserMenuController {
         return categoryService.findAllIngredients();
     }
 
+
     @ModelAttribute("coffeeSugar")
     public List<Category> getCoffeeSugar() {
         return categoryService.findAllSugars();
@@ -50,4 +51,6 @@ public class UserMenuController {
     public String showUserMenu(@ModelAttribute("orderDetails") OrderDetails orderDetails) {
         return "user/user-menu";
     }
+
 }
+

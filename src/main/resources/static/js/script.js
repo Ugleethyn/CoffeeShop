@@ -3,9 +3,9 @@ let btn = document.querySelectorAll(".myBtn");
 let span = document.querySelectorAll(".close");
 let sugars = document.querySelectorAll('.sugars');
 
-for (let i = 0; i < btn.length; i++) {
+for (let i=0; i<btn.length; i++){
     btn[i].onclick = function () {
-        modal[i].style.display = "block";
+        modal[i].style.display ="block";
     };
 };
 

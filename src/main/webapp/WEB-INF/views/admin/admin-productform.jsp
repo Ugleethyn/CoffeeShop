@@ -1,6 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +35,7 @@
                 <li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> View Orders</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/disabled"><em class="fa fa-heart-o">&nbsp;</em>Disabled</a></li>
@@ -48,30 +49,63 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">Coffees</li>
+                    <li class="active">Product Form</li>
                 </ol>
             </div><!--/.row-->
-            <a href="${pageContext.request.contextPath}/admin/product/create"><button class="button"><span>Create </span></button></a>
-            <div class="table-responsive">
+            <!--            <a href="menu.html"><button class="button"><span>Create </span></button></a>-->
+            <div class="table-responsive" style="margin-left: 20px;">
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${coffees}" var = "coffee">
-                            <tr>
-                                <th scope="row">${coffee.id}</th>
-                                <td>${coffee.pname}</td>
-                                <td><em class="fa fa-eur"></em>${coffee.baseprice}</td>
-                                <td><a href="${pageContext.request.contextPath}/admin/product/update/${coffee.id}"><em class="fa fa-pencil-square-o"></em>Edit</a></td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
+                    <div class="h">
+                        <h2>Product's Form</h2>                   
+                        <hr/>
+                        <p>${message}</p>
+                        <p id="message">${errormsg}</p>
+                        <c:if test="${param.error != null}"> 
+                            <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
+                        </c:if>
+                    </div>
+                    <c:if test="${product.id==null}">
+                        <c:url value="/admin/product/create" var="link"/>
+                    </c:if>
+                    <c:if test="${product.id!=null}">
+                        <c:url  value="/admin/product/update" var="link"/>
+                    </c:if>
+                    <form:form action="${link}" method="POST">
+                        <div>
+                            <input type="number" name="id" value="${product.id}" hidden />
+                        </div>
+                        <div>
+                            <label for="pname">Product Name :</label>
+                            <br/>
+                            <input id="pname" type="text" placeholder="Product name" name="pname" value="${product.pname}" />
+                            <p></p>
+                        </div>
+                        <div>
+                            <label for="baseprice">Product price :</label>
+                            <br/>
+                            <input id="baseprice" type="number" min="0" name="baseprice" value="${product.baseprice}" step="0.1" />
+                            <p></p>
+                        </div>
+                        <div>
+                            <label for="imgsrc">Image Path :</label>
+                            <br/>
+                            <input id="imgsrc" type="text" name="imgsrc" value="${product.imgsrc}" />
+                            <p></p>
+                        </div>    
+                        <div>
+                            <label for="cata">Product Category :</label>
+                            <br/>
+                            <select id="catAId" name="catAId" value="${product.catAId}">
+                                <c:forEach items="${cata}" var="cat">
+                                    <option value="${cat.id}">${cat.catAName}</option>
+                                </c:forEach>
+                            </select>
+                            <p></p>
+                        </div>
+                        <div class="addform">
+                            <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Add/Update" />      
+                        </div>
+                    </form:form>
                 </table>
             </div>
         </div>

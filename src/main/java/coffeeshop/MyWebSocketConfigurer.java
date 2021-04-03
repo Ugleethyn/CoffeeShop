@@ -1,3 +1,4 @@
+
 package coffeeshop;
 
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -110,12 +111,12 @@
                                                     </figure>
                                                 </td>
                                                 <td class="columns">
-                                                    <input type="number" value="${orderDetails.quantity}" min="1" class="quantity">
+                                                    <input type="number" value="${orderDetails.quantity}" min="1" class="quantity cartQuantity">
                                                 </td>
                                                 <td class="columns">
-                                                    <div class="price-wrap"> <var class="price">€ ${orderDetails.unitPrice}</var> </div>
+                                                    <div class="price-wrap"> <var class="price priceQuanity">€ ${orderDetails.unitPrice}</var> </div>
                                                 </td>
-                                                <td class="columns"> 
+                                                <td class="columns cartdel"> 
 
                                                     <button name="product" value="${orderDetails.product}" class="btn btn-light btn-round remove"><span>Remove</span></button>
 
