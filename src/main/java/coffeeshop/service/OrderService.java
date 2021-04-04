@@ -18,4 +18,10 @@ public interface OrderService {
     List<Orders> getOrdersByAccount(int accountid);
 
     BigDecimal getPriceForCheckOut(HttpSession session);
+
+    List<Orders> findByStatus(int status);
+
+    Orders save(Orders order);
+
+    Orders findById(int id);
 }

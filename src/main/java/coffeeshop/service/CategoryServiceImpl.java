@@ -25,6 +25,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<Category> findAllDisabled() {
+        return categoryRepo.findAllByCatBId(3);
+    }
+
+    @Override
     public Category findById(int id) {
         return categoryRepo.findById(id).get();
     }

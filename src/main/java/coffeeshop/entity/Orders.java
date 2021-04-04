@@ -44,8 +44,8 @@ public class Orders implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateCreated;
     @DecimalMin("000.00")
-    @DecimalMax("999.00") 
-    @Column(name = "orderprice", precision=5, scale=2)
+    @DecimalMax("999.00")
+    @Column(name = "orderprice", precision = 5, scale = 2)
     private BigDecimal price;
     @Size(max = 150)
     @Column(name = "comments")
@@ -64,6 +64,8 @@ public class Orders implements Serializable {
     @JoinColumn(name = "Store_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Store storeid;
+    @Column(name = "status")
+    private int status;
 
     public Orders() {
     }
@@ -71,7 +73,6 @@ public class Orders implements Serializable {
     public Orders(Integer id) {
         this.id = id;
     }
-
 
     public Integer getId() {
         return id;
@@ -83,6 +84,14 @@ public class Orders implements Serializable {
 
     public LocalDateTime getDateCreated() {
         return dateCreated;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
@@ -152,8 +161,6 @@ public class Orders implements Serializable {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
-    
-    
 
     @Override
     public int hashCode() {

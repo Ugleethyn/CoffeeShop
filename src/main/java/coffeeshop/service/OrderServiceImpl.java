@@ -54,6 +54,10 @@ public class OrderServiceImpl implements OrderService {
         cart.clear();
         session.setAttribute("cart", cart);
     }
+    
+    public List<Orders> findByStatus(int status){
+        return ordersRepo.findAllByStatus(status);
+    }
 
     public BigDecimal getPriceForCheckOut(HttpSession session) {
         List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
@@ -86,6 +90,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Orders> getOrdersByAccount(int accountid) {
         return ordersRepo.findByAccountId(accountid);
+    }
+    
+    public Orders save (Orders order){
+        return ordersRepo.save(order);
+    }
+    
+    public Orders findById(int id){
+        return ordersRepo.findById(id).get();
     }
 
 }
