@@ -75,7 +75,7 @@ public class UserController {
         return addressService.getAddresses(account.getId());
     }
 
-    @PostMapping("/update")
+    @PostMapping("/settings/update")
     public String update(@Valid @ModelAttribute("settings") Account accountNew,
             BindingResult result, RedirectAttributes attributes) {
         accountService.update(accountNew);
