@@ -50,7 +50,7 @@ public class UserMenuController {
     
 
     @GetMapping()
-    public String showUserMenu(@ModelAttribute("orderDetails") OrderDetails orderDetails) {
+    public String showUserMenu() {
         return "user/user-menu";
     }
 

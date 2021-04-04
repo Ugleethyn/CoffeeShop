@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Users</title>
+        <title>Orders</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
     <body>
@@ -32,10 +32,10 @@
             <ul class="nav menu">
                 <li><a href="${pageContext.request.contextPath}/admin"><em class="fa fa-dashboard">&nbsp;</em> Main</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/admins"><em class="fa fa-user-circle">&nbsp;</em> Admins</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/users"><em class="fa fa-user-circle">&nbsp;</em> Users</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/orders"><em class="fa fa-cart-arrow-down">&nbsp;</em> New Orders</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/acceptedorder"><em class="fa fa-cart-arrow-down">&nbsp;</em> Accepted Orders</a></li>
-                <li><a href="${pageContext.request.contextPath}/admin/declinedorder"><em class="fa fa-cart-arrow-down">&nbsp;</em> Declined Orders</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/admin/declinedorder"><em class="fa fa-cart-arrow-down">&nbsp;</em> Declined Orders</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/coffees"><em class="fa fa-coffee">&nbsp;</em> Coffees</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/drinks"><em class="fa fa-glass">&nbsp;</em>Drinks</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/snacks"><em class="fa fa-heart-o">&nbsp;</em>Snacks</a></li>
@@ -52,7 +52,7 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">Members</li>
+                    <li class="active">All Orders</li>
                 </ol>
             </div><!--/.row-->
             <div class="table-responsive">
@@ -60,25 +60,44 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Tel.</th>
+                            <th scope="col">Date Time</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Payment</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Products</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">${user.id}</th>
-                            <td>${user.firstname}</td>
-                            <td>${user.lastname}</td>
-                            <td>${user.username}</td>
-                            <td>${user.email}</td>
-                            <td>${user.tel}</td>
-                        </tr>
+                        <c:forEach items="${declinedOrder}" var = "order">
+                            <tr>
+                                <th scope="row">${order.id}</th>
+                                <td>${order.dateCreated}</td>
+                                <td><em class="fa fa-eur"></em>${order.price}</td>
+                                <td>${order.payment.type}</td>
+                                <td>${order.comments}</td>
+                                <td><a href="${pageContext.request.contextPath}/admin/address/${order.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/order/user/${order.accountid.id}"><em class="fa fa-user-circle-o"></em> Customer</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${order.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/orders/accept?id=${order.id}">Accept</a></td>
+                            </tr>
+                        </c:forEach>
+                        <c:forEach items="${userOrders}" var = "uOrder">
+                            <tr>
+                                <th scope="row">${uOrder.id}</th>
+                                <td>${uOrder.dateCreated}</td>
+                                <td><em class="fa fa-eur"></em>${uOrder.price}</td>
+                                <td>${uOrder.payment.type}</td>
+                                <td>${uOrder.comments}</td>
+                                <td><a href="${pageContext.request.contextPath}/admin/address/${uOrder.addressid.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/order/user/${uOrder.accountid.id}"><em class="fa fa-user-circle-o"></em> Customer</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/orderdetails/${uOrder.id}"><em class="fa fa-product-hunt"></em> Products</a></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
-        </div>	<!--/.main-->
-    </body>
+        </div>
 </html>

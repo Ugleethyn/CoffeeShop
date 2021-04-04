@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -57,9 +58,55 @@ public class AdminController {
         return "admin/admin-home";
     }
 
+    @ModelAttribute("acceptedOrder")
+    public List<Orders> showAccepted() {
+        return orderService.findByStatus(1);
+    }
+
+    @ModelAttribute("pendingOrder")
+    public List<Orders> pendingOrder() {
+        return orderService.findByStatus(0);
+    }
+
+    @GetMapping("/acceptedorder")
+    public String acceptedOrders() {
+        return "admin/admin-acceptedorders";
+    }
+
+    @ModelAttribute("allUsers")
+    public List<Account> allUsers() {
+        return accountService.getUsers();
+    }
+
+    @ModelAttribute("declinedOrder")
+    public List<Orders> deiclinedAccepted() {
+        return orderService.findByStatus(2);
+    }
+
+    @GetMapping("/declinedorder")
+    public String declinedOrders() {
+        return "admin/admin-declinedorders";
+    }
+
+    @GetMapping("/orders/accept")
+    public String acceptOrder(@RequestParam("id") int id) {
+        Orders order = orderService.findById(id);
+        order.setStatus(1);
+        orderService.save(order);
+        return "redirect:/admin/orders";
+    }
+
+    @GetMapping("/orders/decline")
+    public String declineOrder(@RequestParam("id") int id) {
+        Orders order = orderService.findById(id);
+        order.setStatus(2);
+        orderService.save(order);
+        return "redirect:/admin/orders";
+    }
+
     @GetMapping("/orders")
     public String showOrders(Model model) {
-        List<Orders> orders = orderService.getAllOrders();
+        List<Orders> orders = orderService.findByStatus(0);
         model.addAttribute("orders", orders);
         return "admin/admin-orders";
     }
@@ -104,6 +151,13 @@ public class AdminController {
         List<Product> disabled = productService.findAllDisabledProducts();
         model.addAttribute("disabled", disabled);
         return "admin/admin-disabledproducts";
+    }
+
+    @GetMapping("/disabled/categories")
+    public String showDisabledCategories(Model model) {
+        List<Category> disabled = categoryService.findAllDisabled();
+        model.addAttribute("disabled", disabled);
+        return "admin/admin-disabledcategories";
     }
 
     @GetMapping("/orderdetails/{id}")

@@ -5,6 +5,7 @@ import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.repository.OrderDetailsRepo;
 import coffeeshop.repository.OrdersRepo;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -22,8 +23,6 @@ public class OrderServiceImpl implements OrderService {
     private OrdersRepo ordersRepo;
     @Autowired
     private AccountService accountService;
-    @Autowired
-    private CheckoutService checkoutService;
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
 
@@ -46,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
         LocalDateTime lt = LocalDateTime.now();
         order.setDateCreated(lt);
         //Set final price to Order
-        double finalprice = checkoutService.getPriceForCheckOut(session);
+        BigDecimal finalprice = getPriceForCheckOut(session);
         order.setPrice(finalprice);
         //Save Order to Currently order details and save OrderDetails
         setOrderToOrderDetails(order, cart);
@@ -54,6 +53,19 @@ public class OrderServiceImpl implements OrderService {
         //clear cart
         cart.clear();
         session.setAttribute("cart", cart);
+    }
+    
+    public List<Orders> findByStatus(int status){
+        return ordersRepo.findAllByStatus(status);
+    }
+
+    public BigDecimal getPriceForCheckOut(HttpSession session) {
+        List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
+        BigDecimal finalprice = BigDecimal.ZERO;
+        for (OrderDetails orderDetails : cart) {
+            finalprice = finalprice.add(orderDetails.getUnitPrice());
+        }
+        return finalprice;
     }
 
     private Orders setAccountToOrder(Orders order) {
@@ -78,6 +90,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Orders> getOrdersByAccount(int accountid) {
         return ordersRepo.findByAccountId(accountid);
+    }
+    
+    public Orders save (Orders order){
+        return ordersRepo.save(order);
+    }
+    
+    public Orders findById(int id){
+        return ordersRepo.findById(id).get();
     }
 
 }

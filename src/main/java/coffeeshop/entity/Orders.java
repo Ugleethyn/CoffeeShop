@@ -1,6 +1,7 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Basic;
@@ -42,12 +43,10 @@ public class Orders implements Serializable {
     @Column(name = "odate")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateCreated;
-//    @Max(value=999.99)  
-//    @Min(value=000.00)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @DecimalMin("000.00")
-    @DecimalMax("999.00") 
-    @Column(name = "orderprice", precision=5, scale=2)
-    private double price;
+    @DecimalMax("999.00")
+    @Column(name = "orderprice", precision = 5, scale = 2)
+    private BigDecimal price;
     @Size(max = 150)
     @Column(name = "comments")
     private String comments;
@@ -65,6 +64,8 @@ public class Orders implements Serializable {
     @JoinColumn(name = "Store_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Store storeid;
+    @Column(name = "status")
+    private int status;
 
     public Orders() {
     }
@@ -72,7 +73,6 @@ public class Orders implements Serializable {
     public Orders(Integer id) {
         this.id = id;
     }
-
 
     public Integer getId() {
         return id;
@@ -86,15 +86,23 @@ public class Orders implements Serializable {
         return dateCreated;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public void setDateCreated(LocalDateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -153,8 +161,6 @@ public class Orders implements Serializable {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
-    
-    
 
     @Override
     public int hashCode() {

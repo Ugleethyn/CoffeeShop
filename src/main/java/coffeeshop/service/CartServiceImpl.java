@@ -1,6 +1,7 @@
 package coffeeshop.service;
 
 import coffeeshop.entity.OrderDetails;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -40,8 +41,9 @@ public class CartServiceImpl implements CartService {
         return -1;
     }
 
-    private double calculateUnitPrice(OrderDetails orderDetails) {
-        return (orderDetails.getProduct().getBaseprice()) * orderDetails.getQuantity();
+    private BigDecimal calculateUnitPrice(OrderDetails orderDetails) {
+        BigDecimal itemCost = orderDetails.getProduct().getBaseprice().multiply(new BigDecimal(orderDetails.getQuantity()));
+        return itemCost;
     }
 
     public void removeFromCart(OrderDetails orderDetail, HttpSession session) {

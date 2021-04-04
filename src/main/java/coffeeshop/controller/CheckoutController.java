@@ -6,9 +6,9 @@ import coffeeshop.entity.Orders;
 import coffeeshop.entity.Payment;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
-import coffeeshop.service.CheckoutService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.PaymentService;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -32,9 +32,6 @@ public class CheckoutController {
 
     @Autowired
     private AddressService addressService;
-
-    @Autowired
-    private CheckoutService checkoutService;
 
     @Autowired
     private OrderService orderService;
@@ -61,8 +58,8 @@ public class CheckoutController {
     }
 
     @ModelAttribute("finalprice")
-    public double showFinalPrice(HttpSession session) {
-        return checkoutService.getPriceForCheckOut(session);
+    public BigDecimal showFinalPrice(HttpSession session) {
+        return orderService.getPriceForCheckOut(session);
     }
 
     @ModelAttribute("payment")
