@@ -89,7 +89,7 @@ public class AdminController {
     }
 
     @GetMapping("/orders/accept")
-    public String acceptOrder(@RequestParam("id") int id, BindingResult result) {
+    public String acceptOrder(@RequestParam("id") int id) {
         Orders order = orderService.findById(id);
         order.setStatus(1);
         orderService.save(order);
@@ -97,7 +97,7 @@ public class AdminController {
     }
 
     @GetMapping("/orders/decline")
-    public String declineOrder(@RequestParam("id") int id, BindingResult result) {
+    public String declineOrder(@RequestParam("id") int id) {
         Orders order = orderService.findById(id);
         order.setStatus(2);
         orderService.save(order);
