@@ -78,7 +78,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="row section-success ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <img src="img/mail.png">
+                                <img src="${pageContext.request.contextPath}/img/mail.png">
                             </div>
                             <div class="col-md-12 section2">
                                 <p>E-mail</p>

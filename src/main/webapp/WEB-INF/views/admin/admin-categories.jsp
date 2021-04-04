@@ -18,7 +18,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed">
                         <span class="sr-only">Toggle navigation</span></button>
-                    <a class="navbar-brand" href="#"><span>Caffee</span>Admin</a>
+                    <a class="navbar-brand" href="#"><span>Coffee</span>Admin</a>
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
@@ -52,7 +52,7 @@
                     <li class="active">Coffees</li>
                 </ol>
             </div><!--/.row-->
-            <a href="${pageContext.request.contextPath}/admin/category/create"><button class="button"><span>Create </span></button></a>
+            <a href="${pageContext.request.contextPath}/admin/categories/create"><button class="button"><span>Create </span></button></a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>

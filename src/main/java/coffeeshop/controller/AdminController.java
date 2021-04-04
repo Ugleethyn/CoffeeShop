@@ -141,21 +141,21 @@ public class AdminController {
         return ("admin/admin-orderuser");
     }
 
-    @GetMapping("/product/create")
+    @GetMapping("/products/create")
     public String showForm() {
-        return ("admin/admin-productform");
+        return ("admin/admin-productsform");
     }
 
-    @PostMapping("/product/create")
+    @PostMapping("/products/create")
     public String createProduct(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("errormsg", "Invalid name");
-            return "redirect:/product/create";
+            return "redirect:/products/create";
         }
         productService.save(product);
         String message = "*Product " + product.getPname() + " added successfully!";
         attributes.addFlashAttribute("message", message);
-        return "redirect:/admin/product/create";
+        return "redirect:/admin/products/create";
     }
 
     @ModelAttribute("cata")
@@ -168,23 +168,23 @@ public class AdminController {
         return catBService.getAllCatB();
     }
 
-    @GetMapping("/product/update/{pid}")
+    @GetMapping("/products/update/{pid}")
     public String showFormUpdate(@PathVariable("pid") int pid, Model model) {
         Product product = productService.findById(pid);
         model.addAttribute("product", product);
-        return "admin/admin-productform";
+        return "admin/admin-productsform";
     }
 
-    @PostMapping("/product/update")
+    @PostMapping("/products/update")
     public String update(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
-            return "redirect:/admin/product/create";
+            return "redirect:/admin/products/create";
         }
         productService.save(product);
         String message = "*Product updated successfully!!";
         attributes.addFlashAttribute("message", message);
-        return "admin/admin-coffees";
+        return "redirect:/admin/coffees";
     }
 
     @GetMapping("/categories")
@@ -194,35 +194,35 @@ public class AdminController {
         return "admin/admin-categories";
     }
 
-    @GetMapping("/category/create")
-    public String showCategoryForm() {
-        return ("admin/admin-categoryform");
+    @GetMapping("/categories/create")
+    public String showCategoriesForm() {
+        return ("admin/admin-categoriesform");
     }
 
-    @PostMapping("/category/create")
+    @PostMapping("/categories/create")
     public String createCategory(@Valid Category category, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("errormsg", "Invalid name");
-            return "redirect:/product/create";
+            return "redirect:/categories/create";
         }
         categoryService.save(category);
         String message = "*Category " + category.getCname() + " added successfully!";
         attributes.addFlashAttribute("message", message);
-        return "redirect:/admin/category/create";
+        return "redirect:/admin/categories";
     }
 
-    @GetMapping("/categories/update/{pid}")
-    public String showFormCategoryUpdate(@PathVariable("pid") int cid, Model model) {
+    @GetMapping("/categories/update/{id}")
+    public String showFormCategoryUpdate(@PathVariable("id") int cid, Model model) {
         Category category = categoryService.findById(cid);
         model.addAttribute("category", category);
-        return "redirect:admin/categories";
+        return "admin/admin-categoriesform";
     }
 
-    @PostMapping("/category/update")
+    @PostMapping("/categories/update")
     public String updateCategory(@Valid Category category, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
-            return "redirect:/admin/category/create";
+            return "admin/admin-categoriesform";
         }
         categoryService.save(category);
         String message = "*Category updated successfully!!";

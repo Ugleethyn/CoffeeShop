@@ -94,7 +94,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="row section-info ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <img src="${pageContext.request.contextPath}/img/livechat.png">
+                                <a href="${pageContext.request.contextPath}/user/chat"><img src="${pageContext.request.contextPath}/img/livechat.png"></a>
                             </div>
                             <div class="col-md-12 section2">
                                 <p>Live Chat</p>
@@ -114,7 +114,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="${pageContext.request.contextPath}/user/about" title="About Us"><i
                                             class="fa fa-angle-double-right"></i> About Us</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user" title="Live Chat"><i
+                                <li><a href="${pageContext.request.contextPath}/user/chat" title="Live Chat"><i
                                             class="fa fa-angle-double-right"></i> Live Chat</a></li>
                                 <li><a href="${pageContext.request.contextPath}/user/contact" title="Contact"><i
                                             class="fa fa-angle-double-right"></i> Contact Us</a></li>

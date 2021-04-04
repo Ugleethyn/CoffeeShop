@@ -18,7 +18,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed">
                         <span class="sr-only">Toggle navigation</span></button>
-                    <a class="navbar-brand" href="#"><span>Caffee</span>Admin</a>
+                    <a class="navbar-brand" href="#"><span>Coffee</span>Admin</a>
                 </div>
             </div><!-- /.container-fluid -->
         </nav>

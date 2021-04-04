@@ -66,10 +66,10 @@
                         </c:if>
                     </div>
                     <c:if test="${product.id==null}">
-                        <c:url value="/admin/product/create" var="link"/>
+                        <c:url value="/admin/products/create" var="link"/>
                     </c:if>
                     <c:if test="${product.id!=null}">
-                        <c:url  value="/admin/product/update" var="link"/>
+                        <c:url  value="/admin/products/update" var="link"/>
                     </c:if>
                     <form:form action="${link}" method="POST">
                         <div>

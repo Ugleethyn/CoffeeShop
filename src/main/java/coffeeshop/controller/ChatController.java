@@ -6,6 +6,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping
 public class ChatController {
     
-    @RequestMapping(value="/chat", method = RequestMethod.GET)
+    @GetMapping("/chat")
     public String chat() {
         return "chat";
     }
     
-    @RequestMapping(value="/user/chat", method = RequestMethod.GET)
+    @GetMapping("/user/chat")
     public String userChat(){
         return "user/user-chat";
     }

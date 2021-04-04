@@ -19,7 +19,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed">
                         <span class="sr-only">Toggle navigation</span></button>
-                    <a class="navbar-brand" href="#"><span>Caffee</span>Admin</a>
+                    <a class="navbar-brand" href="#"><span>Coffee</span>Admin</a>
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
@@ -65,11 +65,11 @@
                             <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
                         </c:if>
                     </div>
-                    <c:if test="${category.id==null}">
-                        <c:url value="/admin/category/create" var="link"/>
+                    <c:if test="${category.id == null}">
+                        <c:url value="/admin/categories/create" var="link"/>
                     </c:if>
-                    <c:if test="${category.id!=null}">
-                        <c:url  value="/admin/category/update" var="link"/>
+                    <c:if test="${category.id != null}">
+                        <c:url  value="/admin/categories/update" var="link"/>
                     </c:if>
                     <form:form action="${link}" method="POST">
                         <div>
@@ -78,13 +78,13 @@
                         <div>
                             <label for="pname">Category Name :</label>
                             <br/>
-                            <input id="pname" type="text" placeholder="Category name" name="pname" value="${category.cname}" />
+                            <input id="pname" type="text" placeholder="Category name" name="cname" value="${category.cname}" />
                             <p></p>
                         </div>
                         <div>
-                            <label for="cata">Category :</label>
+                            <label for="catb">Category :</label>
                             <br/>
-                            <select id="catBId" name="catAId" value="${category.id}">
+                            <select id="catBId" name="catBId" value="${category.id}">
                                 <c:forEach items="${catb}" var="cat">
                                     <option value="${cat.id}">${cat.catBName}</option>
                                 </c:forEach>
