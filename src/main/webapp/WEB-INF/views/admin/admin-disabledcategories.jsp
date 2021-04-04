@@ -9,7 +9,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
-        <title>Disabled Products</title>
+        <title>Disabled Categories</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
     </head>
     <body>
@@ -52,10 +52,10 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">Disabled Products</li>
+                    <li class="active">Disabled Categories</li>
                 </ol>
             </div><!--/.row-->
-            <a href="${pageContext.request.contextPath}/admin/products/create"><button class="button"><span>Create </span></button></a>
+            <a href="${pageContext.request.contextPath}/admin/categories/create"><button class="button"><span>Create </span></button></a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
