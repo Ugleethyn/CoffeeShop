@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <h4>Total amount</h4>
-                                            <p id="amount">€ ${finalprice}</p>
+                                            <p id="amount">&euro;${finalprice}</p>
                                         </div>
                                     </div>
                                     <div class="row">
