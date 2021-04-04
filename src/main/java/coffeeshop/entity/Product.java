@@ -1,6 +1,7 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -18,7 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "product")
@@ -41,8 +41,8 @@ public class Product implements Serializable {
     @Column(name = "pname")
     private String pname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "baseprice", precision=4, scale=2)
-    private Double baseprice;
+    @Column(name = "baseprice", precision = 4, scale = 2)
+    private BigDecimal baseprice;
     @Size(max = 65)
     @Column(name = "imgsrc")
     private String imgsrc;
@@ -59,7 +59,7 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public Product(Integer id, String pname, Double baseprice, String imgsrc, CatA catAId) {
+    public Product(Integer id, String pname, BigDecimal baseprice, String imgsrc, CatA catAId) {
         this.id = id;
         this.pname = pname;
         this.baseprice = baseprice;
@@ -83,11 +83,11 @@ public class Product implements Serializable {
         this.pname = pname;
     }
 
-    public Double getBaseprice() {
+    public BigDecimal getBaseprice() {
         return baseprice;
     }
 
-    public void setBaseprice(double baseprice) {
+    public void setBaseprice(BigDecimal baseprice) {
         this.baseprice = baseprice;
     }
 

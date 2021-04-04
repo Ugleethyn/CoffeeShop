@@ -1,6 +1,7 @@
 package coffeeshop.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Basic;
@@ -29,7 +30,6 @@ import org.hibernate.annotations.Cascade;
     , @NamedQuery(name = "OrderDetails.findByQuantity", query = "SELECT o FROM OrderDetails o WHERE o.quantity = :quantity")})
 public class OrderDetails implements Serializable {
 
-    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,15 +45,15 @@ public class OrderDetails implements Serializable {
     @Column(name = "quantity")
     private Integer quantity;
     @ManyToMany
-    @Cascade(value = {org.hibernate.annotations.CascadeType.DETACH,org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+    @Cascade(value = {org.hibernate.annotations.CascadeType.DETACH, org.hibernate.annotations.CascadeType.SAVE_UPDATE})
     @JoinTable(name = "details_categories",
             joinColumns = {
                 @JoinColumn(name = "order_details_id", referencedColumnName = "id")},
             inverseJoinColumns = {
                 @JoinColumn(name = "category_id", referencedColumnName = "id")})
     private List<Category> categories;
-    @Column(name = "unitprice", precision=4, scale=2)
-    private double unitPrice;
+    @Column(name = "unitprice", precision = 4, scale = 2)
+    private BigDecimal unitPrice;
 
     public OrderDetails() {
     }
@@ -103,11 +103,11 @@ public class OrderDetails implements Serializable {
         this.categories = categories;
     }
 
-    public double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
@@ -138,7 +138,6 @@ public class OrderDetails implements Serializable {
         }
         return true;
     }
-
 
     @Override
     public String toString() {
