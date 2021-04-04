@@ -102,7 +102,7 @@
                                                 <td class="columns">
                                                     <figure class="itemside align-items-center">
                                                         <div class="aside"><img
-                                                                src="img/coffee.png"
+                                                                src="${pageContext.request.contextPath}${orderDetails.product.imgsrc}"
                                                                 class="img-sm"></div>
                                                         <figcaption class="info"> <a href="#" class="title text-dark"
                                                                                      data-abc="true">${orderDetails.product.pname}</a>

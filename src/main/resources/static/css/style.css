@@ -132,6 +132,10 @@ div.filters {
 .hoveritem:hover {
     background-color: #eaeaea !important;
 }
+.productimages{
+    height: 64px !important;
+    width: 80px !important;
+}
 
 /************************* BUTTON /**************************/
 .button {
@@ -805,6 +809,12 @@ a {
         padding-left: 0;
         padding-right: 0;
         margin-top: 0;
+    }
+}
+
+@media only screen and (max-width : 450px){
+    .productname{
+        margin-left: 30px !important;
     }
 }
 

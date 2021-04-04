@@ -24,8 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c")
     , @NamedQuery(name = "Category.findById", query = "SELECT c FROM Category c WHERE c.id = :id")
-    , @NamedQuery(name = "Category.findByCname", query = "SELECT c FROM Category c WHERE c.cname = :cname")
-    , @NamedQuery(name = "Category.findByCprice", query = "SELECT c FROM Category c WHERE c.cprice = :cprice")})
+    , @NamedQuery(name = "Category.findByCname", query = "SELECT c FROM Category c WHERE c.cname = :cname")})
 public class Category implements Serializable, Comparable {
 
     private static final long serialVersionUID = 1L;
@@ -37,9 +36,6 @@ public class Category implements Serializable, Comparable {
     @Size(max = 45)
     @Column(name = "cname")
     private String cname;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "cprice", precision=4, scale=2)
-    private BigDecimal cprice;
     @JoinColumn(name = "cat_b_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private CatB catBId;
@@ -67,14 +63,6 @@ public class Category implements Serializable, Comparable {
 
     public void setCname(String cname) {
         this.cname = cname;
-    }
-
-    public BigDecimal getCprice() {
-        return cprice;
-    }
-
-    public void setCprice(BigDecimal cprice) {
-        this.cprice = cprice;
     }
 
     public CatB getCatBId() {
