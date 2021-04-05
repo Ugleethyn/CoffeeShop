@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CartServiceImpl implements CartService {
 
     public List<OrderDetails> addToCart(OrderDetails orderDetails, HttpSession session) {
+        orderDetails.setQuantity(1);
         orderDetails.setUnitPrice(calculateUnitPrice(orderDetails));
         List<OrderDetails> cart = new ArrayList();
         if (session.getAttribute("cart") == null) {
