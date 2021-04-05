@@ -147,12 +147,11 @@
                                                 <span class="close">&times;</span>
                                                 <div class="formcoffee">
                                                     <div>
-                                                        <div id="demo" style="color:red"></div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>
                                                         <div class="funkyradio">
                                                             <c:forEach items="${coffeeSugar}" var = "sugar">
                                                                 <div class="funkyradio funkyradio-warning ">
-                                                                    <input type="radio" name="categories" class="sugar" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
+                                                                    <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
                                                                     <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
                                                                 </div>
                                                             </c:forEach>
@@ -170,10 +169,8 @@
                                                             </c:forEach>
                                                         </div>
                                                     </div>
-                                                    <div> <input type="number" <c:forEach items="${coffeTypes}" var="product"> 
-                                                                                    value="${product.orderDetails.quantity}"
-                                                                                </c:forEach>
-                                                                 name="quantity" min="1" max="10"  class="quantity" id="${coffeeType.id}" />
+                                                    <div>
+                                                        <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
                                                         <label for="quantity">Quantity</label>
                                                     </div>
                                                     <div class="btnplace">
@@ -343,10 +340,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-                                    // Mean Menu
-                                    jQuery('.mean-menu').meanmenu({
-                                        meanScreenWidth: "991"
-                                    });
+                                                            // Mean Menu
+                                                            jQuery('.mean-menu').meanmenu({
+                                                                meanScreenWidth: "991"
+                                                            });
         </script>
     </body>
 

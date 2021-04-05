@@ -2,17 +2,12 @@ let modal = document.querySelectorAll(".modules");
 let btn = document.querySelectorAll(".myBtn");
 let span = document.querySelectorAll(".close");
 let sugars = document.querySelectorAll('.sugars');
+let quantity = document.querySelectorAll('.quantity');
 
 function myFunction() {
-    
-    for (let i=0; i<modal.length; i++){
-        var option = document.getElementsByClassName("sugar");
-
-        if (!(option[0].checked || option[1].checked || option[2].checked)) {
-        document.getElementById("demo").innerHTML
-                = "Please select sugar";
-         };
-    };
+      if (document.querySelectorAll('input[type="radio"]:checked').length === 0){
+          alert("Please select sugar!");
+      }
 }
 
 for (let i=0; i<btn.length; i++){
