@@ -111,14 +111,19 @@
                                                     </figure>
                                                 </td>
                                                 <td class="columns">
-                                                    <input type="number" value="${orderDetails.quantity}" min="1" class="quantity cartQuantity">
+                                                    <input type="number" name="quantity" value="${orderDetails.quantity}" min="1" class="quantity cartQuantity">
                                                 </td>
                                                 <td class="columns">
                                                     <div class="price-wrap"> <var class="price priceQuanity">€ ${orderDetails.unitPrice}</var> </div>
                                                 </td>
                                                 <td class="columns cartdel"> 
+                                                    <form:form action="${pageContext.request.contextPath}/user/cart/delete" method="POST" modelAttribute="orderDetails" >
+                                                        <c:forEach items="${orderDetails.categories}" var = "categories">
+                                                            <input type="checkbox" name="categories" value="${categories.id}" checked hidden/>
+                                                        </c:forEach>
+                                                        <button name="product" value="${orderDetails.product.id}" class="btn btn-light btn-round remove"><span>Remove</span></button>
+                                                    </form:form>
 
-                                                    <button name="product" value="${orderDetails.product}" class="btn btn-light btn-round remove"><span>Remove</span></button>
 
                                                 </td>
                                             </tr>
