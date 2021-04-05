@@ -13,15 +13,22 @@ import coffeeshop.service.AddressService;
 import coffeeshop.service.CatAService;
 import coffeeshop.service.CatBService;
 import coffeeshop.service.CategoryService;
+import coffeeshop.service.ImgUploadService;
 import coffeeshop.service.OrderDetailsService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.ProductService;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.validation.Path;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +37,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -52,6 +60,8 @@ public class AdminController {
     private CatBService catBService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private ImgUploadService uploadService;
 
     @GetMapping
     public String adminHome() {
@@ -86,6 +96,11 @@ public class AdminController {
     @GetMapping("/declinedorder")
     public String declinedOrders() {
         return "admin/admin-declinedorders";
+    }
+    
+    @GetMapping("/upload")
+    public String uploadImage(){
+        return "admin/admin-imgupload";
     }
 
     @GetMapping("/orders/accept")
@@ -282,6 +297,17 @@ public class AdminController {
         String message = "*Category updated successfully!!";
         attributes.addFlashAttribute("message", message);
         return "redirect:/admin/categories";
+    }
+    
+    
+    @PostMapping("/img/save")
+    public String uploadImage(@RequestParam("fileImage") MultipartFile fileImage){
+        try {
+            uploadService.saveImage(fileImage);
+        } catch (Exception ex) {
+           ex.printStackTrace();
+        }
+        return "redirect:/admin/upload";  
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
