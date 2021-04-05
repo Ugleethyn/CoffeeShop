@@ -55,10 +55,4 @@ public class CartController {
         cartService.quantityDown(orderDetails, session);
         return "redirect:/user/cart";
     }
-
-    @ModelAttribute("finalprice")
-    public BigDecimal showFinalPrice(HttpSession session) {
-        return orderService.getPriceForCheckOut(session);
-    }
-
 }

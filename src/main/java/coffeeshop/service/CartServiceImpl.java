@@ -3,7 +3,6 @@ package coffeeshop.service;
 import coffeeshop.entity.OrderDetails;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class CartServiceImpl implements CartService {
 
     public List<OrderDetails> addToCart(OrderDetails orderDetails, HttpSession session) {
-        orderDetails.setQuantity(1);
         orderDetails.setUnitPrice(calculateUnitPrice(orderDetails));
         List<OrderDetails> cart = new ArrayList();
         if (session.getAttribute("cart") == null) {
