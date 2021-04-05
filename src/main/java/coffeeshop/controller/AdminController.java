@@ -8,6 +8,7 @@ import coffeeshop.entity.Category;
 import coffeeshop.entity.OrderDetails;
 import coffeeshop.entity.Orders;
 import coffeeshop.entity.Product;
+import coffeeshop.entity.Role;
 import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
 import coffeeshop.service.CatAService;
@@ -17,18 +18,13 @@ import coffeeshop.service.ImgUploadService;
 import coffeeshop.service.OrderDetailsService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.ProductService;
-import java.io.IOException;
-import java.nio.file.Paths;
+import coffeeshop.service.RoleService;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.validation.Path;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +58,8 @@ public class AdminController {
     private CategoryService categoryService;
     @Autowired
     private ImgUploadService uploadService;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping
     public String adminHome() {
@@ -309,6 +307,32 @@ public class AdminController {
         }
         return "redirect:/admin/upload";  
     }
+    
+    @GetMapping("/users/edit/{uid}")
+    public String showUserFormUpdate(@PathVariable("uid") int uid, Model model) {
+        Account account = accountService.findById(uid);
+        model.addAttribute("account", account);
+        return "admin/admin-userform";
+    }
+
+    @PostMapping("/users/edited")
+    public String updateUser(@Valid @ModelAttribute("account") Account account, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
+            return "redirect:/admin/users";
+        }
+        accountService.updateUser(account);
+        String message = "*User updated successfully!!";
+        attributes.addFlashAttribute("message", message);
+        return "redirect:/admin/users";
+    }
+    
+    @ModelAttribute("roles")
+    public List<Role> showRoles() {
+        return roleService.getAllRoles();
+    }
+    
+    
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public String handleDataIntegrityViolationException(RedirectAttributes attributes) {

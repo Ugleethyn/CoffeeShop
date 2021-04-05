@@ -110,5 +110,15 @@ public class AccountServiceImpl implements AccountService {
     public Account getUserByOrder(int accountid) {
         return accountRepo.findByOrder(accountid);
     }
+
+    @Override
+    public Account findById(int accountid) {
+        return accountRepo.findById(accountid).get();
+    }
+
+    @Override
+    public Account updateUser(Account account) {
+        return accountRepo.save(account);
+    }
   
 }
