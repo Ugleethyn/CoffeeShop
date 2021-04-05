@@ -73,7 +73,7 @@
                             <p></p>
                         </div>
                         <div>
-                            <img id="thumbnail" alt="Image Preview" />
+                            <img id="thumbnail" alt="Image Preview" style="max-height: 250px; max-width: 250px;" />
                         </div>
                         <div class="addform">
                             <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Upload" />      
