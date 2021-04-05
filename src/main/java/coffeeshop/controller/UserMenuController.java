@@ -46,6 +46,8 @@ public class UserMenuController {
     public List<Category> getCoffeeSugar() {
         return categoryService.findAllSugars();
     }
+    
+    
 
     @GetMapping()
     public String showUserMenu() {

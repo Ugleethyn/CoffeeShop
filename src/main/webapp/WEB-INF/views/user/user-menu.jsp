@@ -170,7 +170,10 @@
                                                             </c:forEach>
                                                         </div>
                                                     </div>
-                                                    <div> <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
+                                                    <div> <input type="number" <c:forEach items="${coffeTypes}" var="product"> 
+                                                                                    value="${product.orderDetails.quantity}"
+                                                                                </c:forEach>
+                                                                 name="quantity" min="1" max="10"  class="quantity" id="${coffeeType.id}" />
                                                         <label for="quantity">Quantity</label>
                                                     </div>
                                                     <div class="btnplace">
