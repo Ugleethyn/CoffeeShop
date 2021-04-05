@@ -61,6 +61,11 @@ public class UserController {
     public String showSuccessfull() {
         return "user/user-ordersuccess";
     }
+    
+        @GetMapping("/cancel")
+    public String showCancel() {
+        return "user/user-ordercansel";
+    }
 
     @ModelAttribute("account")
     public Account showAccount() {

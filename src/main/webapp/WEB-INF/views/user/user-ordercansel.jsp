@@ -75,8 +75,7 @@
             <div class="container section-ourTeam cartcont">
                 <div class="row">
                     <div class="col-md-12 ourTeam-hedding text-center">
-                        <h1>Your order has been successfully promoted to our store</h1>
-                        <p>Thank you for choosing us!!<br>
+                        <h1>Your order is canceled</h1>
                         </p>
                     </div>
                 </div>
