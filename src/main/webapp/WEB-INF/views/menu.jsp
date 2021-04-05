@@ -164,10 +164,6 @@
                                                             </c:forEach>
                                                         </div>
                                                     </div>
-                                                    <div> <input type="number" name="quantity" min="1" value="1" class="quantity"  />
-                                                        <label for="quantity">Quantity</label>
-                                                    </div>
-
                                                     <div class="btnplace"><button class="button btnpopup"><span>Submit</span></button>
                                                     </div>
 
@@ -203,11 +199,6 @@
                                                         <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/login"
                                                                                               class="hidden-sm">Add to cart</a>
                                                     </p>
-
-                                                    <p class="btn-quantity">
-                                                        Quantity:
-                                                        <input type="number" value="1" class="quantity" min="1">
-                                                    </p>
                                                 </div>
                                                 <div class="clearfix">
                                                 </div>
@@ -241,11 +232,6 @@
                                                     <p class="btn-add">
                                                         <i class="fa fa-shopping-cart"></i><a href="${pageContext.request.contextPath}/login"
                                                                                               class="hidden-sm">Add to cart</a>
-                                                    </p>
-
-                                                    <p class="btn-quantity">
-                                                        Quantity:
-                                                        <input type="number" value="1" class="quantity" min="1">
                                                     </p>
                                                 </div>
                                                 <div class="clearfix">
@@ -322,10 +308,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-                                // Mean Menu
-                                jQuery('.mean-menu').meanmenu({
-                                    meanScreenWidth: "991"
-                                });
+                                    // Mean Menu
+                                    jQuery('.mean-menu').meanmenu({
+                                        meanScreenWidth: "991"
+                                    });
         </script>
     </body>
 

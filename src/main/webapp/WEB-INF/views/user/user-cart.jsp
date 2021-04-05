@@ -111,7 +111,25 @@
                                                     </figure>
                                                 </td>
                                                 <td class="columns">
-                                                    <input type="number" name="quantity" value="${orderDetails.quantity}" min="1" class="quantity cartQuantity">
+
+                                                    <form:form action="${pageContext.request.contextPath}/user/cart/down" method="POST" modelAttribute="orderDetails" cssStyle="float:left;" >
+                                                        <c:forEach items="${orderDetails.categories}" var = "categories">
+                                                            <input type="checkbox" name="categories" value="${categories.id}" checked hidden/>
+                                                        </c:forEach>
+                                                        <button name="product" value="${orderDetails.product.id}" class="quantitybtn"><span>-</span></button>
+                                                    </form:form>
+
+
+                                                    <input type="number" value="${orderDetails.quantity}" min="1" class="quantity cartQuantity" readonly style="float:left;">
+
+
+
+                                                    <form:form action="${pageContext.request.contextPath}/user/cart/up" method="POST" modelAttribute="orderDetails" cssStyle="float:left;" >
+                                                        <c:forEach items="${orderDetails.categories}" var = "categories">
+                                                            <input type="checkbox" name="categories" value="${categories.id}" checked hidden/>
+                                                        </c:forEach>
+                                                        <button name="product" value="${orderDetails.product.id}"  class="quantitybtn"><span>+</span></button>
+                                                    </form:form>
                                                 </td>
                                                 <td class="columns">
                                                     <div class="price-wrap"> <var class="price priceQuanity">€ ${orderDetails.unitPrice}</var> </div>
@@ -141,7 +159,7 @@
                                 <div class="card-body">
                                     <dl class="dlist-align">
                                         <dt>Total price:</dt>
-                                        <dd class="text-right ml-3">${total}</dd>
+                                        <dd class="text-right ml-3">&euro; ${finalprice}</dd>
                                     </dl>
                                     <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
                                     <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>

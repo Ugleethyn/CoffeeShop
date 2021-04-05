@@ -361,14 +361,14 @@ footer.nb-footer .copyright p {
 /**************************************** POP UP FORM *****************************/
 
 .modal-content {
-  background-color: #eaeaea;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-  top: 30%;
-  height: 400px;
-  overflow-y: auto;
+    background-color: #eaeaea;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    top: 30%;
+    height: 400px;
+    overflow-y: auto;
 }
 .close {
     color: #aaaaaa;
@@ -482,7 +482,7 @@ footer.nb-footer .copyright p {
 .cartbtn {
     padding: 2px;
     font-size: 13px;
-    
+
 }
 
 
@@ -574,6 +574,7 @@ a {
 }
 .cartQuantity{
     margin-top: 0;
+    height: 25px;
 }
 .remove{
     padding: 0;
@@ -844,7 +845,8 @@ a {
 /**************************************** CART & Filters *****************************/
 
 .snkdrnkbtn{
-    border: 0px;
+    background-color: white;
+    border: 0;
 }
 
 .categories-cart{
@@ -859,4 +861,14 @@ a {
 
 .filterbtn{
     border: 0px;
+}
+
+
+.quantitybtn{
+    background-color: #f4511e;
+    color: white;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 25px;
 }

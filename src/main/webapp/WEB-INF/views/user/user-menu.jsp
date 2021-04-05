@@ -169,10 +169,6 @@
                                                             </c:forEach>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        <input type="number" name="quantity" value="1" min="1" max="10"  class="quantity" id="${coffeeType.id}" />
-                                                        <label for="quantity">Quantity</label>
-                                                    </div>
                                                     <div class="btnplace">
                                                         <button name="product" value="${coffeeType.id}" class="button btnpopup" onclick="myFunction()"><span>Submit</span></button>
                                                     </div>
@@ -214,9 +210,6 @@
                                                             <i class="fa fa-shopping-cart"></i>
                                                             <button name="product" value="${snack.id}" class="snkdrnkbtn"><span>Add To Card</span></button>
                                                         </p>
-                                                        <p class="btn-quantity">
-                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" max="10" id="${snack.id}">
-                                                        </p>
                                                     </div>
                                                     <div class="clearfix">
                                                     </div>
@@ -256,10 +249,6 @@
                                                         <p class="btn-add">
                                                             <i class="fa fa-shopping-cart"></i>
                                                             <button name="product" value="${drink.id}"  class="snkdrnkbtn"><span>Add To Card</span></button>
-                                                        </p>
-                                                        <p class="btn-quantity">
-                                                            Quantity:
-                                                            <input type="number" name="quantity" value="1" class="quantity" min="1" id="${drink.pname}">
                                                         </p>
                                                     </div>
                                                     <div class="clearfix">
