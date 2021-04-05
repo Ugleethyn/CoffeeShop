@@ -3,6 +3,18 @@ let btn = document.querySelectorAll(".myBtn");
 let span = document.querySelectorAll(".close");
 let sugars = document.querySelectorAll('.sugars');
 
+function myFunction() {
+    
+    for (let i=0; i<modal.length; i++){
+        var option = document.getElementsByClassName("sugar");
+
+        if (!(option[0].checked || option[1].checked || option[2].checked)) {
+        document.getElementById("demo").innerHTML
+                = "Please select sugar";
+         };
+    };
+}
+
 for (let i=0; i<btn.length; i++){
     btn[i].onclick = function () {
         modal[i].style.display ="block";

@@ -110,7 +110,7 @@
                     <div class="col-md-9">
                         <section id="coffees">
                             <h1>Coffees</h1>
-                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails" >
                                 <div class="row mg-b-30">
 
                                     <c:forEach items="${coffeeTypes}" var = "coffeeType">
@@ -147,11 +147,12 @@
                                                 <span class="close">&times;</span>
                                                 <div class="formcoffee">
                                                     <div>
+                                                        <div id="demo" style="color:red"></div>
                                                         <h5>Please select coffee sugar <span class="important">*</span></h5>
                                                         <div class="funkyradio">
                                                             <c:forEach items="${coffeeSugar}" var = "sugar">
                                                                 <div class="funkyradio funkyradio-warning ">
-                                                                    <input type="radio" name="categories" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
+                                                                    <input type="radio" name="categories" class="sugar" value="${sugar.id}" id="${sugar.cname}${coffeeType.pname}" class="sugars" required/>
                                                                     <label for="${sugar.cname}${coffeeType.pname}">${sugar.cname} </label>
                                                                 </div>
                                                             </c:forEach>
@@ -173,7 +174,7 @@
                                                         <label for="quantity">Quantity</label>
                                                     </div>
                                                     <div class="btnplace">
-                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
+                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup" onclick="myFunction()"><span>Submit</span></button>
                                                     </div>
                                                 </div>
                                             </div>
