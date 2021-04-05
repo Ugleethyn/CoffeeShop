@@ -3,6 +3,7 @@ package coffeeshop.service;
 import coffeeshop.entity.OrderDetails;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
@@ -46,10 +47,10 @@ public class CartServiceImpl implements CartService {
         return itemCost;
     }
 
-    public void removeFromCart(OrderDetails orderDetail, HttpSession session) {
+    public void removeFromCart(OrderDetails orderDetails, HttpSession session) {
         List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
         for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).equals(orderDetail)) {
+            if (cart.get(i).equals(orderDetails)) {
                 cart.remove(i);
             }
         }

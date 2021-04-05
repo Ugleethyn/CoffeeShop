@@ -170,7 +170,7 @@
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <input type="number" name="quantity" min="1" max="10" value="1" class="quantity" id="${coffeeType.id}" />
+                                                        <input type="number" name="quantity" value="1" min="1" max="10"  class="quantity" id="${coffeeType.id}" />
                                                         <label for="quantity">Quantity</label>
                                                     </div>
                                                     <div class="btnplace">

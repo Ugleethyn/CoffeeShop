@@ -8,5 +8,5 @@ public interface CartService {
 
     List<OrderDetails> addToCart(OrderDetails orderDetails, HttpSession session);
 
-    void removeFromCart(OrderDetails orderDetail, HttpSession session);
+    void removeFromCart(OrderDetails orderDetails, HttpSession session);
 }
