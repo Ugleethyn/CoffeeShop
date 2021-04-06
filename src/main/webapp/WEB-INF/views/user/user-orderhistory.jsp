@@ -80,7 +80,6 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Order ID</th>
                                     <th scope="col">Order Date</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Payment</th>
@@ -92,7 +91,6 @@
 
                                 <c:forEach items="${orders}" var = "order">
                                     <tr>
-                                        <th class="orderrow" scope="row">${order.id}</th>
                                         <td class="orderrow">${order.dateCreated}</td>
                                         <td class="orderrow"><em class="fa fa-eur"></em> ${order.price}</td>
                                         <td class="orderrow">${order.payment.type}</td>
