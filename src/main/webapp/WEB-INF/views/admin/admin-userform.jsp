@@ -80,13 +80,13 @@
                                 </div>
                                 <div hidden="hidden">
                                 <form:label path="password">Password :</form:label><br>
-                                <form:password path="password"  readonly="true" />
+                                <form:input path="password"  readonly="true" />
                                 <form:errors path="password"></form:errors>
                                 </div>
                                 <div>
                                 <form:label path="email">E-mail:</form:label><br>
                                     <form:input type="email" path="email" />
-                                    <form:errors path="email" cssStyle="color:red;">Invalid Email</form:errors>
+                                    <form:errors path="email" cssStyle="color:red;"></form:errors>
                                     </div>
                                     <div>
                                     <form:label path="username">Username:</form:label><br>

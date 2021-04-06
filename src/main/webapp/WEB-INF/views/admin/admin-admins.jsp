@@ -85,7 +85,7 @@
                                 <td>${account.tel}</td>
                                 <td><a href="${pageContext.request.contextPath}/admin/user/addresses/${account.id}"><em class="fa fa-address-book-o"></em> Address</a></td>
                                 <td><a href="${pageContext.request.contextPath}/admin/user/orders/${account.id}"><em class="fa fa-shopping-cart"></em> Orders</a></td>
-                                <td><a href="#"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
+                                <td><a href="${pageContext.request.contextPath}/admin/users/edit/${account.id}"><em class="fa fa-pencil-square-o"></em> Edit</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

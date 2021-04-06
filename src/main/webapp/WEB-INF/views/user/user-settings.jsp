@@ -84,14 +84,14 @@
                             <div class="card">
                                 <h2 class="my-4 h2 text-center headertext">My account</h2>
                                 <p id="message" style="color: red; padding-left: 22px;">${message}</p>
-                                <form:form action="${pageContext.request.contextPath}/user/settings/update" method="POST" modelAttribute="settings" cssClass="card-body">
+                                <form:form action="${pageContext.request.contextPath}/user/settings/update" method="POST" modelAttribute="settings" cssClass="card-body" >
                                     <div class="my_details">
                                         <h4 class="my-2">My details</h4>
                                         <!--Grid row-->
                                         <div class="row">
                                             <div class="col-md">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="email" name="email" class="form-control" value="${account.email}">
+                                                    <input type="text" id="email" name="email" class="form-control" value="${account.email}" />
                                                     <label for="email" class="text-info">Email</label>
                                                 </div>
                                             </div>
@@ -100,13 +100,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="firstName" name="firstname" class="form-control" value="${account.firstname}" readonly>
+                                                    <input type="text" id="firstName" name="firstname" class="form-control" value="${account.firstname}" readonly />
                                                     <label for="firstName" class="text-info">First name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="lastName" name="lastname" class="form-control" value="${account.lastname}" readonly>
+                                                    <input type="text" id="lastName" name="lastname" class="form-control" value="${account.lastname}" readonly />
                                                     <label for="lastName" class="text-info">Last name</label>
                                                 </div>
                                             </div>
@@ -115,13 +115,13 @@
                                         <div class="row">
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="text" id="username" name="username" class="form-control" value="${account.username}">
+                                                    <input type="text" id="username" name="username" class="form-control" value="${account.username}" />
                                                     <label for="username" class="text-info">Username</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="text" id="tel" name="tel" class="form-control" value="${account.tel}">
+                                                    <input type="text" id="tel" name="tel" class="form-control" value="${account.tel}" />
                                                     <label for="tel" class="text-info">Telephone</label>
                                                 </div>
                                             </div>
@@ -135,7 +135,7 @@
                                         <div class="row">
                                             <div class="col-md">
                                                 <div class="md-form my-2">
-                                                    <input type="password" id="newPassword" name="password" class="form-control">
+                                                    <input type="password" id="newPassword" name="password" class="form-control" />
                                                     <label for="newPassword" class="text-info">New Password</label>
                                                 </div>
                                             </div>

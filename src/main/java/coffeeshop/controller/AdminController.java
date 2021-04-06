@@ -320,6 +320,11 @@ public class AdminController {
     public String updateUser(@Valid @ModelAttribute("account") Account account, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             
+            List<ObjectError> errors = result.getAllErrors();
+            for(ObjectError e : errors){
+                System.out.println(">>>>>>error" + e);
+            }
+            
             return "admin/admin-userform";
         }
         accountService.updateUser(account);

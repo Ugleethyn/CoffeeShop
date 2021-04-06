@@ -22,6 +22,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -50,33 +51,33 @@ public class Account implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotEmpty
-    @Size(min = 3, max = 20)
+    @NotEmpty(message="Must not be empty")
+    @Size(min = 3, max = 20,message = "Cannot be less than 3 and more than 20")
     @Column(name = "firstname")
     private String firstname;
     @Basic(optional = false)
-    @NotEmpty
-    @Size(min = 3, max = 20)
+    @NotEmpty(message="Must not be empty")
+    @Size(min = 3, max = 20,message = "Cannot be less than 3 and more than 20")
     @Column(name = "lastname")
     private String lastname;
     @Basic(optional = false)
-    @NotEmpty
-    @Size(min = 3, max = 20, message = "Invalid Username")
+    @NotEmpty(message="Must not be empty")
+    @Size(min = 3, max = 20, message = "Cannot be less than 3 and more than 20")
     @Column(name = "username",unique = true)
     private String username;
     @Basic(optional = false)
-    @NotBlank
-    @Size(min = 5, max = 68)
+    @NotEmpty(message="Must not be empty")
+    @Size(min = 5, max = 68, message="Cannot be less than 5")
     @Column(name = "password")
     private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation@Basic(optional = false)
-    @NotBlank
-    @Email
+    @NotEmpty(message="Must not be empty")
+    @Email(message = "Insert a valid email")
     @Column(name = "email",unique = true)
     private String email;
     @Basic(optional = false)
-    @NotEmpty
-    @Size(min = 10, max = 10)
+    @Pattern(regexp="^[0-9]{10}", message = "Invalid Tel number")
+    @NotEmpty(message="Must not be empty")
     @Column(name = "tel")
     private String tel;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

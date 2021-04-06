@@ -85,8 +85,8 @@
                             </div>
                             <div class="col-md-12 section3">
                                 <a href="https://github.com/MariaKoutra"><i class="fa fa-github" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                <a href="https://www.linkedin.com/in/maria-koutra-4145411a0/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="mailto:mariakoutra4@gmail.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -100,8 +100,8 @@
                             </div>
                             <div class="col-md-12 section3">
                                 <a href="https://github.com/kolobei"><i class="fa fa-github" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                <a href="https://www.linkedin.com/in/giorgos-kolovadis-871035141"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="mailto:g.kolovadis@hotmail.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                             <div class="col-md-12 section3">
                                 <a href="https://github.com/Ugleethyn"><i class="fa fa-github" aria-hidden="true"></i></a>
                                 <a href="https://www.linkedin.com/in/tasos-kladis-35691115a/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                <a href="mailto:tasoskladis@hotmail.gr"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
