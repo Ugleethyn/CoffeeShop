@@ -110,7 +110,7 @@
                     <div class="col-md-9">
                         <section id="coffees">
                             <h1>Coffees</h1>
-                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails">
+                            <form:form action="${pageContext.request.contextPath}/user/cart/process" method="POST" modelAttribute="orderDetails" >
                                 <div class="row mg-b-30">
 
                                     <c:forEach items="${coffeeTypes}" var = "coffeeType">
@@ -169,14 +169,12 @@
                                                             </c:forEach>
                                                         </div>
                                                     </div>
-                                                    <div> <input type="number" <c:forEach items="${coffeTypes}" var="product"> 
-                                                                                    value="${product.orderDetails.quantity}"
-                                                                                </c:forEach>
-                                                                 name="quantity" min="1" max="10"  class="quantity" id="${coffeeType.id}" />
+                                                    <div>
+                                                        <input type="number" name="quantity" value="1" min="1" max="10"  class="quantity" id="${coffeeType.id}" />
                                                         <label for="quantity">Quantity</label>
                                                     </div>
                                                     <div class="btnplace">
-                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup"><span>Submit</span></button>
+                                                        <button name="product" value="${coffeeType.id}" class="button btnpopup" onclick="myFunction()"><span>Submit</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -342,10 +340,10 @@
         <script
         src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
         <script>
-                                    // Mean Menu
-                                    jQuery('.mean-menu').meanmenu({
-                                        meanScreenWidth: "991"
-                                    });
+                                                            // Mean Menu
+                                                            jQuery('.mean-menu').meanmenu({
+                                                                meanScreenWidth: "991"
+                                                            });
         </script>
     </body>
 

@@ -2,6 +2,13 @@ let modal = document.querySelectorAll(".modules");
 let btn = document.querySelectorAll(".myBtn");
 let span = document.querySelectorAll(".close");
 let sugars = document.querySelectorAll('.sugars');
+let quantity = document.querySelectorAll('.quantity');
+
+function myFunction() {
+      if (document.querySelectorAll('input[type="radio"]:checked').length === 0){
+          alert("Please select sugar!");
+      }
+}
 
 for (let i=0; i<btn.length; i++){
     btn[i].onclick = function () {

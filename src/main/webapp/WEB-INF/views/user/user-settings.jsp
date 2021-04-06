@@ -133,13 +133,7 @@
                                         <h4 class="my-2">Password</h4>
                                         <!--Grid row-->
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="md-form my-2">
-                                                    <input type="password" id="currenPassword" name="password" class="form-control">
-                                                    <label for="currenPassword" class="text-info">Current password</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md">
                                                 <div class="md-form my-2">
                                                     <input type="password" id="newPassword" name="password" class="form-control">
                                                     <label for="newPassword" class="text-info">New Password</label>

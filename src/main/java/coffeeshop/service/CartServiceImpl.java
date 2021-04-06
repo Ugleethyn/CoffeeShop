@@ -46,11 +46,38 @@ public class CartServiceImpl implements CartService {
         return itemCost;
     }
 
-    public void removeFromCart(OrderDetails orderDetail, HttpSession session) {
+    public void removeFromCart(OrderDetails orderDetails, HttpSession session) {
         List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
         for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).equals(orderDetail)) {
+            if (cart.get(i).equals(orderDetails)) {
                 cart.remove(i);
+            }
+        }
+        session.setAttribute("cart", cart);
+    }
+
+    public void quantityUp(OrderDetails orderDetails, HttpSession session) {
+        List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).equals(orderDetails)) {
+                int quantity = cart.get(i).getQuantity();
+                cart.get(i).setQuantity(quantity + 1);
+                cart.get(i).setUnitPrice(calculateUnitPrice(cart.get(i)));
+
+            }
+        }
+        session.setAttribute("cart", cart);
+    }
+
+    public void quantityDown(OrderDetails orderDetails, HttpSession session) {
+        List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).equals(orderDetails)) {
+                int quantity = cart.get(i).getQuantity();
+                if (quantity != 1) {
+                    cart.get(i).setQuantity(quantity - 1);
+                    cart.get(i).setUnitPrice(calculateUnitPrice(cart.get(i)));
+                }
             }
         }
         session.setAttribute("cart", cart);

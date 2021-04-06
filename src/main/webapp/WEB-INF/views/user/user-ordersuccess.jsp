@@ -77,7 +77,6 @@
                     <div class="col-md-12 ourTeam-hedding text-center">
                         <h1>Your order has been successfully promoted to our store</h1>
                         <p>Thank you for choosing us!!<br>
-                            Your order id is: ${order.id} 
                         </p>
                     </div>
                 </div>

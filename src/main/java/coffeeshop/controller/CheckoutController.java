@@ -8,6 +8,9 @@ import coffeeshop.service.AccountService;
 import coffeeshop.service.AddressService;
 import coffeeshop.service.OrderService;
 import coffeeshop.service.PaymentService;
+import coffeeshop.service.PaypalServiceImpl;
+import com.paypal.api.payments.Links;
+import com.paypal.base.rest.PayPalRESTException;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -27,6 +30,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/user/checkout")
 public class CheckoutController {
 
+    @Autowired
+    private PaypalServiceImpl payPalService;
     @Autowired
     private AccountService accountService;
 
@@ -68,13 +73,28 @@ public class CheckoutController {
     }
 
     @PostMapping("/process")
-    public String checkout(@ModelAttribute("order") @Valid Orders order, BindingResult result, RedirectAttributes attributes, HttpSession session) {
+    public String payment(@ModelAttribute("order") Orders order, BindingResult result, HttpSession session) {
         if (result.hasErrors()) {
             System.out.println(result.getAllErrors());
             return "/user/checkout";
         }
-        orderService.setOrder(order, session);
-        attributes.addFlashAttribute("order", order);
+        if ("cash".equalsIgnoreCase(order.getPaymentid().getType())) {
+            orderService.setOrder(order, session);
+            return "redirect:/user/successfull";
+        }
+        try {
+            com.paypal.api.payments.Payment payment = payPalService.createPayment(orderService.getPriceForCheckOut(session), order.getPayment().getType(), order.getComments());
+            for (Links link : payment.getLinks()) {
+                if (link.getRel().equals("approval_url")) {
+                    orderService.setOrder(order, session);
+                    return "redirect:" + link.getHref();
+                }
+            }
+
+        } catch (PayPalRESTException e) {
+
+            e.printStackTrace();
+        }
         return "redirect:/user/successfull";
     }
 
