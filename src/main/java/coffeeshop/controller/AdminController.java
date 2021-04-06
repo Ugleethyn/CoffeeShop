@@ -26,6 +26,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -316,10 +317,13 @@ public class AdminController {
     }
 
     @PostMapping("/users/edited")
-    public String updateUser(@Valid @ModelAttribute("account") Account account, BindingResult result, RedirectAttributes attributes) {
+    public String updateUser(@ModelAttribute("account") @Valid  Account account, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
-            return "redirect:/admin/users";
+            List<ObjectError> errors = result.getAllErrors();
+            for(ObjectError e : errors){
+                System.out.println(">>>>>>error" + e);
+            }
+            return "admin/admin-userform";
         }
         accountService.updateUser(account);
         String message = "*User updated successfully!!";

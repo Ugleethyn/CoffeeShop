@@ -65,56 +65,59 @@
                 <table class="table">
                     <div class="h">
                         <h2>User's Form</h2>                   
-                        <hr/>
-                        <p>${message}</p>
+                        <p style="color: red">${message}</p>
                     </div>
                     <form:form action="${pageContext.request.contextPath}/admin/users/edited" method="POST" modelAttribute="account">
                         <div>
-                            <label for="id">ID :</label><br>
-                            <form:input id="id" type="number" path="id"  readonly="true" />
-                            <form:errors path="id"></form:errors>
-                            </div>
-                            <div>
-                                <label for="email" class="text-info">E-mail:</label><br>
-                            <form:input type="email" path="email" id="email" />
-                            <form:errors path="email"></form:errors>
-                            </div>
-                            <div>
-                                <label for="username">Username:</label><br>
-                            <form:input path="username" id="username" />
-                            <form:errors>Invalid Username</form:errors>
-                            </div>
-                            <div>
-                                <label for="tel" class="text-info">Tel:</label><br>
-                            <form:input path="tel" id="tel" />
-                            <form:errors></form:errors>
-                            </div>
-                            <div>
-                                <label for="firstname">First Name:</label><br>
-                            <form:input path="firstname" id="firstname" />
-                            <form:errors></form:errors>
-                            </div>
-                            <div>
-                                <label for="lastname" class="text-info">Last Name:</label><br>
-                            <form:input path="lastname" id="lastname" />
-                            <form:errors></form:errors>
-                            </div>                           
-                            <div>
-                                <label for="roles">Roles :</label>
-                                <br/>
-                                <select id="roles" name="roles" value="${account.roles}" multiple="true">
-                                <c:forEach items="${roles}" var="role">
-                                    <option value="${role.id}">${role.rname}</option>
-                                </c:forEach>
-                            </select>
-                            <p></p>
-                        </div>
-                        <div class="addform">
-                            <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Update" />      
-                        </div>
-                    </form:form>
-                </table>
-            </div>
-        </div>
-    </body>
-</html>
+                            <form:label path="id">ID :</form:label><br>
+                                <form:input type="number" path="id"  readonly="true" />
+                                <form:errors path="id"></form:errors>
+                                </div>
+                                <div hidden="hidden">
+                                <form:label path="password">Password :</form:label><br>
+                                <form:input path="password"  readonly="true" />
+                                <form:errors path="password"></form:errors>
+                                </div>
+                                <div>
+                                <form:label path="email">E-mail:</form:label><br>
+                                    <form:input type="email" path="email" />
+                                    <form:errors path="email"></form:errors>
+                                    </div>
+                                    <div>
+                                    <form:label path="username">Username:</form:label><br>
+                                        <form:input path="username" />
+                                        <form:errors path="username">Invalid Username</form:errors>
+                                        </div>
+                                        <div>
+                                        <form:label path="tel">Tel:</form:label><br>
+                                            <form:input path="tel" />
+                                            <form:errors path="tel"></form:errors>
+                                            </div>
+                                            <div>
+                                            <form:label path="firstname">First Name:</form:label><br>
+                                                <form:input path="firstname" id="firstname" />
+                                                <form:errors path="firstname"></form:errors>
+                                                </div>
+                                                <div>
+                                                <form:label path="lastname">Last Name:</form:label><br>
+                                                    <form:input path="lastname" id="lastname" />
+                                                    <form:errors path="lastname"></form:errors>
+                                                    </div>                           
+                                                    <div>
+                                                        <label for="roles">Roles :</label><br/>
+                                                        <select id="roles" name="roles" value="${account.roles}" multiple="true">
+                                                        <c:forEach items="${roles}" var="role">
+                                                            <option value="${role.id}">${role.rname}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <p></p>
+                                                </div>
+                                                <div class="addform">
+                                                    <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Update" />      
+                                                </div>
+                                                </form:form>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </body>
+                            </html>

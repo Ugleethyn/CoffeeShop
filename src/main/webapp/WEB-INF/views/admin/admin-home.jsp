@@ -83,6 +83,7 @@
                     </div>
                 </div><!--/.row-->
             </div>
-        </div>	<!--/.main-->
+        <p>${message}</p>                      
+        </div>
     </body>
 </html>

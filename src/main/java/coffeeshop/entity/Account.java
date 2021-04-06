@@ -49,22 +49,22 @@ public class Account implements Serializable {
     private Integer id;
     @Basic(optional = false)
 //    @NotBlank(message = "Name is mandatory")
-//    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 20)
     @Column(name = "firstname", nullable = false)
     private String firstname;
     @Basic(optional = false)
 //    @NotBlank(message = "Name is mandatory")
-//    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 20)
     @Column(name = "lastname", nullable = false)
     private String lastname;
     @Basic(optional = false)
 //    @NotBlank(message = "Userame is mandatory")
-//    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 20)
     @Column(name = "username", nullable = false, unique = true)
     private String username;
     @Basic(optional = false)
-    @NotNull
-//    @Size(min = 4, max = 68)
+//    @NotNull
+    @Size(min = 4, max = 68)
     @Column(name = "password")
     private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation@Basic(optional = false)
@@ -74,10 +74,10 @@ public class Account implements Serializable {
     private String email;
     @Basic(optional = false)
     @NotBlank(message = "Tel. is mandatory")
-//    @Size(min = 10, max = 10)
+    @Size(min = 10, max = 10)
     @Column(name = "tel", nullable = false)
     private String tel;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "account_has_role",
             joinColumns = @JoinColumn(name = "account_id"),

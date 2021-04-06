@@ -55,7 +55,8 @@
                         </a></li>
                     <li class="active">Members</li>
                 </ol>
-                    <p id="message" style="padding-left: 15px; color: red;">${errormsg}</p>                
+                    <p id="message" style="padding-left: 15px; color: red;">${message}</p>                
+                    <p  style="padding-left: 15px; color: red;">${errormsg}</p>                
             </div><!--/.row-->
             <div class="table-responsive">
                 <table class="table">
