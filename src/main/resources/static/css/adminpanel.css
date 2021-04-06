@@ -1,11 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i");
-
 body {
   background: #f1f4f7;
   padding-top: 60px;
   font-size: 14px;
   color: #444444;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.formErrors {
+    color: red !important;  
+}
 
 p {
   color: #777; }

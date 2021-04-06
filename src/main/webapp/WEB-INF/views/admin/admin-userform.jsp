@@ -12,6 +12,11 @@
         <link href="${pageContext.request.contextPath}/css/adminpanel.css" rel="stylesheet" type="text/css">
         <title>Coffees</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/png">
+        <script type="text/css">
+            .formErrors {
+                color: red;
+            }
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -19,7 +24,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed">
                         <span class="sr-only">Toggle navigation</span></button>
-                    <a class="navbar-brand" href="#"><span>Coffee</span>Admin</a>
+                    <a class="navbar-brand" href="#"><span>Caffee</span>Admin</a>
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
@@ -64,46 +69,60 @@
             <div class="table-responsive" style="margin-left: 20px;">
                 <table class="table">
                     <div class="h">
-                        <h2>Category's Form</h2>                   
-                        <hr/>
-                        <p>${message}</p>
-                        <p id="message">${errormsg}</p>
-                        <c:if test="${param.error != null}"> 
-                            <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
-                        </c:if>
+                        <h2>User's Form</h2>                   
+                        <p style="color: red">${message}</p>
                     </div>
-                    <c:if test="${category.id == null}">
-                        <c:url value="/admin/categories/create" var="link"/>
-                    </c:if>
-                    <c:if test="${category.id != null}">
-                        <c:url  value="/admin/categories/update" var="link"/>
-                    </c:if>
-                    <form:form action="${link}" method="POST">
+                    <form:form action="${pageContext.request.contextPath}/admin/users/edited" method="POST" modelAttribute="account">
                         <div>
-                            <input type="number" name="id" value="${category.id}" hidden />
-                        </div>
-                        <div>
-                            <label for="pname">Category Name :</label>
-                            <br/>
-                            <input id="pname" type="text" placeholder="Category name" name="cname" value="${category.cname}" />
-                            <p></p>
-                        </div>
-                        <div>
-                            <label for="catb">Category :</label>
-                            <br/>
-                            <select id="catBId" name="catBId" value="${category.id}">
-                                <c:forEach items="${catb}" var="cat">
-                                    <option value="${cat.id}">${cat.catBName}</option>
-                                </c:forEach>
-                            </select>
-                            <p></p>
-                        </div>
-                        <div class="addform">
-                            <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Add/Update" />      
-                        </div>
-                    </form:form>
-                </table>
-            </div>
-        </div>
-    </body>
-</html>
+                            <form:label path="id">ID :</form:label><br>
+                                <form:input type="number" path="id"  readonly="true" />
+                                <form:errors path="id"></form:errors>
+                                </div>
+                                <div hidden="hidden">
+                                <form:label path="password">Password :</form:label><br>
+                                <form:password path="password"  readonly="true" />
+                                <form:errors path="password"></form:errors>
+                                </div>
+                                <div>
+                                <form:label path="email">E-mail:</form:label><br>
+                                    <form:input type="email" path="email" />
+                                    <form:errors path="email" cssStyle="color:red;">Invalid Email</form:errors>
+                                    </div>
+                                    <div>
+                                    <form:label path="username">Username:</form:label><br>
+                                        <form:input path="username" />
+                                        <form:errors path="username" cssStyle="color:red;"></form:errors>
+                                        </div>
+                                        <div>
+                                        <form:label path="tel">Tel:</form:label><br>
+                                            <form:input path="tel" />
+                                            <form:errors path="tel" cssStyle="color:red;">Invalid Tel number</form:errors>
+                                            </div>
+                                            <div>
+                                            <form:label path="firstname">First Name:</form:label><br>
+                                                <form:input path="firstname" id="firstname" />
+                                                <form:errors path="firstname" cssStyle="color:red;"></form:errors>
+                                                </div>
+                                                <div>
+                                                <form:label path="lastname">Last Name:</form:label><br>
+                                                    <form:input path="lastname" id="lastname" />
+                                                    <form:errors path="lastname" cssStyle="color:red;"></form:errors>
+                                                    </div>                           
+                                                    <div>
+                                                        <label for="roles">Roles :</label><br/>
+                                                        <select id="roles" name="roles" value="${account.roles}" multiple="true" required="required">
+                                                        <c:forEach items="${roles}" var="role">
+                                                            <option value="${role.id}">${role.rname}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <p></p>
+                                                </div>
+                                                <div class="addform">
+                                                    <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Update" />      
+                                                </div>
+                                                </form:form>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </body>
+                            </html>

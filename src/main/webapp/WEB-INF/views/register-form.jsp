@@ -75,35 +75,34 @@
                                         <h3 class="text-center headertext">Register</h3>
 
                                         <div class="form-group">
-                                            <label for="email" class="text-info">E-mail:</label><br>
-                                            <form:input type="email" path="email" id="email"  class="form-control" placeholder="email *" required="required"/>
-                                            <form:errors path="email"></form:errors>
+                                            <form:label path="email" class="text-info">E-mail:</form:label><br>
+                                            <form:input type="email" path="email" class="form-control" placeholder="email *" required="required"/>
+                                            <form:errors path="email" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float">
-                                                <label for="username" class="text-info">Username:</label><br>
-                                            <form:input path="username" id="username" class="form-control" placeholder="Username *" required="required"/>
-                                            <form:errors>Invalid Username</form:errors>
+                                                <form:label path="username" class="text-info">Username:</form:label><br>
+                                            <form:input path="username" class="form-control" placeholder="Username *" required="required"/>
+                                            <form:errors path="username" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float">
-                                                <label for="tel" class="text-info">Tel:</label><br>
-                                            <form:input path="tel" id="tel" class="form-control" placeholder="tel number *" required="required"/>
-                                            <form:errors></form:errors>
+                                                <form:label path="tel" class="text-info">Tel:</form:label><br>
+                                            <form:input path="tel" class="form-control" placeholder="tel number *" required="required"/>
+                                            <form:errors path="tel" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float">
-                                                <label for="firstname" class="text-info">First Name:</label><br>
-                                            <form:input path="firstname" id="firstname"  class="form-control" placeholder="First Name *" required="required"/>
-                                            <form:errors></form:errors>
+                                                <form:label path="firstname" class="text-info">First Name:</form:label><br>
+                                            <form:input path="firstname" class="form-control" placeholder="First Name *" required="required"/>
+                                            <form:errors path="firstname" cssStyle="color:red;"></form:errors>
                                             </div>
-
                                             <div class="form-group float">
-                                                <label for="lastname" class="text-info">Last Name:</label><br>
-                                            <form:input path="lastname" id="lastname"  class="form-control" placeholder="Last Name *" required="required"/>
-                                            <form:errors></form:errors>
+                                            <form:label path="lastname" class="text-info">Last Name:</form:label><br>
+                                            <form:input path="lastname" class="form-control" placeholder="Last Name *" required="required"/>
+                                            <form:errors path="lastname" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float" style="width: 100%;">
-                                                <label for="password" class="text-info">Password:</label><br>
-                                            <form:password path="password" id="password"  class="form-control" placeholder="Your password *" required="required"/>
-                                            <form:errors></form:errors>
+                                            <form:label path="password" class="text-info">Password:</form:label><br>
+                                            <form:password path="password" class="form-control" placeholder="Your password *" required="required"/>
+                                            <form:errors path="password" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group">
                                                 <a><button type="submit" class="button lgnbtn"><span>Register

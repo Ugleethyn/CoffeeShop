@@ -22,5 +22,9 @@ public interface AccountService extends UserDetailsService {
     Account findByUsername(String username);
 
     Account saveUser(Account account);
+        
+    Account findById(int accountid);
+    
+    Account updateUser(Account account);
 
 }

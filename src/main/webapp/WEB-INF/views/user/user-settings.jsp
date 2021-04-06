@@ -92,7 +92,6 @@
                                             <div class="col-md">
                                                 <div class="md-form my-2">
                                                     <input type="text" id="email" name="email" class="form-control" value="${account.email}">
-
                                                     <label for="email" class="text-info">Email</label>
                                                 </div>
                                             </div>
