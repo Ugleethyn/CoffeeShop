@@ -18,7 +18,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -48,34 +50,34 @@ public class Account implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-//    @NotBlank(message = "Name is mandatory")
-    @Size(min = 1, max = 20)
-    @Column(name = "firstname", nullable = false)
+    @NotEmpty
+    @Size(min = 3, max = 20)
+    @Column(name = "firstname")
     private String firstname;
     @Basic(optional = false)
-//    @NotBlank(message = "Name is mandatory")
-    @Size(min = 1, max = 20)
-    @Column(name = "lastname", nullable = false)
+    @NotEmpty
+    @Size(min = 3, max = 20)
+    @Column(name = "lastname")
     private String lastname;
     @Basic(optional = false)
-//    @NotBlank(message = "Userame is mandatory")
-    @Size(min = 1, max = 20)
-    @Column(name = "username", nullable = false, unique = true)
+    @NotEmpty
+    @Size(min = 3, max = 20, message = "Invalid Username")
+    @Column(name = "username",unique = true)
     private String username;
     @Basic(optional = false)
-//    @NotNull
-    @Size(min = 4, max = 68)
+    @NotBlank
+    @Size(min = 5, max = 68)
     @Column(name = "password")
     private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation@Basic(optional = false)
-//    @NotBlank(message = "Email is mandatory")
-    @Size(min = 1, max = 40)
-    @Column(name = "email", nullable = false, unique = true)
+    @NotBlank
+    @Email
+    @Column(name = "email",unique = true)
     private String email;
     @Basic(optional = false)
-    @NotBlank(message = "Tel. is mandatory")
+    @NotEmpty
     @Size(min = 10, max = 10)
-    @Column(name = "tel", nullable = false)
+    @Column(name = "tel")
     private String tel;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -84,7 +86,6 @@ public class Account implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles = new ArrayList();
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
     private List<Address> addresses;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "accountid", fetch = FetchType.LAZY)
