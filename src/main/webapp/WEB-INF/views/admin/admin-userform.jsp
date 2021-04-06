@@ -75,7 +75,7 @@
                     <form:form action="${pageContext.request.contextPath}/admin/users/edited" method="POST" modelAttribute="account">
                         <div>
                             <form:label path="id">ID :</form:label><br>
-                                <form:input type="number" path="id"  readonly="true" />
+                            <form:input type="number" path="id"  readonly="true" id="idview" />
                                 <form:errors path="id"></form:errors>
                                 </div>
                                 <div hidden="hidden">

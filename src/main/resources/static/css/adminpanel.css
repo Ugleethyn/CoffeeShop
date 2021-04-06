@@ -9,6 +9,17 @@ body {
     color: red !important;  
 }
 
+#idview::-webkit-outer-spin-button,
+#idview::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#idview[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 p {
   color: #777; }
 
