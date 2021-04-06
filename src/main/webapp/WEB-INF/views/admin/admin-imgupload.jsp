@@ -72,7 +72,7 @@
                         <div>
                             <label for="fileImage">File :</label>
                             <br/>
-                            <input id="fileImage" type="file" name="fileImage" accept="image/png, image/jpeg" />
+                            <input id="fileImage" type="file" name="fileImage" accept="image/png, image/jpeg, image/jpg" />
                             <p></p>
                         </div>
                         <div>

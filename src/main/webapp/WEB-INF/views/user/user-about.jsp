@@ -100,7 +100,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="row section-info ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <img src="/demo/meet02.png">
+                                <img src="${pageContext.request.contextPath}/img/giorgos.jpeg">
                             </div>
                             <div class="col-md-12 section2">
                                 <p>GIORGOS KOLOVADIS</p>
