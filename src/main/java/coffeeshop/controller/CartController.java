@@ -56,4 +56,12 @@ public class CartController {
         return "redirect:/user/cart";
     }
 
+    @ModelAttribute("finalprice")
+    public BigDecimal showFinalPrice(HttpSession session) {
+        List<OrderDetails> cart = (List<OrderDetails>) session.getAttribute("cart");
+        if (cart == null) {
+            return BigDecimal.ZERO;
+        }
+        return orderService.getPriceForCheckOut(session);
+    }
 }

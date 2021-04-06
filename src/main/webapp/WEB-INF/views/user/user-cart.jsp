@@ -159,7 +159,7 @@
                                 <div class="card-body">
                                     <dl class="dlist-align">
                                         <dt>Total price:</dt>
-                                        <dd class="text-right ml-3">&euro;</dd>
+                                        <dd class="text-right ml-3">&euro; ${finalprice}</dd>
                                     </dl>
                                     <hr> <a href="${pageContext.request.contextPath}/user/checkout"><button class="button cartbtn"><span>Submit Order </span></button></a>
                                     <a href="${pageContext.request.contextPath}/user/menu"><button class="button cartbtn"><span>Continue Shopping </span></button></a>
