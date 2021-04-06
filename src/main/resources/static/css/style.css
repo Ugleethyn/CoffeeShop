@@ -114,7 +114,7 @@ div.filters {
     padding-left: 10px;
 }
 .quantity {
-    width: 50px;
+    width: 30px;
     /*margin-top: 30px;*/
 }
 .controls {
@@ -578,6 +578,16 @@ a {
 }
 .remove{
     padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /************************************************* ABOUT US /**************************************************/
