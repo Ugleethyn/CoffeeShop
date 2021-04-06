@@ -5,9 +5,6 @@ body {
   color: #444444;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-.formErrors {
-    color: red !important;  
-}
 
 #idview::-webkit-outer-spin-button,
 #idview::-webkit-inner-spin-button {
