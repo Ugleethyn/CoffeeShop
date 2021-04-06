@@ -44,7 +44,7 @@
                             <a href="${pageContext.request.contextPath}/user/menu" class="nav-link">Catalog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link active">About us</a>
+                            <a href="${pageContext.request.contextPath}/user/about" class="nav-link">About us</a>
                         </li>
                         <li class="nav-item">
                             <a href="${pageContext.request.contextPath}/user/contact" class="nav-link">Contact</a>
