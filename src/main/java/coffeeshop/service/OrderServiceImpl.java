@@ -25,6 +25,8 @@ public class OrderServiceImpl implements OrderService {
     private AccountService accountService;
     @Autowired
     private OrderDetailsRepo orderDetailsRepo;
+    @Autowired
+    private StoreService storeService;
 
     public List<Orders> getAllOrders() {
         List<Orders> orders = ordersRepo.findAll();
@@ -44,6 +46,8 @@ public class OrderServiceImpl implements OrderService {
         //Set date of the order
         LocalDateTime lt = LocalDateTime.now();
         order.setDateCreated(lt);
+        //Set Store
+        order.setStoreid(storeService.getStore());
         //Set final price to Order
         BigDecimal finalprice = getPriceForCheckOut(session);
         order.setPrice(finalprice);
