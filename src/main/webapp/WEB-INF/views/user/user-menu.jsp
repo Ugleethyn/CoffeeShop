@@ -119,7 +119,7 @@
                                                 <div class="info hoveritem">
                                                     <div class="row">
                                                         <div class="price col-md-12">
-                                                            <h5><img src="${pageContext.request.contextPath}${coffeeType.imgsrc}" class="img-responsive productimages" alt="Coffee" /></h5>
+                                                            <h5><img src="${pageContext.request.contextPath}/img/${coffeeType.imgsrc}" class="img-responsive productimages" alt="Coffee" /></h5>
                                                         </div>
                                                         <div class="price col-md-12 productname">
                                                             <h5>
@@ -193,7 +193,7 @@
                                                 <div class="info hoveritem">
                                                     <div class="row">
                                                         <div class="price col-md-12">
-                                                            <h5> <img src="${pageContext.request.contextPath}${snack.imgsrc}" class="img-responsive productimages" alt="Snack" /> </h5>
+                                                            <h5> <img src="${pageContext.request.contextPath}/img/${snack.imgsrc}" class="img-responsive productimages" alt="Snack" /> </h5>
                                                         </div>
                                                         <div class="price col-md-12 productname">
                                                             <h5>
@@ -233,7 +233,7 @@
                                                 <div class="info hoveritem">
                                                     <div class="row">
                                                         <div class="price col-md-12">
-                                                            <h5> <img src="${pageContext.request.contextPath}${drink.imgsrc}" class="img-responsive productimages" alt="Snack" /> </h5>
+                                                            <h5> <img src="${pageContext.request.contextPath}/img/${drink.imgsrc}" class="img-responsive productimages" alt="Snack" /> </h5>
                                                         </div>
                                                         <div class="price col-md-12 productname">
                                                             <h5>
@@ -248,7 +248,7 @@
                                                     <div class="separator clear-left">
                                                         <p class="btn-add">
                                                             <i class="fa fa-shopping-cart"></i>
-                                                            <button name="product" value="${drink.id}"  class="snkdrnkbtn"><span>Add To Card</span></button>
+                                                            <button name="product" value="${drink.id}" class="snkdrnkbtn"><span>Add To Card</span></button>
                                                         </p>
                                                     </div>
                                                     <div class="clearfix">
