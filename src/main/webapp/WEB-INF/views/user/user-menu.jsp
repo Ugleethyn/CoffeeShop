@@ -81,8 +81,8 @@
                         <div class="sticky filters">
                             <ul class="list-group">
                                 <c:set var = "coffees" value = "${coffeeTypes}"/>
-                                <c:set var = "drinks" value = "${snackTypes}" />
-                                <c:set var = "snacks" value = "${drinkTypes}" />
+                                <c:set var = "snacks" value = "${snackTypes}" />
+                                <c:set var = "drinks" value = "${drinkTypes}" />
 
                                 <button class="filterbtn" onclick="allProducts()">
                                     <li class="list-group-item"> All products
