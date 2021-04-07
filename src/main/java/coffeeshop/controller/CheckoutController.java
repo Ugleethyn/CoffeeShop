@@ -20,6 +20,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -99,14 +100,19 @@ public class CheckoutController {
     }
 
     @PostMapping("/address")
-    public String addAddress(@Valid @ModelAttribute("details") Address addressNew,
-            BindingResult result, RedirectAttributes attributes) {
+    public String addAddress(@Valid @ModelAttribute("details") Address address, BindingResult result, RedirectAttributes attr) {
         if (result.hasErrors()) {
-            System.out.println(result.getAllErrors());
-            return "user/user-checkout";
+            
+            List<ObjectError> errors = result.getAllErrors();
+            for (ObjectError e : errors) {
+                System.out.println(">>>>>>error" + e);
+            }
+            String message = "*Invalid Address Inputs";
+            attr.addFlashAttribute("message", message);
+            return "redirect:/user/checkout";
         }
-        addressService.addAddress(addressNew);
-        return "redirect:/user/checkout";
+        addressService.addAddress(address);
+            return "redirect:/user/checkout";
     }
-
+    
 }

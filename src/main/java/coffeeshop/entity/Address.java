@@ -15,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -39,22 +41,25 @@ public class Address implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @NotEmpty(message="Must not be empty")
     @Size(max = 45)
     @Column(name = "street")
     private String street;
-    @Size(max = 45)
+    @NotEmpty(message="Must not be empty")
+    @Pattern(regexp="^[0-9]{1,4}", message = "Invalid Number")
     @Column(name = "number")
     private String number;
     @Size(max = 45)
     @Column(name = "city")
     private String city;
-    @Size(max = 45)
+    @Pattern(regexp="^[0-9]{5}", message = "Invalid Zip Code")
+    @NotEmpty(message="Must not be empty")
     @Column(name = "zipcode")
     private String zipcode;
     @Size(max = 15)
     @Column(name = "floor")
     private String floor;
-    @Size(max = 15)
+    @Size(max = 30)
     @Column(name = "doorbell")
     private String doorbell;
     @JoinColumn(name = "Account_id", referencedColumnName = "id")
@@ -85,6 +90,7 @@ public class Address implements Serializable {
     public void setStreet(String street) {
         this.street = street;
     }
+
 
     public String getNumber() {
         return number;

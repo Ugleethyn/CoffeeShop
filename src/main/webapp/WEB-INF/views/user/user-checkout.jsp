@@ -82,6 +82,7 @@
                             <!--Card-->
                             <div class="card">
                                 <h2 class="my-4 h2 text-center headertext">Complete your order</h2>
+                                <p style="color:red; padding-left: 22px;">${message}</p>
                                 <form:form action="${pageContext.request.contextPath}/user/checkout/process" method="POST" modelAttribute="order" cssClass="card-body">
                                     <div class="order_details">
                                         <h4 class="my-2">Your order info</h4>
