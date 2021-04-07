@@ -50,7 +50,7 @@
                             <a href="${pageContext.request.contextPath}/user/contact" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item dropdown" id="drop">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <sec:authentication property="principal.username" />
                             </a>
                             <div id="select" class="dropdown-menu" aria-labelledby="navbarDropdown">
