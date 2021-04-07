@@ -68,7 +68,7 @@
                             <div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
                                 <c:set var = "newOrders" value = "${pendingOrder}"/>
                                 <div class="large">${fn:length(newOrders)}</div>
-                                <div class="text-muted">New Orders</div>
+                                <div class="text-muted"><a href="${pageContext.request.contextPath}/admin/orders">New Orders</a></div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
                                 <c:set var = "allUsers" value = "${allUsers}"/>
                                 <div class="large">${fn:length(allUsers)}</div>
-                                <div class="text-muted">Users</div>
+                                <div class="text-muted"><a href="${pageContext.request.contextPath}/admin/users">Users</a></div>
                             </div>
                         </div>
                     </div>

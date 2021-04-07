@@ -56,7 +56,7 @@
                     <li><a href="${pageContext.request.contextPath}/user">
                             <em class="fa fa-home"></em>
                         </a></li>
-                    <li class="active">All Orders</li>
+                    <li class="active">Declined Orders</li>
                 </ol>
             </div><!--/.row-->
             <div class="table-responsive">
