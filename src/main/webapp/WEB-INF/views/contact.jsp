@@ -88,7 +88,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="row section-info ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <a href="${pageContext.request.contextPath}/chat"><img src="img/livechat.png"></a>
+                                <a href="${pageContext.request.contextPath}/chat"><img src="${pageContext.request.contextPath}/img/livechat.png"></a>
                             </div>
                             <div class="col-md-12 section2">
                                 <p>Live Chat</p>
