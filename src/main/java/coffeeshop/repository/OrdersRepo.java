@@ -25,7 +25,7 @@ public interface OrdersRepo extends JpaRepository<Orders, Integer> {
             + " ORDER BY o.odate DESC;", nativeQuery = true)
     List<Orders> findByAccountId(@Param("accountid") int accountid);
 
-    @Query("SELECT o FROM Orders o WHERE o.status = :status")
+    @Query("SELECT o FROM Orders o WHERE o.status = :status ORDER BY o.dateCreated DESC")
     List<Orders> findAllByStatus(@Param("status") int status);
 
 }
