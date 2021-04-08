@@ -9,8 +9,6 @@ public interface OrderService {
 
     List<Orders> getAllOrders();
 
-    Orders create(Orders order);
-
     void setOrder(Orders order, HttpSession session);
 
     Orders getAddress(int addressid);
