@@ -160,7 +160,7 @@
                                                     <!--Grid column-->
                                                     <div class="col-md-6 mb-4">
                                                         <div class="md-form">
-                                                            <input type="text" id="number" name="number" class="form-control" required="required" minlength="1" maxlength="4" title="Place Street Number" />
+                                                            <input type="text" id="number" name="number" class="form-control" required="required" minlength="1" maxlength="4" pattern="\d*" title="Place Street Number" />
                                                             <label for="number" class="text-info">Number</label>
                                                         </div>
                                                     </div>
@@ -177,7 +177,7 @@
                                                     <!--Grid column-->
                                                     <div class="col-md-6 mb-4">
                                                         <div class="md-form">
-                                                            <input type="text" id="zip" name="zipcode" class="form-control" required="required" minlength="5" maxlength="5" title="Place Zip Code" />
+                                                            <input type="text" id="zip" name="zipcode" class="form-control" required="required" minlength="5" maxlength="5" pattern="\d*" title="Place Zip Code" />
                                                             <label for="zip" class="text-info">Zip code</label>
                                                         </div>
                                                     </div>
