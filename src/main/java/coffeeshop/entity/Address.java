@@ -42,14 +42,14 @@ public class Address implements Serializable {
     @Column(name = "id")
     private Integer id;
     @NotEmpty(message="Must not be empty")
-    @Size(max = 45)
+    @Size(min=3, max = 45)
     @Column(name = "street")
     private String street;
     @NotEmpty(message="Must not be empty")
     @Pattern(regexp="^[0-9]{1,4}", message = "Invalid Number")
     @Column(name = "number")
     private String number;
-    @Size(max = 45)
+    @Size(min = 3,max = 45)
     @Column(name = "city")
     private String city;
     @Pattern(regexp="^[0-9]{5}", message = "Invalid Zip Code")

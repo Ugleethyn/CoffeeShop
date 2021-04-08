@@ -112,6 +112,8 @@ public class CheckoutController {
             return "redirect:/user/checkout";
         }
         addressService.addAddress(address);
+        String minima = "*Address added successfully";
+        attr.addFlashAttribute("message", minima);
             return "redirect:/user/checkout";
     }
     
