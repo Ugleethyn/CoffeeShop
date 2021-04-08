@@ -72,57 +72,66 @@
                         <h2>User's Form</h2>                   
                         <p style="color: red">${message}</p>
                     </div>
-                    <form:form action="${pageContext.request.contextPath}/admin/users/edited" method="POST" modelAttribute="account">
+                    <form:form action="${pageContext.request.contextPath}/admin/users/edited" method="POST" modelAttribute="account" id="sectionForm" >
                         <div>
                             <form:label path="id">ID :</form:label><br>
                             <form:input type="number" path="id"  readonly="true" id="idview" />
-                                <form:errors path="id"></form:errors>
-                                </div>
-                                <div hidden="hidden">
-                                <form:label path="password">Password :</form:label><br>
-                                <form:input path="password"  readonly="true" />
-                                <form:errors path="password"></form:errors>
-                                </div>
-                                <div>
-                                <form:label path="email">E-mail:</form:label><br>
-                                    <form:input type="email" path="email" />
-                                    <form:errors path="email" cssStyle="color:red;"></form:errors>
-                                    </div>
-                                    <div>
-                                    <form:label path="username">Username:</form:label><br>
-                                        <form:input path="username" />
-                                        <form:errors path="username" cssStyle="color:red;"></form:errors>
-                                        </div>
-                                        <div>
-                                        <form:label path="tel">Tel:</form:label><br>
-                                            <form:input path="tel" />
-                                            <form:errors path="tel" cssStyle="color:red;">Invalid Tel number</form:errors>
-                                            </div>
-                                            <div>
-                                            <form:label path="firstname">First Name:</form:label><br>
-                                                <form:input path="firstname" id="firstname" />
-                                                <form:errors path="firstname" cssStyle="color:red;"></form:errors>
-                                                </div>
-                                                <div>
-                                                <form:label path="lastname">Last Name:</form:label><br>
-                                                    <form:input path="lastname" id="lastname" />
-                                                    <form:errors path="lastname" cssStyle="color:red;"></form:errors>
-                                                    </div>                           
-                                                    <div>
-                                                        <label for="roles">Roles :</label><br/>
-                                                        <select id="roles" name="roles" value="${account.roles}" multiple="true" required="required">
-                                                        <c:forEach items="${roles}" var="role">
-                                                            <option value="${role.id}">${role.rname}</option>
-                                                        </c:forEach>
-                                                    </select>
-                                                    <p></p>
-                                                </div>
-                                                <div class="addform">
-                                                    <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Update" />      
-                                                </div>
-                                                </form:form>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </body>
-                            </html>
+                            <form:errors path="id"></form:errors>
+                            </div>
+                            <div hidden="hidden">
+                            <form:label path="password">Password :</form:label><br>
+                            <form:input path="password"  readonly="true" />
+                            <form:errors path="password"></form:errors>
+                            </div>
+                            <div>
+                            <form:label path="email">E-mail:</form:label><br>
+                            <form:input type="email" path="email" />
+                            <form:errors path="email" cssStyle="color:red;"></form:errors>
+                            </div>
+                            <div>
+                            <form:label path="username">Username:</form:label><br>
+                            <form:input path="username" />
+                            <form:errors path="username" cssStyle="color:red;"></form:errors>
+                            </div>
+                            <div>
+                            <form:label path="tel">Tel:</form:label><br>
+                            <form:input path="tel" />
+                            <form:errors path="tel" cssStyle="color:red;">Invalid Tel number</form:errors>
+                            </div>
+                            <div>
+                            <form:label path="firstname">First Name:</form:label><br>
+                            <form:input path="firstname" id="firstname" />
+                            <form:errors path="firstname" cssStyle="color:red;"></form:errors>
+                            </div>
+                            <div>
+                            <form:label path="lastname">Last Name:</form:label><br>
+                            <form:input path="lastname" id="lastname" />
+                            <form:errors path="lastname" cssStyle="color:red;"></form:errors>
+                            </div>                           
+                            <div>
+                                <label for="roles">Roles :</label><br/>
+                            <c:forEach items="${roles}" var="role">
+                                <input type="checkbox" name="roles" value="${role.id}" />${role.rname}</br>                             
+                            </c:forEach>                           
+                            <p></p>
+                        </div>
+                        <div class="addform">
+                            <input id="addbuttonform" style="margin-left:0;" class="button" type="submit" value="Update" />      
+                        </div>
+                    </form:form>
+                </table>
+            </div>
+        </div>
+        <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("form").submit(function () {
+                    if ($('input:checkbox').filter(':checked').length < 1) {
+                        alert("Please Check at least 1 Check Box");
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

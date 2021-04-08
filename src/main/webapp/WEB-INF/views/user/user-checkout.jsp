@@ -153,14 +153,14 @@
                                                     <!--Grid column-->
                                                     <div class="col-md-6 mb-4">
                                                         <div class="md-form">
-                                                            <input type="text" id="street" name="street" class="form-control">
+                                                            <input type="text" id="street" name="street" class="form-control" required="required" minlength="3" maxlength="45" />
                                                             <label for="street" class="text-info">Street</label>
                                                         </div>
                                                     </div>
                                                     <!--Grid column-->
                                                     <div class="col-md-6 mb-4">
                                                         <div class="md-form">
-                                                            <input type="text" id="number" name="number" class="form-control">
+                                                            <input type="text" id="number" name="number" class="form-control" required="required" minlength="1" maxlength="4" title="Invalid input" />
                                                             <label for="number" class="text-info">Number</label>
                                                         </div>
                                                     </div>
@@ -170,14 +170,14 @@
                                                     <!--Grid column-->
                                                     <div class="col-md-6 mb-4">
                                                         <div class="md-form">
-                                                            <input type="text" id="city" name="city" class="form-control">
+                                                            <input type="text" id="city" name="city" class="form-control" required="required" minlength="3" maxlength="45" title="Invalid Address" />
                                                             <label for="city" class="text-info">City</label>
                                                         </div>
                                                     </div>
                                                     <!--Grid column-->
                                                     <div class="col-md-6 mb-4">
                                                         <div class="md-form">
-                                                            <input type="text" id="zip" name="zipcode" class="form-control">
+                                                            <input type="text" id="zip" name="zipcode" class="form-control" required="required" minlength="5" maxlength="5" title="Invalid zip" />
                                                             <label for="zip" class="text-info">Zip code</label>
                                                         </div>
                                                     </div>

@@ -91,7 +91,7 @@
                                         <div class="row">
                                             <div class="col-md">
                                                 <div class="md-form my-2">
-                                                    <input type="text" id="email" name="email" class="form-control" value="${account.email}" />
+                                                    <input type="email" id="email" name="email" class="form-control" value="${account.email}" required="true" minlength="3" maxlength="40" />
                                                     <label for="email" class="text-info">Email</label>
                                                 </div>
                                             </div>
@@ -115,13 +115,13 @@
                                         <div class="row">
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="text" id="username" name="username" class="form-control" value="${account.username}" />
+                                                    <input type="text" id="username" name="username" class="form-control" value="${account.username}" required="true" minlength="4" />
                                                     <label for="username" class="text-info">Username</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="text" id="tel" name="tel" class="form-control" value="${account.tel}" />
+                                                    <input type="number" id="tel" name="tel" class="form-control" value="${account.tel}" required="true" minlength="10" maxlength="10" />
                                                     <label for="tel" class="text-info">Telephone</label>
                                                 </div>
                                             </div>
@@ -135,7 +135,7 @@
                                         <div class="row">
                                             <div class="col-md">
                                                 <div class="md-form my-2">
-                                                    <input type="password" id="newPassword" name="password" class="form-control" />
+                                                    <input type="password" id="newPassword" name="password" class="form-control" minlength="5" maxlength="68" />
                                                     <label for="newPassword" class="text-info">New Password</label>
                                                 </div>
                                             </div>
