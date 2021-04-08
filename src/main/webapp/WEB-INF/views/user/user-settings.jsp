@@ -121,7 +121,7 @@
                                             </div>
                                             <div class="col-md-6 my-2">
                                                 <div class="md-form">
-                                                    <input type="number" id="tel" name="tel" class="form-control" value="${account.tel}" required="true" minlength="10" maxlength="10" />
+                                                    <input type="text" id="tel" name="tel" class="form-control" value="${account.tel}" required="true" minlength="10" maxlength="10" pattern="\d*" title="Place a Telephone number" />
                                                     <label for="tel" class="text-info">Telephone</label>
                                                 </div>
                                             </div>
@@ -180,14 +180,14 @@
                                                         <!--Grid column-->
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
-                                                                <input type="text" id="street" name="street" class="form-control">
+                                                                <input type="text" id="street" name="street" class="form-control" required="required" minlength="3" maxlength="45" title="Address must be between 3 to 45 letters" />
                                                                 <label for="street" class="text-info">Street</label>
                                                             </div>
                                                         </div>
                                                         <!--Grid column-->
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
-                                                                <input type="text" id="number" name="number" class="form-control">
+                                                                <input type="text" id="number" name="number" class="form-control" required="required" minlength="1" maxlength="4" pattern="\d*" title="Place Street Number" />
                                                                 <label for="number" class="text-info">Number</label>
                                                             </div>
                                                         </div>
@@ -197,14 +197,14 @@
                                                         <!--Grid column-->
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
-                                                                <input type="text" id="city" name="city" class="form-control">
+                                                                <input type="text" id="city" name="city" class="form-control" required="required" minlength="3" maxlength="45" title="City must be between 3 to 45 letters" />
                                                                 <label for="city" class="text-info">City</label>
                                                             </div>
                                                         </div>
                                                         <!--Grid column-->
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
-                                                                <input type="text" id="zip" name="zipcode" class="form-control">
+                                                                <input type="text" id="zip" name="zipcode" class="form-control" required="required" minlength="5" maxlength="5" pattern="\d*" title="Place Zip Code" />
                                                                 <label for="zip" class="text-info">Zip code</label>
                                                             </div>
                                                         </div>
@@ -214,14 +214,14 @@
                                                         <!--Grid column-->
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
-                                                                <input type="text" id="floor" name="floor" class="form-control">
+                                                                <input type="text" id="floor" name="floor" class="form-control" maxlength="15" title="Place Floor" />
                                                                 <label for="floor" class="text-info">Floor</label>
                                                             </div>
                                                         </div>
                                                         <!--Grid column-->
                                                         <div class="col-md-6 mb-4">
                                                             <div class="md-form">
-                                                                <input type="text" id="doorbell" name="doorbell" class="form-control">
+                                                                <input type="text" id="doorbell" name="doorbell" class="form-control" maxlength="30" title="Place Doorbell" />
                                                                 <label for="doorbell" class="text-info">Name on doorbell</label>
                                                             </div>
                                                         </div>
