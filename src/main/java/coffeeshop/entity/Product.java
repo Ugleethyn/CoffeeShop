@@ -17,6 +17,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -37,13 +39,17 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
+    @NotEmpty(message="Must not be empty")
+    @NotNull
+    @Size(min=3, max = 45)
     @Column(name = "pname")
     private String pname;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "baseprice", precision = 4, scale = 2)
     private BigDecimal baseprice;
-    @Size(max = 65)
+    @NotEmpty(message="Must not be empty")
+    @NotNull
+    @Size(min=3, max = 65)
     @Column(name = "imgsrc")
     private String imgsrc;
     @ManyToOne(optional = false)

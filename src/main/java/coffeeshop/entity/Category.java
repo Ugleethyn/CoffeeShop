@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -32,7 +34,9 @@ public class Category implements Serializable, Comparable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
+    @NotEmpty(message="Must not be empty")
+    @NotNull
+    @Size(min =3, max = 45)
     @Column(name = "cname")
     private String cname;
     @JoinColumn(name = "cat_b_id", referencedColumnName = "id")

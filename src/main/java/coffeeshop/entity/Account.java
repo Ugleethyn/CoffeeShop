@@ -52,32 +52,38 @@ public class Account implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Size(min = 3, max = 20,message = "Cannot be less than 3 and more than 20")
     @Column(name = "firstname")
     private String firstname;
     @Basic(optional = false)
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Size(min = 3, max = 20,message = "Cannot be less than 3 and more than 20")
     @Column(name = "lastname")
     private String lastname;
     @Basic(optional = false)
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Size(min = 3, max = 20, message = "Cannot be less than 3 and more than 20")
     @Column(name = "username",unique = true)
     private String username;
     @Basic(optional = false)
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Size(min = 5, max = 68, message="Cannot be less than 5")
     @Column(name = "password")
     private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation@Basic(optional = false)
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Email(message = "Insert a valid email")
     @Column(name = "email",unique = true)
     private String email;
     @Basic(optional = false)
     @Pattern(regexp="^[0-9]{10}", message = "Invalid Tel number")
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Column(name = "tel")
     private String tel;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

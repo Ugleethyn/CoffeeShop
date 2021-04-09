@@ -66,11 +66,7 @@
                     <div class="h">
                         <h2>Product's Form</h2>                   
                         <hr/>
-                        <p>${message}</p>
-                        <p id="message">${errormsg}</p>
-                        <c:if test="${param.error != null}"> 
-                            <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
-                        </c:if>
+                        <p style="color:red;">${message}</p>
                     </div>
                     <c:if test="${product.id==null}">
                         <c:url value="/admin/products/create" var="link"/>
@@ -85,25 +81,25 @@
                         <div>
                             <label for="pname">Product Name :</label>
                             <br/>
-                            <input id="pname" type="text" placeholder="Product name" name="pname" value="${product.pname}" />
+                            <input id="pname" type="text" placeholder="Product name" name="pname" value="${product.pname}" required="true" minlength="3" maxlength="45" />
                             <p></p>
                         </div>
                         <div>
                             <label for="baseprice">Product price :</label>
                             <br/>
-                            <input id="baseprice" type="number" min="0" name="baseprice" value="${product.baseprice}" step="0.1" />
+                            <input id="baseprice" type="number" min="0" name="baseprice" value="${product.baseprice}" step="0.1" required="true" />
                             <p></p>
                         </div>
                         <div>
                             <label for="imgsrc">Image Path :</label>
                             <br/>
-                            <input id="imgsrc" type="text" name="imgsrc" value="${product.imgsrc}" />
+                            <input id="imgsrc" type="text" name="imgsrc" value="${product.imgsrc}" required="true" minlength="3" maxlength="60" />
                             <p></p>
                         </div>    
                         <div>
                             <label for="cata">Product Category :</label>
                             <br/>
-                            <select id="catAId" name="catAId" value="${product.catAId}">
+                            <select id="catAId" name="catAId" value="${product.catAId}" required="true">
                                 <c:forEach items="${cata}" var="cat">
                                     <option value="${cat.id}">${cat.catAName}</option>
                                 </c:forEach>

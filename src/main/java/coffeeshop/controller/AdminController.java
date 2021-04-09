@@ -217,8 +217,8 @@ public class AdminController {
     @PostMapping("/products/create")
     public String createProduct(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("errormsg", "Invalid name");
-            return "redirect:/products/create";
+            attributes.addFlashAttribute("message", "Invalid inputs");
+            return "redirect:/admin/products/create";
         }
         productService.save(product);
         String message = "*Product " + product.getPname() + " added successfully!";
@@ -246,7 +246,7 @@ public class AdminController {
     @PostMapping("/products/update")
     public String update(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
+            attributes.addFlashAttribute("message", "*Invalid inputs");
             return "redirect:/admin/products/create";
         }
         productService.save(product);
@@ -270,13 +270,13 @@ public class AdminController {
     @PostMapping("/categories/create")
     public String createCategory(@Valid Category category, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("errormsg", "Invalid name");
-            return "redirect:/categories/create";
+            attributes.addFlashAttribute("message", "Invalid inputs");
+            return "/admin/categories/create";
         }
         categoryService.save(category);
         String message = "*Category " + category.getCname() + " added successfully!";
         attributes.addFlashAttribute("message", message);
-        return "redirect:/admin/categories";
+        return "redirect:/admin/categories/create";
     }
 
     @GetMapping("/categories/update/{id}")
@@ -289,13 +289,13 @@ public class AdminController {
     @PostMapping("/categories/update")
     public String updateCategory(@Valid Category category, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("errormsg", "*Invalid Credentials");
-            return "admin/admin-categoriesform";
+            attributes.addFlashAttribute("message", "*Invalid inputs");
+            return "/admin/categories/create";
         }
         categoryService.save(category);
         String message = "*Category updated successfully!!";
         attributes.addFlashAttribute("message", message);
-        return "redirect:/admin/categories";
+        return "redirect:/admin/categories/create";
     }
     
     

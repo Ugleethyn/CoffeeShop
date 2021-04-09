@@ -16,6 +16,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -42,18 +43,23 @@ public class Address implements Serializable {
     @Column(name = "id")
     private Integer id;
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Size(min=3, max = 45)
     @Column(name = "street")
     private String street;
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Pattern(regexp="^[0-9]{1,4}", message = "Invalid Number")
     @Column(name = "number")
     private String number;
+    @NotEmpty(message="Must not be empty")
+    @NotNull
     @Size(min = 3,max = 45)
     @Column(name = "city")
     private String city;
     @Pattern(regexp="^[0-9]{5}", message = "Invalid Zip Code")
     @NotEmpty(message="Must not be empty")
+    @NotNull
     @Column(name = "zipcode")
     private String zipcode;
     @Size(max = 15)

@@ -66,11 +66,7 @@
                     <div class="h">
                         <h2>Category's Form</h2>                   
                         <hr/>
-                        <p>${message}</p>
-                        <p id="message">${errormsg}</p>
-                        <c:if test="${param.error != null}"> 
-                            <p class="text-center registermsg" style="color: red">Invalid Credentials!</p>
-                        </c:if>
+                        <p>${message}</p>                       
                     </div>
                     <c:if test="${category.id == null}">
                         <c:url value="/admin/categories/create" var="link"/>
@@ -85,13 +81,13 @@
                         <div>
                             <label for="pname">Category Name :</label>
                             <br/>
-                            <input id="pname" type="text" placeholder="Category name" name="cname" value="${category.cname}" />
+                            <input id="pname" type="text" placeholder="Category name" name="cname" value="${category.cname}" required="true" minlength="3" maxlength="5" />
                             <p></p>
                         </div>
                         <div>
                             <label for="catb">Category :</label>
                             <br/>
-                            <select id="catBId" name="catBId" value="${category.id}">
+                            <select id="catBId" name="catBId" value="${category.id}" required="true">
                                 <c:forEach items="${catb}" var="cat">
                                     <option value="${cat.id}">${cat.catBName}</option>
                                 </c:forEach>
