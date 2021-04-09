@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -71,9 +72,11 @@
                         <div id="login-row" class="row justify-content-center align-items-center">
                             <div id="login-column" class="col-md-6">
                                 <div id="register" class="col-md-12 ">
-                                    <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
-                                        <h3 class="text-center headertext">Register</h3>
-
+                                     
+                                        <p class="text-center" style="color: red">${message}</p>
+                                        
+                                        <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
+                                        <h3 class="text-center headertext">Register</h3> 
                                         <div class="form-group">
                                             <form:label path="email" class="text-info">E-mail:</form:label><br>
                                             <form:input type="email" path="email" class="form-control" placeholder="email *" required="required"/>

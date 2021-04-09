@@ -32,8 +32,9 @@ public class RegistrationController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("account") Account account, BindingResult result) {
+    public String register(@Valid @ModelAttribute("account") Account account, BindingResult result, RedirectAttributes attr) {
         if (result.hasErrors()) {
+           
             return "register-form";
         }
         accountService.saveUser(account);
@@ -42,8 +43,8 @@ public class RegistrationController {
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public String handleException(RedirectAttributes attributes) {
-        String minima = "Could not commit transaction";
+        String minima = "*Email or Username already exists";
         attributes.addFlashAttribute("message", minima);
-        return "redirect:/register-form";
+        return "redirect:/register";
     }
 }
