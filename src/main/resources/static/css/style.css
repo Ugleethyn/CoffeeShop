@@ -115,7 +115,7 @@ div.filters {
 }
 .quantity {
     width: 30px;
-    /*margin-top: 30px;*/
+    /*margin-top: 20px;*/
 }
 .controls {
     margin-top: 20px;
@@ -570,14 +570,25 @@ a {
     margin-top: 20px;
 }
 .priceQuanity{
-    margin-top: 0;
+    margin-top: 15px;
 }
 .cartQuantity{
-    margin-top: 0;
+    margin-top: 13px;
     height: 25px;
 }
 .remove{
     padding: 0;
+    margin-top: 10px;
+}
+
+.quantitybtn{
+    background-color: #212529;
+    color: white;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 25px;
+    margin-top: 13px;
 }
 
 input::-webkit-outer-spin-button,
@@ -821,6 +832,9 @@ input[type=number] {
         padding-right: 0;
         margin-top: 0;
     }
+    .quantitybtn {
+        margin-top: 5px;
+    }
 }
 
 @media only screen and (max-width : 450px){
@@ -828,6 +842,8 @@ input[type=number] {
         margin-left: 30px !important;
     }
 }
+
+
 
 /**************************************** CHECKOUT *****************************/
 #add_address {
@@ -871,14 +887,4 @@ input[type=number] {
 
 .filterbtn{
     border: 0px;
-}
-
-
-.quantitybtn{
-    background-color: #212529;
-    color: white;
-    border: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-    height: 25px;
 }
