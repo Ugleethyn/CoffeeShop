@@ -73,7 +73,7 @@
                             <div id="login-column" class="col-md-6">
                                 <div id="register" class="col-md-12 ">
                                      
-                                        <p class="text-center" style="color: red">${message}</p>
+                                        <p class="text-center" style="color: red; margin-bottom: 5px;">${message}</p>
                                         
                                         <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
                                         <h3 class="text-center headertext">Register</h3> 
