@@ -14,7 +14,7 @@ public class ImgUploadServiceImpl implements ImgUploadService{
 
     @Override
     public void saveImage(MultipartFile fileImage) throws Exception {
-        String folder = "C:\\Users\\gkolo\\Documents\\NetBeansProjects\\CoffeeShop\\src\\main\\resources\\static\\img\\";
+        String folder = "C:\\Users\\asus\\Documents\\NetBeansProjects\\CoffeeShop\\src\\main\\resources\\static\\img\\";
         byte[] bytes = fileImage.getBytes();
         Path path = Paths.get(folder + fileImage.getOriginalFilename());
         Files.write(path, bytes);
