@@ -115,7 +115,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="row section-danger ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <img src="/demo/meet03.png">
+                                <img src="${pageContext.request.contextPath}/img/tasoskladis.jpg">
                             </div>
                             <div class="col-md-12 section2">
                                 <p>TASOS KLADIS</p>
