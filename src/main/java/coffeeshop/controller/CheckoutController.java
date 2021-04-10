@@ -74,10 +74,15 @@ public class CheckoutController {
     }
 
     @PostMapping("/process")
-    public String payment(@ModelAttribute("order") Orders order, BindingResult result, HttpSession session) {
+    public String payment(@ModelAttribute("order") Orders order, BindingResult result, HttpSession session, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             System.out.println(result.getAllErrors());
             return "/user/checkout";
+        }
+        if (order.getAddressid() == null) {
+            String minima = "Please enter your Address!";
+            attributes.addFlashAttribute("message", minima);
+            return "redirect:/user/checkout";
         }
         if ("cash".equalsIgnoreCase(order.getPaymentid().getType())) {
             orderService.setOrder(order, session);
@@ -102,7 +107,7 @@ public class CheckoutController {
     @PostMapping("/address")
     public String addAddress(@Valid @ModelAttribute("details") Address address, BindingResult result, RedirectAttributes attr) {
         if (result.hasErrors()) {
-            
+
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError e : errors) {
                 System.out.println(">>>>>>error" + e);
@@ -114,7 +119,7 @@ public class CheckoutController {
         addressService.addAddress(address);
         String minima = "*Address added successfully";
         attr.addFlashAttribute("message", minima);
-            return "redirect:/user/checkout";
+        return "redirect:/user/checkout";
     }
-    
+
 }
