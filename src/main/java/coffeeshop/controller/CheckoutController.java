@@ -80,8 +80,7 @@ public class CheckoutController {
             return "/user/checkout";
         }
         if (order.getAddressid() == null) {
-            String minima = "Please enter your Address!";
-            attributes.addFlashAttribute("message", minima);
+            attributes.addFlashAttribute("message", "Please enter your Address!");
             return "redirect:/user/checkout";
         }
         if ("cash".equalsIgnoreCase(order.getPaymentid().getType())) {
