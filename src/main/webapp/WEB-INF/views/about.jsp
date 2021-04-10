@@ -78,7 +78,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="row section-success ourTeam-box text-center">
                             <div class="col-md-12 section1">
-                                <img src="/demo/meet01.png">
+                                <img src="${pageContext.request.contextPath}/img/Maria.jpg">
                             </div>
                             <div class="col-md-12 section2">
                                 <p>MARIA KOUTRA</p>
