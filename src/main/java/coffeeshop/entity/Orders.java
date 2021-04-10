@@ -55,8 +55,6 @@ public class Orders implements Serializable {
     @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
     @JoinColumn(name = "Account_id", referencedColumnName = "id")
-    @NotEmpty
-    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Account accountid;
     @JoinColumn(name = "Address_id", referencedColumnName = "id")
