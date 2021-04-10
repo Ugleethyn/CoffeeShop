@@ -69,6 +69,7 @@ public class OrderServiceImpl implements OrderService {
     private Orders setAccountToOrder(Orders order) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Account account = accountService.getCurrentlyLoggedInAccount(authentication);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+account.getUsername());
         order.setAccountid(account);
         return order;
     }
