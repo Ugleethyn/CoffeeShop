@@ -215,10 +215,15 @@ public class AdminController {
     }
 
     @PostMapping("/products/create")
-    public String createProduct(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
+    public String createProduct(@Valid Product product, BindingResult result, RedirectAttributes attributes,@RequestParam("fileImage") MultipartFile fileImage) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("message", "Invalid inputs");
             return "redirect:/admin/products/create";
+        }
+        try {
+            uploadService.saveImage(fileImage);
+        } catch (Exception ex) {
+           ex.printStackTrace();
         }
         productService.save(product);
         String message = "*Product " + product.getPname() + " added successfully!";
@@ -297,18 +302,7 @@ public class AdminController {
         attributes.addFlashAttribute("message", message);
         return "redirect:/admin/categories/create";
     }
-    
-    
-    @PostMapping("/img/save")
-    public String uploadImage(@RequestParam("fileImage") MultipartFile fileImage){
-        try {
-            uploadService.saveImage(fileImage);
-        } catch (Exception ex) {
-           ex.printStackTrace();
-        }
-        return "redirect:/admin/upload";  
-    }
-    
+       
     @GetMapping("/users/edit/{uid}")
     public String showUserFormUpdate(@PathVariable("uid") int uid, Model model) {
         Account account = accountService.findById(uid);
@@ -338,8 +332,6 @@ public class AdminController {
         return roleService.getAllRoles();
     }
     
-    
-
     @ExceptionHandler(DataIntegrityViolationException.class)
     public String handleDataIntegrityViolationException(RedirectAttributes attributes) {
         String minima = "Could not commit transaction!!";

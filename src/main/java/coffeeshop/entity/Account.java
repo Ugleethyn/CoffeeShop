@@ -78,7 +78,7 @@ public class Account implements Serializable {
     @NotEmpty(message="Must not be empty")
     @NotNull
     @Email(message = "Insert a valid email")
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
     @Basic(optional = false)
     @Pattern(regexp="^[0-9]{10}", message = "Invalid Tel number")
