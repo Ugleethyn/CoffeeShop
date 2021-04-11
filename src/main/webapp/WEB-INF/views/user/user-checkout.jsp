@@ -202,7 +202,7 @@
                                                     </div>
                                                 </div>
                                                 <!--Grid column-->
-                                                <div class="col-md-6 my-4 text-center">
+                                                <div class="col-md my-4 text-center">
                                                     <div class="btnplace"><button class="button btnpopup">
                                                             <span>Submit</span></button>
                                                     </div>
