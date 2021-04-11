@@ -17,101 +17,101 @@
     <body>
         <!-- Start Navbar Area -->
         <div class="navbar-area">
-            
+
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
                 <a href="${pageContext.request.contextPath}" class="logo">
                     <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
                 </a>
             </div>
-                    
+
             <!-- Menu For Desktop Device -->
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-                        <a class="navbar-brand" href="${pageContext.request.contextPath}">
-                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
-                        </a>
-                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/register" class="nav-link">Sign Up</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                                        </svg> Cart</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/menu" class="nav-link">Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/about" class="nav-link">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/contact" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/register" class="nav-link">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${pageContext.request.contextPath}/login" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg> Cart</a>
+                        </li>
+                    </ul>
                 </div>
+            </nav>
+        </div>
         <!-- End Navbar Area -->
 
         <div class="background">
 
             <div class="container cartcont">
                 <noscript>
-                    <h2>Sorry! Your browser doesn't support Javascript</h2>
+                <h2>Sorry! Your browser doesn't support Javascript</h2>
                 </noscript>
-            <div id="login">
-                <div class="container" id="username-page">
-                    <div id="login-row" class="row justify-content-center align-items-center">
-                        <div id="login-column" class="col-md-6">
-                            <div id="login-box" class="col-md-12 username-page-container" style="height: auto; padding-bottom: 15px;">
-                                <form id="usernameForm" name="usernameForm" class="form login-form">
-                                    <h3 class="text-center headertext" style="margin-bottom: 20px; padding-top: 20px;">Type your username</h3>
-                                    <div class="form-group">
-                                        <input type="text" id="name" autocomplete="off" class="form-control" placeholder="Username">
-                                    </div>
-                                    <div class="form-group" style="text-align: center;">
-                                        <button type="submit" class="button lgnbtn username-submit"><span>Chat
-                                                </span></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container hidden" id="chat-page">
-                    <div id="login-row" class="row justify-content-center align-items-center">
-                        <div id="login-column" class="col-md-6">
-                            <div id="login-box" class="col-md-12 chat-container" style="height: auto;">
-                                <form id="messageForm" name="messageForm" nameForm="messageForm" class="form login-form">
-                                    <h3 class="text-center headertext" style="margin-bottom: 20px;">Live Chat</h3>
-                                    <div class="connecting">
-                                        Connecting...
-                                    </div>
-                                    <ul id="messageArea">
-
-                                    </ul>
-                                    <div class="form-group">
-                                        <div class="input-group clearfix">
-                                            <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                                            <button type="submit" class="primary" style="padding-left: 10px; padding-right: 10px;">Send</button>
+                <div id="login">
+                    <div class="container" id="username-page">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12 username-page-container" style="height: auto; padding-bottom: 15px;">
+                                    <form id="usernameForm" name="usernameForm" class="form login-form">
+                                        <h3 class="text-center headertext" style="margin-bottom: 20px; padding-top: 20px;">Type your username</h3>
+                                        <div class="form-group">
+                                            <input type="text" id="name" autocomplete="off" class="form-control" placeholder="Username">
                                         </div>
-                                    </div>
-                                </form>
+                                        <div class="form-group" style="text-align: center;">
+                                            <button type="submit" class="button lgnbtn username-submit"><span>Chat
+                                                </span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container hidden" id="chat-page">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12 chat-container" style="height: auto;">
+                                    <form id="messageForm" name="messageForm" nameForm="messageForm" class="form login-form">
+                                        <h3 class="text-center headertext" style="margin-bottom: 20px;">Live Chat</h3>
+                                        <div class="connecting">
+                                            Connecting...
+                                        </div>
+                                        <ul id="messageArea">
+
+                                        </ul>
+                                        <div class="form-group">
+                                            <div class="input-group clearfix">
+                                                <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                                                <button type="submit" class="primary" style="padding-left: 10px; padding-right: 10px;">Send</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         </div>
 
         <footer class="nb-footer">
@@ -168,7 +168,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>                                    
         <script src="${pageContext.request.contextPath}/js/chat.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script
+        src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
+        <script>
+            // Mean Menu
+            jQuery('.mean-menu').meanmenu({
+                meanScreenWidth: "991"
+            });
+        </script>
     </body>
 
 </html>
