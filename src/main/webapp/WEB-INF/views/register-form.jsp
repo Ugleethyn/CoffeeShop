@@ -72,10 +72,10 @@
                         <div id="login-row" class="row justify-content-center align-items-center">
                             <div id="login-column" class="col-md-6">
                                 <div id="register" class="col-md-12 ">
-                                     
-                                        <p class="text-center" style="color: red; margin-bottom: 5px;">${message}</p>
-                                        
-                                        <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
+
+                                    <p class="text-center" style="color: red; margin-bottom: 5px;">${message}</p>
+
+                                    <form:form id="login-form" class="form" method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="account">
                                         <h3 class="text-center headertext">Register</h3> 
                                         <div class="form-group">
                                             <form:label path="email" class="text-info">E-mail:</form:label><br>
@@ -83,17 +83,17 @@
                                             <form:errors path="email" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float">
-                                                <form:label path="username" class="text-info">Username:</form:label><br>
+                                            <form:label path="username" class="text-info">Username:</form:label><br>
                                             <form:input path="username" class="form-control" placeholder="Username *" required="required"/>
                                             <form:errors path="username" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float">
-                                                <form:label path="tel" class="text-info">Tel:</form:label><br>
+                                            <form:label path="tel" class="text-info">Tel:</form:label><br>
                                             <form:input path="tel" class="form-control" placeholder="tel number *" required="required"/>
                                             <form:errors path="tel" cssStyle="color:red;"></form:errors>
                                             </div>
                                             <div class="form-group float">
-                                                <form:label path="firstname" class="text-info">First Name:</form:label><br>
+                                            <form:label path="firstname" class="text-info">First Name:</form:label><br>
                                             <form:input path="firstname" class="form-control" placeholder="First Name *" required="required"/>
                                             <form:errors path="firstname" cssStyle="color:red;"></form:errors>
                                             </div>
@@ -172,7 +172,20 @@
                     </div>
                 </div>
         </footer>
-
+        <script src="${pageContext.request.contextPath}/js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script
+        src="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/jquery.meanmenu.js"></script>
+        <script>
+            // Mean Menu
+            jQuery('.mean-menu').meanmenu({
+                meanScreenWidth: "991"
+            });
+        </script>
     </body>
 
 </html>
