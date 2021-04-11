@@ -119,26 +119,6 @@
             </div>
         </div>
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-                $('#fileImage').change(function () {
-                    showImageThumbnail(this);
-                });
-
-            });
-
-            function showImageThumbnail(fileInput) {
-                file = fileInput.files[0];
-                reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#thumbnail').attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(file);
-            };
-            
-        </script>            
+        <script src="${pageContext.request.contextPath}/js/imgupload.js"></script>            
     </body>
 </html>

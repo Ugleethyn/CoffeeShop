@@ -97,11 +97,6 @@ public class AdminController {
         return "admin/admin-declinedorders";
     }
     
-    @GetMapping("/upload")
-    public String uploadImage(){
-        return "admin/admin-imgupload";
-    }
-
     @GetMapping("/orders/accept")
     public String acceptOrder(@RequestParam("id") int id) {
         Orders order = orderService.findById(id);
